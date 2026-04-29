@@ -88,11 +88,17 @@ docker compose up --build
 
 ## Поддерживаемые языки (MVP)
 
-`en, ru, uk, be, de, fr, el, he, tr`. Добавление нового — два файла:
+`en, ru, uk, be, de, fr, el, he, tr`. Каждый язык несёт топ-3000 слов: 8 из них взяты из [hermitdave/FrequencyWords](https://github.com/hermitdave/FrequencyWords) (frequency-sorted на основе OpenSubtitles 2018), `be` — из словарной базы LibreOffice [be-official.dic](https://github.com/LibreOffice/dictionaries/tree/master/be_BY).
+
+Добавление нового языка — два файла:
 1. `src/Switcher.Core/Layouts/<code>.json` — `id`, `name`, `language`, `normal` (46 chars), `shift` (46 chars).
 2. `src/Switcher.Core/LanguageModels/<code>.txt` — словарь распространённых слов (одно слово в строке).
 
 Алфавит для скоринга вычисляется автоматически из символов раскладки.
+
+## Caps Lock-эвристика
+
+Детектор пробует не только раскладки, но и инвертированный регистр (`gHBDTN` → `Привет` вместо `пРИВЕТ`). При равном скоре между «как написано» и «с перевёрнутым регистром» побеждает вариант с более естественным паттерном регистра — Title-case или all-lower выигрывают у «1 нижний + N верхних» (отметина Caps Lock). Намеренный ALL CAPS не флипается, потому что у такого ввода нет смешанного регистра.
 
 ## Миграции
 
@@ -115,4 +121,4 @@ dotnet ef database update --project src/Switcher.Api --startup-project src/Switc
 dotnet test
 ```
 
-268 unit- и integration-тестов: инварианты раскладок (4×9), round-trip конвертера на топ-10 слов на язык, матричный детектор по всем парам, edge-кейсы (пунктуация, override, пустой ввод, неизвестный язык), и WebApplicationFactory-тесты `/api/convert` (200/413/400) и `/api/languages`. Диагностический `ScoreProbe` помечен `Skip`.
+285 unit- и integration-тестов: инварианты раскладок (4×9), round-trip конвертера на топ-10 слов на язык, матричный детектор по всем парам, edge-кейсы (пунктуация, override, пустой ввод, неизвестный язык, Caps Lock), и WebApplicationFactory-тесты `/api/convert` (200/413/400) и `/api/languages`. Диагностический `ScoreProbe` помечен `Skip`.

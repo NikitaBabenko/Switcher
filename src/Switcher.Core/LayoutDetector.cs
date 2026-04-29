@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Switcher.Core;
 
 public sealed class LayoutDetector
@@ -34,8 +36,35 @@ public sealed class LayoutDetector
         if (langs.Count < 2)
             return new ConversionResult(text, false, null, []);
 
-        var candidates = new List<ScoredCandidate>(langs.Count * langs.Count);
+        var candidates = new List<ScoredCandidate>(langs.Count * langs.Count * 2);
+        AddCandidates(candidates, text, langs);
 
+        // Caps-Lock heuristic: if the user had Caps Lock on while in the wrong layout,
+        // every letter has its case inverted. Try the case-flipped variant as well —
+        // we only care if it scores better than the as-typed variants.
+        if (HasMixedCase(text))
+        {
+            var flipped = InvertCase(text);
+            AddCandidates(candidates, flipped, langs);
+        }
+
+        // Score is case-insensitive, so "Привет" and "пРИВЕТ" tie. Break ties by
+        // naturalness of the case pattern (more lowercase = more natural prose),
+        // which makes the Caps Lock heuristic actually pick the unflipped variant.
+        var ordered = candidates
+            .OrderByDescending(c => c.Score)
+            .ThenByDescending(c => CaseNaturalness(c.Text))
+            .ToList();
+        var best = ordered[0];
+        var alternatives = ordered.Skip(1).Take(3).ToList();
+
+        bool swapped = best.From != best.To || best.Text != text;
+        DetectedDirection? detected = best.From != best.To ? new DetectedDirection(best.From, best.To) : null;
+        return new ConversionResult(best.Text, swapped, detected, alternatives);
+    }
+
+    private void AddCandidates(List<ScoredCandidate> candidates, string text, IReadOnlyList<string> langs)
+    {
         // Native (no swap) candidates — keep input as-is, score under each language.
         foreach (var lang in langs)
         {
@@ -57,13 +86,69 @@ public sealed class LayoutDetector
                 candidates.Add(new ScoredCandidate(converted, from, to, score));
             }
         }
+    }
 
-        var ordered = candidates.OrderByDescending(c => c.Score).ToList();
-        var best = ordered[0];
-        var alternatives = ordered.Skip(1).Take(3).ToList();
+    private static bool HasMixedCase(string text)
+    {
+        bool hasUpper = false, hasLower = false;
+        foreach (var c in text)
+        {
+            if (char.IsUpper(c)) hasUpper = true;
+            else if (char.IsLower(c)) hasLower = true;
+            if (hasUpper && hasLower) return true;
+        }
+        return false;
+    }
 
-        bool swapped = best.From != best.To;
-        DetectedDirection? detected = swapped ? new DetectedDirection(best.From, best.To) : null;
-        return new ConversionResult(best.Text, swapped, detected, alternatives);
+    // Per-word case scoring. Natural prose patterns (Title, lowercase, UPPERCASE)
+    // get positive points; the "1 lower + N upper" pattern produced by Caps-Lock
+    // typing scores negative — so when scores tie, the unflipped variant wins for
+    // intentional emphasis ("Hello WORLD") and the flipped variant wins when the
+    // input itself looks Caps-Lock-ish ("gHBDTN" / "пРИВЕТ").
+    private static double CaseNaturalness(string text)
+    {
+        double total = 0;
+        int wordUpper = 0, wordLower = 0, wordLetters = 0;
+        bool firstIsUpper = false, firstSet = false;
+
+        void Flush()
+        {
+            if (wordLetters == 0) return;
+            if (wordUpper == 0) total += 2;                       // all lower
+            else if (wordLower == 0) total += 1;                  // ALL UPPER
+            else if (firstIsUpper && wordUpper == 1) total += 2;  // Title
+            else if (!firstIsUpper && wordLower == 1) total -= 2; // Caps-Lock pattern
+            wordUpper = wordLower = wordLetters = 0;
+            firstSet = false;
+        }
+
+        foreach (var c in text)
+        {
+            if (char.IsLetter(c))
+            {
+                wordLetters++;
+                if (!firstSet) { firstIsUpper = char.IsUpper(c); firstSet = true; }
+                if (char.IsUpper(c)) wordUpper++;
+                else if (char.IsLower(c)) wordLower++;
+            }
+            else
+            {
+                Flush();
+            }
+        }
+        Flush();
+        return total;
+    }
+
+    private static string InvertCase(string text)
+    {
+        var sb = new StringBuilder(text.Length);
+        foreach (var c in text)
+        {
+            if (char.IsUpper(c)) sb.Append(char.ToLowerInvariant(c));
+            else if (char.IsLower(c)) sb.Append(char.ToUpperInvariant(c));
+            else sb.Append(c);
+        }
+        return sb.ToString();
     }
 }
