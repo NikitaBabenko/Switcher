@@ -1,0 +1,7 @@
+{
+  "id": "de",
+  "name": "Deutsch (QWERTZ)",
+  "language": "de",
+  "normal": "^1234567890ß´qwertzuiopü+asdfghjklöäyxcvbnm,.-",
+  "shift":  "°!\"§$%&/()=?`QWERTZUIOPÜ*ASDFGHJKLÖÄYXCVBNM;:_"
+}

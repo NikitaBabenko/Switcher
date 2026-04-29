@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>VibeNest Switcher — настройки</title>
+    <style>
+      body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 600px; margin: 24px auto; padding: 16px; }
+      h1 { font-size: 1.4rem; }
+      label { display: block; margin: 8px 0; }
+      input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
+      .lang-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; margin: 8px 0; }
+      .lang-list label { display: flex; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid #e5e7eb; border-radius: 6px; }
+      button { padding: 8px 16px; cursor: pointer; }
+      .saved { color: green; margin-left: 8px; display: none; }
+      .saved.on { display: inline; }
+      .muted { color: #6b7280; font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <h1>VibeNest Switcher — настройки</h1>
+    <p class="muted">
+      Live: <a href="https://vibenest.net" target="_blank">vibenest.net</a> ·
+      Telegram: <a href="https://t.me/SynthCabalBot" target="_blank">@SynthCabalBot</a>
+    </p>
+
+    <label>
+      API endpoint
+      <input type="text" id="apiBase" placeholder="https://example.com" />
+    </label>
+    <p class="muted">Адрес бэкенда. По умолчанию http://localhost:5050.</p>
+
+    <h2>Языки</h2>
+    <p class="muted">Выбери языки, между которыми будет переключаться раскладка. Минимум 2.</p>
+    <div class="lang-list" id="langList"></div>
+
+    <p class="muted">
+      Сочетание клавиш настраивается в <a href="#" id="open-shortcuts">chrome://extensions/shortcuts</a>.
+    </p>
+
+    <button id="save">Сохранить</button>
+    <span class="saved" id="saved">Сохранено ✓</span>
+
+    <script src="options.js" type="module"></script>
+  </body>
+</html>
