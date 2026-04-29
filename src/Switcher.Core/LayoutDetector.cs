@@ -19,6 +19,13 @@ public sealed class LayoutDetector
             return new ConversionResult(converted, true, @override, []);
         }
 
+        // Pure punctuation/digits — no letter signal to base a decision on.
+        // A literal `,` on EN maps to `б` on RU (different physical key on RU keyboard),
+        // so without this guard the detector would treat "123!" as a wrong-layout swap
+        // candidate to RU just because `!` produces a letter on the other side.
+        if (!text.Any(char.IsLetter))
+            return new ConversionResult(text, false, null, []);
+
         var langs = enabledLanguages
             .Where(_registry.HasLanguage)
             .Distinct()

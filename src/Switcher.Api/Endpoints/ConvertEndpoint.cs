@@ -22,12 +22,16 @@ public static class ConvertEndpoint
         app.MapPost("/api/convert", Handle);
     }
 
-    private static Results<Ok<ConvertResponse>, BadRequest<string>> Handle(
+    public const int MaxTextLength = 200_000;
+
+    private static Results<Ok<ConvertResponse>, BadRequest<string>, StatusCodeHttpResult> Handle(
         ConvertRequest req,
         LayoutDetector detector)
     {
         if (req is null || req.Text is null)
             return TypedResults.BadRequest("text is required");
+        if (req.Text.Length > MaxTextLength)
+            return TypedResults.StatusCode(StatusCodes.Status413PayloadTooLarge);
 
         var languages = req.Languages?.Length > 0 ? req.Languages : ["en", "ru"];
         DetectedDirection? @override = req.Override is null

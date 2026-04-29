@@ -29,7 +29,7 @@ export function SettingsPage() {
   return (
     <div>
       <p className="muted">Выбери языки, между которыми нужно переключаться. Минимум 2.</p>
-      {error && <div className="card" style={{ borderColor: "crimson" }}>Ошибка: {error}</div>}
+      {error && <div className="card" style={{ borderColor: "crimson" }}>{error}</div>}
       <div className="lang-list">
         {available.map(l => (
           <label key={l.id}>

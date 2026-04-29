@@ -94,10 +94,25 @@ docker compose up --build
 
 Алфавит для скоринга вычисляется автоматически из символов раскладки.
 
+## Миграции
+
+Схема БД управляется через EF Core migrations в `src/Switcher.Api/Persistence/Migrations`. При старте API на реляционном провайдере вызывается `MigrateAsync`; in-memory dev-режим использует `EnsureCreated`.
+
+Создать новую миграцию:
+```
+dotnet ef migrations add <Name> --project src/Switcher.Api --startup-project src/Switcher.Api --output-dir Persistence/Migrations
+```
+Дизайн-таймовый `AppDbContextFactory` использует `ConnectionStrings__Default` из env или дефолт на `localhost:5432`.
+
+Применить локально:
+```
+dotnet ef database update --project src/Switcher.Api --startup-project src/Switcher.Api
+```
+
 ## Тесты
 
 ```
 dotnet test
 ```
 
-13 unit-тестов проверяют конвертер (round-trip RU↔EN, известные пары, преобразование пунктуации) и детектор (авто-направление, override, игнорирование одного языка).
+268 unit- и integration-тестов: инварианты раскладок (4×9), round-trip конвертера на топ-10 слов на язык, матричный детектор по всем парам, edge-кейсы (пунктуация, override, пустой ввод, неизвестный язык), и WebApplicationFactory-тесты `/api/convert` (200/413/400) и `/api/languages`. Диагностический `ScoreProbe` помечен `Skip`.

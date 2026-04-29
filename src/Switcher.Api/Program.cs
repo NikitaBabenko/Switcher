@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Switcher.Api;
 using Switcher.Api.Bot;
@@ -7,6 +8,9 @@ using Switcher.Core;
 using Telegram.Bot;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Cap request body. /api/convert validates a tighter limit on the text field itself.
+builder.Services.Configure<KestrelServerOptions>(o => o.Limits.MaxRequestBodySize = 256 * 1024);
 
 builder.Services.Configure<BotOptions>(builder.Configuration.GetSection("Bot"));
 builder.Services.AddSingleton(sp =>
@@ -44,7 +48,10 @@ var app = builder.Build();
 {
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    await db.Database.EnsureCreatedAsync();
+    if (db.Database.IsRelational())
+        await db.Database.MigrateAsync();
+    else
+        await db.Database.EnsureCreatedAsync();
 }
 
 app.UseCors();
@@ -60,3 +67,5 @@ if (!string.IsNullOrWhiteSpace(botToken))
 app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
 
 await app.RunAsync();
+
+public partial class Program;

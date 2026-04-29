@@ -57,6 +57,7 @@ public sealed class LanguageModel
         var padded = "  " + lower + " ";
         double score = 0;
         int n = 0;
+        int observed = 0;
         for (int i = 0; i + 3 <= padded.Length; i++)
         {
             var tri = padded.Substring(i, 3);
@@ -69,12 +70,27 @@ public sealed class LanguageModel
                 if (!_alphabet.Contains(ch)) { relevant = false; break; }
             }
             if (!relevant) continue;
-            score += _logProb.GetValueOrDefault(tri, _floorLogProb);
+            if (_logProb.TryGetValue(tri, out var lp))
+            {
+                score += lp;
+                observed++;
+            }
+            else
+            {
+                score += _floorLogProb;
+            }
             n++;
         }
         var trigramAvg = n > 0 ? score / n : _floorLogProb;
+        var observedRatio = n > 0 ? (double)observed / n : 0;
 
-        // Alphabet match dominates; trigram quality breaks ties.
-        return alphabetRatio * 100 + trigramAvg;
+        // Confidence bonus: longer letter runs that fit the alphabet are more decisive
+        // than 1–2 char strings.
+        var lengthBonus = Math.Log(1 + n) * 5;
+
+        // Alphabet match dominates; observed-trigram ratio is the strongest signal that
+        // the input is real text in this language vs. a wrong-layout artifact; length and
+        // trigram quality break remaining ties.
+        return alphabetRatio * 100 + observedRatio * 30 + lengthBonus + trigramAvg;
     }
 }
