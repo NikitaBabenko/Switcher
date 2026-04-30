@@ -5,7 +5,7 @@ const MENU_ID = "switcher-convert-selection";
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: MENU_ID,
-    title: "Switcher: переключить раскладку",
+    title: "Switcher: switch layout",
     contexts: ["selection", "editable"],
   });
 });
@@ -39,17 +39,17 @@ async function convertInActiveTab(tabId, fallbackText) {
   }
 
   if (!selection?.trim()) {
-    await notify("VibeNest Switcher", "Сначала выдели текст.");
+    await notify("VibeNest Switcher", "Select some text first.");
     return;
   }
 
   const r = await convert(selection);
   if (r.error) {
-    await notify("VibeNest Switcher", `Ошибка: ${r.error}`);
+    await notify("VibeNest Switcher", `Error: ${r.error}`);
     return;
   }
   if (!r.swapped) {
-    await notify("VibeNest Switcher", "Раскладка уже верная.");
+    await notify("VibeNest Switcher", "Layout was already correct.");
     return;
   }
 
@@ -63,7 +63,7 @@ async function convertInActiveTab(tabId, fallbackText) {
 
   if (!replaced) {
     await copyToClipboard(tabId, r.result);
-    await notify("VibeNest Switcher", `Скопировано в буфер: ${truncate(r.result, 80)}`);
+    await notify("VibeNest Switcher", `Copied to clipboard: ${truncate(r.result, 80)}`);
   }
 }
 

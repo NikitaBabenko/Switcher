@@ -55,7 +55,7 @@ public sealed class BotUpdateHandler(
         if (settings.Languages.Count < 2)
         {
             await bot.SendMessage(msg.Chat.Id,
-                "Включи хотя бы два языка через /languages, чтобы я знал куда переключать.",
+                "Enable at least two languages via /languages so I know where to switch.",
                 cancellationToken: ct);
             return;
         }
@@ -64,7 +64,7 @@ public sealed class BotUpdateHandler(
         if (!result.Swapped)
         {
             await bot.SendMessage(msg.Chat.Id,
-                "Текст уже в правильной раскладке — менять нечего.",
+                "The text is already in the correct layout — nothing to change.",
                 replyParameters: new ReplyParameters { MessageId = msg.MessageId },
                 cancellationToken: ct);
             return;
@@ -90,12 +90,12 @@ public sealed class BotUpdateHandler(
                 {
                     var keyboard = !string.IsNullOrWhiteSpace(options.AppUrl)
                         ? new InlineKeyboardMarkup(InlineKeyboardButton.WithWebApp(
-                            "Открыть приложение",
+                            "Open the app",
                             new WebAppInfo { Url = options.AppUrl }))
                         : null;
                     await bot.SendMessage(msg.Chat.Id,
-                        "Привет! Пришли мне текст, набранный не на той раскладке — я переведу.\n\n" +
-                        "Команды: /languages — список твоих языков; /add <code> — добавить; /remove <code> — убрать; /app — открыть приложение.",
+                        "Hi! Send me text typed in the wrong layout — I'll fix it.\n\n" +
+                        "Commands: /languages — list your languages; /add <code> — add one; /remove <code> — remove one; /app — open the app.",
                         replyMarkup: keyboard,
                         cancellationToken: ct);
                     return;
@@ -104,13 +104,13 @@ public sealed class BotUpdateHandler(
                 {
                     if (string.IsNullOrWhiteSpace(options.AppUrl))
                     {
-                        await bot.SendMessage(msg.Chat.Id, "Приложение не настроено.", cancellationToken: ct);
+                        await bot.SendMessage(msg.Chat.Id, "The app is not configured.", cancellationToken: ct);
                         return;
                     }
                     var keyboard = new InlineKeyboardMarkup(InlineKeyboardButton.WithWebApp(
-                        "Открыть приложение",
+                        "Open the app",
                         new WebAppInfo { Url = options.AppUrl }));
-                    await bot.SendMessage(msg.Chat.Id, "Открываем:", replyMarkup: keyboard, cancellationToken: ct);
+                    await bot.SendMessage(msg.Chat.Id, "Opening:", replyMarkup: keyboard, cancellationToken: ct);
                     return;
                 }
             case "/languages":
@@ -118,7 +118,7 @@ public sealed class BotUpdateHandler(
                     var list = string.Join(", ", user.Settings!.Languages);
                     var available = string.Join(", ", registry.Layouts.Select(l => l.Id).OrderBy(s => s));
                     await bot.SendMessage(msg.Chat.Id,
-                        $"Твои языки: {list}\nДоступные: {available}\nИспользуй /add <code> или /remove <code>.",
+                        $"Your languages: {list}\nAvailable: {available}\nUse /add <code> or /remove <code>.",
                         cancellationToken: ct);
                     return;
                 }
@@ -127,7 +127,7 @@ public sealed class BotUpdateHandler(
                     var code = arg.Trim().ToLowerInvariant();
                     if (!registry.HasLanguage(code))
                     {
-                        await bot.SendMessage(msg.Chat.Id, $"Не знаю язык '{code}'.", cancellationToken: ct);
+                        await bot.SendMessage(msg.Chat.Id, $"Unknown language '{code}'.", cancellationToken: ct);
                         return;
                     }
                     if (!user.Settings!.Languages.Contains(code))
@@ -137,7 +137,7 @@ public sealed class BotUpdateHandler(
                         await db.SaveChangesAsync(ct);
                     }
                     await bot.SendMessage(msg.Chat.Id,
-                        $"Добавлен '{code}'. Сейчас: {string.Join(", ", user.Settings.Languages)}",
+                        $"Added '{code}'. Now: {string.Join(", ", user.Settings.Languages)}",
                         cancellationToken: ct);
                     return;
                 }
@@ -150,12 +150,12 @@ public sealed class BotUpdateHandler(
                         await db.SaveChangesAsync(ct);
                     }
                     await bot.SendMessage(msg.Chat.Id,
-                        $"Сейчас: {string.Join(", ", user.Settings.Languages)}",
+                        $"Now: {string.Join(", ", user.Settings.Languages)}",
                         cancellationToken: ct);
                     return;
                 }
             default:
-                await bot.SendMessage(msg.Chat.Id, "Неизвестная команда. /start для подсказки.", cancellationToken: ct);
+                await bot.SendMessage(msg.Chat.Id, "Unknown command. /start for help.", cancellationToken: ct);
                 return;
         }
     }
@@ -176,8 +176,8 @@ public sealed class BotUpdateHandler(
         var result = detector.Detect(query, languages);
         var converted = result.Result;
         var title = result.Swapped
-            ? $"Переключить раскладку ({result.Detected!.From} → {result.Detected.To})"
-            : "Текст уже в правильной раскладке";
+            ? $"Switch layout ({result.Detected!.From} → {result.Detected.To})"
+            : "Text is already in the correct layout";
 
         var article = new InlineQueryResultArticle(
             id: "1",

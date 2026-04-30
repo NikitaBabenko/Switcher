@@ -21,10 +21,10 @@ export function App() {
       <div className="app">
         <div className="tabs">
           <button className={`tab ${tab === "convert" ? "active" : ""}`} onClick={() => setTab("convert")}>
-            Конвертация
+            Convert
           </button>
           <button className={`tab ${tab === "settings" ? "active" : ""}`} onClick={() => setTab("settings")}>
-            Языки
+            Languages
           </button>
         </div>
         {tab === "convert" ? <ConvertPage /> : <SettingsPage />}

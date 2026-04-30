@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>VibeNest Switcher — настройки</title>
+    <title>VibeNest Switcher — settings</title>
     <style>
       body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 600px; margin: 24px auto; padding: 16px; }
       h1 { font-size: 1.4rem; }
@@ -17,7 +17,7 @@
     </style>
   </head>
   <body>
-    <h1>VibeNest Switcher — настройки</h1>
+    <h1>VibeNest Switcher — settings</h1>
     <p class="muted">
       Live: <a href="https://vibenest.net" target="_blank">vibenest.net</a> ·
       Telegram: <a href="https://t.me/SynthCabalBot" target="_blank">@SynthCabalBot</a>
@@ -27,18 +27,18 @@
       API endpoint
       <input type="text" id="apiBase" placeholder="https://example.com" />
     </label>
-    <p class="muted">Адрес бэкенда. По умолчанию http://localhost:5050.</p>
+    <p class="muted">Backend address. Defaults to http://localhost:5050.</p>
 
-    <h2>Языки</h2>
-    <p class="muted">Выбери языки, между которыми будет переключаться раскладка. Минимум 2.</p>
+    <h2>Languages</h2>
+    <p class="muted">Pick the languages the layout should switch between. At least 2.</p>
     <div class="lang-list" id="langList"></div>
 
     <p class="muted">
-      Сочетание клавиш настраивается в <a href="#" id="open-shortcuts">chrome://extensions/shortcuts</a>.
+      The keyboard shortcut is configured at <a href="#" id="open-shortcuts">chrome://extensions/shortcuts</a>.
     </p>
 
-    <button id="save">Сохранить</button>
-    <span class="saved" id="saved">Сохранено ✓</span>
+    <button id="save">Save</button>
+    <span class="saved" id="saved">Saved ✓</span>
 
     <script src="options.js" type="module"></script>
   </body>

@@ -22,9 +22,10 @@ public sealed class LayoutDetector
         }
 
         // Pure punctuation/digits — no letter signal to base a decision on.
-        // A literal `,` on EN maps to `б` on RU (different physical key on RU keyboard),
-        // so without this guard the detector would treat "123!" as a wrong-layout swap
-        // candidate to RU just because `!` produces a letter on the other side.
+        // A literal `,` on EN maps to a Cyrillic letter on the RU layout (different
+        // physical key on RU keyboard), so without this guard the detector would
+        // treat "123!" as a wrong-layout swap candidate to RU just because `!`
+        // produces a letter on the other side.
         if (!text.Any(char.IsLetter))
             return new ConversionResult(text, false, null, []);
 
@@ -48,7 +49,7 @@ public sealed class LayoutDetector
             AddCandidates(candidates, flipped, langs);
         }
 
-        // Score is case-insensitive, so "Привет" and "пРИВЕТ" tie. Break ties by
+        // Score is case-insensitive, so "Hello" and "hELLO" tie. Break ties by
         // naturalness of the case pattern (more lowercase = more natural prose),
         // which makes the Caps Lock heuristic actually pick the unflipped variant.
         var ordered = candidates
@@ -104,7 +105,7 @@ public sealed class LayoutDetector
     // get positive points; the "1 lower + N upper" pattern produced by Caps-Lock
     // typing scores negative — so when scores tie, the unflipped variant wins for
     // intentional emphasis ("Hello WORLD") and the flipped variant wins when the
-    // input itself looks Caps-Lock-ish ("gHBDTN" / "пРИВЕТ").
+    // input itself looks Caps-Lock-ish ("gHBDTN" / "hELLO").
     private static double CaseNaturalness(string text)
     {
         double total = 0;

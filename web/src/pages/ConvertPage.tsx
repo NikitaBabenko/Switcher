@@ -39,7 +39,7 @@ export function ConvertPage() {
     if (!inTma) return;
     const mb = getTma()?.MainButton;
     if (!mb) return;
-    mb.setText("Переключить");
+    mb.setText("Switch");
     mb.show();
     const handler = () => run();
     mb.onClick(handler);
@@ -80,13 +80,13 @@ export function ConvertPage() {
         value={text}
         onChange={e => setText(e.target.value)}
         onKeyDown={onKey}
-        placeholder="Вставь текст, набранный не на той раскладке... (Ctrl/Cmd+Enter — переключить)"
+        placeholder="Paste text typed in the wrong layout... (Ctrl/Cmd+Enter to switch)"
       />
 
       <div className="row">
         {!inTma && (
           <button className="button" disabled={busy || !text.trim()} onClick={run}>
-            Переключить
+            Switch
           </button>
         )}
         <select
@@ -100,7 +100,7 @@ export function ConvertPage() {
             }
           }}
         >
-          <option value="auto">Авто-детекция</option>
+          <option value="auto">Auto-detect</option>
           {pairs.map(p => (
             <option key={`${p.from}->${p.to}`} value={`${p.from}->${p.to}`}>
               {p.from} → {p.to}
@@ -115,12 +115,12 @@ export function ConvertPage() {
         <div className="card">
           <div className="muted">
             {result.swapped && result.detected
-              ? `Обнаружено: ${result.detected.from} → ${result.detected.to}`
-              : "Раскладка не менялась"}
+              ? `Detected: ${result.detected.from} → ${result.detected.to}`
+              : "Layout was already correct"}
           </div>
           <div className="result" style={{ marginTop: 8, fontSize: "1.1rem" }}>{result.result}</div>
           <div className="row">
-            <button className="button ghost" onClick={copy}>Скопировать</button>
+            <button className="button ghost" onClick={copy}>Copy</button>
           </div>
         </div>
       )}

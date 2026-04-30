@@ -43,7 +43,7 @@ saveBtn.addEventListener("click", async () => {
   const apiBase = apiBaseInput.value.trim() || DEFAULTS.apiBase;
   const languages = Array.from(langList.querySelectorAll("input[type=checkbox]:checked")).map((c) => c.value);
   if (languages.length < 2) {
-    alert("Выбери хотя бы 2 языка.");
+    alert("Pick at least 2 languages.");
     return;
   }
   await saveSettings({ apiBase, languages });

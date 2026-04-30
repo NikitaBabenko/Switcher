@@ -28,9 +28,9 @@ function headers(): HeadersInit {
 }
 
 const FRIENDLY: Record<number, string> = {
-  400: "Проверь поле текста.",
-  401: "Нужна авторизация Telegram.",
-  413: "Текст слишком длинный (максимум 200 КБ).",
+  400: "Check the text field.",
+  401: "Telegram authorization required.",
+  413: "Text is too long (max 200 KB).",
 };
 
 export class ApiError extends Error {
@@ -48,12 +48,12 @@ async function http<T>(method: string, path: string, body?: unknown): Promise<T>
       body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch {
-    throw new ApiError(0, "Нет связи с сервисом.");
+    throw new ApiError(0, "Cannot reach the service.");
   }
 
   if (!res.ok) {
     const friendly = FRIENDLY[res.status]
-      ?? (res.status >= 500 ? "Сервис временно недоступен." : `Ошибка ${res.status}.`);
+      ?? (res.status >= 500 ? "Service is temporarily unavailable." : `Error ${res.status}.`);
     throw new ApiError(res.status, friendly);
   }
   if (res.status === 204) return undefined as T;

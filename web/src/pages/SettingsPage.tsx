@@ -24,11 +24,11 @@ export function SettingsPage() {
     save({ ...settings, defaultTarget: id });
   };
 
-  if (loading) return <div className="muted">Загрузка...</div>;
+  if (loading) return <div className="muted">Loading...</div>;
 
   return (
     <div>
-      <p className="muted">Выбери языки, между которыми нужно переключаться. Минимум 2.</p>
+      <p className="muted">Pick the languages to switch between. At least 2.</p>
       {error && <div className="card" style={{ borderColor: "crimson" }}>{error}</div>}
       <div className="lang-list">
         {available.map(l => (
@@ -44,12 +44,12 @@ export function SettingsPage() {
       </div>
 
       <div className="row" style={{ marginTop: 16 }}>
-        <span className="muted">Целевая раскладка по умолчанию:</span>
+        <span className="muted">Default target layout:</span>
         <select
           value={settings.defaultTarget ?? ""}
           onChange={e => setTarget(e.target.value || null)}
         >
-          <option value="">— авто —</option>
+          <option value="">— auto —</option>
           {settings.languages.map(id => (
             <option key={id} value={id}>{id}</option>
           ))}
