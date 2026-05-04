@@ -60,10 +60,49 @@ async function http<T>(method: string, path: string, body?: unknown): Promise<T>
   return res.json();
 }
 
+// Lazy import the offline detector so its ~270 KB of trigram data lands in a
+// separate chunk and doesn't weigh on the first paint.
+let detectorPromise: Promise<typeof import("@switcher/detector")> | null = null;
+function loadDetector() {
+  if (!detectorPromise) detectorPromise = import("@switcher/detector");
+  return detectorPromise;
+}
+
+async function convertOffline(
+  text: string,
+  languages: string[],
+  override?: { from: string; to: string },
+): Promise<ConvertResponse | null> {
+  const d = await loadDetector();
+  if (!d.canHandleLanguages(languages)) return null;
+  const r = d.detect(text, languages, override ?? null);
+  return {
+    result: r.result,
+    swapped: r.swapped,
+    detected: r.detected,
+    alternatives: r.alternatives,
+  };
+}
+
 export const api = {
-  convert: (text: string, languages: string[], override?: { from: string; to: string }) =>
-    http<ConvertResponse>("POST", "/api/convert", { text, languages, override }),
-  languages: () => http<LanguageInfo[]>("GET", "/api/languages"),
+  // Conversion runs entirely in the browser via the bundled offline detector.
+  // Falls back to the REST endpoint only if a requested language isn't covered
+  // by the bundled models — in practice this never happens because the bundle
+  // ships every language the backend supports.
+  convert: async (
+    text: string,
+    languages: string[],
+    override?: { from: string; to: string },
+  ): Promise<ConvertResponse> => {
+    const offline = await convertOffline(text, languages, override);
+    if (offline) return offline;
+    return http<ConvertResponse>("POST", "/api/convert", { text, languages, override });
+  },
+  // Languages come from the bundled detector — no network round-trip.
+  languages: async (): Promise<LanguageInfo[]> => {
+    const d = await loadDetector();
+    return d.languageInfo();
+  },
   getSettings: () => http<SettingsDto>("GET", "/api/me/settings"),
   putSettings: (s: SettingsDto) => http<SettingsDto>("PUT", "/api/me/settings", s),
 };
