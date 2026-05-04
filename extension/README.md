@@ -145,3 +145,52 @@ round-trips, full pair matrix, and HTTP boundary tests.
   passwords, OTP codes, or card numbers (via `<input type=password>`,
   `autocomplete=current-password`, `autocomplete=one-time-code`,
   `autocomplete=cc-*`).
+
+## Publishing to the Chrome Web Store
+
+```
+cd extension
+npm test                # 29 Node tests, all green
+npm run package         # writes extension/dist/vibenest-switcher-<version>.zip
+```
+
+The packaging script excludes dev-only files (`tools/`, `*.test.mjs`,
+`build-models.mjs`, `package.json`, `README.md`, `PRIVACY.md`,
+`node_modules/`, `dist/`). Only the files Chrome actually needs end up in the
+zip — verified with `python3 -m zipfile -l dist/<file>.zip`.
+
+Submission checklist:
+
+1. **Bump `version`** in [manifest.json](manifest.json) (semver). The Web Store
+   refuses uploads with a version equal to or lower than what's already live.
+2. **Run** `npm test && npm run package`.
+3. **Sanity-check the zip**: load it unpacked (`chrome://extensions` →
+   developer mode → drag the zip onto the page) and exercise:
+   - Toolbar popup → "Decrypt focused field" on a `<textarea>`.
+   - Toolbar popup → paste-and-decrypt path.
+   - `Ctrl+Shift+L` and right-click context-menu paths.
+   - Undo button after a successful decrypt.
+   - Site policy: add a host to the blacklist, confirm the popup says
+     "excluded by policy".
+   - Auto-correct (Options → enable, then type `ghbdtn ` in a textarea).
+4. **Open** the [Chrome Web Store developer dashboard]
+   (https://chrome.google.com/webstore/devconsole) → Item → Package → upload
+   the zip.
+5. **Privacy practices** form: link to [`PRIVACY.md`](PRIVACY.md). Justify the
+   permissions (each row in PRIVACY.md's permission table maps to one of the
+   form's questions — copy-paste the rationale).
+6. **Single-purpose statement**: "Fix text typed in the wrong keyboard
+   layout. Detection runs entirely on the user's device by default."
+7. **Screenshots** (1280×800 or 640×400, max 5):
+   - Popup with the override `<select>` open and a successful decrypt.
+   - Options page showing the Privacy + Site policy sections.
+   - In-page toast after a Twitter / Slack / WhatsApp Web decrypt.
+   - Auto-correct in action (textarea before/after).
+   - Optional: the context-menu item.
+8. **Promo tile** (440×280): use the existing 128 px icon + tagline.
+9. **Listing copy**: pull from the description in `manifest.json` and the
+   "Short version" of `PRIVACY.md`. Mention the offline-by-default guarantee
+   prominently — that's the differentiator.
+10. **Submit for review**. Typical turnaround is 1–3 business days.
+
+After acceptance, the same `npm run package` workflow handles updates.

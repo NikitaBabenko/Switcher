@@ -1,0 +1,12 @@
+{
+  "name": "vibenest-switcher-extension",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Build/test/package scripts for the VibeNest Switcher Chrome extension. The extension itself is plain JS; this file exists only for tooling.",
+  "type": "module",
+  "scripts": {
+    "build:models": "node lib/build-models.mjs",
+    "test": "node --test lib/detector.test.mjs lib/config.test.mjs",
+    "package": "node tools/package.mjs"
+  }
+}

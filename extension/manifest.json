@@ -3,6 +3,8 @@
   "name": "VibeNest Switcher",
   "description": "Fix text typed in the wrong keyboard layout. Runs fully offline — no data leaves your browser.",
   "version": "0.2.0",
+  "author": "VibeNest",
+  "homepage_url": "https://vibenest.net",
   "permissions": ["contextMenus", "storage", "activeTab", "scripting", "notifications", "clipboardWrite"],
   "host_permissions": ["http://*/*", "https://*/*"],
   "background": {
