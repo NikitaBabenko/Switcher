@@ -87,3 +87,35 @@ test("alternatives populated for ambiguous-ish inputs", () => {
   // The native-EN candidate should be in alternatives because it scored worse.
   assert.ok(r.alternatives.length >= 1);
 });
+
+test("uk↔ru work alongside en", () => {
+  // "цум" — wrong RU layout for the Ukrainian word "цум" — but with uk in the
+  // mix the detector should at least return something meaningful and not crash.
+  const r = detect("hello", ["en", "uk", "ru"]);
+  assert.equal(r.swapped, false);
+});
+
+test("override on unknown language throws", () => {
+  assert.throws(() => detect("hello", EN_RU, { from: "klingon", to: "ru" }));
+});
+
+test("override roundtrip ru→en for known word", () => {
+  const r = detect("привет", EN_RU, { from: "ru", to: "en" });
+  assert.equal(r.swapped, true);
+  assert.equal(r.result, "ghbdtn");
+});
+
+test("ALL CAPS input is not flipped (no mixed case)", () => {
+  // The Caps-Lock heuristic only kicks in with mixed case; "GHBDTN" has none,
+  // so it should be detected as a wrong-layout word and converted to "ПРИВЕТ"
+  // (uppercase preserved by the layout converter).
+  const r = detect("GHBDTN", EN_RU);
+  assert.equal(r.swapped, true);
+  assert.equal(r.result, "ПРИВЕТ");
+});
+
+test("punctuation around word doesn't break detection", () => {
+  const r = detect("(ghbdtn)", EN_RU);
+  assert.equal(r.swapped, true);
+  assert.equal(r.result, "(привет)");
+});
