@@ -207,4 +207,11 @@
       recent.set(target, { word: conv.result, ts: Date.now() });
     }
   }
+
+  // Exposed for tests only. Production code never reads this.
+  globalThis.__SwitcherAutocorrectInternals = {
+    extractLastWordInput,
+    extractLastWordContentEditable,
+    isAutoCorrectEligible,
+  };
 })();

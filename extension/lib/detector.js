@@ -298,3 +298,15 @@ export function canHandleLanguages(langs) {
   }
   return true;
 }
+
+// Test-only: exposes the module's pure helpers and constructors so unit tests
+// can verify them directly. Production code never reads this.
+export const __testInternals = {
+  Layout,
+  LanguageModel,
+  convertText,
+  hasLetter,
+  hasMixedCase,
+  invertCase,
+  caseNaturalness,
+};

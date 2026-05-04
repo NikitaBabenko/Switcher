@@ -12,7 +12,7 @@ remote API fallback in Options.
 extension/
 ├─ manifest.json              MV3 manifest. Lists content scripts in load order.
 ├─ background.js              Service worker. Owns the message bus + clipboard fallback.
-├─ content.js                 Content script shell. Routes messages to adapters.
+├─ content.js                 Content script shell. Routes messages to adapters; holds undo memory.
 ├─ content/
 │   ├─ replace.js             Insertion ladder (focus → execCommand → InputEvent).
 │   │                         Shadow DOM and same-origin iframe walking.
@@ -25,8 +25,10 @@ extension/
 │   ├─ detector.js            JS port of LayoutDetector + LanguageModel + Caps Lock heuristic.
 │   ├─ data.js                AUTO-GENERATED — bundled trigram counts (9 langs, ~270 KB).
 │   ├─ build-models.mjs       Regenerates data.js from src/Switcher.Core/.
-│   ├─ detector.test.mjs      Parity tests for the detector.
-│   └─ config.test.mjs        Tests for isHostAllowed + DEFAULTS.
+│   ├─ test-helpers.mjs       Shared VM loader + chrome/location/document mocks for tests.
+│   └─ *.test.mjs             190 Node tests (see § Tests).
+├─ tools/
+│   └─ package.mjs            Dependency-free zip writer used by `npm run package`.
 └─ icons/                     16/32/48/128 px PNGs.
 ```
 
@@ -117,12 +119,29 @@ exporting `LANGUAGES = { id: { layout, alphabet, total, counts }, … }`.
 ## Tests
 
 ```
-node --test extension/lib/detector.test.mjs extension/lib/config.test.mjs
+cd extension
+npm test
 ```
 
-29 Node tests cover the parity-critical detector cases (en↔ru, native input,
-punctuation, override, Caps Lock, ALL CAPS, multi-language) and the host
-policy (`isHostAllowed` with all three modes, suffix matching, edge cases).
+190 Node tests across seven files:
+
+| File | Covers |
+|---|---|
+| `lib/detector.test.mjs` | JS engine: 62 tests — Layout invariants, `LanguageModel.score`, helpers (`hasMixedCase`, `invertCase`, `caseNaturalness`), `convertText`, detector edge cases (whitespace, emoji, CJK, multi-line), language matrix, `availableLanguages`/`languageInfo` shape. |
+| `lib/config.test.mjs` | `isHostAllowed` policy: all three modes, suffix matching, case-insensitivity, edge cases. |
+| `lib/adapters.test.mjs` | `pickAdapter` registry order (vk-im before vk), every site adapter, override behaviour, Mastodon DOM heuristic. |
+| `lib/autocorrect.test.mjs` | `extractLastWordInput`, `extractLastWordContentEditable`, `isAutoCorrectEligible` (password/OTP/cc-* skip, readOnly, contenteditable). |
+| `lib/replace.test.mjs` | `isInputLike`, `isContentEditable`, `inputLikeHasSelection`, `getInputLikeSelectionText`, `dispatchInputEvent` shape, `replaceInElement` reasons. |
+| `lib/content.test.mjs` | Undo memory: `rememberChange` / `canUndo` / `undoLastChange` for input-whole, input-selection, contenteditable, element-gone. |
+| `lib/package.test.mjs` | `shouldInclude` allow/deny matrix; live-tree assertion that the zip ships exactly the right files. |
+
+Tests for IIFE content-scripts use `node:vm` to load the file with mocked
+`globalThis`/`location`/`document`/`chrome`. There is no production-code
+change for testability beyond a single `__testInternals` export in
+`detector.js` (helpers and constructors), a single `__SwitcherAutocorrectInternals`
+export at the end of the autocorrect IIFE, and an `if (import.meta.url === …)`
+main-guard in `tools/package.mjs` so it can be both run as a script and
+imported in tests.
 
 The C# test suite at `src/Switcher.Tests/` (xUnit, 285 tests) is the source of
 truth for the algorithm; it exercises the layout invariants, converter

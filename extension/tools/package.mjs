@@ -29,12 +29,12 @@ const EXCLUDE_NAMES = new Set([
   ".gitignore",
   ".DS_Store",
 ]);
-const EXCLUDE_SUFFIX = [".test.mjs", ".test.js", ".map"];
-const EXCLUDE_SPECIFIC = new Set([
-  "lib/build-models.mjs",
-]);
+// All .mjs files in the tree are dev-only (the build script, test files, and
+// shared test helpers). Production extension code lives in .js files.
+const EXCLUDE_SUFFIX = [".mjs", ".test.js", ".map"];
+const EXCLUDE_SPECIFIC = new Set();
 
-function shouldInclude(relPath) {
+export function shouldInclude(relPath) {
   const parts = relPath.split("/");
   for (const p of parts) {
     if (EXCLUDE_NAMES.has(p)) return false;
@@ -157,10 +157,13 @@ function buildZip(files) {
   return Buffer.concat([...localChunks, centralBuf, eocd]);
 }
 
-const files = walk(ROOT).sort((a, b) => a.rel.localeCompare(b.rel));
-console.log(`Packaging ${files.length} files…`);
-const zip = buildZip(files);
-fs.mkdirSync(DIST, { recursive: true });
-const outPath = path.join(DIST, `vibenest-switcher-${MANIFEST.version}.zip`);
-fs.writeFileSync(outPath, zip);
-console.log(`Wrote ${outPath} — ${(zip.length / 1024).toFixed(1)} KB`);
+// Run as script. When imported (for testing), the main flow stays silent.
+if (import.meta.url === url.pathToFileURL(process.argv[1] ?? "").href) {
+  const files = walk(ROOT).sort((a, b) => a.rel.localeCompare(b.rel));
+  console.log(`Packaging ${files.length} files…`);
+  const zip = buildZip(files);
+  fs.mkdirSync(DIST, { recursive: true });
+  const outPath = path.join(DIST, `vibenest-switcher-${MANIFEST.version}.zip`);
+  fs.writeFileSync(outPath, zip);
+  console.log(`Wrote ${outPath} — ${(zip.length / 1024).toFixed(1)} KB`);
+}
