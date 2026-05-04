@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "VibeNest Switcher",
-  "description": "Fix text typed in the wrong keyboard layout. Select text and press the shortcut.",
-  "version": "0.1.0",
+  "description": "Fix text typed in the wrong keyboard layout. Runs fully offline — no data leaves your browser.",
+  "version": "0.2.0",
   "permissions": ["contextMenus", "storage", "activeTab", "scripting", "notifications", "clipboardWrite"],
   "host_permissions": ["http://*/*", "https://*/*"],
   "background": {

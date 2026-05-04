@@ -1,5 +1,8 @@
 export const DEFAULTS = {
-  apiBase: "http://localhost:5050",
+  // Offline-first: empty apiBase keeps text fully on the user's machine. Set a
+  // URL in Settings only if you want extra languages or a remote fallback.
+  apiBase: "",
+  useApiFallback: false,
   languages: ["en", "ru"],
   replaceWholeOnEmptySelection: true,
   siteMode: "all", // "all" | "blacklist" | "whitelist"
@@ -24,7 +27,6 @@ async function migrateOnce() {
     patch[MIGRATION_FLAG] = true;
     await chrome.storage.sync.set(patch);
   } catch {
-    // sync may be disabled; tag it so we don't loop forever.
     try { await chrome.storage.sync.set({ [MIGRATION_FLAG]: true }); } catch {}
   }
 }
@@ -43,7 +45,8 @@ export async function getSettings() {
   const store = chrome.storage.sync || chrome.storage.local;
   const stored = await store.get(KEYS);
   return {
-    apiBase: stored.apiBase || DEFAULTS.apiBase,
+    apiBase: typeof stored.apiBase === "string" ? stored.apiBase : DEFAULTS.apiBase,
+    useApiFallback: typeof stored.useApiFallback === "boolean" ? stored.useApiFallback : DEFAULTS.useApiFallback,
     languages: Array.isArray(stored.languages) && stored.languages.length > 0 ? stored.languages : DEFAULTS.languages,
     replaceWholeOnEmptySelection:
       typeof stored.replaceWholeOnEmptySelection === "boolean"

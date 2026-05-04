@@ -1,4 +1,5 @@
 import { getSettings, isHostAllowed } from "./config.js";
+import { detect as detectLocal, canHandleLanguages } from "./lib/detector.js";
 
 const MENU_ID = "switcher-convert-selection";
 
@@ -141,14 +142,35 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
 }
 
 async function convert(text, override) {
-  const { apiBase, languages } = await getSettings();
-  const res = await fetch(`${apiBase.replace(/\/+$/, "")}/api/convert`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text, languages, override }),
-  });
-  if (!res.ok) return { error: `HTTP ${res.status}` };
-  return res.json();
+  const { apiBase, languages, useApiFallback } = await getSettings();
+
+  // Offline path. The local detector covers every layout the .NET backend
+  // ships, so it should always be enough. We still keep an API fallback for
+  // unforeseen issues (corrupt data.js, future languages, etc.).
+  if (canHandleLanguages(languages)) {
+    try {
+      return detectLocal(text, languages, override ?? null);
+    } catch (e) {
+      if (!useApiFallback || !apiBase) return { error: String(e?.message ?? e) };
+      // fall through to API
+    }
+  }
+
+  if (!apiBase) {
+    return { error: "Some requested languages aren't bundled offline; configure an API endpoint in Settings." };
+  }
+
+  try {
+    const res = await fetch(`${apiBase.replace(/\/+$/, "")}/api/convert`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, languages, override }),
+    });
+    if (!res.ok) return { error: `HTTP ${res.status}` };
+    return res.json();
+  } catch (e) {
+    return { error: `API unreachable: ${e?.message ?? e}` };
+  }
 }
 
 async function copyToClipboard(tabId, text) {

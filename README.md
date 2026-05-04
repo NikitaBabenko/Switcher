@@ -6,9 +6,9 @@ Fixes text typed in the wrong keyboard layout. Available as:
 
 - **Website** — open it, paste, get the fixed text. Settings live in localStorage.
 - **Telegram Mini App + bot** — in-chat conversion, inline mode (`@bot text`), commands for languages, button to open the TMA.
-- **Chrome extension (MV3)** — select text on any page, press `Ctrl+Shift+L` (or use the context menu) — text is replaced in place.
+- **Chrome extension (MV3)** — select text on any page, press `Ctrl+Shift+L` (or use the context menu) — text is replaced in place. Runs **fully offline** by default: the detector + 9 trigram models are bundled into the extension, no data leaves the browser.
 
-All clients hit the same REST API. The algorithm is LLM-free: char-by-char transposition through layout tables + a char-trigram language model that picks the direction.
+The Web and TMA clients hit the REST API; the Chrome extension uses an in-process port of the same engine and only falls back to the API if the user explicitly opts in. The algorithm is LLM-free: char-by-char transposition through layout tables + a char-trigram language model that picks the direction.
 
 ## Stack
 
@@ -59,7 +59,14 @@ npm run dev
 1. Open `chrome://extensions/`.
 2. Enable Developer mode.
 3. Load unpacked → pick the `extension/` folder.
-4. Open extension settings (right-click the icon → Options) and set `apiBase` (defaults to http://localhost:5050).
+4. (Optional) Open extension settings to enable the API fallback if you want extra languages or remote inference.
+
+The bundled offline detector covers all 9 supported languages. To regenerate the bundle from updated wordlists:
+
+```
+node extension/lib/build-models.mjs   # writes extension/lib/data.js
+node --test extension/lib/detector.test.mjs
+```
 
 ### Compose
 ```

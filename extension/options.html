@@ -25,11 +25,24 @@
       Telegram: <a href="https://t.me/SynthCabalBot" target="_blank">@SynthCabalBot</a>
     </p>
 
+    <h2>Privacy</h2>
+    <p class="muted">
+      By default, decryption runs entirely on your machine — no text leaves the
+      browser. Bundled languages: 9 (English, Russian, Ukrainian, Belarusian,
+      German, French, Greek, Hebrew, Turkish).
+    </p>
+
     <label>
-      API endpoint
+      <input type="checkbox" id="useApiFallback" />
+      Allow remote API fallback
+    </label>
+    <label>
+      API endpoint (optional)
       <input type="text" id="apiBase" placeholder="https://example.com" />
     </label>
-    <p class="muted">Backend address. Defaults to http://localhost:5050.</p>
+    <p class="muted">
+      Used only when the checkbox is on. Leave empty to stay fully offline.
+    </p>
 
     <h2>Languages</h2>
     <p class="muted">Pick the languages the layout should switch between. At least 2.</p>
