@@ -1,3 +1,5 @@
+using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Switcher.Api;
@@ -43,6 +45,28 @@ builder.Services.AddCors(opt => opt.AddDefaultPolicy(p => p
     .AllowAnyHeader()
     .AllowAnyMethod()));
 
+// Per-IP fixed-window rate limit on /api/convert. Tuned to stay well above
+// realistic single-user usage (a click rarely fires more than 1-2 conversions
+// per second) while making mass scripted abuse expensive.
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+    {
+        if (httpContext.Request.Path.StartsWithSegments("/api/convert"))
+        {
+            var key = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+            return RateLimitPartition.GetFixedWindowLimiter(key, _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 60,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+            });
+        }
+        return RateLimitPartition.GetNoLimiter("noop");
+    });
+});
+
 var app = builder.Build();
 
 {
@@ -55,6 +79,7 @@ var app = builder.Build();
 }
 
 app.UseCors();
+app.UseRateLimiter();
 
 ConvertEndpoint.Map(app);
 LanguagesEndpoint.Map(app);

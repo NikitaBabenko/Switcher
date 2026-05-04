@@ -1,4 +1,4 @@
-import { getSettings } from "./config.js";
+import { getSettings, isHostAllowed } from "./config.js";
 
 const input = document.getElementById("input");
 const result = document.getElementById("result");
@@ -6,6 +6,7 @@ const info = document.getElementById("info");
 const convertBtn = document.getElementById("convert");
 const copyBtn = document.getElementById("copy");
 const decryptPageBtn = document.getElementById("decrypt-page");
+const undoBtn = document.getElementById("undo");
 const overrideSel = document.getElementById("adapter-override");
 const detectedLbl = document.getElementById("detected");
 
@@ -14,9 +15,9 @@ document.getElementById("open-options").addEventListener("click", (e) => {
   chrome.runtime.openOptionsPage();
 });
 
-async function getActiveTabId() {
+async function getActiveTab() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  return tab?.id ?? null;
+  return tab ?? null;
 }
 
 async function readOverride(tabId) {
@@ -32,41 +33,63 @@ async function writeOverride(tabId, value) {
   try { await chrome.storage.session.set({ [`override_${tabId}`]: value }); } catch {}
 }
 
+function hostnameOf(url) {
+  try { return new URL(url).hostname; } catch { return ""; }
+}
+
 async function refreshDetected() {
   detectedLbl.textContent = "Detected: …";
-  const tabId = await getActiveTabId();
-  if (!tabId) { detectedLbl.textContent = "Detected: (no tab)"; return; }
+  const tab = await getActiveTab();
+  if (!tab?.id) { detectedLbl.textContent = "Detected: (no tab)"; return; }
+
+  const settings = await getSettings();
+  const host = hostnameOf(tab.url || "");
+  const allowed = isHostAllowed(host, settings.siteMode, settings.siteList);
+
   try {
-    const r = await chrome.tabs.sendMessage(tabId, { type: "GET_ADAPTER_INFO", override: overrideSel.value });
+    const r = await chrome.tabs.sendMessage(tab.id, { type: "GET_ADAPTER_INFO", override: overrideSel.value });
     const where = r?.hasEditable ? `field: <${r.editableTag}>` : "no focused field";
-    detectedLbl.textContent = `Detected: ${r?.id ?? "?"} · ${r?.hostname ?? ""} · ${where}`;
+    const policy = allowed ? "" : " · excluded by policy";
+    detectedLbl.textContent = `Detected: ${r?.id ?? "?"} · ${r?.hostname ?? host} · ${where}${policy}`;
+    decryptPageBtn.disabled = !allowed;
+    undoBtn.disabled = !r?.canUndo;
+    if (!allowed) {
+      info.textContent = `${host} is excluded by your site policy. Edit the list in Settings.`;
+    }
   } catch {
     detectedLbl.textContent = "Detected: (content script unavailable on this page)";
+    decryptPageBtn.disabled = !allowed;
+    undoBtn.disabled = true;
   }
 }
 
 (async () => {
-  const tabId = await getActiveTabId();
-  overrideSel.value = await readOverride(tabId);
+  const tab = await getActiveTab();
+  overrideSel.value = await readOverride(tab?.id);
   await refreshDetected();
 })();
 
 overrideSel.addEventListener("change", async () => {
-  const tabId = await getActiveTabId();
-  await writeOverride(tabId, overrideSel.value);
+  const tab = await getActiveTab();
+  await writeOverride(tab?.id, overrideSel.value);
   await refreshDetected();
 });
 
 decryptPageBtn.addEventListener("click", async () => {
-  const tabId = await getActiveTabId();
-  if (!tabId) return;
+  const tab = await getActiveTab();
+  if (!tab?.id) return;
+  const settings = await getSettings();
+  if (!isHostAllowed(hostnameOf(tab.url || ""), settings.siteMode, settings.siteList)) {
+    info.textContent = "This site is excluded by your policy.";
+    return;
+  }
+
   decryptPageBtn.disabled = true;
   info.textContent = "Decrypting…";
   result.textContent = "";
   copyBtn.disabled = true;
   try {
-    const settings = await getSettings();
-    const r = await chrome.tabs.sendMessage(tabId, {
+    const r = await chrome.tabs.sendMessage(tab.id, {
       type: "REPLACE_IN_COMPOSER",
       override: overrideSel.value,
       replaceWholeOnEmptySelection: settings.replaceWholeOnEmptySelection !== false,
@@ -75,11 +98,12 @@ decryptPageBtn.addEventListener("click", async () => {
       const det = r.detected ? ` · ${r.detected.from}→${r.detected.to}` : "";
       info.textContent = `OK [${r.adapter}/${r.mode}]${det}`;
       result.textContent = r.result ?? "";
+      undoBtn.disabled = !r.canUndo;
+      try { await chrome.tabs.sendMessage(tab.id, { type: "SHOW_TOAST", text: `Switcher: decrypted${det}`, kind: "ok" }); } catch {}
     } else if (r?.reason === "already-correct") {
       info.textContent = "Layout was already correct.";
       if (r.result) result.textContent = r.result;
     } else if (r?.result) {
-      // We have a converted result but the adapter couldn't write it back.
       try {
         await navigator.clipboard.writeText(r.result);
         info.textContent = `Copied to clipboard (couldn't write into composer: ${r.reason ?? "?"}).`;
@@ -105,6 +129,25 @@ decryptPageBtn.addEventListener("click", async () => {
     info.textContent = `Error: ${e?.message ?? e}`;
   } finally {
     decryptPageBtn.disabled = false;
+  }
+});
+
+undoBtn.addEventListener("click", async () => {
+  const tab = await getActiveTab();
+  if (!tab?.id) return;
+  undoBtn.disabled = true;
+  try {
+    const r = await chrome.tabs.sendMessage(tab.id, { type: "UNDO_REPLACE" });
+    if (r?.ok) {
+      info.textContent = "Undone.";
+      try { await chrome.tabs.sendMessage(tab.id, { type: "SHOW_TOAST", text: "Switcher: undone", kind: "warn" }); } catch {}
+    } else {
+      info.textContent = `Couldn't undo: ${r?.reason ?? "?"}.`;
+      undoBtn.disabled = false;
+    }
+  } catch (e) {
+    info.textContent = `Error: ${e?.message ?? e}`;
+    undoBtn.disabled = false;
   }
 });
 

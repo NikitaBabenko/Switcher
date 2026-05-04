@@ -1,4 +1,4 @@
-import { getSettings } from "./config.js";
+import { getSettings, isHostAllowed } from "./config.js";
 
 const MENU_ID = "switcher-convert-selection";
 
@@ -10,16 +10,23 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// Clear per-tab override entries when their tab closes — otherwise
+// chrome.storage.session accrues `override_<tabId>` keys for the session.
+chrome.tabs.onRemoved.addListener(async (tabId) => {
+  if (!chrome.storage?.session) return;
+  try { await chrome.storage.session.remove([`override_${tabId}`]); } catch {}
+});
+
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId !== MENU_ID || !tab?.id) return;
-  await convertInActiveTab(tab.id, info.selectionText ?? "");
+  await convertInActiveTab(tab.id, tab.url, info.selectionText ?? "");
 });
 
 chrome.commands.onCommand.addListener(async (command) => {
   if (command !== "convert-selection") return;
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id) return;
-  await convertInActiveTab(tab.id, "");
+  await convertInActiveTab(tab.id, tab.url, "");
 });
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
@@ -29,9 +36,19 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   }
 });
 
-async function convertInActiveTab(tabId, fallbackText) {
+function hostnameOf(url) {
+  try { return new URL(url).hostname; } catch { return ""; }
+}
+
+async function convertInActiveTab(tabId, tabUrl, fallbackText) {
   const settings = await getSettings();
   const replaceWholeOnEmptySelection = settings.replaceWholeOnEmptySelection !== false;
+  const hostname = hostnameOf(tabUrl);
+
+  if (!isHostAllowed(hostname, settings.siteMode, settings.siteList)) {
+    await notify("VibeNest Switcher", `Skipped: ${hostname} is excluded by your site policy.`);
+    return;
+  }
 
   // Resolve per-tab override (popup may have set one).
   let override = "auto";
@@ -56,11 +73,13 @@ async function convertInActiveTab(tabId, fallbackText) {
   }
 
   if (res?.ok) {
-    return; // success; no notification — feedback is the visible text change
+    const det = res.detected ? `${res.detected.from}→${res.detected.to}` : "decrypted";
+    await tryToast(tabId, `Switcher: ${det}`, "ok");
+    return;
   }
 
   if (res?.reason === "already-correct") {
-    await notify("VibeNest Switcher", "Layout was already correct.");
+    await tryToast(tabId, "Switcher: layout was already correct", "warn");
     return;
   }
 
@@ -98,7 +117,7 @@ async function convertInActiveTab(tabId, fallbackText) {
     return;
   }
   if (!conv?.swapped) {
-    await notify("VibeNest Switcher", "Layout was already correct.");
+    await tryToast(tabId, "Switcher: layout was already correct", "warn");
     return;
   }
 
@@ -112,7 +131,10 @@ async function convertInActiveTab(tabId, fallbackText) {
     replaced = false;
   }
 
-  if (!replaced) {
+  if (replaced) {
+    const det = conv.detected ? `${conv.detected.from}→${conv.detected.to}` : "decrypted";
+    await tryToast(tabId, `Switcher: ${det}`, "ok");
+  } else {
     await copyToClipboard(tabId, conv.result);
     await notify("VibeNest Switcher", `Copied to clipboard: ${truncate(conv.result, 80)}`);
   }
@@ -137,6 +159,11 @@ async function copyToClipboard(tabId, text) {
       args: [text],
     });
   } catch { /* ignore */ }
+}
+
+async function tryToast(tabId, text, kind) {
+  try { await chrome.tabs.sendMessage(tabId, { type: "SHOW_TOAST", text, kind }); }
+  catch { /* content script unavailable, ignore */ }
 }
 
 async function notify(title, message) {

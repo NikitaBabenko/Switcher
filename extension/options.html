@@ -8,6 +8,8 @@
       h1 { font-size: 1.4rem; }
       label { display: block; margin: 8px 0; }
       input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
+      textarea { width: 100%; min-height: 90px; padding: 6px; box-sizing: border-box; font-family: ui-monospace, "Cascadia Mono", Menlo, monospace; font-size: 13px; }
+      select { padding: 4px 6px; }
       .lang-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; margin: 8px 0; }
       .lang-list label { display: flex; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid #e5e7eb; border-radius: 6px; }
       button { padding: 8px 16px; cursor: pointer; }
@@ -41,6 +43,24 @@
     <p class="muted">
       Off — extension only decrypts text you have explicitly selected; on supported
       sites with empty selection it shows a notice instead of touching the field.
+    </p>
+
+    <h2>Site policy</h2>
+    <label for="siteMode" style="display:flex; gap:8px; align-items:center">
+      <span>Mode</span>
+      <select id="siteMode">
+        <option value="all">Everywhere (default)</option>
+        <option value="blacklist">Everywhere except listed</option>
+        <option value="whitelist">Only on listed sites</option>
+      </select>
+    </label>
+    <label>
+      Sites (one hostname per line)
+      <textarea id="siteList" placeholder="example.com&#10;mybank.com"></textarea>
+    </label>
+    <p class="muted">
+      Hostnames match exactly or by suffix (e.g. <code>vk.com</code> also matches
+      <code>m.vk.com</code>). Leave empty for the default (everywhere) mode.
     </p>
 
     <p class="muted">

@@ -3,6 +3,8 @@ import { getSettings, saveSettings, DEFAULTS } from "./config.js";
 const apiBaseInput = document.getElementById("apiBase");
 const langList = document.getElementById("langList");
 const replaceWholeCb = document.getElementById("replaceWhole");
+const siteModeSel = document.getElementById("siteMode");
+const siteListTa = document.getElementById("siteList");
 const saveBtn = document.getElementById("save");
 const savedFlag = document.getElementById("saved");
 
@@ -15,6 +17,8 @@ async function load() {
   const settings = await getSettings();
   apiBaseInput.value = settings.apiBase;
   replaceWholeCb.checked = settings.replaceWholeOnEmptySelection !== false;
+  siteModeSel.value = settings.siteMode || "all";
+  siteListTa.value = (settings.siteList || []).join("\n");
 
   let available;
   try {
@@ -48,10 +52,16 @@ saveBtn.addEventListener("click", async () => {
     alert("Pick at least 2 languages.");
     return;
   }
+  const siteList = siteListTa.value
+    .split(/\r?\n/)
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
   await saveSettings({
     apiBase,
     languages,
     replaceWholeOnEmptySelection: replaceWholeCb.checked,
+    siteMode: siteModeSel.value,
+    siteList,
   });
   savedFlag.classList.add("on");
   setTimeout(() => savedFlag.classList.remove("on"), 1500);

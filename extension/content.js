@@ -1,6 +1,11 @@
 // Thin message shell. Heavy lifting is in content/replace.js + content/adapters.js,
 // loaded before this file (see manifest.json content_scripts order).
 
+// Per-page undo memory: holds the original text + element reference + mode
+// from the last successful REPLACE_IN_COMPOSER on this page. WeakRef so the
+// reference doesn't keep DOM alive after navigation.
+let __lastChange = null;
+
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   const R = globalThis.__SwitcherReplace;
   const A = globalThis.__SwitcherAdapters;
@@ -26,6 +31,7 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
       hostname: location.hostname,
       hasEditable: !!editableId,
       editableTag: editableId,
+      canUndo: canUndo(),
     });
     return;
   }
@@ -33,6 +39,18 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg?.type === "REPLACE_SELECTION") {
     const ok = legacyReplaceSelection(R, msg.text);
     sendResponse({ ok });
+    return;
+  }
+
+  if (msg?.type === "SHOW_TOAST") {
+    showToast(msg.text || "Done", msg.kind || "ok");
+    sendResponse({ ok: true });
+    return;
+  }
+
+  if (msg?.type === "UNDO_REPLACE") {
+    const r = undoLastChange(R);
+    sendResponse(r);
     return;
   }
 
@@ -63,21 +81,26 @@ async function handleReplaceInComposer(R, A, msg) {
     return { ok: false, reason: "no-selection", adapter: adapter.id };
   }
 
-  let text;
+  let originalText;
+  let originalSelStart, originalSelEnd;
   if (mode === "selection") {
-    text = R.isInputLike(el)
+    originalText = R.isInputLike(el)
       ? R.getInputLikeSelectionText(el)
       : R.getContentEditableSelectionText(el);
+    if (R.isInputLike(el)) {
+      originalSelStart = el.selectionStart;
+      originalSelEnd = el.selectionEnd;
+    }
   } else {
-    text = R.readText(el);
+    originalText = R.readText(el);
   }
-  if (!text || !text.trim()) {
+  if (!originalText || !originalText.trim()) {
     return { ok: false, reason: "empty", adapter: adapter.id, mode };
   }
 
   let conv;
   try {
-    conv = await chrome.runtime.sendMessage({ type: "CONVERT_TEXT", text });
+    conv = await chrome.runtime.sendMessage({ type: "CONVERT_TEXT", text: originalText });
   } catch (e) {
     return { ok: false, reason: "convert-failed", error: String(e?.message ?? e), adapter: adapter.id };
   }
@@ -98,12 +121,24 @@ async function handleReplaceInComposer(R, A, msg) {
     : adapter.replaceAll(el, conv.result);
 
   if (writeRes?.ok) {
+    rememberChange({
+      el,
+      original: originalText,
+      replacement: conv.result,
+      mode,
+      adapter: adapter.id,
+      isInputLike: R.isInputLike(el),
+      origSelStart: originalSelStart,
+      origSelEnd: originalSelEnd,
+      ts: Date.now(),
+    });
     return {
       ok: true,
       adapter: adapter.id,
       mode,
       result: conv.result,
       detected: conv.detected,
+      canUndo: true,
     };
   }
   return {
@@ -114,6 +149,93 @@ async function handleReplaceInComposer(R, A, msg) {
     result: conv.result,
     detected: conv.detected,
   };
+}
+
+function rememberChange(c) {
+  __lastChange = { ...c, elRef: c.el ? new WeakRef(c.el) : null };
+  delete __lastChange.el;
+}
+
+function canUndo() {
+  if (!__lastChange) return false;
+  const el = __lastChange.elRef?.deref();
+  return !!el && el.isConnected !== false;
+}
+
+function undoLastChange(R) {
+  if (!__lastChange) return { ok: false, reason: "no-change" };
+  const el = __lastChange.elRef?.deref();
+  if (!el || el.isConnected === false) return { ok: false, reason: "element-gone" };
+
+  const c = __lastChange;
+  let success = false;
+
+  if (c.isInputLike) {
+    if (c.mode === "whole") {
+      success = R.replaceInputLikeAll(el, c.original);
+    } else {
+      // Selection mode: the replacement is currently sitting at [origSelStart, origSelStart + replacement.length].
+      const start = typeof c.origSelStart === "number" ? c.origSelStart : 0;
+      const expectedEnd = start + (c.replacement?.length ?? 0);
+      try {
+        el.focus({ preventScroll: true });
+        el.setSelectionRange(start, expectedEnd);
+      } catch {}
+      success = R.replaceInputLikeSelection(el, c.original);
+    }
+  } else {
+    if (c.mode === "whole") {
+      success = R.replaceContentEditableAll(el, c.original);
+    } else {
+      // For contenteditable selection mode we don't precisely track the offset;
+      // best we can do is select-all and rewrite. Tradeoff documented.
+      success = R.replaceContentEditableAll(el, c.original);
+    }
+  }
+
+  if (success) {
+    __lastChange = null;
+    return { ok: true };
+  }
+  return { ok: false, reason: "insert-rejected" };
+}
+
+function showToast(text, kind) {
+  try {
+    const id = "vibenest-switcher-toast";
+    const old = document.getElementById(id);
+    if (old) old.remove();
+    const el = document.createElement("div");
+    el.id = id;
+    el.textContent = text;
+    el.style.cssText = [
+      "position:fixed",
+      "bottom:20px",
+      "right:20px",
+      "z-index:2147483647",
+      "padding:10px 14px",
+      "border-radius:8px",
+      "font:13px/1.3 -apple-system,Segoe UI,system-ui,sans-serif",
+      "color:#fff",
+      "box-shadow:0 6px 24px rgba(0,0,0,0.22)",
+      `background:${kind === "warn" ? "#b45309" : kind === "err" ? "#b91c1c" : "#2563eb"}`,
+      "max-width:320px",
+      "pointer-events:none",
+      "opacity:0",
+      "transform:translateY(8px)",
+      "transition:opacity .15s ease, transform .15s ease",
+    ].join(";");
+    document.documentElement.appendChild(el);
+    requestAnimationFrame(() => {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    });
+    setTimeout(() => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(8px)";
+      setTimeout(() => el.remove(), 200);
+    }, 2200);
+  } catch { /* ignore — page CSP, etc. */ }
 }
 
 function getSelectionText(R) {
