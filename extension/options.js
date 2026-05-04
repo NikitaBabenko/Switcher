@@ -2,6 +2,7 @@ import { getSettings, saveSettings, DEFAULTS } from "./config.js";
 
 const apiBaseInput = document.getElementById("apiBase");
 const langList = document.getElementById("langList");
+const replaceWholeCb = document.getElementById("replaceWhole");
 const saveBtn = document.getElementById("save");
 const savedFlag = document.getElementById("saved");
 
@@ -13,6 +14,7 @@ document.getElementById("open-shortcuts").addEventListener("click", (e) => {
 async function load() {
   const settings = await getSettings();
   apiBaseInput.value = settings.apiBase;
+  replaceWholeCb.checked = settings.replaceWholeOnEmptySelection !== false;
 
   let available;
   try {
@@ -46,7 +48,11 @@ saveBtn.addEventListener("click", async () => {
     alert("Pick at least 2 languages.");
     return;
   }
-  await saveSettings({ apiBase, languages });
+  await saveSettings({
+    apiBase,
+    languages,
+    replaceWholeOnEmptySelection: replaceWholeCb.checked,
+  });
   savedFlag.classList.add("on");
   setTimeout(() => savedFlag.classList.remove("on"), 1500);
 });

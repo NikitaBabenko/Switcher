@@ -30,40 +30,91 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
 });
 
 async function convertInActiveTab(tabId, fallbackText) {
-  let selection = fallbackText;
+  const settings = await getSettings();
+  const replaceWholeOnEmptySelection = settings.replaceWholeOnEmptySelection !== false;
+
+  // Resolve per-tab override (popup may have set one).
+  let override = "auto";
   try {
-    const r = await chrome.tabs.sendMessage(tabId, { type: "GET_SELECTION" });
-    if (r?.text) selection = r.text;
+    if (chrome.storage?.session) {
+      const stored = await chrome.storage.session.get([`override_${tabId}`]);
+      override = stored[`override_${tabId}`] ?? "auto";
+    }
+  } catch { /* ignore */ }
+
+  // Try the rich path first: content script will pick the adapter, read text,
+  // call back for conversion, and write the result into the focused composer.
+  let res;
+  try {
+    res = await chrome.tabs.sendMessage(tabId, {
+      type: "REPLACE_IN_COMPOSER",
+      override,
+      replaceWholeOnEmptySelection,
+    });
   } catch {
-    // content script not loaded (e.g. chrome:// page) — use fallback
+    res = null; // content script not loaded (chrome://, PDF viewer, etc.)
   }
 
-  if (!selection?.trim()) {
-    await notify("VibeNest Switcher", "Select some text first.");
-    return;
+  if (res?.ok) {
+    return; // success; no notification — feedback is the visible text change
   }
 
-  const r = await convert(selection);
-  if (r.error) {
-    await notify("VibeNest Switcher", `Error: ${r.error}`);
-    return;
-  }
-  if (!r.swapped) {
+  if (res?.reason === "already-correct") {
     await notify("VibeNest Switcher", "Layout was already correct.");
     return;
   }
 
+  // We have a converted result but couldn't write it back — clipboard fallback.
+  if (res && res.result) {
+    await copyToClipboard(tabId, res.result);
+    await notify("VibeNest Switcher", `Copied to clipboard: ${truncate(res.result, 80)}`);
+    return;
+  }
+
+  // Composer not found / not editable / empty / no-selection / convert error.
+  // If the user invoked from the context menu over selected text, honour that
+  // text via the original GET_SELECTION → CONVERT → clipboard path.
+  let textToConvert = (fallbackText || "").trim();
+
+  if (!textToConvert) {
+    try {
+      const sel = await chrome.tabs.sendMessage(tabId, { type: "GET_SELECTION" });
+      if (sel?.text?.trim()) textToConvert = sel.text.trim();
+    } catch { /* ignore */ }
+  }
+
+  if (!textToConvert) {
+    if (res?.reason === "convert-error" && res.error) {
+      await notify("VibeNest Switcher", `Error: ${res.error}`);
+    } else {
+      await notify("VibeNest Switcher", "Select some text first, or click into a text field.");
+    }
+    return;
+  }
+
+  const conv = await convert(textToConvert);
+  if (conv?.error) {
+    await notify("VibeNest Switcher", `Error: ${conv.error}`);
+    return;
+  }
+  if (!conv?.swapped) {
+    await notify("VibeNest Switcher", "Layout was already correct.");
+    return;
+  }
+
+  // Try in-place replacement of the selection (works on plain pages even when
+  // there's no adapter match — e.g. <textarea> on a random forum).
   let replaced = false;
   try {
-    const resp = await chrome.tabs.sendMessage(tabId, { type: "REPLACE_SELECTION", text: r.result });
-    replaced = !!resp?.ok;
+    const r = await chrome.tabs.sendMessage(tabId, { type: "REPLACE_SELECTION", text: conv.result });
+    replaced = !!r?.ok;
   } catch {
     replaced = false;
   }
 
   if (!replaced) {
-    await copyToClipboard(tabId, r.result);
-    await notify("VibeNest Switcher", `Copied to clipboard: ${truncate(r.result, 80)}`);
+    await copyToClipboard(tabId, conv.result);
+    await notify("VibeNest Switcher", `Copied to clipboard: ${truncate(conv.result, 80)}`);
   }
 }
 
