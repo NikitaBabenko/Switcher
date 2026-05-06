@@ -1,6 +1,5 @@
-// JS port of Switcher.Core: LayoutConverter + LanguageModel + LayoutDetector.
-// Mirrors the algorithm in src/Switcher.Core/ exactly so offline results match
-// the backend response shape (`/api/convert`).
+// LayoutConverter + LanguageModel + LayoutDetector. Runs entirely in the
+// browser using the precomputed trigram counts in data.js.
 
 import { LANGUAGES } from "./data.js";
 

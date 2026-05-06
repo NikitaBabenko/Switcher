@@ -24,9 +24,12 @@ extension/
 ├─ lib/
 │   ├─ detector.js            JS port of LayoutDetector + LanguageModel + Caps Lock heuristic.
 │   ├─ data.js                AUTO-GENERATED — bundled trigram counts (9 langs, ~270 KB).
-│   ├─ build-models.mjs       Regenerates data.js from src/Switcher.Core/.
+│   ├─ build-models.mjs       Regenerates data.js from data/{layouts,wordlists}/.
 │   ├─ test-helpers.mjs       Shared VM loader + chrome/location/document mocks for tests.
 │   └─ *.test.mjs             190 Node tests (see § Tests).
+├─ data/
+│   ├─ layouts/*.json         Source-of-truth layout tables (46 chars normal + shift each).
+│   └─ wordlists/*.txt        Source-of-truth wordlists used to train the trigram models.
 ├─ tools/
 │   └─ package.mjs            Dependency-free zip writer used by `npm run package`.
 └─ icons/                     16/32/48/128 px PNGs.
@@ -99,11 +102,10 @@ Slate, ProseMirror, and plain contenteditable all handle it), provide a custom
 
 ## Detector engine
 
-`lib/detector.js` is a JS port of [`src/Switcher.Core/`](../src/Switcher.Core/).
-It mirrors the C# algorithm (transpose-then-score, Caps Lock heuristic, case
-naturalness tie-breaker) and returns the same response shape as the backend
-`POST /api/convert`. The data file `lib/data.js` is auto-generated from the
-.NET project's wordlists and layout tables.
+`lib/detector.js` runs the layout-detection algorithm entirely in the browser:
+transpose-then-score across every layout pair, with a Caps Lock heuristic and a
+case-naturalness tie-breaker. `lib/data.js` is auto-generated from the bundled
+wordlists and layout tables.
 
 To regenerate after changing wordlists or layouts:
 
@@ -112,9 +114,9 @@ node extension/lib/build-models.mjs
 node --test extension/lib/detector.test.mjs extension/lib/config.test.mjs
 ```
 
-The build script reads from `src/Switcher.Core/Layouts/*.json` and
-`src/Switcher.Core/LanguageModels/*.txt` and writes a single ESM module
-exporting `LANGUAGES = { id: { layout, alphabet, total, counts }, … }`.
+The build script reads from `extension/data/layouts/*.json` and
+`extension/data/wordlists/*.txt` and writes a single ESM module exporting
+`LANGUAGES = { id: { layout, alphabet, total, counts }, … }`.
 
 ## Tests
 
@@ -143,10 +145,6 @@ export at the end of the autocorrect IIFE, and an `if (import.meta.url === …)`
 main-guard in `tools/package.mjs` so it can be both run as a script and
 imported in tests.
 
-The C# test suite at `src/Switcher.Tests/` (xUnit, 285 tests) is the source of
-truth for the algorithm; it exercises the layout invariants, converter
-round-trips, full pair matrix, and HTTP boundary tests.
-
 ## Loading unpacked
 
 1. `chrome://extensions/` → enable Developer mode.
@@ -169,12 +167,12 @@ round-trips, full pair matrix, and HTTP boundary tests.
 
 ```
 cd extension
-npm test                # 29 Node tests, all green
+npm test                # 190 Node tests, all green
 npm run package         # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 
 The packaging script excludes dev-only files (`tools/`, `*.test.mjs`,
-`build-models.mjs`, `package.json`, `README.md`, `PRIVACY.md`,
+`build-models.mjs`, `data/`, `package.json`, `README.md`, `PRIVACY.md`,
 `node_modules/`, `dist/`). Only the files Chrome actually needs end up in the
 zip — verified with `python3 -m zipfile -l dist/<file>.zip`.
 

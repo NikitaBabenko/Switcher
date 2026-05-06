@@ -22,6 +22,7 @@ const EXCLUDE_NAMES = new Set([
   "node_modules",
   "dist",
   "tools",
+  "data",
   "package.json",
   "package-lock.json",
   "README.md",

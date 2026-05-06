@@ -1,7 +1,0 @@
-<Solution>
-  <Folder Name="/src/">
-    <Project Path="src/Switcher.Api/Switcher.Api.csproj" />
-    <Project Path="src/Switcher.Core/Switcher.Core.csproj" />
-    <Project Path="src/Switcher.Tests/Switcher.Tests.csproj" />
-  </Folder>
-</Solution>

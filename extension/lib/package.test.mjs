@@ -75,6 +75,11 @@ test("excludes the tools directory", () => {
   assert.equal(shouldInclude("tools/anything.js"), false);
 });
 
+test("excludes the build-time data sources (layouts + wordlists)", () => {
+  assert.equal(shouldInclude("data/layouts/en.json"), false);
+  assert.equal(shouldInclude("data/wordlists/en.txt"), false);
+});
+
 test("excludes the dist directory", () => {
   assert.equal(shouldInclude("dist/foo.zip"), false);
   assert.equal(shouldInclude("dist/nested/file.js"), false);
@@ -127,7 +132,7 @@ test("real extension tree includes a stable set of files", async () => {
     assert.ok(files.includes(must), `missing ${must} in ${files.join(", ")}`);
   }
   // And these MUST NOT be present.
-  for (const forbidden of ["README.md", "PRIVACY.md", "package.json", "tools/package.mjs", "lib/build-models.mjs", "lib/detector.test.mjs"]) {
+  for (const forbidden of ["README.md", "PRIVACY.md", "package.json", "tools/package.mjs", "lib/build-models.mjs", "lib/detector.test.mjs", "data/layouts/en.json", "data/wordlists/en.txt"]) {
     assert.ok(!files.includes(forbidden), `forbidden file ${forbidden} got included`);
   }
 });
