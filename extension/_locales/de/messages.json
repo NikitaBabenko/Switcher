@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — Tastaturlayout-Korrektor · 9 Sprachen",
+    "message": "Tastatur-Layout-Korrektor · 9 Sprachen (Russisch, Deutsch, EN, FR + 5)",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Open-Source-Alternative zu Punto Switcher. Behebt Text in falschem Tastaturlayout. 9 Sprachen, komplett offline.",
+    "message": "Behebt Text in falschem Tastaturlayout. 9 Sprachen: Russisch, Deutsch, Englisch, Französisch + 5 mehr. Offline, Open Source.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — falsches Layout korrigieren (Ctrl+Shift+L)",
+    "message": "Tastatur-Layout-Korrektor (Strg+Umschalt+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

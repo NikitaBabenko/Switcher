@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "Disposición de teclado — corrector de tipeo · 9 idiomas",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Corrige texto escrito con disposición incorrecta de teclado. 9 idiomas: ruso, inglés, alemán, francés + 5 más. Sin conexión.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "Disposición de teclado (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Cambiar la disposición del texto seleccionado",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: cambiar disposición",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Sitio" },
+  "popup_detectedPrefix": { "message": "Detectado" },
+  "popup_detectedNoTab": { "message": "Detectado: (sin pestaña)" },
+  "popup_detectedNoContent": { "message": "Detectado: (extensión no disponible en esta página)" },
+  "popup_detectedField": { "message": "campo: <$1>" },
+  "popup_detectedNoField": { "message": "ningún campo enfocado" },
+  "popup_excludedByPolicy": { "message": "excluido por política" },
+  "popup_excludedByPolicyExplain": { "message": "$1 está excluido por tu política de sitios. Edita la lista en Ajustes." },
+  "popup_decryptFocused": { "message": "Corregir campo activo" },
+  "popup_undo": { "message": "Deshacer" },
+  "popup_undoTitle": { "message": "Deshacer la última corrección en esta página" },
+  "popup_shortcutHintBefore": { "message": "Tip: enfoca un campo y pulsa" },
+  "popup_shortcutHintAfter": { "message": "— mismo resultado." },
+  "popup_pasteHeader": { "message": "O pega texto y corrige:" },
+  "popup_pastePlaceholder": { "message": "Pega aquí texto en disposición incorrecta…" },
+  "popup_decrypt": { "message": "Corregir" },
+  "popup_copy": { "message": "Copiar" },
+  "popup_copied": { "message": "Copiado" },
+  "popup_settingsLink": { "message": "Ajustes" },
+  "popup_languageLabel": { "message": "Idioma de la interfaz" },
+  "popup_decrypting": { "message": "Corrigiendo…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "La disposición ya era correcta." },
+  "popup_clipboardFallback": { "message": "Copiado al portapapeles (no se pudo escribir en el campo: $1)." },
+  "popup_writeFailed": { "message": "No se pudo escribir en el campo: $1." },
+  "popup_emptyField": { "message": "No hay texto en el campo activo." },
+  "popup_composerNotFound": { "message": "No se encontró un campo de texto en esta página. Haz clic en uno y vuelve a intentar." },
+  "popup_notEditable": { "message": "El elemento activo no es un campo de texto." },
+  "popup_extensionNotLoaded": { "message": "Recarga la página para que la extensión se conecte." },
+  "popup_genericError": { "message": "Error: $1" },
+  "popup_couldntDecrypt": { "message": "No se pudo corregir: $1." },
+  "popup_undone": { "message": "Deshecho." },
+  "popup_couldntUndo": { "message": "No se pudo deshacer: $1." },
+  "popup_detectionDirection": { "message": "Detectado: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 Funciona totalmente en tu navegador. Ningún texto sale del dispositivo." },
+  "popup_sourceOnGitHub": { "message": "Código fuente en GitHub" },
+
+  "siteAdapter_auto": { "message": "Auto" },
+  "siteAdapter_generic": { "message": "Otro / genérico" },
+
+  "options_title": { "message": "Switcher — ajustes" },
+  "options_h1": { "message": "Switcher — ajustes" },
+  "options_uiLanguageH2": { "message": "Idioma de la interfaz" },
+  "options_uiLanguageHint": { "message": "Idioma del popup y de esta página. Auto = seguir el idioma del navegador." },
+  "options_uiLanguageAuto": { "message": "Auto (idioma del navegador)" },
+  "options_firstRunWelcome": { "message": "Bienvenido a Switcher." },
+  "options_firstRunBody": {
+    "message": "No pudimos detectar automáticamente los idiomas que escribes a partir de la configuración del navegador. Elige al menos dos abajo — puedes cambiarlo en cualquier momento desde esta página."
+  },
+  "options_privacyH2": { "message": "Privacidad" },
+  "options_privacyBody": {
+    "message": "Por defecto, la corrección se ejecuta totalmente en tu dispositivo — ningún texto sale del navegador. 9 idiomas incluidos: inglés, ruso, ucraniano, bielorruso, alemán, francés, griego, hebreo, turco."
+  },
+  "options_useApiFallback": { "message": "Permitir respaldo API remoto" },
+  "options_apiEndpoint": { "message": "Endpoint de API (opcional)" },
+  "options_apiEndpointHint": { "message": "Se usa solo si la casilla está activada. Déjalo vacío para mantenerte completamente sin conexión." },
+  "options_languagesH2": { "message": "Idiomas" },
+  "options_languagesHint": { "message": "Elige los idiomas entre los que cambiar la disposición. Al menos 2." },
+  "options_behaviourH2": { "message": "Comportamiento" },
+  "options_replaceWhole": { "message": "Corregir todo el composer cuando no haya selección" },
+  "options_replaceWholeHint": {
+    "message": "Off — la extensión corrige solo el texto explícitamente seleccionado; en sitios compatibles con selección vacía muestra un aviso sin tocar el campo."
+  },
+  "options_autoCorrect": { "message": "Autocorregir al escribir (estilo Punto Switcher)" },
+  "options_autoCorrectHint": {
+    "message": "Cuando escribes un espacio o signo de puntuación tras una palabra en disposición incorrecta, la extensión la arregla in situ. Omite campos de contraseña y sitios excluidos por la política. Retroceso deshace."
+  },
+  "options_sitePolicyH2": { "message": "Política de sitios" },
+  "options_siteModeLabel": { "message": "Modo" },
+  "options_siteModeAll": { "message": "En todas partes (por defecto)" },
+  "options_siteModeBlacklist": { "message": "En todas partes excepto los listados" },
+  "options_siteModeWhitelist": { "message": "Solo en los listados" },
+  "options_siteListLabel": { "message": "Sitios (un hostname por línea)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Los hostnames coinciden exactos o por sufijo (p. ej. vk.com cubre m.vk.com). Déjalo vacío para el modo por defecto (en todas partes)."
+  },
+  "options_shortcutHint": { "message": "El atajo de teclado se configura en $1." },
+  "options_save": { "message": "Guardar" },
+  "options_saved": { "message": "Guardado ✓" },
+  "options_pickAtLeastTwo": { "message": "Elige al menos 2 idiomas." },
+  "options_contactBody": { "message": "Abiertos a sugerencias, informes de errores y solicitudes de nuevos idiomas — escribe a" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: la disposición ya era correcta" },
+  "toast_undone": { "message": "Switcher: deshecho" },
+
+  "notification_title": { "message": "Switcher" },
+  "notification_skippedPolicy": { "message": "Omitido: $1 está excluido por tu política de sitios." },
+  "notification_copiedToClipboard": { "message": "Copiado al portapapeles: $1" },
+  "notification_selectFirst": { "message": "Selecciona texto primero, o haz clic en un campo de texto." },
+  "notification_genericError": { "message": "Error: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "Algunos idiomas solicitados no están incluidos sin conexión; configura un endpoint API en Ajustes."
+  },
+  "convert_apiUnreachable": { "message": "API no disponible: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

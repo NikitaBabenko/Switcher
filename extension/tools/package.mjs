@@ -29,6 +29,7 @@ const EXCLUDE_NAMES = new Set([
   "package-lock.json",
   "README.md",
   "PRIVACY.md",
+  "seo-research.md", // local working doc with keyword research; gitignored
   ".gitignore",
   ".DS_Store",
 ]);

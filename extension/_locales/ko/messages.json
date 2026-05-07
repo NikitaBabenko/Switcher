@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "키보드 레이아웃 전환기 · 잘못된 입력 수정 · 9개 언어",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "잘못된 키보드 레이아웃으로 입력된 텍스트를 수정합니다. 9개 언어: 한국어, 영어, 러시아어, 독일어 외 5개. 오프라인, 오픈소스.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "키보드 레이아웃 전환기 (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "선택한 텍스트의 레이아웃 전환",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: 레이아웃 전환",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "사이트" },
+  "popup_detectedPrefix": { "message": "감지됨" },
+  "popup_detectedNoTab": { "message": "감지됨: (탭 없음)" },
+  "popup_detectedNoContent": { "message": "감지됨: (이 페이지에서 확장 프로그램을 사용할 수 없음)" },
+  "popup_detectedField": { "message": "필드: <$1>" },
+  "popup_detectedNoField": { "message": "포커스된 필드 없음" },
+  "popup_excludedByPolicy": { "message": "정책으로 제외됨" },
+  "popup_excludedByPolicyExplain": { "message": "$1은(는) 사이트 정책으로 제외되어 있습니다. 설정에서 목록을 편집하세요." },
+  "popup_decryptFocused": { "message": "활성 필드 수정" },
+  "popup_undo": { "message": "실행 취소" },
+  "popup_undoTitle": { "message": "이 페이지의 마지막 수정을 실행 취소" },
+  "popup_shortcutHintBefore": { "message": "팁: 필드를 포커스하고" },
+  "popup_shortcutHintAfter": { "message": "를 누르세요 — 동일한 결과." },
+  "popup_pasteHeader": { "message": "또는 텍스트를 붙여넣고 수정:" },
+  "popup_pastePlaceholder": { "message": "잘못된 레이아웃의 텍스트를 여기에 붙여넣기…" },
+  "popup_decrypt": { "message": "수정" },
+  "popup_copy": { "message": "복사" },
+  "popup_copied": { "message": "복사됨" },
+  "popup_settingsLink": { "message": "설정" },
+  "popup_languageLabel": { "message": "인터페이스 언어" },
+  "popup_decrypting": { "message": "수정 중…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "레이아웃이 이미 올바릅니다." },
+  "popup_clipboardFallback": { "message": "클립보드에 복사됨 (필드에 쓰지 못함: $1)." },
+  "popup_writeFailed": { "message": "필드에 쓰지 못함: $1." },
+  "popup_emptyField": { "message": "활성 필드에 텍스트가 없습니다." },
+  "popup_composerNotFound": { "message": "이 페이지에서 텍스트 필드를 찾을 수 없습니다. 필드를 클릭하고 다시 시도하세요." },
+  "popup_notEditable": { "message": "활성 요소가 텍스트 필드가 아닙니다." },
+  "popup_extensionNotLoaded": { "message": "확장 프로그램을 연결하려면 페이지를 새로고침하세요." },
+  "popup_genericError": { "message": "오류: $1" },
+  "popup_couldntDecrypt": { "message": "수정 실패: $1." },
+  "popup_undone": { "message": "실행 취소됨." },
+  "popup_couldntUndo": { "message": "실행 취소 실패: $1." },
+  "popup_detectionDirection": { "message": "감지됨: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 브라우저 내에서만 작동합니다. 텍스트는 기기를 떠나지 않습니다." },
+  "popup_sourceOnGitHub": { "message": "GitHub 소스 코드" },
+
+  "siteAdapter_auto": { "message": "자동" },
+  "siteAdapter_generic": { "message": "기타 / 일반" },
+
+  "options_title": { "message": "Switcher — 설정" },
+  "options_h1": { "message": "Switcher — 설정" },
+  "options_uiLanguageH2": { "message": "인터페이스 언어" },
+  "options_uiLanguageHint": { "message": "팝업과 이 페이지의 언어. 자동 = 브라우저 언어 따르기." },
+  "options_uiLanguageAuto": { "message": "자동 (브라우저 언어)" },
+  "options_firstRunWelcome": { "message": "Switcher에 오신 것을 환영합니다." },
+  "options_firstRunBody": {
+    "message": "브라우저 로케일에서 사용자가 입력하는 언어를 자동으로 감지하지 못했습니다. 아래에서 최소 두 개 선택하세요 — 언제든지 이 페이지에서 변경할 수 있습니다."
+  },
+  "options_privacyH2": { "message": "개인정보 보호" },
+  "options_privacyBody": {
+    "message": "기본적으로 수정은 사용자 기기에서만 실행됩니다 — 어떤 텍스트도 브라우저를 떠나지 않습니다. 9개 내장 언어: 영어, 러시아어, 우크라이나어, 벨라루스어, 독일어, 프랑스어, 그리스어, 히브리어, 터키어."
+  },
+  "options_useApiFallback": { "message": "원격 API 폴백 허용" },
+  "options_apiEndpoint": { "message": "API 엔드포인트 (선택)" },
+  "options_apiEndpointHint": { "message": "체크박스가 켜져 있을 때만 사용됩니다. 완전히 오프라인으로 유지하려면 비워두세요." },
+  "options_languagesH2": { "message": "언어" },
+  "options_languagesHint": { "message": "레이아웃을 전환할 언어를 선택하세요. 최소 2개." },
+  "options_behaviourH2": { "message": "동작" },
+  "options_replaceWhole": { "message": "선택이 없을 때 composer 전체 수정" },
+  "options_replaceWholeHint": {
+    "message": "꺼짐 — 확장 프로그램은 명시적으로 선택된 텍스트만 수정합니다. 지원되는 사이트에서 빈 선택일 때는 필드를 건드리지 않고 알림만 표시합니다."
+  },
+  "options_autoCorrect": { "message": "입력 중 자동 수정 (Punto Switcher 스타일)" },
+  "options_autoCorrectHint": {
+    "message": "잘못된 레이아웃의 단어 뒤에 공백이나 구두점을 입력하면 확장 프로그램이 즉시 수정합니다. 비밀번호 필드와 정책에서 제외된 사이트는 건너뜁니다. Backspace로 취소."
+  },
+  "options_sitePolicyH2": { "message": "사이트 정책" },
+  "options_siteModeLabel": { "message": "모드" },
+  "options_siteModeAll": { "message": "어디서나 (기본)" },
+  "options_siteModeBlacklist": { "message": "나열된 사이트 제외하고 어디서나" },
+  "options_siteModeWhitelist": { "message": "나열된 사이트에서만" },
+  "options_siteListLabel": { "message": "사이트 (한 줄에 하나의 호스트네임)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "호스트네임은 정확히 또는 접미사로 일치합니다 (예: vk.com은 m.vk.com도 포함). 기본 모드(어디서나)는 비워두세요."
+  },
+  "options_shortcutHint": { "message": "키보드 단축키는 $1에서 설정됩니다." },
+  "options_save": { "message": "저장" },
+  "options_saved": { "message": "저장됨 ✓" },
+  "options_pickAtLeastTwo": { "message": "언어를 최소 2개 선택하세요." },
+  "options_contactBody": { "message": "제안, 버그 신고, 새 언어 요청 환영합니다 — 이메일:" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: 레이아웃이 이미 올바릅니다" },
+  "toast_undone": { "message": "Switcher: 실행 취소됨" },
+
+  "notification_title": { "message": "Switcher" },
+  "notification_skippedPolicy": { "message": "건너뜀: $1은(는) 사이트 정책으로 제외되어 있습니다." },
+  "notification_copiedToClipboard": { "message": "클립보드에 복사됨: $1" },
+  "notification_selectFirst": { "message": "먼저 텍스트를 선택하거나 텍스트 필드를 클릭하세요." },
+  "notification_genericError": { "message": "오류: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "요청한 일부 언어가 오프라인 패키지에 포함되어 있지 않습니다. 설정에서 API 엔드포인트를 구성하세요."
+  },
+  "convert_apiUnreachable": { "message": "API에 연결할 수 없음: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

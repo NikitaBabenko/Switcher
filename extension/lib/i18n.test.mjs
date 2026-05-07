@@ -23,9 +23,9 @@ import {
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const LOCALES_DIR = path.resolve(__dirname, "..", "_locales");
 
-test("availableUiLocales: auto + 9 supported, in stable order", () => {
+test("availableUiLocales: auto + every supported locale, in stable order", () => {
   const list = availableUiLocales();
-  assert.equal(list.length, 10);
+  assert.equal(list.length, SUPPORTED_UI_LOCALES.length + 1, "auto + all SUPPORTED_UI_LOCALES");
   assert.equal(list[0].code, "auto");
   for (const code of SUPPORTED_UI_LOCALES) {
     assert.ok(list.some((x) => x.code === code), `missing ${code}`);
@@ -52,7 +52,7 @@ test("resolveLocaleSync: 'auto' falls back to browser lang base", () => {
 });
 
 test("resolveLocaleSync: unsupported browser lang → en", () => {
-  assert.equal(resolveLocaleSync("auto", "es-ES"), "en");
+  assert.equal(resolveLocaleSync("auto", "ja-JP"), "en");
   assert.equal(resolveLocaleSync("auto", "ja"), "en");
   assert.equal(resolveLocaleSync(null, "zh-CN"), "en");
 });
@@ -64,8 +64,8 @@ test("resolveLocaleSync: empty/missing browser lang → en", () => {
 });
 
 test("resolveLocaleSync: invalid override falls back to browser lang", () => {
-  // "es" isn't a supported UI locale → fall through to browser lang.
-  assert.equal(resolveLocaleSync("es", "ru-RU"), "ru");
+  // "ja" / "zh" aren't supported UI locales → fall through to browser lang.
+  assert.equal(resolveLocaleSync("ja", "ru-RU"), "ru");
   assert.equal(resolveLocaleSync("zh", "uk"), "uk");
 });
 

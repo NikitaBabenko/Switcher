@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — исправит раскладку · 9 языков",
+    "message": "Раскладка клавиатуры — переключатель и исправление · 9 языков",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Открытый аналог Punto Switcher. Исправит текст, набранный не в той раскладке. 9 языков. Всё локально, без облака.",
+    "message": "Исправляет текст, набранный не в той раскладке. 9 языков: русский, английский, украинский, немецкий + 5 других. Оффлайн, аналог Punto.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — исправить раскладку (Ctrl+Shift+L)",
+    "message": "Раскладка клавиатуры (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

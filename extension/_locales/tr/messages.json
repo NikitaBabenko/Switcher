@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — Klavye Düzeni Düzeltici · 9 dil",
+    "message": "Klavye Düzeni Düzeltici · 9 dil (Türkçe, Rusça, İngilizce + 6)",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Punto Switcher için açık kaynak alternatif. Yanlış klavye düzeniyle yazılmış metni düzeltir. 9 dil, tamamen çevrimdışı.",
+    "message": "Yanlış klavye düzeniyle yazılmış metni düzeltir. 9 dil: Türkçe, Rusça, İngilizce, Almanca + 5 dil daha. Çevrimdışı, açık kaynak.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — yanlış düzeni düzelt (Ctrl+Shift+L)",
+    "message": "Klavye Düzeni Düzeltici (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

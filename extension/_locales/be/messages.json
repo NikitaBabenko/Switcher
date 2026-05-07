@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — выправіць раскладку · 9 моў",
+    "message": "Раскладка клавіятуры — пераключальнік і выпраўленне · 9 моў",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Адкрыты аналаг Punto Switcher. Выпраўляе тэкст, набраны не ў той раскладцы. 9 моў. Лакальна, без воблака.",
+    "message": "Выпраўляе тэкст у няправільнай раскладцы. 9 моў: беларуская, руская, англійская, нямецкая + 5 яшчэ. Афлайн, open source.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — выправіць раскладку (Ctrl+Shift+L)",
+    "message": "Раскладка клавіятуры (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

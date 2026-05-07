@@ -5,4 +5,6 @@ dist/
 .env
 .env.local
 extension/dist/
+extension/seo-research.md
+extension/test-fixtures/
 .claude/

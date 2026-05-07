@@ -27,8 +27,8 @@ extension/
 │   ├─ i18n.js                Localization helper: chrome.i18n with explicit override layer.
 │   ├─ build-models.mjs       Regenerates data.js from data/{layouts,wordlists}/.
 │   ├─ test-helpers.mjs       Shared VM loader + chrome/location/document mocks for tests.
-│   └─ *.test.mjs             222 Node tests (see § Tests).
-├─ _locales/<code>/messages.json  Localized UI strings; en is the master, 8 others mirror its keys.
+│   └─ *.test.mjs             223 Node tests (see § Tests).
+├─ _locales/<code>/messages.json  Localized UI strings; en is the master, 11 others mirror its keys (12 UI locales total: en/ru/uk/be/de/fr/el/he/tr/pl/es/ko).
 ├─ data/
 │   ├─ layouts/*.json         Source-of-truth layout tables (46 chars normal + shift each).
 │   └─ wordlists/*.txt        Source-of-truth wordlists used to train the trigram models.
@@ -128,7 +128,7 @@ cd extension
 npm test
 ```
 
-222 Node tests across eight files:
+223 Node tests across eight files:
 
 | File | Covers |
 |---|---|
@@ -173,7 +173,7 @@ The same suite runs in GitHub Actions on every push — see [`.github/workflows/
 
 ```
 cd extension
-npm test                # 222 Node tests, all green
+npm test                # 223 Node tests, all green
 npm run package         # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 

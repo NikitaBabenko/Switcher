@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — Correcteur de disposition · 9 langues",
+    "message": "Correcteur de disposition · 9 langues (russe, anglais, allemand + 6)",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Alternative open source à Punto Switcher. Corrige le texte tapé dans la mauvaise disposition. 9 langues, hors ligne.",
+    "message": "Corrige le texte tapé dans la mauvaise disposition. 9 langues : russe, anglais, allemand, français + 5 autres. Hors ligne.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — corriger la disposition (Ctrl+Maj+L)",
+    "message": "Correcteur de disposition (Ctrl+Maj+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

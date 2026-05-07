@@ -10,7 +10,7 @@
 
 import { getSettings, saveSettings } from "../config.js";
 
-export const SUPPORTED_UI_LOCALES = ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr"];
+export const SUPPORTED_UI_LOCALES = ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr", "pl", "es", "ko"];
 export const RTL_LOCALES = new Set(["he"]);
 
 const _cache = new Map(); // locale code -> messages dict
@@ -29,6 +29,9 @@ export function availableUiLocales() {
     { code: "el", nativeName: "Ελληνικά" },
     { code: "he", nativeName: "עברית" },
     { code: "tr", nativeName: "Türkçe" },
+    { code: "pl", nativeName: "Polski" },
+    { code: "es", nativeName: "Español" },
+    { code: "ko", nativeName: "한국어" },
   ];
 }
 

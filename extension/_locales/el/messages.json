@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — Διόρθωση Διάταξης · 9 γλώσσες",
+    "message": "Διόρθωση Διάταξης Πληκτρολογίου · 9 γλώσσες",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Εναλλακτική ανοιχτού κώδικα για Punto Switcher. Διορθώνει κείμενο σε λάθος διάταξη. 9 γλώσσες, εκτός σύνδεσης.",
+    "message": "Διορθώνει κείμενο σε λάθος διάταξη πληκτρολογίου. 9 γλώσσες: ελληνικά, ρωσικά, αγγλικά, γερμανικά + 5 ακόμα. Εκτός σύνδεσης.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — διόρθωση λάθος διάταξης (Ctrl+Shift+L)",
+    "message": "Διόρθωση Διάταξης (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

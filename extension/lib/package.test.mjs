@@ -40,7 +40,7 @@ test("includes lib/i18n.js (localization helper)", () => {
 });
 
 test("includes _locales messages files for every shipped locale", () => {
-  for (const code of ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr"]) {
+  for (const code of ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr", "pl", "es", "ko"]) {
     assert.equal(shouldInclude(`_locales/${code}/messages.json`), true, `_locales/${code} should ship`);
   }
 });
@@ -116,6 +116,10 @@ test("excludes the store-listings folder (long-form descriptions belong in the d
 
 test("excludes the test-fixtures folder (local-only e2e fixture)", () => {
   assert.equal(shouldInclude("test-fixtures/index.html"), false);
+});
+
+test("excludes the local SEO research doc", () => {
+  assert.equal(shouldInclude("seo-research.md"), false);
 });
 
 test("excludes source maps", () => {

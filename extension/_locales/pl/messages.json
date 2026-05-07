@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "Układ klawiatury — przełącznik i poprawka błędów · 9 języków",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Poprawia tekst wpisany w niewłaściwym układzie klawiatury. 9 języków: polski, rosyjski, angielski, niemiecki + 5 innych. Offline.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "Układ klawiatury (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Przełącz układ zaznaczonego tekstu",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: przełącz układ klawiatury",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Strona" },
+  "popup_detectedPrefix": { "message": "Wykryto" },
+  "popup_detectedNoTab": { "message": "Wykryto: (brak karty)" },
+  "popup_detectedNoContent": { "message": "Wykryto: (rozszerzenie niedostępne na tej stronie)" },
+  "popup_detectedField": { "message": "pole: <$1>" },
+  "popup_detectedNoField": { "message": "brak aktywnego pola" },
+  "popup_excludedByPolicy": { "message": "wykluczone przez politykę" },
+  "popup_excludedByPolicyExplain": { "message": "$1 jest wykluczona przez politykę witryn. Edytuj listę w Ustawieniach." },
+  "popup_decryptFocused": { "message": "Popraw aktywne pole" },
+  "popup_undo": { "message": "Cofnij" },
+  "popup_undoTitle": { "message": "Cofnij ostatnią poprawkę na tej stronie" },
+  "popup_shortcutHintBefore": { "message": "Wskazówka: aktywuj pole i naciśnij" },
+  "popup_shortcutHintAfter": { "message": "— ten sam efekt." },
+  "popup_pasteHeader": { "message": "Albo wklej tekst i popraw:" },
+  "popup_pastePlaceholder": { "message": "Wklej tu tekst w niewłaściwym układzie…" },
+  "popup_decrypt": { "message": "Popraw" },
+  "popup_copy": { "message": "Kopiuj" },
+  "popup_copied": { "message": "Skopiowano" },
+  "popup_settingsLink": { "message": "Ustawienia" },
+  "popup_languageLabel": { "message": "Język interfejsu" },
+  "popup_decrypting": { "message": "Poprawiam…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "Układ był już poprawny." },
+  "popup_clipboardFallback": { "message": "Skopiowano do schowka (nie udało się zapisać do pola: $1)." },
+  "popup_writeFailed": { "message": "Nie udało się zapisać do pola: $1." },
+  "popup_emptyField": { "message": "Brak tekstu w aktywnym polu." },
+  "popup_composerNotFound": { "message": "Nie znaleziono pola tekstowego na tej stronie. Kliknij w pole i spróbuj ponownie." },
+  "popup_notEditable": { "message": "Aktywny element nie jest polem tekstowym." },
+  "popup_extensionNotLoaded": { "message": "Odśwież stronę, aby rozszerzenie się dołączyło." },
+  "popup_genericError": { "message": "Błąd: $1" },
+  "popup_couldntDecrypt": { "message": "Nie udało się poprawić: $1." },
+  "popup_undone": { "message": "Cofnięto." },
+  "popup_couldntUndo": { "message": "Nie udało się cofnąć: $1." },
+  "popup_detectionDirection": { "message": "Wykryto: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 Działa w pełni w Twojej przeglądarce. Tekst nie opuszcza urządzenia." },
+  "popup_sourceOnGitHub": { "message": "Kod źródłowy na GitHubie" },
+
+  "siteAdapter_auto": { "message": "Auto" },
+  "siteAdapter_generic": { "message": "Inny / ogólny" },
+
+  "options_title": { "message": "Switcher — ustawienia" },
+  "options_h1": { "message": "Switcher — ustawienia" },
+  "options_uiLanguageH2": { "message": "Język interfejsu" },
+  "options_uiLanguageHint": { "message": "Język popupu i tej strony. Auto = zgodnie z językiem przeglądarki." },
+  "options_uiLanguageAuto": { "message": "Auto (język przeglądarki)" },
+  "options_firstRunWelcome": { "message": "Witamy w Switcherze." },
+  "options_firstRunBody": {
+    "message": "Nie udało się wykryć języków, w których piszesz, na podstawie ustawień przeglądarki. Wybierz poniżej co najmniej dwa — możesz to zmienić w dowolnej chwili."
+  },
+  "options_privacyH2": { "message": "Prywatność" },
+  "options_privacyBody": {
+    "message": "Domyślnie cała korekta odbywa się na Twoim urządzeniu — żadna litera nie opuszcza przeglądarki. 9 wbudowanych języków: angielski, rosyjski, ukraiński, białoruski, niemiecki, francuski, grecki, hebrajski, turecki."
+  },
+  "options_useApiFallback": { "message": "Zezwól na zdalny fallback API" },
+  "options_apiEndpoint": { "message": "Endpoint API (opcjonalny)" },
+  "options_apiEndpointHint": { "message": "Używany tylko, gdy zaznaczono pole. Zostaw puste, aby pozostać w pełni offline." },
+  "options_languagesH2": { "message": "Języki" },
+  "options_languagesHint": { "message": "Wybierz języki, między którymi rozszerzenie ma przełączać układ. Co najmniej 2." },
+  "options_behaviourH2": { "message": "Zachowanie" },
+  "options_replaceWhole": { "message": "Popraw cały edytor, gdy nic nie jest zaznaczone" },
+  "options_replaceWholeHint": {
+    "message": "Wyłączone — rozszerzenie poprawia tylko jawnie zaznaczony tekst; na obsługiwanych stronach przy braku zaznaczenia pokazuje powiadomienie zamiast modyfikować pole."
+  },
+  "options_autoCorrect": { "message": "Automatyczna korekta podczas pisania (styl Punto Switcher)" },
+  "options_autoCorrectHint": {
+    "message": "Gdy wpiszesz spację lub znak interpunkcyjny po słowie w niewłaściwym układzie, rozszerzenie poprawi je w miejscu. Pomija pola haseł i strony wykluczone przez politykę. Backspace cofa."
+  },
+  "options_sitePolicyH2": { "message": "Polityka witryn" },
+  "options_siteModeLabel": { "message": "Tryb" },
+  "options_siteModeAll": { "message": "Wszędzie (domyślnie)" },
+  "options_siteModeBlacklist": { "message": "Wszędzie oprócz wymienionych" },
+  "options_siteModeWhitelist": { "message": "Tylko na wymienionych" },
+  "options_siteListLabel": { "message": "Witryny (jeden hostname na linię)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Hostname'y dopasowywane są dokładnie lub jako sufiks (np. vk.com obejmuje też m.vk.com). Zostaw puste dla trybu domyślnego (wszędzie)."
+  },
+  "options_shortcutHint": { "message": "Skrót klawiszowy konfiguruje się w $1." },
+  "options_save": { "message": "Zapisz" },
+  "options_saved": { "message": "Zapisano ✓" },
+  "options_pickAtLeastTwo": { "message": "Wybierz co najmniej 2 języki." },
+  "options_contactBody": { "message": "Otwarci na sugestie, raporty błędów i prośby o nowe języki — pisz na" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: układ był już poprawny" },
+  "toast_undone": { "message": "Switcher: cofnięto" },
+
+  "notification_title": { "message": "Switcher" },
+  "notification_skippedPolicy": { "message": "Pominięto: $1 jest wykluczona przez politykę witryn." },
+  "notification_copiedToClipboard": { "message": "Skopiowano do schowka: $1" },
+  "notification_selectFirst": { "message": "Najpierw zaznacz tekst lub kliknij w pole tekstowe." },
+  "notification_genericError": { "message": "Błąd: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "Niektóre wybrane języki nie są wbudowane offline; skonfiguruj endpoint API w Ustawieniach."
+  },
+  "convert_apiUnreachable": { "message": "API niedostępne: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

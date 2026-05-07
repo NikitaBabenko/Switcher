@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — Fix Wrong Keyboard Layout · 9 languages",
+    "message": "Keyboard Layout Switcher — Fix Mistyped Text · 9 Languages",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Open-source alternative to Punto Switcher. Fix gibberish from wrong keyboard layout — 9 languages, fully offline.",
+    "message": "Fix text typed in the wrong keyboard layout. 9 languages including Russian, German, French, Ukrainian. Offline, open source.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — fix wrong layout (Ctrl+Shift+L)",
+    "message": "Keyboard Layout Switcher (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

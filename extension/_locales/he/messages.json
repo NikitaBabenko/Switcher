@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "VibeNest Switcher — תיקון פריסת מקלדת · 9 שפות",
+    "message": "תיקון פריסת מקלדת · 9 שפות (עברית, רוסית, אנגלית + 6)",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "חלופת קוד פתוח ל-Punto Switcher. מתקן טקסט שהוקלד בפריסה שגויה. 9 שפות, אופליין מלא.",
+    "message": "מתקן טקסט שהוקלד בפריסה שגויה. 9 שפות: עברית, רוסית, אנגלית, גרמנית + 5 נוספות. אופליין מלא, קוד פתוח.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "VibeNest Switcher — תיקון פריסה שגויה (Ctrl+Shift+L)",
+    "message": "תיקון פריסת מקלדת (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {
