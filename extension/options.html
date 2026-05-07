@@ -16,14 +16,18 @@
       .saved { color: green; margin-left: 8px; display: none; }
       .saved.on { display: inline; }
       .muted { color: #6b7280; font-size: 0.9rem; }
+      .contact {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid #e5e7eb;
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+      .contact a { color: #2563eb; }
     </style>
   </head>
   <body>
     <h1>VibeNest Switcher — settings</h1>
-    <p class="muted">
-      Live: <a href="https://vibenest.net" target="_blank">vibenest.net</a> ·
-      Telegram: <a href="https://t.me/SynthCabalBot" target="_blank">@SynthCabalBot</a>
-    </p>
 
     <h2>Privacy</h2>
     <p class="muted">
@@ -92,6 +96,11 @@
 
     <button id="save">Save</button>
     <span class="saved" id="saved">Saved ✓</span>
+
+    <div class="contact">
+      Open to suggestions, bug reports, or new language requests —
+      write to <a href="mailto:info@vibenest.net">info@vibenest.net</a>.
+    </div>
 
     <script src="options.js" type="module"></script>
   </body>
