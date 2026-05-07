@@ -7,7 +7,7 @@ const DEFAULTS_FLAG = "__defaults_v1";
 chrome.runtime.onInstalled.addListener(async (details) => {
   chrome.contextMenus.create({
     id: MENU_ID,
-    title: "Switcher: switch layout",
+    title: chrome.i18n.getMessage("contextMenuTitle") || "Switcher: switch layout",
     contexts: ["selection", "editable"],
   });
   if (details?.reason === "install") {
@@ -81,7 +81,10 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
   const hostname = hostnameOf(tabUrl);
 
   if (!isHostAllowed(hostname, settings.siteMode, settings.siteList)) {
-    await notify("VibeNest Switcher", `Skipped: ${hostname} is excluded by your site policy.`);
+    await notify(
+      i18n("notification_title", null, "VibeNest Switcher"),
+      i18n("notification_skippedPolicy", [hostname], `Skipped: ${hostname} is excluded by your site policy.`),
+    );
     return;
   }
 
@@ -109,19 +112,22 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
 
   if (res?.ok) {
     const det = res.detected ? `${res.detected.from}→${res.detected.to}` : "decrypted";
-    await tryToast(tabId, `Switcher: ${det}`, "ok");
+    await tryToast(tabId, i18n("toast_decrypted", [det], `Switcher: ${det}`), "ok");
     return;
   }
 
   if (res?.reason === "already-correct") {
-    await tryToast(tabId, "Switcher: layout was already correct", "warn");
+    await tryToast(tabId, i18n("toast_alreadyCorrect", null, "Switcher: layout was already correct"), "warn");
     return;
   }
 
   // We have a converted result but couldn't write it back — clipboard fallback.
   if (res && res.result) {
     await copyToClipboard(tabId, res.result);
-    await notify("VibeNest Switcher", `Copied to clipboard: ${truncate(res.result, 80)}`);
+    await notify(
+      i18n("notification_title", null, "VibeNest Switcher"),
+      i18n("notification_copiedToClipboard", [truncate(res.result, 80)], `Copied to clipboard: ${truncate(res.result, 80)}`),
+    );
     return;
   }
 
@@ -139,20 +145,29 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
 
   if (!textToConvert) {
     if (res?.reason === "convert-error" && res.error) {
-      await notify("VibeNest Switcher", `Error: ${res.error}`);
+      await notify(
+        i18n("notification_title", null, "VibeNest Switcher"),
+        i18n("notification_genericError", [res.error], `Error: ${res.error}`),
+      );
     } else {
-      await notify("VibeNest Switcher", "Select some text first, or click into a text field.");
+      await notify(
+        i18n("notification_title", null, "VibeNest Switcher"),
+        i18n("notification_selectFirst", null, "Select some text first, or click into a text field."),
+      );
     }
     return;
   }
 
   const conv = await convert(textToConvert);
   if (conv?.error) {
-    await notify("VibeNest Switcher", `Error: ${conv.error}`);
+    await notify(
+      i18n("notification_title", null, "VibeNest Switcher"),
+      i18n("notification_genericError", [conv.error], `Error: ${conv.error}`),
+    );
     return;
   }
   if (!conv?.swapped) {
-    await tryToast(tabId, "Switcher: layout was already correct", "warn");
+    await tryToast(tabId, i18n("toast_alreadyCorrect", null, "Switcher: layout was already correct"), "warn");
     return;
   }
 
@@ -168,10 +183,26 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
 
   if (replaced) {
     const det = conv.detected ? `${conv.detected.from}→${conv.detected.to}` : "decrypted";
-    await tryToast(tabId, `Switcher: ${det}`, "ok");
+    await tryToast(tabId, i18n("toast_decrypted", [det], `Switcher: ${det}`), "ok");
   } else {
     await copyToClipboard(tabId, conv.result);
-    await notify("VibeNest Switcher", `Copied to clipboard: ${truncate(conv.result, 80)}`);
+    await notify(
+      i18n("notification_title", null, "VibeNest Switcher"),
+      i18n("notification_copiedToClipboard", [truncate(conv.result, 80)], `Copied to clipboard: ${truncate(conv.result, 80)}`),
+    );
+  }
+}
+
+// Wrapper around chrome.i18n.getMessage with a literal English fallback so
+// background.js stays usable even if the locale file is missing or a key
+// hasn't been added yet. Uses Chrome's UI language (not our uiLocale override);
+// override applies in popup/options where users spend more time.
+function i18n(key, subs, fallback) {
+  try {
+    const out = chrome.i18n.getMessage(key, subs ?? []);
+    return out || fallback || key;
+  } catch {
+    return fallback || key;
   }
 }
 
@@ -191,7 +222,13 @@ async function convert(text, override) {
   }
 
   if (!apiBase) {
-    return { error: "Some requested languages aren't bundled offline; configure an API endpoint in Settings." };
+    return {
+      error: i18n(
+        "convert_languagesNotBundled",
+        null,
+        "Some requested languages aren't bundled offline; configure an API endpoint in Settings.",
+      ),
+    };
   }
 
   try {
@@ -200,10 +237,11 @@ async function convert(text, override) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text, languages, override }),
     });
-    if (!res.ok) return { error: `HTTP ${res.status}` };
+    if (!res.ok) return { error: i18n("convert_apiHttp", [String(res.status)], `HTTP ${res.status}`) };
     return res.json();
   } catch (e) {
-    return { error: `API unreachable: ${e?.message ?? e}` };
+    const msg = e?.message ?? String(e);
+    return { error: i18n("convert_apiUnreachable", [msg], `API unreachable: ${msg}`) };
   }
 }
 

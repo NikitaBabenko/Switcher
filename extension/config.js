@@ -15,6 +15,9 @@ export const DEFAULTS = {
   // better in the other layout. Off by default — opt-in for users who want
   // Punto-Switcher-style behaviour.
   autoCorrect: false,
+  // UI language for popup/options. "auto" follows chrome.i18n.getUILanguage();
+  // explicit codes (en, ru, uk, …) override and pin the chosen locale.
+  uiLocale: "auto",
 };
 
 // True when the browser locale gives us enough signal to pick the user's
@@ -100,6 +103,7 @@ export async function getSettings() {
     siteMode: normalizeSiteMode(stored.siteMode),
     siteList: normalizeSiteList(stored.siteList),
     autoCorrect: typeof stored.autoCorrect === "boolean" ? stored.autoCorrect : DEFAULTS.autoCorrect,
+    uiLocale: typeof stored.uiLocale === "string" && stored.uiLocale.length > 0 ? stored.uiLocale : DEFAULTS.uiLocale,
   };
 }
 

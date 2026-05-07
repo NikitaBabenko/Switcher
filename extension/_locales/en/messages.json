@@ -1,0 +1,168 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — Fix Wrong Keyboard Layout · 9 languages",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Open-source alternative to Punto Switcher. Fix gibberish from wrong keyboard layout — 9 languages, fully offline.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — fix wrong layout (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Switch the layout of the selected text",
+    "description": "Description for the Ctrl+Shift+L command in chrome://extensions/shortcuts"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: switch layout",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Site" },
+  "popup_detectedPrefix": { "message": "Detected" },
+  "popup_detectedNoTab": { "message": "Detected: (no tab)" },
+  "popup_detectedNoContent": { "message": "Detected: (content script unavailable on this page)" },
+  "popup_detectedField": {
+    "message": "field: <$1>",
+    "description": "Shows the focused element tag, e.g. 'field: <textarea>'. $1 is the tag name."
+  },
+  "popup_detectedNoField": { "message": "no focused field" },
+  "popup_excludedByPolicy": { "message": "excluded by policy" },
+  "popup_excludedByPolicyExplain": {
+    "message": "$1 is excluded by your site policy. Edit the list in Settings.",
+    "description": "$1 is the hostname"
+  },
+  "popup_decryptFocused": { "message": "Decrypt focused field" },
+  "popup_undo": { "message": "Undo" },
+  "popup_undoTitle": { "message": "Undo the last decrypt on this page" },
+  "popup_shortcutHintBefore": { "message": "Tip: focus a field and press" },
+  "popup_shortcutHintAfter": { "message": "for the same thing." },
+  "popup_pasteHeader": { "message": "Or paste text and decrypt:" },
+  "popup_pastePlaceholder": { "message": "Paste cyrillic gibberish here…" },
+  "popup_decrypt": { "message": "Decrypt" },
+  "popup_copy": { "message": "Copy" },
+  "popup_copied": { "message": "Copied" },
+  "popup_settingsLink": { "message": "Settings" },
+  "popup_languageLabel": { "message": "Language" },
+  "popup_decrypting": { "message": "Decrypting…" },
+  "popup_resultOk": {
+    "message": "OK [$1/$2]$3",
+    "description": "Status after a successful decrypt. $1=adapter, $2=mode, $3=optional ' · ru→en' detection"
+  },
+  "popup_alreadyCorrect": { "message": "Layout was already correct." },
+  "popup_clipboardFallback": {
+    "message": "Copied to clipboard (couldn't write into composer: $1).",
+    "description": "$1 is the failure reason"
+  },
+  "popup_writeFailed": {
+    "message": "Couldn't write into composer: $1.",
+    "description": "$1 is the failure reason"
+  },
+  "popup_emptyField": { "message": "No text in the focused field." },
+  "popup_composerNotFound": { "message": "Couldn't find a text field on this page. Click into one and try again." },
+  "popup_notEditable": { "message": "Focused element is not a text field." },
+  "popup_extensionNotLoaded": { "message": "Reload this page so the extension can attach." },
+  "popup_genericError": {
+    "message": "Error: $1",
+    "description": "$1 is the error message"
+  },
+  "popup_couldntDecrypt": {
+    "message": "Couldn't decrypt: $1.",
+    "description": "$1 is the failure reason or 'no response'"
+  },
+  "popup_undone": { "message": "Undone." },
+  "popup_couldntUndo": {
+    "message": "Couldn't undo: $1.",
+    "description": "$1 is the failure reason"
+  },
+  "popup_detectionDirection": {
+    "message": "Detected: $1 → $2",
+    "description": "$1, $2 are language codes like 'ru' and 'en'"
+  },
+  "popup_privacyNote": { "message": "🔒 Runs entirely in your browser. No text leaves your device." },
+  "popup_sourceOnGitHub": { "message": "Source on GitHub" },
+
+  "siteAdapter_auto": { "message": "Auto" },
+  "siteAdapter_generic": { "message": "Other / generic" },
+
+  "options_title": { "message": "VibeNest Switcher — settings" },
+  "options_h1": { "message": "VibeNest Switcher — settings" },
+  "options_uiLanguageH2": { "message": "Interface language" },
+  "options_uiLanguageHint": { "message": "Language of the popup and this page. Auto = follow your browser." },
+  "options_uiLanguageAuto": { "message": "Auto (browser language)" },
+  "options_firstRunWelcome": { "message": "Welcome to VibeNest Switcher." },
+  "options_firstRunBody": {
+    "message": "We couldn't auto-detect the languages you type in from your browser locale. Please pick at least two below — you can change this anytime from this page."
+  },
+  "options_privacyH2": { "message": "Privacy" },
+  "options_privacyBody": {
+    "message": "By default, decryption runs entirely on your machine — no text leaves the browser. Bundled languages: 9 (English, Russian, Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish)."
+  },
+  "options_useApiFallback": { "message": "Allow remote API fallback" },
+  "options_apiEndpoint": { "message": "API endpoint (optional)" },
+  "options_apiEndpointHint": { "message": "Used only when the checkbox is on. Leave empty to stay fully offline." },
+  "options_languagesH2": { "message": "Languages" },
+  "options_languagesHint": { "message": "Pick the languages the layout should switch between. At least 2." },
+  "options_behaviourH2": { "message": "Behaviour" },
+  "options_replaceWhole": { "message": "Decrypt the whole composer when nothing is selected" },
+  "options_replaceWholeHint": {
+    "message": "Off — extension only decrypts text you have explicitly selected; on supported sites with empty selection it shows a notice instead of touching the field."
+  },
+  "options_autoCorrect": { "message": "Auto-correct words as I type (Punto-Switcher style)" },
+  "options_autoCorrectHint": {
+    "message": "When you type a space or punctuation after a word that's clearly in the wrong layout, the extension fixes it in place. Skipped on password fields and on sites excluded by your site policy. Press Backspace to undo."
+  },
+  "options_sitePolicyH2": { "message": "Site policy" },
+  "options_siteModeLabel": { "message": "Mode" },
+  "options_siteModeAll": { "message": "Everywhere (default)" },
+  "options_siteModeBlacklist": { "message": "Everywhere except listed" },
+  "options_siteModeWhitelist": { "message": "Only on listed sites" },
+  "options_siteListLabel": { "message": "Sites (one hostname per line)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Hostnames match exactly or by suffix (e.g. vk.com also matches m.vk.com). Leave empty for the default (everywhere) mode."
+  },
+  "options_shortcutHint": {
+    "message": "The keyboard shortcut is configured at $1.",
+    "description": "$1 is the chrome://extensions/shortcuts link"
+  },
+  "options_save": { "message": "Save" },
+  "options_saved": { "message": "Saved ✓" },
+  "options_pickAtLeastTwo": { "message": "Pick at least 2 languages." },
+  "options_contactBody": { "message": "Open to suggestions, bug reports, or new language requests — write to" },
+
+  "toast_decrypted": {
+    "message": "Switcher: $1",
+    "description": "$1 is e.g. 'ru→en' or 'decrypted'"
+  },
+  "toast_alreadyCorrect": { "message": "Switcher: layout was already correct" },
+  "toast_undone": { "message": "Switcher: undone" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": {
+    "message": "Skipped: $1 is excluded by your site policy.",
+    "description": "$1 is the hostname"
+  },
+  "notification_copiedToClipboard": {
+    "message": "Copied to clipboard: $1",
+    "description": "$1 is the truncated converted text"
+  },
+  "notification_selectFirst": { "message": "Select some text first, or click into a text field." },
+  "notification_genericError": {
+    "message": "Error: $1",
+    "description": "$1 is the error message"
+  },
+
+  "convert_languagesNotBundled": {
+    "message": "Some requested languages aren't bundled offline; configure an API endpoint in Settings."
+  },
+  "convert_apiUnreachable": {
+    "message": "API unreachable: $1",
+    "description": "$1 is the error message"
+  },
+  "convert_apiHttp": {
+    "message": "HTTP $1",
+    "description": "$1 is the HTTP status code"
+  }
+}

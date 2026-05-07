@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — תיקון פריסת מקלדת · 9 שפות",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "חלופת קוד פתוח ל-Punto Switcher. מתקן טקסט שהוקלד בפריסה שגויה. 9 שפות, אופליין מלא.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — תיקון פריסה שגויה (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "החלפת פריסת המקלדת של הטקסט הנבחר",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: החלפת פריסת מקלדת",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "אתר" },
+  "popup_detectedPrefix": { "message": "זוהה" },
+  "popup_detectedNoTab": { "message": "זוהה: (אין כרטיסייה)" },
+  "popup_detectedNoContent": { "message": "זוהה: (ההרחבה לא פעילה בדף הזה)" },
+  "popup_detectedField": { "message": "שדה: <$1>" },
+  "popup_detectedNoField": { "message": "אין שדה במיקוד" },
+  "popup_excludedByPolicy": { "message": "מוחרג על ידי המדיניות" },
+  "popup_excludedByPolicyExplain": { "message": "$1 מוחרג ממדיניות האתרים שלך. ערוך את הרשימה בהגדרות." },
+  "popup_decryptFocused": { "message": "תקן את השדה הפעיל" },
+  "popup_undo": { "message": "בטל" },
+  "popup_undoTitle": { "message": "בטל את התיקון האחרון בדף זה" },
+  "popup_shortcutHintBefore": { "message": "טיפ: מקד שדה ולחץ" },
+  "popup_shortcutHintAfter": { "message": "— אותה תוצאה." },
+  "popup_pasteHeader": { "message": "או הדבק טקסט ותקן:" },
+  "popup_pastePlaceholder": { "message": "הדבק כאן טקסט בפריסה שגויה…" },
+  "popup_decrypt": { "message": "תקן" },
+  "popup_copy": { "message": "העתק" },
+  "popup_copied": { "message": "הועתק" },
+  "popup_settingsLink": { "message": "הגדרות" },
+  "popup_languageLabel": { "message": "שפת ממשק" },
+  "popup_decrypting": { "message": "מתקן…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "הפריסה כבר נכונה." },
+  "popup_clipboardFallback": { "message": "הועתק ללוח (לא ניתן לכתוב לשדה: $1)." },
+  "popup_writeFailed": { "message": "לא ניתן לכתוב לשדה: $1." },
+  "popup_emptyField": { "message": "אין טקסט בשדה הפעיל." },
+  "popup_composerNotFound": { "message": "לא נמצא שדה טקסט בדף. לחץ על שדה ונסה שוב." },
+  "popup_notEditable": { "message": "האלמנט הפעיל אינו שדה טקסט." },
+  "popup_extensionNotLoaded": { "message": "טען מחדש את הדף כדי שההרחבה תתחבר." },
+  "popup_genericError": { "message": "שגיאה: $1" },
+  "popup_couldntDecrypt": { "message": "לא ניתן לתקן: $1." },
+  "popup_undone": { "message": "בוטל." },
+  "popup_couldntUndo": { "message": "לא ניתן לבטל: $1." },
+  "popup_detectionDirection": { "message": "זוהה: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 פועל לחלוטין בדפדפן שלך. שום טקסט לא עוזב את המכשיר." },
+  "popup_sourceOnGitHub": { "message": "קוד מקור ב-GitHub" },
+
+  "siteAdapter_auto": { "message": "אוטומטי" },
+  "siteAdapter_generic": { "message": "אחר / כללי" },
+
+  "options_title": { "message": "VibeNest Switcher — הגדרות" },
+  "options_h1": { "message": "VibeNest Switcher — הגדרות" },
+  "options_uiLanguageH2": { "message": "שפת ממשק" },
+  "options_uiLanguageHint": { "message": "שפת הפופאפ והדף הזה. אוטומטי = לפי שפת הדפדפן." },
+  "options_uiLanguageAuto": { "message": "אוטומטי (שפת הדפדפן)" },
+  "options_firstRunWelcome": { "message": "ברוכים הבאים ל-VibeNest Switcher." },
+  "options_firstRunBody": {
+    "message": "לא הצלחנו לזהות אוטומטית את השפות שבהן אתה מקליד מתוך הגדרות הדפדפן. בחר לפחות שתיים למטה — ניתן לשנות בכל עת מהדף הזה."
+  },
+  "options_privacyH2": { "message": "פרטיות" },
+  "options_privacyBody": {
+    "message": "כברירת מחדל, התיקון רץ לחלוטין על המכשיר שלך — שום טקסט לא עוזב את הדפדפן. 9 שפות מובנות: אנגלית, רוסית, אוקראינית, בלארוסית, גרמנית, צרפתית, יוונית, עברית, טורקית."
+  },
+  "options_useApiFallback": { "message": "אפשר fallback ל-API מרוחק" },
+  "options_apiEndpoint": { "message": "API endpoint (אופציונלי)" },
+  "options_apiEndpointHint": { "message": "בשימוש רק כשהתיבה מסומנת. השאר ריק לאופליין מלא." },
+  "options_languagesH2": { "message": "שפות" },
+  "options_languagesHint": { "message": "בחר את השפות שבין פריסותיהן ההרחבה תחליף. לפחות 2." },
+  "options_behaviourH2": { "message": "התנהגות" },
+  "options_replaceWhole": { "message": "תקן את כל ה-composer כשאין בחירה" },
+  "options_replaceWholeHint": {
+    "message": "כבוי — ההרחבה מתקנת רק טקסט שנבחר במפורש; באתרים נתמכים עם בחירה ריקה היא תציג הודעה במקום לגעת בשדה."
+  },
+  "options_autoCorrect": { "message": "תיקון אוטומטי תוך כדי הקלדה (סגנון Punto Switcher)" },
+  "options_autoCorrectHint": {
+    "message": "כשאתה מקליד רווח או סימן פיסוק אחרי מילה בפריסה שגויה, ההרחבה מתקנת אותה במקום. מדלגת על שדות סיסמה ואתרים מוחרגים. Backspace מבטל."
+  },
+  "options_sitePolicyH2": { "message": "מדיניות אתרים" },
+  "options_siteModeLabel": { "message": "מצב" },
+  "options_siteModeAll": { "message": "בכל מקום (ברירת מחדל)" },
+  "options_siteModeBlacklist": { "message": "בכל מקום למעט הרשימה" },
+  "options_siteModeWhitelist": { "message": "רק באתרים ברשימה" },
+  "options_siteListLabel": { "message": "אתרים (hostname אחד בכל שורה)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Hostnames מתאימים בדיוק או לפי סיומת (לדוגמה vk.com מכסה גם m.vk.com). השאר ריק למצב ברירת מחדל (בכל מקום)."
+  },
+  "options_shortcutHint": { "message": "קיצור המקלדת מוגדר ב-$1." },
+  "options_save": { "message": "שמור" },
+  "options_saved": { "message": "נשמר ✓" },
+  "options_pickAtLeastTwo": { "message": "בחר לפחות 2 שפות." },
+  "options_contactBody": { "message": "פתוחים להצעות, דיווחי באגים ובקשות לשפות חדשות — כתבו ל-" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: הפריסה כבר נכונה" },
+  "toast_undone": { "message": "Switcher: בוטל" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": { "message": "דולג: $1 מוחרג ממדיניות האתרים שלך." },
+  "notification_copiedToClipboard": { "message": "הועתק ללוח: $1" },
+  "notification_selectFirst": { "message": "בחר טקסט תחילה, או לחץ בשדה טקסט." },
+  "notification_genericError": { "message": "שגיאה: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "חלק מהשפות שביקשת לא מובנות אופליין; הגדר API endpoint בהגדרות."
+  },
+  "convert_apiUnreachable": { "message": "ה-API לא זמין: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

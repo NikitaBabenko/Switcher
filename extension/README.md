@@ -24,12 +24,15 @@ extension/
 ├─ lib/
 │   ├─ detector.js            JS port of LayoutDetector + LanguageModel + Caps Lock heuristic.
 │   ├─ data.js                AUTO-GENERATED — bundled trigram counts (9 langs, ~270 KB).
+│   ├─ i18n.js                Localization helper: chrome.i18n with explicit override layer.
 │   ├─ build-models.mjs       Regenerates data.js from data/{layouts,wordlists}/.
 │   ├─ test-helpers.mjs       Shared VM loader + chrome/location/document mocks for tests.
-│   └─ *.test.mjs             203 Node tests (see § Tests).
+│   └─ *.test.mjs             222 Node tests (see § Tests).
+├─ _locales/<code>/messages.json  Localized UI strings; en is the master, 8 others mirror its keys.
 ├─ data/
 │   ├─ layouts/*.json         Source-of-truth layout tables (46 chars normal + shift each).
 │   └─ wordlists/*.txt        Source-of-truth wordlists used to train the trigram models.
+├─ store-listings/<code>.md   Long-form Chrome Web Store descriptions for manual paste (NOT shipped).
 ├─ tools/
 │   └─ package.mjs            Dependency-free zip writer used by `npm run package`.
 └─ icons/                     16/32/48/128 px PNGs.
@@ -125,7 +128,7 @@ cd extension
 npm test
 ```
 
-203 Node tests across seven files:
+222 Node tests across eight files:
 
 | File | Covers |
 |---|---|
@@ -135,7 +138,8 @@ npm test
 | `lib/autocorrect.test.mjs` | `extractLastWordInput`, `extractLastWordContentEditable`, `isAutoCorrectEligible` (password/OTP/cc-* skip, readOnly, contenteditable). |
 | `lib/replace.test.mjs` | `isInputLike`, `isContentEditable`, `inputLikeHasSelection`, `getInputLikeSelectionText`, `dispatchInputEvent` shape, `replaceInElement` reasons. |
 | `lib/content.test.mjs` | Undo memory: `rememberChange` / `canUndo` / `undoLastChange` for input-whole, input-selection, contenteditable, element-gone. |
-| `lib/package.test.mjs` | `shouldInclude` allow/deny matrix; live-tree assertion that the zip ships exactly the right files. |
+| `lib/package.test.mjs` | `shouldInclude` allow/deny matrix; live-tree assertion that the zip ships exactly the right files (incl. all 9 `_locales/`, exclusion of `store-listings/` + `test-fixtures/`). |
+| `lib/i18n.test.mjs` | `resolveLocaleSync` (override + fallback), `t` substitutions, presence of `__MSG_*__` tokens in manifest, and key-set parity across all 9 locale files. |
 
 Tests for IIFE content-scripts use `node:vm` to load the file with mocked
 `globalThis`/`location`/`document`/`chrome`. There is no production-code
@@ -169,7 +173,7 @@ The same suite runs in GitHub Actions on every push — see [`.github/workflows/
 
 ```
 cd extension
-npm test                # 203 Node tests, all green
+npm test                # 222 Node tests, all green
 npm run package         # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 

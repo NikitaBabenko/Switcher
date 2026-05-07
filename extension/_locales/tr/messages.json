@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — Klavye Düzeni Düzeltici · 9 dil",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Punto Switcher için açık kaynak alternatif. Yanlış klavye düzeniyle yazılmış metni düzeltir. 9 dil, tamamen çevrimdışı.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — yanlış düzeni düzelt (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Seçili metnin klavye düzenini değiştir",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: klavye düzenini değiştir",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Site" },
+  "popup_detectedPrefix": { "message": "Algılandı" },
+  "popup_detectedNoTab": { "message": "Algılandı: (sekme yok)" },
+  "popup_detectedNoContent": { "message": "Algılandı: (uzantı bu sayfada etkin değil)" },
+  "popup_detectedField": { "message": "alan: <$1>" },
+  "popup_detectedNoField": { "message": "odaklanmış alan yok" },
+  "popup_excludedByPolicy": { "message": "politika tarafından hariç" },
+  "popup_excludedByPolicyExplain": { "message": "$1 site politikanız tarafından hariç tutuluyor. Listeyi Ayarlar'dan düzenleyin." },
+  "popup_decryptFocused": { "message": "Etkin alanı düzelt" },
+  "popup_undo": { "message": "Geri al" },
+  "popup_undoTitle": { "message": "Bu sayfadaki son düzeltmeyi geri al" },
+  "popup_shortcutHintBefore": { "message": "İpucu: bir alana odaklanıp" },
+  "popup_shortcutHintAfter": { "message": "tuşuna basın — aynı sonuç." },
+  "popup_pasteHeader": { "message": "Veya metni yapıştırıp düzeltin:" },
+  "popup_pastePlaceholder": { "message": "Yanlış düzendeki metni buraya yapıştırın…" },
+  "popup_decrypt": { "message": "Düzelt" },
+  "popup_copy": { "message": "Kopyala" },
+  "popup_copied": { "message": "Kopyalandı" },
+  "popup_settingsLink": { "message": "Ayarlar" },
+  "popup_languageLabel": { "message": "Arayüz dili" },
+  "popup_decrypting": { "message": "Düzeltiliyor…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "Düzen zaten doğruydu." },
+  "popup_clipboardFallback": { "message": "Panoya kopyalandı (alana yazılamadı: $1)." },
+  "popup_writeFailed": { "message": "Alana yazılamadı: $1." },
+  "popup_emptyField": { "message": "Etkin alanda metin yok." },
+  "popup_composerNotFound": { "message": "Bu sayfada metin alanı bulunamadı. Bir alana tıklayıp tekrar deneyin." },
+  "popup_notEditable": { "message": "Etkin öğe bir metin alanı değil." },
+  "popup_extensionNotLoaded": { "message": "Uzantının bağlanması için sayfayı yeniden yükleyin." },
+  "popup_genericError": { "message": "Hata: $1" },
+  "popup_couldntDecrypt": { "message": "Düzeltme başarısız: $1." },
+  "popup_undone": { "message": "Geri alındı." },
+  "popup_couldntUndo": { "message": "Geri alma başarısız: $1." },
+  "popup_detectionDirection": { "message": "Algılandı: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 Tamamen tarayıcınızda çalışır. Hiçbir metin cihazınızdan ayrılmaz." },
+  "popup_sourceOnGitHub": { "message": "Kaynak kodu GitHub'da" },
+
+  "siteAdapter_auto": { "message": "Otomatik" },
+  "siteAdapter_generic": { "message": "Diğer / genel" },
+
+  "options_title": { "message": "VibeNest Switcher — ayarlar" },
+  "options_h1": { "message": "VibeNest Switcher — ayarlar" },
+  "options_uiLanguageH2": { "message": "Arayüz dili" },
+  "options_uiLanguageHint": { "message": "Popup ve bu sayfanın dili. Otomatik = tarayıcı dilini takip et." },
+  "options_uiLanguageAuto": { "message": "Otomatik (tarayıcı dili)" },
+  "options_firstRunWelcome": { "message": "VibeNest Switcher'a hoş geldiniz." },
+  "options_firstRunBody": {
+    "message": "Tarayıcı dilinizden hangi dillerde yazdığınızı otomatik olarak algılayamadık. Aşağıdan en az iki tane seçin — istediğiniz zaman bu sayfadan değiştirebilirsiniz."
+  },
+  "options_privacyH2": { "message": "Gizlilik" },
+  "options_privacyBody": {
+    "message": "Varsayılan olarak düzeltme tamamen cihazınızda çalışır — hiçbir metin tarayıcıyı terk etmez. 9 yerleşik dil: İngilizce, Rusça, Ukraynaca, Belarusça, Almanca, Fransızca, Yunanca, İbranice, Türkçe."
+  },
+  "options_useApiFallback": { "message": "Uzak API yedeğine izin ver" },
+  "options_apiEndpoint": { "message": "API uç noktası (isteğe bağlı)" },
+  "options_apiEndpointHint": { "message": "Yalnızca onay kutusu işaretliyken kullanılır. Tamamen çevrimdışı kalmak için boş bırakın." },
+  "options_languagesH2": { "message": "Diller" },
+  "options_languagesHint": { "message": "Düzenin değiştirileceği dilleri seçin. En az 2." },
+  "options_behaviourH2": { "message": "Davranış" },
+  "options_replaceWhole": { "message": "Hiçbir şey seçili değilken tüm composer'ı düzelt" },
+  "options_replaceWholeHint": {
+    "message": "Kapalı — uzantı yalnızca açıkça seçilen metni düzeltir; desteklenen sitelerde boş seçimle alana dokunmadan bir uyarı gösterir."
+  },
+  "options_autoCorrect": { "message": "Yazarken otomatik düzelt (Punto Switcher tarzı)" },
+  "options_autoCorrectHint": {
+    "message": "Yanlış düzendeki bir kelimenin ardından boşluk veya noktalama girdiğinizde, uzantı onu yerinde düzeltir. Şifre alanları ve politika tarafından hariç tutulan siteler atlanır. Backspace geri alır."
+  },
+  "options_sitePolicyH2": { "message": "Site politikası" },
+  "options_siteModeLabel": { "message": "Mod" },
+  "options_siteModeAll": { "message": "Her yerde (varsayılan)" },
+  "options_siteModeBlacklist": { "message": "Listelenmiş hariç her yerde" },
+  "options_siteModeWhitelist": { "message": "Yalnızca listelenmişlerde" },
+  "options_siteListLabel": { "message": "Siteler (her satıra bir hostname)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Hostname'ler tam olarak veya son ek olarak eşleşir (örn. vk.com, m.vk.com'u da kapsar). Varsayılan mod (her yerde) için boş bırakın."
+  },
+  "options_shortcutHint": { "message": "Klavye kısayolu $1 üzerinden yapılandırılır." },
+  "options_save": { "message": "Kaydet" },
+  "options_saved": { "message": "Kaydedildi ✓" },
+  "options_pickAtLeastTwo": { "message": "En az 2 dil seçin." },
+  "options_contactBody": { "message": "Öneriler, hata raporları veya yeni dil talepleri için açığız — yazın:" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: düzen zaten doğruydu" },
+  "toast_undone": { "message": "Switcher: geri alındı" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": { "message": "Atlandı: $1 site politikanız tarafından hariç tutuluyor." },
+  "notification_copiedToClipboard": { "message": "Panoya kopyalandı: $1" },
+  "notification_selectFirst": { "message": "Önce metin seçin veya bir metin alanına tıklayın." },
+  "notification_genericError": { "message": "Hata: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "İstenen bazı diller çevrimdışı pakette yok; Ayarlar'da bir API uç noktası yapılandırın."
+  },
+  "convert_apiUnreachable": { "message": "API'ye ulaşılamıyor: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

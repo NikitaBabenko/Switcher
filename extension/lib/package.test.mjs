@@ -35,6 +35,16 @@ test("includes lib/data.js and lib/detector.js (runtime data + JS port)", () => 
   assert.equal(shouldInclude("lib/detector.js"), true);
 });
 
+test("includes lib/i18n.js (localization helper)", () => {
+  assert.equal(shouldInclude("lib/i18n.js"), true);
+});
+
+test("includes _locales messages files for every shipped locale", () => {
+  for (const code of ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr"]) {
+    assert.equal(shouldInclude(`_locales/${code}/messages.json`), true, `_locales/${code} should ship`);
+  }
+});
+
 test("includes icons", () => {
   assert.equal(shouldInclude("icons/icon16.png"), true);
   assert.equal(shouldInclude("icons/icon128.png"), true);
@@ -98,6 +108,16 @@ test("excludes dotfiles we know are dev-only", () => {
   assert.equal(shouldInclude(".gitignore"), false);
 });
 
+test("excludes the store-listings folder (long-form descriptions belong in the dashboard, not the zip)", () => {
+  assert.equal(shouldInclude("store-listings/en.md"), false);
+  assert.equal(shouldInclude("store-listings/ru.md"), false);
+  assert.equal(shouldInclude("store-listings/README.md"), false);
+});
+
+test("excludes the test-fixtures folder (local-only e2e fixture)", () => {
+  assert.equal(shouldInclude("test-fixtures/index.html"), false);
+});
+
 test("excludes source maps", () => {
   assert.equal(shouldInclude("background.js.map"), false);
   assert.equal(shouldInclude("lib/detector.js.map"), false);
@@ -128,11 +148,34 @@ test("real extension tree includes a stable set of files", async () => {
 
   const files = walk(root).sort();
   // Sanity floor: at least these files are always shipped.
-  for (const must of ["manifest.json", "background.js", "content.js", "popup.html", "options.html", "lib/detector.js", "lib/data.js"]) {
-    assert.ok(files.includes(must), `missing ${must} in ${files.join(", ")}`);
+  for (const must of [
+    "manifest.json",
+    "background.js",
+    "content.js",
+    "popup.html",
+    "options.html",
+    "lib/detector.js",
+    "lib/data.js",
+    "lib/i18n.js",
+    "_locales/en/messages.json",
+    "_locales/ru/messages.json",
+  ]) {
+    assert.ok(files.includes(must), `missing ${must}`);
   }
   // And these MUST NOT be present.
-  for (const forbidden of ["README.md", "PRIVACY.md", "package.json", "tools/package.mjs", "lib/build-models.mjs", "lib/detector.test.mjs", "data/layouts/en.json", "data/wordlists/en.txt"]) {
+  for (const forbidden of [
+    "README.md",
+    "PRIVACY.md",
+    "package.json",
+    "tools/package.mjs",
+    "lib/build-models.mjs",
+    "lib/detector.test.mjs",
+    "lib/i18n.test.mjs",
+    "data/layouts/en.json",
+    "data/wordlists/en.txt",
+    "store-listings/en.md",
+    "store-listings/README.md",
+  ]) {
     assert.ok(!files.includes(forbidden), `forbidden file ${forbidden} got included`);
   }
 });

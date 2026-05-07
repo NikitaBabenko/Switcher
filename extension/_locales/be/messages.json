@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — выправіць раскладку · 9 моў",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Адкрыты аналаг Punto Switcher. Выпраўляе тэкст, набраны не ў той раскладцы. 9 моў. Лакальна, без воблака.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — выправіць раскладку (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Пераключыць раскладку вылучанага тэксту",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: пераключыць раскладку",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Сайт" },
+  "popup_detectedPrefix": { "message": "Вызначана" },
+  "popup_detectedNoTab": { "message": "Вызначана: (няма ўкладкі)" },
+  "popup_detectedNoContent": { "message": "Вызначана: (пашырэнне не падключана да гэтай старонкі)" },
+  "popup_detectedField": { "message": "поле: <$1>" },
+  "popup_detectedNoField": { "message": "няма фокусу ў полі" },
+  "popup_excludedByPolicy": { "message": "выключана палітыкай" },
+  "popup_excludedByPolicyExplain": { "message": "$1 выключаны палітыкай сайтаў. Змяніце спіс у Наладах." },
+  "popup_decryptFocused": { "message": "Выправіць актыўнае поле" },
+  "popup_undo": { "message": "Адмяніць" },
+  "popup_undoTitle": { "message": "Адмяніць апошняе выпраўленне на гэтай старонцы" },
+  "popup_shortcutHintBefore": { "message": "Падказка: фокус у полі і націсніце" },
+  "popup_shortcutHintAfter": { "message": "— тое самае." },
+  "popup_pasteHeader": { "message": "Або ўстаўце тэкст і выправіце:" },
+  "popup_pastePlaceholder": { "message": "Устаўце тут тэкст не ў той раскладцы…" },
+  "popup_decrypt": { "message": "Выправіць" },
+  "popup_copy": { "message": "Капіяваць" },
+  "popup_copied": { "message": "Скапіявана" },
+  "popup_settingsLink": { "message": "Налады" },
+  "popup_languageLabel": { "message": "Мова інтэрфейсу" },
+  "popup_decrypting": { "message": "Выпраўляю…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "Раскладка ўжо правільная." },
+  "popup_clipboardFallback": { "message": "Скапіявана ў буфер (не атрымалася ўставіць у поле: $1)." },
+  "popup_writeFailed": { "message": "Не атрымалася ўставіць у поле: $1." },
+  "popup_emptyField": { "message": "У актыўным полі няма тэксту." },
+  "popup_composerNotFound": { "message": "Не ўдалося знайсці тэкставае поле. Клікніце ў патрэбнае поле і паспрабуйце зноў." },
+  "popup_notEditable": { "message": "Актыўны элемент — не тэкставае поле." },
+  "popup_extensionNotLoaded": { "message": "Перазагрузіце старонку, каб пашырэнне падключылася." },
+  "popup_genericError": { "message": "Памылка: $1" },
+  "popup_couldntDecrypt": { "message": "Не ўдалося выправіць: $1." },
+  "popup_undone": { "message": "Адменена." },
+  "popup_couldntUndo": { "message": "Не ўдалося адмяніць: $1." },
+  "popup_detectionDirection": { "message": "Вызначана: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 Працуе лакальна ў браўзеры. Тэкст нікуды не сыходзіць." },
+  "popup_sourceOnGitHub": { "message": "Зыходнікі на GitHub" },
+
+  "siteAdapter_auto": { "message": "Аўта" },
+  "siteAdapter_generic": { "message": "Іншы / агульны" },
+
+  "options_title": { "message": "VibeNest Switcher — налады" },
+  "options_h1": { "message": "VibeNest Switcher — налады" },
+  "options_uiLanguageH2": { "message": "Мова інтэрфейсу" },
+  "options_uiLanguageHint": { "message": "Мова popup'а і гэтай старонкі. «Аўта» — следаваць мове браўзера." },
+  "options_uiLanguageAuto": { "message": "Аўта (мова браўзера)" },
+  "options_firstRunWelcome": { "message": "Сардэчна запрашаем у VibeNest Switcher." },
+  "options_firstRunBody": {
+    "message": "Не ўдалося аўтаматычна вызначыць мовы, якімі вы пішаце, па лакалі браўзера. Выберыце прынамсі дзве ніжэй — гэта можна змяніць у любы час."
+  },
+  "options_privacyH2": { "message": "Прыватнасць" },
+  "options_privacyBody": {
+    "message": "Па змаўчанні ўся апрацоўка адбываецца на вашай прыладзе — ні адна літара не пакідае браўзер. Убудавана 9 моў: англійская, руская, украінская, беларуская, нямецкая, французская, грэцкая, іўрыт, турэцкая."
+  },
+  "options_useApiFallback": { "message": "Дазволіць fallback на аддалены API" },
+  "options_apiEndpoint": { "message": "API-эндпойнт (апцыянальна)" },
+  "options_apiEndpointHint": { "message": "Выкарыстоўваецца толькі пры ўключаным сцяжку. Пакіньце пустым — будзеце цалкам афлайн." },
+  "options_languagesH2": { "message": "Мовы" },
+  "options_languagesHint": { "message": "Выберыце мовы, паміж якімі пашырэнне будзе пераключаць раскладку. Мінімум 2." },
+  "options_behaviourH2": { "message": "Паводзіны" },
+  "options_replaceWhole": { "message": "Выпраўляць увесь кампазер, калі нічога не вылучана" },
+  "options_replaceWholeHint": {
+    "message": "Выкл — пашырэнне выправіць толькі відавочна вылучаны тэкст; на падтрымліваных сайтах пры пустым вылучэнні пакажа апавяшчэнне, не закранаючы поле."
+  },
+  "options_autoCorrect": { "message": "Аўтавыпраўленне падчас набору (як у Punto Switcher)" },
+  "options_autoCorrectHint": {
+    "message": "Калі вы ўводзіце прабел або знак прыпынку пасля слова ў няправільнай раскладцы, пашырэнне выправіць яго на месцы. Прапускае палі пароляў і сайты, выключаныя ў палітыцы. Backspace адмяняе."
+  },
+  "options_sitePolicyH2": { "message": "Палітыка сайтаў" },
+  "options_siteModeLabel": { "message": "Рэжым" },
+  "options_siteModeAll": { "message": "Усюды (па змаўчанні)" },
+  "options_siteModeBlacklist": { "message": "Усюды, акрамя пазначаных" },
+  "options_siteModeWhitelist": { "message": "Толькі на пазначаных" },
+  "options_siteListLabel": { "message": "Сайты (па адным хосце на радок)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Хост-нэймы супадаюць дакладна або па суфіксе (напрыклад, vk.com пакрывае m.vk.com). Пакіньце пустым для рэжыму па змаўчанні (усюды)."
+  },
+  "options_shortcutHint": { "message": "Гарачая клавіша наладжваецца на $1." },
+  "options_save": { "message": "Захаваць" },
+  "options_saved": { "message": "Захавана ✓" },
+  "options_pickAtLeastTwo": { "message": "Выберыце не менш за 2 мовы." },
+  "options_contactBody": { "message": "Адкрытыя для прапаноў, баг-рэпартаў і заявак на новыя мовы — пішыце на" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: раскладка ўжо правільная" },
+  "toast_undone": { "message": "Switcher: адменена" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": { "message": "Прапушчана: $1 выключаны палітыкай сайтаў." },
+  "notification_copiedToClipboard": { "message": "Скапіявана ў буфер: $1" },
+  "notification_selectFirst": { "message": "Спачатку вылучыце тэкст або клікніце ў тэкставае поле." },
+  "notification_genericError": { "message": "Памылка: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "Частка выбраных моў не ўбудавана афлайн; наладзьце API-эндпойнт у Наладах."
+  },
+  "convert_apiUnreachable": { "message": "API недаступны: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

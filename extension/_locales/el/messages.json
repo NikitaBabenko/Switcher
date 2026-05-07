@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — Διόρθωση Διάταξης · 9 γλώσσες",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Εναλλακτική ανοιχτού κώδικα για Punto Switcher. Διορθώνει κείμενο σε λάθος διάταξη. 9 γλώσσες, εκτός σύνδεσης.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — διόρθωση λάθος διάταξης (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Αλλαγή διάταξης του επιλεγμένου κειμένου",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: αλλαγή διάταξης",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Ιστότοπος" },
+  "popup_detectedPrefix": { "message": "Ανιχνεύθηκε" },
+  "popup_detectedNoTab": { "message": "Ανιχνεύθηκε: (κανένα tab)" },
+  "popup_detectedNoContent": { "message": "Ανιχνεύθηκε: (η επέκταση δεν είναι ενεργή σε αυτή τη σελίδα)" },
+  "popup_detectedField": { "message": "πεδίο: <$1>" },
+  "popup_detectedNoField": { "message": "κανένα εστιασμένο πεδίο" },
+  "popup_excludedByPolicy": { "message": "εξαιρέθηκε από την πολιτική" },
+  "popup_excludedByPolicyExplain": { "message": "Το $1 εξαιρείται από την πολιτική σας. Επεξεργαστείτε τη λίστα στις Ρυθμίσεις." },
+  "popup_decryptFocused": { "message": "Διόρθωση εστιασμένου πεδίου" },
+  "popup_undo": { "message": "Αναίρεση" },
+  "popup_undoTitle": { "message": "Αναίρεση τελευταίας διόρθωσης σε αυτή τη σελίδα" },
+  "popup_shortcutHintBefore": { "message": "Συμβουλή: εστιάστε σε ένα πεδίο και πατήστε" },
+  "popup_shortcutHintAfter": { "message": "— ίδιο αποτέλεσμα." },
+  "popup_pasteHeader": { "message": "Ή επικολλήστε κείμενο και διορθώστε:" },
+  "popup_pastePlaceholder": { "message": "Επικολλήστε εδώ κείμενο σε λάθος διάταξη…" },
+  "popup_decrypt": { "message": "Διόρθωση" },
+  "popup_copy": { "message": "Αντιγραφή" },
+  "popup_copied": { "message": "Αντιγράφηκε" },
+  "popup_settingsLink": { "message": "Ρυθμίσεις" },
+  "popup_languageLabel": { "message": "Γλώσσα διεπαφής" },
+  "popup_decrypting": { "message": "Διόρθωση…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "Η διάταξη ήταν ήδη σωστή." },
+  "popup_clipboardFallback": { "message": "Αντιγράφηκε στο πρόχειρο (αποτυχία εγγραφής στο πεδίο: $1)." },
+  "popup_writeFailed": { "message": "Αποτυχία εγγραφής στο πεδίο: $1." },
+  "popup_emptyField": { "message": "Δεν υπάρχει κείμενο στο εστιασμένο πεδίο." },
+  "popup_composerNotFound": { "message": "Δεν βρέθηκε πεδίο κειμένου σε αυτή τη σελίδα. Κάντε κλικ σε ένα και προσπαθήστε ξανά." },
+  "popup_notEditable": { "message": "Το εστιασμένο στοιχείο δεν είναι πεδίο κειμένου." },
+  "popup_extensionNotLoaded": { "message": "Φορτώστε ξανά τη σελίδα ώστε η επέκταση να συνδεθεί." },
+  "popup_genericError": { "message": "Σφάλμα: $1" },
+  "popup_couldntDecrypt": { "message": "Αδυναμία διόρθωσης: $1." },
+  "popup_undone": { "message": "Αναιρέθηκε." },
+  "popup_couldntUndo": { "message": "Αδυναμία αναίρεσης: $1." },
+  "popup_detectionDirection": { "message": "Ανιχνεύθηκε: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 Εκτελείται εξ ολοκλήρου στο πρόγραμμα περιήγησής σας. Κανένα κείμενο δεν φεύγει από τη συσκευή." },
+  "popup_sourceOnGitHub": { "message": "Πηγαίος κώδικας στο GitHub" },
+
+  "siteAdapter_auto": { "message": "Αυτόματα" },
+  "siteAdapter_generic": { "message": "Άλλος / γενικός" },
+
+  "options_title": { "message": "VibeNest Switcher — ρυθμίσεις" },
+  "options_h1": { "message": "VibeNest Switcher — ρυθμίσεις" },
+  "options_uiLanguageH2": { "message": "Γλώσσα διεπαφής" },
+  "options_uiLanguageHint": { "message": "Γλώσσα του popup και αυτής της σελίδας. Αυτόματα = ακολουθεί τη γλώσσα του προγράμματος περιήγησης." },
+  "options_uiLanguageAuto": { "message": "Αυτόματα (γλώσσα προγράμματος περιήγησης)" },
+  "options_firstRunWelcome": { "message": "Καλώς ήρθατε στο VibeNest Switcher." },
+  "options_firstRunBody": {
+    "message": "Δεν εντοπίσαμε αυτόματα τις γλώσσες που πληκτρολογείτε από τα locale του προγράμματος περιήγησης. Επιλέξτε τουλάχιστον δύο παρακάτω — μπορείτε να το αλλάξετε ανά πάσα στιγμή."
+  },
+  "options_privacyH2": { "message": "Απόρρητο" },
+  "options_privacyBody": {
+    "message": "Από προεπιλογή, η διόρθωση εκτελείται εξ ολοκλήρου στη συσκευή σας — κανένα κείμενο δεν φεύγει από το πρόγραμμα περιήγησης. 9 ενσωματωμένες γλώσσες: αγγλικά, ρωσικά, ουκρανικά, λευκορωσικά, γερμανικά, γαλλικά, ελληνικά, εβραϊκά, τουρκικά."
+  },
+  "options_useApiFallback": { "message": "Επιτρέψτε το remote API fallback" },
+  "options_apiEndpoint": { "message": "API endpoint (προαιρετικό)" },
+  "options_apiEndpointHint": { "message": "Χρησιμοποιείται μόνο όταν είναι ενεργό το checkbox. Αφήστε κενό για πλήρη λειτουργία εκτός σύνδεσης." },
+  "options_languagesH2": { "message": "Γλώσσες" },
+  "options_languagesHint": { "message": "Επιλέξτε τις γλώσσες μεταξύ των οποίων θα αλλάζει η διάταξη. Τουλάχιστον 2." },
+  "options_behaviourH2": { "message": "Συμπεριφορά" },
+  "options_replaceWhole": { "message": "Διόρθωση ολόκληρου του composer όταν δεν υπάρχει επιλογή" },
+  "options_replaceWholeHint": {
+    "message": "Off — η επέκταση διορθώνει μόνο ρητά επιλεγμένο κείμενο· σε υποστηριζόμενους ιστότοπους με κενή επιλογή εμφανίζει ειδοποίηση χωρίς να αγγίξει το πεδίο."
+  },
+  "options_autoCorrect": { "message": "Αυτόματη διόρθωση κατά την πληκτρολόγηση (στυλ Punto Switcher)" },
+  "options_autoCorrectHint": {
+    "message": "Όταν πληκτρολογείτε κενό ή σημείο στίξης μετά από λέξη σε λάθος διάταξη, η επέκταση τη διορθώνει επί τόπου. Αγνοεί πεδία κωδικών και ιστότοπους που εξαιρούνται. Backspace αναιρεί."
+  },
+  "options_sitePolicyH2": { "message": "Πολιτική ιστότοπων" },
+  "options_siteModeLabel": { "message": "Λειτουργία" },
+  "options_siteModeAll": { "message": "Παντού (προεπιλογή)" },
+  "options_siteModeBlacklist": { "message": "Παντού εκτός των αναφερόμενων" },
+  "options_siteModeWhitelist": { "message": "Μόνο στους αναφερόμενους" },
+  "options_siteListLabel": { "message": "Ιστότοποι (ένα hostname ανά γραμμή)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Τα hostnames ταιριάζουν ακριβώς ή με κατάληξη (π.χ. το vk.com καλύπτει και το m.vk.com). Αφήστε κενό για προεπιλογή (παντού)."
+  },
+  "options_shortcutHint": { "message": "Η συντόμευση πληκτρολογίου ρυθμίζεται στο $1." },
+  "options_save": { "message": "Αποθήκευση" },
+  "options_saved": { "message": "Αποθηκεύτηκε ✓" },
+  "options_pickAtLeastTwo": { "message": "Επιλέξτε τουλάχιστον 2 γλώσσες." },
+  "options_contactBody": { "message": "Ανοιχτοί σε προτάσεις, αναφορές σφαλμάτων ή νέες γλώσσες — γράψτε στο" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: η διάταξη ήταν ήδη σωστή" },
+  "toast_undone": { "message": "Switcher: αναιρέθηκε" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": { "message": "Παράκαμψη: το $1 εξαιρείται από την πολιτική σας." },
+  "notification_copiedToClipboard": { "message": "Αντιγράφηκε στο πρόχειρο: $1" },
+  "notification_selectFirst": { "message": "Επιλέξτε πρώτα κείμενο ή κάντε κλικ σε πεδίο κειμένου." },
+  "notification_genericError": { "message": "Σφάλμα: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "Κάποιες ζητούμενες γλώσσες δεν περιλαμβάνονται εκτός σύνδεσης· ρυθμίστε ένα API endpoint στις Ρυθμίσεις."
+  },
+  "convert_apiUnreachable": { "message": "Το API δεν είναι προσβάσιμο: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

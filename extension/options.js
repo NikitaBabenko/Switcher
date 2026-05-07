@@ -1,5 +1,6 @@
 import { getSettings, saveSettings, DEFAULTS } from "./config.js";
 import { languageInfo } from "./lib/detector.js";
+import { bootstrap, t, availableUiLocales, getUiLocale, setUiLocale } from "./lib/i18n.js";
 
 const apiBaseInput = document.getElementById("apiBase");
 const useApiFallbackCb = document.getElementById("useApiFallback");
@@ -10,11 +11,38 @@ const siteModeSel = document.getElementById("siteMode");
 const siteListTa = document.getElementById("siteList");
 const saveBtn = document.getElementById("save");
 const savedFlag = document.getElementById("saved");
+const uiLocaleSel = document.getElementById("uiLocale");
+const shortcutHintText = document.getElementById("shortcut-hint-text");
 
-document.getElementById("open-shortcuts").addEventListener("click", (e) => {
-  e.preventDefault();
-  chrome.tabs.create({ url: "chrome://extensions/shortcuts" });
-});
+function populateUiLocaleSelect(active) {
+  uiLocaleSel.innerHTML = "";
+  for (const { code, nativeName } of availableUiLocales()) {
+    const opt = document.createElement("option");
+    opt.value = code;
+    // Show "Auto (browser language)" via the i18n key, native names verbatim
+    opt.textContent = code === "auto" ? t("options_uiLanguageAuto") : nativeName;
+    if (code === active) opt.selected = true;
+    uiLocaleSel.appendChild(opt);
+  }
+}
+
+function buildShortcutHint() {
+  // Build "The keyboard shortcut is configured at <link>." with a clickable link.
+  shortcutHintText.innerHTML = "";
+  const template = t("options_shortcutHint");
+  const [before, after] = template.split("$1");
+  shortcutHintText.appendChild(document.createTextNode(before ?? ""));
+  const a = document.createElement("a");
+  a.href = "#";
+  a.id = "open-shortcuts";
+  a.textContent = "chrome://extensions/shortcuts";
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    chrome.tabs.create({ url: "chrome://extensions/shortcuts" });
+  });
+  shortcutHintText.appendChild(a);
+  shortcutHintText.appendChild(document.createTextNode(after ?? ""));
+}
 
 async function load() {
   const settings = await getSettings();
@@ -47,7 +75,7 @@ saveBtn.addEventListener("click", async () => {
   const apiBase = apiBaseInput.value.trim();
   const languages = Array.from(langList.querySelectorAll("input[type=checkbox]:checked")).map((c) => c.value);
   if (languages.length < 2) {
-    alert("Pick at least 2 languages.");
+    alert(t("options_pickAtLeastTwo"));
     return;
   }
   await saveSettings({
@@ -66,16 +94,27 @@ saveBtn.addEventListener("click", async () => {
   setTimeout(() => savedFlag.classList.remove("on"), 1500);
 });
 
-load().then(maybeShowFirstRun);
+uiLocaleSel.addEventListener("change", async () => {
+  await setUiLocale(uiLocaleSel.value);
+  // Reload reapplies bootstrap with the new locale and refreshes static labels.
+  window.location.reload();
+});
+
+(async () => {
+  await bootstrap(document);
+  document.title = t("options_title");
+  populateUiLocaleSelect(await getUiLocale());
+  buildShortcutHint();
+  await load();
+  maybeShowFirstRun();
+})();
 
 function maybeShowFirstRun() {
   if (window.location.hash !== "#first-run") return;
   const banner = document.getElementById("first-run-banner");
   if (banner) banner.classList.add("on");
-  // Bring the Languages section into view so the call-to-action is obvious.
   const target = document.getElementById("languages");
   if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-  // Drop the hash so a refresh doesn't keep showing the welcome banner.
   try {
     window.history.replaceState(null, "", window.location.pathname);
   } catch { /* ignore */ }

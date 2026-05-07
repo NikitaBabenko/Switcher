@@ -36,20 +36,26 @@
       }
       .first-run.on { display: block; }
       .first-run strong { color: #1e3a8a; }
+      .ui-language { display: flex; gap: 12px; align-items: center; margin: 8px 0; }
+      .ui-language select { font-family: inherit; }
     </style>
   </head>
   <body>
-    <h1>VibeNest Switcher — settings</h1>
+    <h1 data-i18n="options_h1">VibeNest Switcher — settings</h1>
 
     <div id="first-run-banner" class="first-run">
-      <strong>Welcome to VibeNest Switcher.</strong>
-      We couldn't auto-detect the languages you type in from your browser
-      locale. Please pick at least two below — you can change this anytime
-      from this page.
+      <strong data-i18n="options_firstRunWelcome">Welcome to VibeNest Switcher.</strong>
+      <span data-i18n="options_firstRunBody">We couldn't auto-detect the languages you type in from your browser locale. Please pick at least two below — you can change this anytime from this page.</span>
     </div>
 
-    <h2>Privacy</h2>
-    <p class="muted">
+    <h2 data-i18n="options_uiLanguageH2">Interface language</h2>
+    <div class="ui-language">
+      <select id="uiLocale"></select>
+    </div>
+    <p class="muted" data-i18n="options_uiLanguageHint">Language of the popup and this page. Auto = follow your browser.</p>
+
+    <h2 data-i18n="options_privacyH2">Privacy</h2>
+    <p class="muted" data-i18n="options_privacyBody">
       By default, decryption runs entirely on your machine — no text leaves the
       browser. Bundled languages: 9 (English, Russian, Ukrainian, Belarusian,
       German, French, Greek, Hebrew, Turkish).
@@ -57,68 +63,68 @@
 
     <label>
       <input type="checkbox" id="useApiFallback" />
-      Allow remote API fallback
+      <span data-i18n="options_useApiFallback">Allow remote API fallback</span>
     </label>
     <label>
-      API endpoint (optional)
+      <span data-i18n="options_apiEndpoint">API endpoint (optional)</span>
       <input type="text" id="apiBase" placeholder="https://example.com" />
     </label>
-    <p class="muted">
+    <p class="muted" data-i18n="options_apiEndpointHint">
       Used only when the checkbox is on. Leave empty to stay fully offline.
     </p>
 
-    <h2 id="languages">Languages</h2>
-    <p class="muted">Pick the languages the layout should switch between. At least 2.</p>
+    <h2 id="languages" data-i18n="options_languagesH2">Languages</h2>
+    <p class="muted" data-i18n="options_languagesHint">Pick the languages the layout should switch between. At least 2.</p>
     <div class="lang-list" id="langList"></div>
 
-    <h2>Behaviour</h2>
+    <h2 data-i18n="options_behaviourH2">Behaviour</h2>
     <label>
       <input type="checkbox" id="replaceWhole" />
-      Decrypt the whole composer when nothing is selected
+      <span data-i18n="options_replaceWhole">Decrypt the whole composer when nothing is selected</span>
     </label>
-    <p class="muted">
+    <p class="muted" data-i18n="options_replaceWholeHint">
       Off — extension only decrypts text you have explicitly selected; on supported
       sites with empty selection it shows a notice instead of touching the field.
     </p>
 
     <label>
       <input type="checkbox" id="autoCorrect" />
-      Auto-correct words as I type (Punto Switcher style)
+      <span data-i18n="options_autoCorrect">Auto-correct words as I type (Punto-Switcher style)</span>
     </label>
-    <p class="muted">
+    <p class="muted" data-i18n="options_autoCorrectHint">
       When you type a space or punctuation after a word that's clearly in the wrong
       layout, the extension fixes it in place. Skipped on password fields and on
       sites excluded by your site policy. Press Backspace to undo.
     </p>
 
-    <h2>Site policy</h2>
+    <h2 data-i18n="options_sitePolicyH2">Site policy</h2>
     <label for="siteMode" style="display:flex; gap:8px; align-items:center">
-      <span>Mode</span>
+      <span data-i18n="options_siteModeLabel">Mode</span>
       <select id="siteMode">
-        <option value="all">Everywhere (default)</option>
-        <option value="blacklist">Everywhere except listed</option>
-        <option value="whitelist">Only on listed sites</option>
+        <option value="all" data-i18n="options_siteModeAll">Everywhere (default)</option>
+        <option value="blacklist" data-i18n="options_siteModeBlacklist">Everywhere except listed</option>
+        <option value="whitelist" data-i18n="options_siteModeWhitelist">Only on listed sites</option>
       </select>
     </label>
     <label>
-      Sites (one hostname per line)
-      <textarea id="siteList" placeholder="example.com&#10;mybank.com"></textarea>
+      <span data-i18n="options_siteListLabel">Sites (one hostname per line)</span>
+      <textarea id="siteList" data-i18n-placeholder="options_siteListPlaceholder" placeholder="example.com&#10;mybank.com"></textarea>
     </label>
-    <p class="muted">
-      Hostnames match exactly or by suffix (e.g. <code>vk.com</code> also matches
-      <code>m.vk.com</code>). Leave empty for the default (everywhere) mode.
+    <p class="muted" data-i18n="options_siteListHint">
+      Hostnames match exactly or by suffix (e.g. vk.com also matches m.vk.com).
+      Leave empty for the default (everywhere) mode.
     </p>
 
     <p class="muted">
-      The keyboard shortcut is configured at <a href="#" id="open-shortcuts">chrome://extensions/shortcuts</a>.
+      <span id="shortcut-hint-text"></span>
     </p>
 
-    <button id="save">Save</button>
-    <span class="saved" id="saved">Saved ✓</span>
+    <button id="save" data-i18n="options_save">Save</button>
+    <span class="saved" id="saved" data-i18n="options_saved">Saved ✓</span>
 
     <div class="contact">
-      Open to suggestions, bug reports, or new language requests —
-      write to <a href="mailto:info@vibenest.net">info@vibenest.net</a>.
+      <span data-i18n="options_contactBody">Open to suggestions, bug reports, or new language requests — write to</span>
+      <a href="mailto:info@vibenest.net">info@vibenest.net</a>.
     </div>
 
     <script src="options.js" type="module"></script>

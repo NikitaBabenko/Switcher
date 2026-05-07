@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — Tastaturlayout-Korrektor · 9 Sprachen",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Open-Source-Alternative zu Punto Switcher. Behebt Text in falschem Tastaturlayout. 9 Sprachen, komplett offline.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — falsches Layout korrigieren (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Tastaturlayout des markierten Textes umschalten",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: Tastaturlayout umschalten",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Seite" },
+  "popup_detectedPrefix": { "message": "Erkannt" },
+  "popup_detectedNoTab": { "message": "Erkannt: (kein Tab)" },
+  "popup_detectedNoContent": { "message": "Erkannt: (Erweiterung auf dieser Seite nicht aktiv)" },
+  "popup_detectedField": { "message": "Feld: <$1>" },
+  "popup_detectedNoField": { "message": "kein fokussiertes Feld" },
+  "popup_excludedByPolicy": { "message": "durch Richtlinie ausgeschlossen" },
+  "popup_excludedByPolicyExplain": { "message": "$1 ist durch Ihre Seitenrichtlinie ausgeschlossen. Liste in den Einstellungen bearbeiten." },
+  "popup_decryptFocused": { "message": "Aktives Feld korrigieren" },
+  "popup_undo": { "message": "Rückgängig" },
+  "popup_undoTitle": { "message": "Letzte Korrektur auf dieser Seite rückgängig machen" },
+  "popup_shortcutHintBefore": { "message": "Tipp: Feld fokussieren und drücken Sie" },
+  "popup_shortcutHintAfter": { "message": "— mit gleichem Effekt." },
+  "popup_pasteHeader": { "message": "Oder Text einfügen und korrigieren:" },
+  "popup_pastePlaceholder": { "message": "Text mit falschem Layout hier einfügen…" },
+  "popup_decrypt": { "message": "Korrigieren" },
+  "popup_copy": { "message": "Kopieren" },
+  "popup_copied": { "message": "Kopiert" },
+  "popup_settingsLink": { "message": "Einstellungen" },
+  "popup_languageLabel": { "message": "Oberflächensprache" },
+  "popup_decrypting": { "message": "Korrigiere…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "Layout war bereits korrekt." },
+  "popup_clipboardFallback": { "message": "In Zwischenablage kopiert (Schreiben ins Feld fehlgeschlagen: $1)." },
+  "popup_writeFailed": { "message": "Schreiben ins Feld fehlgeschlagen: $1." },
+  "popup_emptyField": { "message": "Kein Text im fokussierten Feld." },
+  "popup_composerNotFound": { "message": "Kein Textfeld auf dieser Seite gefunden. Klicken Sie in eines und versuchen Sie es erneut." },
+  "popup_notEditable": { "message": "Das fokussierte Element ist kein Textfeld." },
+  "popup_extensionNotLoaded": { "message": "Seite neu laden, damit die Erweiterung sich verbinden kann." },
+  "popup_genericError": { "message": "Fehler: $1" },
+  "popup_couldntDecrypt": { "message": "Korrektur fehlgeschlagen: $1." },
+  "popup_undone": { "message": "Rückgängig gemacht." },
+  "popup_couldntUndo": { "message": "Rückgängig fehlgeschlagen: $1." },
+  "popup_detectionDirection": { "message": "Erkannt: $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 Läuft komplett in Ihrem Browser. Kein Text verlässt Ihr Gerät." },
+  "popup_sourceOnGitHub": { "message": "Quellcode auf GitHub" },
+
+  "siteAdapter_auto": { "message": "Auto" },
+  "siteAdapter_generic": { "message": "Andere / generisch" },
+
+  "options_title": { "message": "VibeNest Switcher — Einstellungen" },
+  "options_h1": { "message": "VibeNest Switcher — Einstellungen" },
+  "options_uiLanguageH2": { "message": "Oberflächensprache" },
+  "options_uiLanguageHint": { "message": "Sprache des Popups und dieser Seite. Auto = der Browsersprache folgen." },
+  "options_uiLanguageAuto": { "message": "Auto (Browsersprache)" },
+  "options_firstRunWelcome": { "message": "Willkommen bei VibeNest Switcher." },
+  "options_firstRunBody": {
+    "message": "Wir konnten anhand Ihrer Browsersprache nicht automatisch erkennen, in welchen Sprachen Sie tippen. Wählen Sie unten mindestens zwei aus — Sie können das jederzeit auf dieser Seite ändern."
+  },
+  "options_privacyH2": { "message": "Datenschutz" },
+  "options_privacyBody": {
+    "message": "Standardmäßig läuft die Korrektur vollständig auf Ihrem Gerät — kein Text verlässt den Browser. 9 mitgelieferte Sprachen: Englisch, Russisch, Ukrainisch, Belarussisch, Deutsch, Französisch, Griechisch, Hebräisch, Türkisch."
+  },
+  "options_useApiFallback": { "message": "Remote-API-Fallback erlauben" },
+  "options_apiEndpoint": { "message": "API-Endpunkt (optional)" },
+  "options_apiEndpointHint": { "message": "Wird nur bei aktivierter Checkbox verwendet. Leer lassen, um vollständig offline zu bleiben." },
+  "options_languagesH2": { "message": "Sprachen" },
+  "options_languagesHint": { "message": "Wählen Sie die Sprachen, zwischen denen das Layout umgeschaltet werden soll. Mindestens 2." },
+  "options_behaviourH2": { "message": "Verhalten" },
+  "options_replaceWhole": { "message": "Gesamten Editor korrigieren, wenn nichts ausgewählt ist" },
+  "options_replaceWholeHint": {
+    "message": "Aus — die Erweiterung korrigiert nur explizit ausgewählten Text; auf unterstützten Seiten zeigt sie bei leerer Auswahl nur einen Hinweis."
+  },
+  "options_autoCorrect": { "message": "Wörter beim Tippen automatisch korrigieren (Punto-Switcher-Stil)" },
+  "options_autoCorrectHint": {
+    "message": "Wenn Sie nach einem Wort im falschen Layout ein Leerzeichen oder Satzzeichen tippen, korrigiert die Erweiterung es vor Ort. Überspringt Passwortfelder und Seiten, die Ihre Richtlinie ausschließt. Backspace macht es rückgängig."
+  },
+  "options_sitePolicyH2": { "message": "Seitenrichtlinie" },
+  "options_siteModeLabel": { "message": "Modus" },
+  "options_siteModeAll": { "message": "Überall (Standard)" },
+  "options_siteModeBlacklist": { "message": "Überall außer aufgeführt" },
+  "options_siteModeWhitelist": { "message": "Nur auf aufgeführten Seiten" },
+  "options_siteListLabel": { "message": "Seiten (ein Hostname pro Zeile)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Hostnamen werden exakt oder per Suffix verglichen (z. B. vk.com matcht auch m.vk.com). Leer lassen für Standard-Modus (überall)."
+  },
+  "options_shortcutHint": { "message": "Das Tastaturkürzel wird unter $1 konfiguriert." },
+  "options_save": { "message": "Speichern" },
+  "options_saved": { "message": "Gespeichert ✓" },
+  "options_pickAtLeastTwo": { "message": "Wählen Sie mindestens 2 Sprachen aus." },
+  "options_contactBody": { "message": "Offen für Vorschläge, Fehlerberichte oder Sprachwünsche — schreiben Sie an" },
+
+  "toast_decrypted": { "message": "Switcher: $1" },
+  "toast_alreadyCorrect": { "message": "Switcher: Layout war bereits korrekt" },
+  "toast_undone": { "message": "Switcher: rückgängig gemacht" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": { "message": "Übersprungen: $1 ist durch Ihre Seitenrichtlinie ausgeschlossen." },
+  "notification_copiedToClipboard": { "message": "In Zwischenablage kopiert: $1" },
+  "notification_selectFirst": { "message": "Wählen Sie zuerst Text aus oder klicken Sie in ein Textfeld." },
+  "notification_genericError": { "message": "Fehler: $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "Einige gewählte Sprachen sind offline nicht enthalten; konfigurieren Sie einen API-Endpunkt in den Einstellungen."
+  },
+  "convert_apiUnreachable": { "message": "API nicht erreichbar: $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

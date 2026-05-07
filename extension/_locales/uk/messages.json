@@ -1,0 +1,168 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — виправить розкладку · 9 мов",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Відкритий аналог Punto Switcher. Виправляє текст, набраний не в тій розкладці. 9 мов. Локально, без хмари.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — виправити розкладку (Ctrl+Shift+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Перемкнути розкладку виділеного тексту",
+    "description": "Description for the Ctrl+Shift+L command in chrome://extensions/shortcuts"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher: перемкнути розкладку",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Сайт" },
+  "popup_detectedPrefix": { "message": "Визначено" },
+  "popup_detectedNoTab": { "message": "Визначено: (немає вкладки)" },
+  "popup_detectedNoContent": { "message": "Визначено: (розширення не підключено до цієї сторінки)" },
+  "popup_detectedField": {
+    "message": "поле: <$1>",
+    "description": "Shows the focused element tag, e.g. 'поле: <textarea>'. $1 is the tag name."
+  },
+  "popup_detectedNoField": { "message": "немає фокусу в полі" },
+  "popup_excludedByPolicy": { "message": "виключено політикою" },
+  "popup_excludedByPolicyExplain": {
+    "message": "$1 виключено політикою сайтів. Змініть список у Налаштуваннях.",
+    "description": "$1 is the hostname"
+  },
+  "popup_decryptFocused": { "message": "Виправити активне поле" },
+  "popup_undo": { "message": "Скасувати" },
+  "popup_undoTitle": { "message": "Скасувати останнє виправлення на цій сторінці" },
+  "popup_shortcutHintBefore": { "message": "Підказка: фокус у полі та натисніть" },
+  "popup_shortcutHintAfter": { "message": "— те саме." },
+  "popup_pasteHeader": { "message": "Або вставте текст і виправте:" },
+  "popup_pastePlaceholder": { "message": "Вставте сюди текст не в тій розкладці…" },
+  "popup_decrypt": { "message": "Виправити" },
+  "popup_copy": { "message": "Скопіювати" },
+  "popup_copied": { "message": "Скопійовано" },
+  "popup_settingsLink": { "message": "Налаштування" },
+  "popup_languageLabel": { "message": "Мова інтерфейсу" },
+  "popup_decrypting": { "message": "Виправляю…" },
+  "popup_resultOk": {
+    "message": "OK [$1/$2]$3",
+    "description": "Status after a successful decrypt. $1=adapter, $2=mode, $3=optional ' · ru→en' detection"
+  },
+  "popup_alreadyCorrect": { "message": "Розкладка вже правильна." },
+  "popup_clipboardFallback": {
+    "message": "Скопійовано в буфер (не вдалося вставити в поле: $1).",
+    "description": "$1 is the failure reason"
+  },
+  "popup_writeFailed": {
+    "message": "Не вдалося вставити в поле: $1.",
+    "description": "$1 is the failure reason"
+  },
+  "popup_emptyField": { "message": "В активному полі немає тексту." },
+  "popup_composerNotFound": { "message": "Не вдалося знайти текстове поле. Клацніть у потрібне поле і спробуйте знову." },
+  "popup_notEditable": { "message": "Активний елемент — не текстове поле." },
+  "popup_extensionNotLoaded": { "message": "Перезавантажте сторінку, щоб розширення підключилося." },
+  "popup_genericError": {
+    "message": "Помилка: $1",
+    "description": "$1 is the error message"
+  },
+  "popup_couldntDecrypt": {
+    "message": "Не вдалося виправити: $1.",
+    "description": "$1 is the failure reason or 'no response'"
+  },
+  "popup_undone": { "message": "Скасовано." },
+  "popup_couldntUndo": {
+    "message": "Не вдалося скасувати: $1.",
+    "description": "$1 is the failure reason"
+  },
+  "popup_detectionDirection": {
+    "message": "Визначено: $1 → $2",
+    "description": "$1, $2 are language codes like 'ru' and 'en'"
+  },
+  "popup_privacyNote": { "message": "🔒 Працює локально в браузері. Текст нікуди не йде." },
+  "popup_sourceOnGitHub": { "message": "Джерело на GitHub" },
+
+  "siteAdapter_auto": { "message": "Авто" },
+  "siteAdapter_generic": { "message": "Інший / загальний" },
+
+  "options_title": { "message": "VibeNest Switcher — налаштування" },
+  "options_h1": { "message": "VibeNest Switcher — налаштування" },
+  "options_uiLanguageH2": { "message": "Мова інтерфейсу" },
+  "options_uiLanguageHint": { "message": "Мова popup'а та цієї сторінки. «Авто» — слідувати мові браузера." },
+  "options_uiLanguageAuto": { "message": "Авто (мова браузера)" },
+  "options_firstRunWelcome": { "message": "Ласкаво просимо в VibeNest Switcher." },
+  "options_firstRunBody": {
+    "message": "Не вдалося автоматично визначити мови, якими ви пишете, за локаллю браузера. Виберіть хоча б дві нижче — це можна змінити будь-коли."
+  },
+  "options_privacyH2": { "message": "Конфіденційність" },
+  "options_privacyBody": {
+    "message": "За замовчуванням вся обробка відбувається на вашому пристрої — жодна буква не покидає браузер. Вбудовано 9 мов: англійська, російська, українська, білоруська, німецька, французька, грецька, іврит, турецька."
+  },
+  "options_useApiFallback": { "message": "Дозволити fallback на віддалений API" },
+  "options_apiEndpoint": { "message": "API-ендпойнт (опціонально)" },
+  "options_apiEndpointHint": { "message": "Використовується лише при увімкненому прапорці. Залиште пустим — будете повністю офлайн." },
+  "options_languagesH2": { "message": "Мови" },
+  "options_languagesHint": { "message": "Виберіть мови, між якими розширення перемикатиме розкладку. Мінімум 2." },
+  "options_behaviourH2": { "message": "Поведінка" },
+  "options_replaceWhole": { "message": "Виправляти весь композер, якщо нічого не виділено" },
+  "options_replaceWholeHint": {
+    "message": "Вимк — розширення виправить лише явно виділений текст; на підтримуваних сайтах при порожньому виділенні покаже сповіщення, не чіпаючи поле."
+  },
+  "options_autoCorrect": { "message": "Автовиправлення під час набору (як у Punto Switcher)" },
+  "options_autoCorrectHint": {
+    "message": "Коли ви вводите пробіл або знак пунктуації після слова в неправильній розкладці, розширення виправить його на місці. Пропускає поля паролів і сайти, виключені у політиці. Backspace скасовує."
+  },
+  "options_sitePolicyH2": { "message": "Політика сайтів" },
+  "options_siteModeLabel": { "message": "Режим" },
+  "options_siteModeAll": { "message": "Скрізь (за замовчуванням)" },
+  "options_siteModeBlacklist": { "message": "Скрізь, окрім зазначених" },
+  "options_siteModeWhitelist": { "message": "Лише на зазначених" },
+  "options_siteListLabel": { "message": "Сайти (по одному хосту на рядок)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Хост-нейми збігаються точно або за суфіксом (наприклад, vk.com покриває m.vk.com). Залиште пустим для режиму за замовчуванням (скрізь)."
+  },
+  "options_shortcutHint": {
+    "message": "Гаряча клавіша налаштовується на $1.",
+    "description": "$1 is the chrome://extensions/shortcuts link"
+  },
+  "options_save": { "message": "Зберегти" },
+  "options_saved": { "message": "Збережено ✓" },
+  "options_pickAtLeastTwo": { "message": "Виберіть щонайменше 2 мови." },
+  "options_contactBody": { "message": "Відкриті для пропозицій, баг-репортів і заявок на нові мови — пишіть на" },
+
+  "toast_decrypted": {
+    "message": "Switcher: $1",
+    "description": "$1 is e.g. 'ru→en' or 'decrypted'"
+  },
+  "toast_alreadyCorrect": { "message": "Switcher: розкладка вже правильна" },
+  "toast_undone": { "message": "Switcher: скасовано" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": {
+    "message": "Пропущено: $1 виключено політикою сайтів.",
+    "description": "$1 is the hostname"
+  },
+  "notification_copiedToClipboard": {
+    "message": "Скопійовано в буфер: $1",
+    "description": "$1 is the truncated converted text"
+  },
+  "notification_selectFirst": { "message": "Спочатку виділіть текст або клацніть у текстове поле." },
+  "notification_genericError": {
+    "message": "Помилка: $1",
+    "description": "$1 is the error message"
+  },
+
+  "convert_languagesNotBundled": {
+    "message": "Частина вибраних мов не вбудована офлайн; налаштуйте API-ендпойнт у Налаштуваннях."
+  },
+  "convert_apiUnreachable": {
+    "message": "API недоступний: $1",
+    "description": "$1 is the error message"
+  },
+  "convert_apiHttp": {
+    "message": "HTTP $1",
+    "description": "$1 is the HTTP status code"
+  }
+}

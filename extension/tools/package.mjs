@@ -23,6 +23,8 @@ const EXCLUDE_NAMES = new Set([
   "dist",
   "tools",
   "data",
+  "store-listings",  // long-form Web Store dashboard copy, not part of the extension
+  "test-fixtures",   // local-only e2e fixture
   "package.json",
   "package-lock.json",
   "README.md",

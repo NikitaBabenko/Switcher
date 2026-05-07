@@ -46,6 +46,7 @@
         border-bottom: 1px dashed #93c5fd;
       }
       .privacy a:hover { border-bottom-style: solid; }
+      .ui-locale { font-size: 11px; padding: 2px 4px; max-width: 110px; }
     </style>
   </head>
   <body>
@@ -59,9 +60,9 @@
 
     <div class="section">
       <div class="row">
-        <label class="inline" for="adapter-override"><span class="muted">Site</span></label>
+        <label class="inline" for="adapter-override"><span class="muted" data-i18n="popup_siteLabel">Site</span></label>
         <select id="adapter-override">
-          <option value="auto">Auto</option>
+          <option value="auto" data-i18n="siteAdapter_auto">Auto</option>
           <option value="twitter">Twitter / X</option>
           <option value="facebook">Facebook</option>
           <option value="messenger">Messenger</option>
@@ -76,28 +77,31 @@
           <option value="linkedin">LinkedIn</option>
           <option value="twitch">Twitch</option>
           <option value="mastodon">Mastodon</option>
-          <option value="generic">Other / generic</option>
+          <option value="generic" data-i18n="siteAdapter_generic">Other / generic</option>
         </select>
       </div>
-      <div class="muted" id="detected" style="margin-top:4px">Detected: …</div>
+      <div class="muted" id="detected" style="margin-top:4px"></div>
       <div class="row">
-        <button id="decrypt-page" class="primary">Decrypt focused field</button>
-        <button id="undo" disabled title="Undo the last decrypt on this page">Undo</button>
+        <button id="decrypt-page" class="primary" data-i18n="popup_decryptFocused">Decrypt focused field</button>
+        <button id="undo" disabled data-i18n="popup_undo" data-i18n-title="popup_undoTitle">Undo</button>
       </div>
       <div class="muted shortcut-hint">
-        Tip: focus a field and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> for the same thing.
+        <span data-i18n="popup_shortcutHintBefore">Tip: focus a field and press</span>
+        <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>
+        <span data-i18n="popup_shortcutHintAfter">for the same thing.</span>
       </div>
     </div>
 
     <div class="divider"></div>
 
     <div class="section">
-      <div class="muted" style="margin-bottom:4px">Or paste text and decrypt:</div>
-      <textarea id="input" placeholder="Paste cyrillic gibberish here…"></textarea>
+      <div class="muted" data-i18n="popup_pasteHeader" style="margin-bottom:4px">Or paste text and decrypt:</div>
+      <textarea id="input" data-i18n-placeholder="popup_pastePlaceholder" placeholder="Paste cyrillic gibberish here…"></textarea>
       <div class="row">
-        <button id="convert">Decrypt</button>
-        <button id="copy" disabled>Copy</button>
-        <a href="#" id="open-options" style="margin-left:auto">Settings</a>
+        <button id="convert" data-i18n="popup_decrypt">Decrypt</button>
+        <button id="copy" disabled data-i18n="popup_copy">Copy</button>
+        <select id="uiLocale" class="ui-locale" data-i18n-title="popup_languageLabel" data-i18n-aria-label="popup_languageLabel" style="margin-left:auto"></select>
+        <a href="#" id="open-options" data-i18n="popup_settingsLink">Settings</a>
       </div>
       <div class="muted" id="info"></div>
       <div class="result" id="result"></div>
@@ -105,8 +109,8 @@
 
     <div class="divider"></div>
     <div class="privacy">
-      <span>🔒 Runs entirely in your browser. No text leaves your device.</span>
-      <a href="https://github.com/NikitaBabenko/Switcher" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+      <span data-i18n="popup_privacyNote">🔒 Runs entirely in your browser. No text leaves your device.</span>
+      <a href="https://github.com/NikitaBabenko/Switcher" target="_blank" rel="noopener noreferrer" data-i18n="popup_sourceOnGitHub">Source on GitHub</a>
     </div>
 
     <script src="popup.js" type="module"></script>

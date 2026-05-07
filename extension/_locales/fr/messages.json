@@ -1,0 +1,120 @@
+{
+  "appName": {
+    "message": "VibeNest Switcher — Correcteur de disposition · 9 langues",
+    "description": "Extension name shown in toolbar and store"
+  },
+  "appShortDescription": {
+    "message": "Alternative open source à Punto Switcher. Corrige le texte tapé dans la mauvaise disposition. 9 langues, hors ligne.",
+    "description": "Manifest description, also serves as store short description (132 chars max)"
+  },
+  "actionTitle": {
+    "message": "VibeNest Switcher — corriger la disposition (Ctrl+Maj+L)",
+    "description": "Toolbar icon hover tooltip"
+  },
+  "commandDescription": {
+    "message": "Changer la disposition du texte sélectionné",
+    "description": "Description for the Ctrl+Shift+L command"
+  },
+  "contextMenuTitle": {
+    "message": "Switcher : changer la disposition",
+    "description": "Right-click context menu item"
+  },
+  "popup_siteLabel": { "message": "Site" },
+  "popup_detectedPrefix": { "message": "Détecté" },
+  "popup_detectedNoTab": { "message": "Détecté : (aucun onglet)" },
+  "popup_detectedNoContent": { "message": "Détecté : (extension non disponible sur cette page)" },
+  "popup_detectedField": { "message": "champ : <$1>" },
+  "popup_detectedNoField": { "message": "aucun champ ciblé" },
+  "popup_excludedByPolicy": { "message": "exclu par la politique" },
+  "popup_excludedByPolicyExplain": { "message": "$1 est exclu par votre politique de sites. Modifiez la liste dans les Réglages." },
+  "popup_decryptFocused": { "message": "Corriger le champ actif" },
+  "popup_undo": { "message": "Annuler" },
+  "popup_undoTitle": { "message": "Annuler la dernière correction sur cette page" },
+  "popup_shortcutHintBefore": { "message": "Astuce : ciblez un champ et appuyez sur" },
+  "popup_shortcutHintAfter": { "message": "— résultat identique." },
+  "popup_pasteHeader": { "message": "Ou collez un texte et corrigez :" },
+  "popup_pastePlaceholder": { "message": "Collez ici du texte en mauvaise disposition…" },
+  "popup_decrypt": { "message": "Corriger" },
+  "popup_copy": { "message": "Copier" },
+  "popup_copied": { "message": "Copié" },
+  "popup_settingsLink": { "message": "Réglages" },
+  "popup_languageLabel": { "message": "Langue de l'interface" },
+  "popup_decrypting": { "message": "Correction…" },
+  "popup_resultOk": { "message": "OK [$1/$2]$3" },
+  "popup_alreadyCorrect": { "message": "La disposition était déjà correcte." },
+  "popup_clipboardFallback": { "message": "Copié dans le presse-papier (impossible d'écrire dans le champ : $1)." },
+  "popup_writeFailed": { "message": "Impossible d'écrire dans le champ : $1." },
+  "popup_emptyField": { "message": "Aucun texte dans le champ ciblé." },
+  "popup_composerNotFound": { "message": "Aucun champ texte trouvé sur cette page. Cliquez dans un champ et réessayez." },
+  "popup_notEditable": { "message": "L'élément ciblé n'est pas un champ texte." },
+  "popup_extensionNotLoaded": { "message": "Rechargez la page pour que l'extension s'attache." },
+  "popup_genericError": { "message": "Erreur : $1" },
+  "popup_couldntDecrypt": { "message": "Correction impossible : $1." },
+  "popup_undone": { "message": "Annulé." },
+  "popup_couldntUndo": { "message": "Annulation impossible : $1." },
+  "popup_detectionDirection": { "message": "Détecté : $1 → $2" },
+  "popup_privacyNote": { "message": "🔒 Fonctionne entièrement dans votre navigateur. Aucun texte ne quitte votre appareil." },
+  "popup_sourceOnGitHub": { "message": "Code source sur GitHub" },
+
+  "siteAdapter_auto": { "message": "Auto" },
+  "siteAdapter_generic": { "message": "Autre / générique" },
+
+  "options_title": { "message": "VibeNest Switcher — réglages" },
+  "options_h1": { "message": "VibeNest Switcher — réglages" },
+  "options_uiLanguageH2": { "message": "Langue de l'interface" },
+  "options_uiLanguageHint": { "message": "Langue du popup et de cette page. Auto = suivre la langue du navigateur." },
+  "options_uiLanguageAuto": { "message": "Auto (langue du navigateur)" },
+  "options_firstRunWelcome": { "message": "Bienvenue dans VibeNest Switcher." },
+  "options_firstRunBody": {
+    "message": "Nous n'avons pas pu détecter automatiquement les langues que vous tapez à partir de la locale du navigateur. Choisissez-en au moins deux ci-dessous — modifiable à tout moment depuis cette page."
+  },
+  "options_privacyH2": { "message": "Confidentialité" },
+  "options_privacyBody": {
+    "message": "Par défaut, la correction s'exécute entièrement sur votre machine — aucun texte ne quitte le navigateur. 9 langues incluses : anglais, russe, ukrainien, biélorusse, allemand, français, grec, hébreu, turc."
+  },
+  "options_useApiFallback": { "message": "Autoriser le repli API distant" },
+  "options_apiEndpoint": { "message": "Endpoint API (optionnel)" },
+  "options_apiEndpointHint": { "message": "Utilisé uniquement quand la case est cochée. Laissez vide pour rester totalement hors ligne." },
+  "options_languagesH2": { "message": "Langues" },
+  "options_languagesHint": { "message": "Choisissez les langues entre lesquelles permuter la disposition. Au moins 2." },
+  "options_behaviourH2": { "message": "Comportement" },
+  "options_replaceWhole": { "message": "Corriger tout le composer si rien n'est sélectionné" },
+  "options_replaceWholeHint": {
+    "message": "Désactivé — l'extension ne corrige que le texte explicitement sélectionné ; sur les sites pris en charge, en absence de sélection, elle affiche un avertissement sans toucher au champ."
+  },
+  "options_autoCorrect": { "message": "Auto-correction au fil de la frappe (style Punto Switcher)" },
+  "options_autoCorrectHint": {
+    "message": "Quand vous tapez un espace ou une ponctuation après un mot manifestement dans la mauvaise disposition, l'extension le corrige sur place. Champs de mots de passe et sites exclus par la politique sont ignorés. Retour arrière annule."
+  },
+  "options_sitePolicyH2": { "message": "Politique de sites" },
+  "options_siteModeLabel": { "message": "Mode" },
+  "options_siteModeAll": { "message": "Partout (par défaut)" },
+  "options_siteModeBlacklist": { "message": "Partout sauf liste" },
+  "options_siteModeWhitelist": { "message": "Uniquement sur la liste" },
+  "options_siteListLabel": { "message": "Sites (un hostname par ligne)" },
+  "options_siteListPlaceholder": { "message": "example.com\nmybank.com" },
+  "options_siteListHint": {
+    "message": "Les hostnames correspondent exactement ou par suffixe (par ex. vk.com couvre m.vk.com). Laissez vide pour le mode par défaut (partout)."
+  },
+  "options_shortcutHint": { "message": "Le raccourci clavier se configure sur $1." },
+  "options_save": { "message": "Enregistrer" },
+  "options_saved": { "message": "Enregistré ✓" },
+  "options_pickAtLeastTwo": { "message": "Choisissez au moins 2 langues." },
+  "options_contactBody": { "message": "Ouverts aux suggestions, rapports de bug et demandes de nouvelles langues — écrivez à" },
+
+  "toast_decrypted": { "message": "Switcher : $1" },
+  "toast_alreadyCorrect": { "message": "Switcher : disposition déjà correcte" },
+  "toast_undone": { "message": "Switcher : annulé" },
+
+  "notification_title": { "message": "VibeNest Switcher" },
+  "notification_skippedPolicy": { "message": "Ignoré : $1 est exclu par votre politique de sites." },
+  "notification_copiedToClipboard": { "message": "Copié dans le presse-papier : $1" },
+  "notification_selectFirst": { "message": "Sélectionnez d'abord du texte, ou cliquez dans un champ texte." },
+  "notification_genericError": { "message": "Erreur : $1" },
+
+  "convert_languagesNotBundled": {
+    "message": "Certaines langues demandées ne sont pas incluses hors ligne ; configurez un endpoint API dans les Réglages."
+  },
+  "convert_apiUnreachable": { "message": "API injoignable : $1" },
+  "convert_apiHttp": { "message": "HTTP $1" }
+}

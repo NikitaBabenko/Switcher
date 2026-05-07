@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "VibeNest Switcher",
-  "description": "Fix text typed in the wrong keyboard layout. Runs fully offline — no data leaves your browser.",
+  "default_locale": "en",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appShortDescription__",
   "version": "0.2.0",
   "author": "VibeNest",
   "homepage_url": "https://vibenest.net",
@@ -26,7 +27,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "VibeNest Switcher",
+    "default_title": "__MSG_actionTitle__",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png"
@@ -39,7 +40,7 @@
         "default": "Ctrl+Shift+L",
         "mac": "Command+Shift+L"
       },
-      "description": "Switch the layout of the selected text"
+      "description": "__MSG_commandDescription__"
     }
   }
 }
