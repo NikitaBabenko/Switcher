@@ -21,6 +21,31 @@
       .banner a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); }
       .banner a:hover { border-bottom-color: #fff; }
       label.inline { display: flex; align-items: center; gap: 6px; }
+      .shortcut-hint { margin-top: 8px; font-size: 11px; }
+      .shortcut-hint kbd {
+        background: #fff;
+        border: 1px solid #d1d5db;
+        border-bottom-width: 2px;
+        border-radius: 3px;
+        padding: 1px 5px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 10.5px;
+        color: #111827;
+      }
+      .privacy {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        color: #4b5563;
+      }
+      .privacy a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+      }
+      .privacy a:hover { border-bottom-style: solid; }
     </style>
   </head>
   <body>
@@ -59,6 +84,9 @@
         <button id="decrypt-page" class="primary">Decrypt focused field</button>
         <button id="undo" disabled title="Undo the last decrypt on this page">Undo</button>
       </div>
+      <div class="muted shortcut-hint">
+        Tip: focus a field and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> for the same thing.
+      </div>
     </div>
 
     <div class="divider"></div>
@@ -73,6 +101,12 @@
       </div>
       <div class="muted" id="info"></div>
       <div class="result" id="result"></div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="privacy">
+      <span>🔒 Runs entirely in your browser. No text leaves your device.</span>
+      <a href="https://github.com/NikitaBabenko/Switcher" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
     </div>
 
     <script src="popup.js" type="module"></script>

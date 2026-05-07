@@ -1,5 +1,7 @@
 # VibeNest Switcher
 
+[![tests](https://github.com/NikitaBabenko/Switcher/actions/workflows/test.yml/badge.svg)](https://github.com/NikitaBabenko/Switcher/actions/workflows/test.yml)
+
 🌐 Live: <https://vibenest.net>
 
 Chrome extension that fixes text typed in the wrong keyboard layout.
@@ -48,7 +50,7 @@ To package the extension into a Chrome Web Store-ready zip:
 
 ```
 cd extension
-npm test            # 190 Node tests
+npm test            # 191 Node tests
 npm run package     # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 
@@ -77,4 +79,8 @@ cd extension
 npm test
 ```
 
-190 Node tests cover the detector engine, host-policy logic, per-site adapters, autocorrect heuristics, the insertion ladder, undo memory, and the packaging script.
+191 Node tests cover the detector engine, host-policy logic, per-site adapters, autocorrect heuristics, the insertion ladder, undo memory, and the packaging script.
+
+## CI
+
+GitHub Actions runs `npm test` and `npm run package` on every push and pull request to `main`. The packaged extension zip is uploaded as a build artifact you can grab from the run page — see [`.github/workflows/test.yml`](.github/workflows/test.yml).

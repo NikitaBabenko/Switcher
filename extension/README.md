@@ -26,7 +26,7 @@ extension/
 │   ├─ data.js                AUTO-GENERATED — bundled trigram counts (9 langs, ~270 KB).
 │   ├─ build-models.mjs       Regenerates data.js from data/{layouts,wordlists}/.
 │   ├─ test-helpers.mjs       Shared VM loader + chrome/location/document mocks for tests.
-│   └─ *.test.mjs             190 Node tests (see § Tests).
+│   └─ *.test.mjs             191 Node tests (see § Tests).
 ├─ data/
 │   ├─ layouts/*.json         Source-of-truth layout tables (46 chars normal + shift each).
 │   └─ wordlists/*.txt        Source-of-truth wordlists used to train the trigram models.
@@ -125,7 +125,7 @@ cd extension
 npm test
 ```
 
-190 Node tests across seven files:
+191 Node tests across seven files:
 
 | File | Covers |
 |---|---|
@@ -144,6 +144,8 @@ change for testability beyond a single `__testInternals` export in
 export at the end of the autocorrect IIFE, and an `if (import.meta.url === …)`
 main-guard in `tools/package.mjs` so it can be both run as a script and
 imported in tests.
+
+The same suite runs in GitHub Actions on every push — see [`.github/workflows/test.yml`](../.github/workflows/test.yml).
 
 ## Loading unpacked
 
@@ -167,7 +169,7 @@ imported in tests.
 
 ```
 cd extension
-npm test                # 190 Node tests, all green
+npm test                # 191 Node tests, all green
 npm run package         # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 
