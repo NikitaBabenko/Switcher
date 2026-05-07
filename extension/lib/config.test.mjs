@@ -1,7 +1,7 @@
 // Run with: node --test extension/lib/config.test.mjs
 import test from "node:test";
 import assert from "node:assert/strict";
-import { isHostAllowed, detectDefaultLanguages } from "../config.js";
+import { isHostAllowed, detectDefaultLanguages, hasConfidentLanguageDetection } from "../config.js";
 
 test("default mode 'all' allows everything", () => {
   assert.equal(isHostAllowed("example.com", "all", []), true);
@@ -99,4 +99,29 @@ test("detectDefaultLanguages: dedupes across regional variants", () => {
 test("detectDefaultLanguages: ignores junk entries", () => {
   assert.deepEqual(detectDefaultLanguages([null, "", undefined, "ru"]), ["ru", "en"]);
   assert.deepEqual(detectDefaultLanguages([0, false, "ru"]), ["ru", "en"]);
+});
+
+test("hasConfidentLanguageDetection: ≥2 supported tags → true", () => {
+  assert.equal(hasConfidentLanguageDetection(["ru", "en-US"]), true);
+  assert.equal(hasConfidentLanguageDetection(["de-DE", "fr"]), true);
+  assert.equal(hasConfidentLanguageDetection(["uk", "ru", "en"]), true);
+});
+
+test("hasConfidentLanguageDetection: only one supported → false", () => {
+  assert.equal(hasConfidentLanguageDetection(["en"]), false);
+  assert.equal(hasConfidentLanguageDetection(["ru"]), false);
+  assert.equal(hasConfidentLanguageDetection(["en-US", "es", "ja"]), false);
+});
+
+test("hasConfidentLanguageDetection: empty/junk → false", () => {
+  assert.equal(hasConfidentLanguageDetection([]), false);
+  assert.equal(hasConfidentLanguageDetection(), false);
+  assert.equal(hasConfidentLanguageDetection(null), false);
+  assert.equal(hasConfidentLanguageDetection([null, "", "es"]), false);
+});
+
+test("hasConfidentLanguageDetection: regional variants count once", () => {
+  // en-US + en-GB are the same supported language → not enough by themselves.
+  assert.equal(hasConfidentLanguageDetection(["en-US", "en-GB", "en"]), false);
+  assert.equal(hasConfidentLanguageDetection(["en-US", "en-GB", "ru"]), true);
 });

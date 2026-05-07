@@ -1,4 +1,4 @@
-import { getSettings, isHostAllowed, detectDefaultLanguages } from "./config.js";
+import { getSettings, isHostAllowed, detectDefaultLanguages, hasConfidentLanguageDetection } from "./config.js";
 import { detect as detectLocal, canHandleLanguages } from "./lib/detector.js";
 
 const MENU_ID = "switcher-convert-selection";
@@ -32,6 +32,14 @@ async function applyDetectedDefaults() {
       : [navigator.language || "en"];
     const languages = detectDefaultLanguages(tags);
     await store.set({ languages, [DEFAULTS_FLAG]: true });
+    if (!hasConfidentLanguageDetection(tags)) {
+      // Couldn't pick ≥2 supported languages from the locale — let the user
+      // choose explicitly instead of trusting our en+ru fallback silently.
+      try {
+        const url = chrome.runtime.getURL("options.html") + "#first-run";
+        await chrome.tabs.create({ url, active: true });
+      } catch { /* tabs API may not be ready in some edge cases */ }
+    }
   } catch {
     // Storage unavailable — keep DEFAULTS.languages as the runtime fallback.
   }

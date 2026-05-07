@@ -66,4 +66,17 @@ saveBtn.addEventListener("click", async () => {
   setTimeout(() => savedFlag.classList.remove("on"), 1500);
 });
 
-load();
+load().then(maybeShowFirstRun);
+
+function maybeShowFirstRun() {
+  if (window.location.hash !== "#first-run") return;
+  const banner = document.getElementById("first-run-banner");
+  if (banner) banner.classList.add("on");
+  // Bring the Languages section into view so the call-to-action is obvious.
+  const target = document.getElementById("languages");
+  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  // Drop the hash so a refresh doesn't keep showing the welcome banner.
+  try {
+    window.history.replaceState(null, "", window.location.pathname);
+  } catch { /* ignore */ }
+}

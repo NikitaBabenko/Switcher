@@ -24,10 +24,29 @@
         font-size: 0.9rem;
       }
       .contact a { color: #2563eb; }
+      .first-run {
+        display: none;
+        margin: 16px 0 24px;
+        padding: 12px 16px;
+        background: #eff6ff;
+        border-left: 4px solid #2563eb;
+        border-radius: 6px;
+        color: #1e40af;
+        line-height: 1.5;
+      }
+      .first-run.on { display: block; }
+      .first-run strong { color: #1e3a8a; }
     </style>
   </head>
   <body>
     <h1>VibeNest Switcher — settings</h1>
+
+    <div id="first-run-banner" class="first-run">
+      <strong>Welcome to VibeNest Switcher.</strong>
+      We couldn't auto-detect the languages you type in from your browser
+      locale. Please pick at least two below — you can change this anytime
+      from this page.
+    </div>
 
     <h2>Privacy</h2>
     <p class="muted">
@@ -48,7 +67,7 @@
       Used only when the checkbox is on. Leave empty to stay fully offline.
     </p>
 
-    <h2>Languages</h2>
+    <h2 id="languages">Languages</h2>
     <p class="muted">Pick the languages the layout should switch between. At least 2.</p>
     <div class="lang-list" id="langList"></div>
 

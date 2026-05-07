@@ -17,6 +17,22 @@ export const DEFAULTS = {
   autoCorrect: false,
 };
 
+// True when the browser locale gives us enough signal to pick the user's
+// language set without asking — i.e. we can identify ≥2 supported languages
+// in navigator.languages. Used by background.js to decide whether to open the
+// settings page on first install.
+export function hasConfidentLanguageDetection(navigatorLanguages) {
+  const tags = Array.isArray(navigatorLanguages) ? navigatorLanguages : [];
+  const supported = new Set(SUPPORTED_LANGUAGES);
+  const seen = new Set();
+  for (const tag of tags) {
+    const code = String(tag || "").toLowerCase().split("-")[0];
+    if (supported.has(code)) seen.add(code);
+    if (seen.size >= 2) return true;
+  }
+  return false;
+}
+
 // Pure, testable: derive a sensible initial language set from navigator.languages.
 // Keeps only languages we ship offline, preserves the user's preference order,
 // always tries to anchor English (if there's room), and falls back to en+ru if

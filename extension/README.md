@@ -26,7 +26,7 @@ extension/
 │   ├─ data.js                AUTO-GENERATED — bundled trigram counts (9 langs, ~270 KB).
 │   ├─ build-models.mjs       Regenerates data.js from data/{layouts,wordlists}/.
 │   ├─ test-helpers.mjs       Shared VM loader + chrome/location/document mocks for tests.
-│   └─ *.test.mjs             199 Node tests (see § Tests).
+│   └─ *.test.mjs             203 Node tests (see § Tests).
 ├─ data/
 │   ├─ layouts/*.json         Source-of-truth layout tables (46 chars normal + shift each).
 │   └─ wordlists/*.txt        Source-of-truth wordlists used to train the trigram models.
@@ -125,12 +125,12 @@ cd extension
 npm test
 ```
 
-199 Node tests across seven files:
+203 Node tests across seven files:
 
 | File | Covers |
 |---|---|
 | `lib/detector.test.mjs` | JS engine: 62 tests — Layout invariants, `LanguageModel.score`, helpers (`hasMixedCase`, `invertCase`, `caseNaturalness`), `convertText`, detector edge cases (whitespace, emoji, CJK, multi-line), language matrix, `availableLanguages`/`languageInfo` shape. |
-| `lib/config.test.mjs` | `isHostAllowed` policy (all three modes, suffix matching, case-insensitivity) + `detectDefaultLanguages` (navigator.languages seed). |
+| `lib/config.test.mjs` | `isHostAllowed` policy (all three modes, suffix matching, case-insensitivity) + `detectDefaultLanguages` and `hasConfidentLanguageDetection` (navigator.languages seed). |
 | `lib/adapters.test.mjs` | `pickAdapter` registry order (vk-im before vk), every site adapter, override behaviour, Mastodon DOM heuristic. |
 | `lib/autocorrect.test.mjs` | `extractLastWordInput`, `extractLastWordContentEditable`, `isAutoCorrectEligible` (password/OTP/cc-* skip, readOnly, contenteditable). |
 | `lib/replace.test.mjs` | `isInputLike`, `isContentEditable`, `inputLikeHasSelection`, `getInputLikeSelectionText`, `dispatchInputEvent` shape, `replaceInElement` reasons. |
@@ -169,7 +169,7 @@ The same suite runs in GitHub Actions on every push — see [`.github/workflows/
 
 ```
 cd extension
-npm test                # 199 Node tests, all green
+npm test                # 203 Node tests, all green
 npm run package         # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 
