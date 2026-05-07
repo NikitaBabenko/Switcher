@@ -1,7 +1,7 @@
 // Run with: node --test extension/lib/config.test.mjs
 import test from "node:test";
 import assert from "node:assert/strict";
-import { isHostAllowed } from "../config.js";
+import { isHostAllowed, detectDefaultLanguages } from "../config.js";
 
 test("default mode 'all' allows everything", () => {
   assert.equal(isHostAllowed("example.com", "all", []), true);
@@ -54,4 +54,49 @@ test("subdomain-of-subdomain match", () => {
 test("near-miss does not falsely match", () => {
   // "evilexample.com" should not be considered a subdomain of "example.com".
   assert.equal(isHostAllowed("evilexample.com", "blacklist", ["example.com"]), true);
+});
+
+test("detectDefaultLanguages: empty/missing input falls back to en+ru", () => {
+  assert.deepEqual(detectDefaultLanguages([]), ["en", "ru"]);
+  assert.deepEqual(detectDefaultLanguages(), ["en", "ru"]);
+  assert.deepEqual(detectDefaultLanguages(null), ["en", "ru"]);
+  assert.deepEqual(detectDefaultLanguages(undefined), ["en", "ru"]);
+});
+
+test("detectDefaultLanguages: preserves user preference order", () => {
+  assert.deepEqual(detectDefaultLanguages(["ru", "en-US"]), ["ru", "en"]);
+  assert.deepEqual(detectDefaultLanguages(["de-DE", "en"]), ["de", "en"]);
+  assert.deepEqual(detectDefaultLanguages(["fr", "de"]), ["fr", "de", "en"]);
+});
+
+test("detectDefaultLanguages: appends English as anchor when missing and has room", () => {
+  assert.deepEqual(detectDefaultLanguages(["de"]), ["de", "en"]);
+  assert.deepEqual(detectDefaultLanguages(["ru"]), ["ru", "en"]);
+  assert.deepEqual(detectDefaultLanguages(["ru", "uk", "be"]), ["ru", "uk", "be", "en"]);
+});
+
+test("detectDefaultLanguages: drops unsupported tags", () => {
+  assert.deepEqual(detectDefaultLanguages(["es", "ja", "ru"]), ["ru", "en"]);
+  assert.deepEqual(detectDefaultLanguages(["es", "ja"]), ["en", "ru"]);
+});
+
+test("detectDefaultLanguages: lowercases and strips region", () => {
+  assert.deepEqual(detectDefaultLanguages(["RU"]), ["ru", "en"]);
+  assert.deepEqual(detectDefaultLanguages(["EN-GB", "RU-RU"]), ["en", "ru"]);
+});
+
+test("detectDefaultLanguages: caps at 4 preferred languages", () => {
+  // 4 user prefs already: keep them, no room for English anchor.
+  assert.deepEqual(detectDefaultLanguages(["fr", "de", "ru", "uk"]), ["fr", "de", "ru", "uk"]);
+  // 5+: keep first 4 in preference order.
+  assert.deepEqual(detectDefaultLanguages(["fr", "de", "ru", "uk", "be"]), ["fr", "de", "ru", "uk"]);
+});
+
+test("detectDefaultLanguages: dedupes across regional variants", () => {
+  assert.deepEqual(detectDefaultLanguages(["en-US", "en-GB", "en"]), ["en", "ru"]);
+});
+
+test("detectDefaultLanguages: ignores junk entries", () => {
+  assert.deepEqual(detectDefaultLanguages([null, "", undefined, "ru"]), ["ru", "en"]);
+  assert.deepEqual(detectDefaultLanguages([0, false, "ru"]), ["ru", "en"]);
 });

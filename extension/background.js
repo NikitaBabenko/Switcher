@@ -1,15 +1,41 @@
-import { getSettings, isHostAllowed } from "./config.js";
+import { getSettings, isHostAllowed, detectDefaultLanguages } from "./config.js";
 import { detect as detectLocal, canHandleLanguages } from "./lib/detector.js";
 
 const MENU_ID = "switcher-convert-selection";
+const DEFAULTS_FLAG = "__defaults_v1";
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener(async (details) => {
   chrome.contextMenus.create({
     id: MENU_ID,
     title: "Switcher: switch layout",
     contexts: ["selection", "editable"],
   });
+  if (details?.reason === "install") {
+    await applyDetectedDefaults();
+  }
 });
+
+// Seed `languages` from navigator.languages on first install only. Idempotent
+// via __defaults_v1 flag; never overwrites an existing user choice.
+async function applyDetectedDefaults() {
+  const store = chrome.storage?.sync || chrome.storage?.local;
+  if (!store) return;
+  try {
+    const stored = await store.get([DEFAULTS_FLAG, "languages"]);
+    if (stored[DEFAULTS_FLAG]) return;
+    if (Array.isArray(stored.languages) && stored.languages.length > 0) {
+      await store.set({ [DEFAULTS_FLAG]: true });
+      return;
+    }
+    const tags = navigator.languages?.length
+      ? Array.from(navigator.languages)
+      : [navigator.language || "en"];
+    const languages = detectDefaultLanguages(tags);
+    await store.set({ languages, [DEFAULTS_FLAG]: true });
+  } catch {
+    // Storage unavailable — keep DEFAULTS.languages as the runtime fallback.
+  }
+}
 
 // Clear per-tab override entries when their tab closes — otherwise
 // chrome.storage.session accrues `override_<tabId>` keys for the session.

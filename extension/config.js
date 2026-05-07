@@ -1,3 +1,7 @@
+// All offline-bundled languages. Keep in sync with the trigram models in
+// lib/data.js (auto-generated from data/{layouts,wordlists}/).
+export const SUPPORTED_LANGUAGES = ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr"];
+
 export const DEFAULTS = {
   // Offline-first: empty apiBase keeps text fully on the user's machine. Set a
   // URL in Settings only if you want extra languages or a remote fallback.
@@ -12,6 +16,27 @@ export const DEFAULTS = {
   // Punto-Switcher-style behaviour.
   autoCorrect: false,
 };
+
+// Pure, testable: derive a sensible initial language set from navigator.languages.
+// Keeps only languages we ship offline, preserves the user's preference order,
+// always tries to anchor English (if there's room), and falls back to en+ru if
+// nothing maps. Caps at 4 to keep the detector responsive.
+export function detectDefaultLanguages(navigatorLanguages) {
+  const tags = Array.isArray(navigatorLanguages) ? navigatorLanguages : [];
+  const supported = new Set(SUPPORTED_LANGUAGES);
+  const seen = new Set();
+  const picked = [];
+  for (const tag of tags) {
+    const code = String(tag || "").toLowerCase().split("-")[0];
+    if (!supported.has(code) || seen.has(code)) continue;
+    seen.add(code);
+    picked.push(code);
+    if (picked.length >= 4) break;
+  }
+  if (!seen.has("en") && picked.length < 4) picked.push("en");
+  if (picked.length < 2) picked.push("ru");
+  return picked;
+}
 
 const KEYS = Object.keys(DEFAULTS);
 const MIGRATION_FLAG = "__migrated_v1";

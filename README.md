@@ -50,7 +50,7 @@ To package the extension into a Chrome Web Store-ready zip:
 
 ```
 cd extension
-npm test            # 191 Node tests
+npm test            # 199 Node tests
 npm run package     # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 
@@ -79,7 +79,7 @@ cd extension
 npm test
 ```
 
-191 Node tests cover the detector engine, host-policy logic, per-site adapters, autocorrect heuristics, the insertion ladder, undo memory, and the packaging script.
+199 Node tests cover the detector engine, host-policy logic, per-site adapters, autocorrect heuristics, the insertion ladder, undo memory, and the packaging script.
 
 ## CI
 
