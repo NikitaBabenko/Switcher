@@ -49,6 +49,10 @@ function setDetected(text) {
 
 async function refreshDetected() {
   setDetected("…");
+  // Clear any tooltip left over from a previous tab — when the user navigates
+  // from a restricted page back to a regular one, the disabled-state hint
+  // should disappear together with the disabled state.
+  decryptPageBtn.title = "";
   const tab = await getActiveTab();
   if (!tab?.id) {
     detectedLbl.textContent = t("popup_detectedNoTab");
@@ -62,6 +66,7 @@ async function refreshDetected() {
     detectedLbl.textContent = t("popup_detectedRestricted");
     info.textContent = t("popup_pageNotSupported");
     decryptPageBtn.disabled = true;
+    decryptPageBtn.title = t("popup_pageNotSupported");
     undoBtn.disabled = true;
     return;
   }
