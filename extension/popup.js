@@ -133,6 +133,9 @@ decryptPageBtn.addEventListener("click", async () => {
           type: "SHOW_TOAST",
           text: t("toast_decrypted", [r.detected ? `${r.detected.from}→${r.detected.to}` : "decrypted"]),
           kind: "ok",
+          result: r.result,
+          copyLabel: t("popup_copy"),
+          copiedLabel: t("popup_copied"),
         });
       } catch {}
     } else if (r?.reason === "already-correct") {

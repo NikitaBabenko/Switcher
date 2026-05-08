@@ -11,7 +11,11 @@
       button.primary { background: #2563eb; color: #fff; border: 1px solid #1d4ed8; border-radius: 6px; }
       button.primary:disabled { background: #9ca3af; border-color: #9ca3af; cursor: default; }
       select { padding: 4px 6px; font-family: inherit; }
-      .result { margin-top: 8px; padding: 8px; background: #f3f4f6; border-radius: 6px; font-size: 14px; min-height: 40px; white-space: pre-wrap; word-wrap: break-word; }
+      .result-wrap { position: relative; margin-top: 8px; }
+      .result { padding: 8px; padding-right: 64px; background: #f3f4f6; border-radius: 6px; font-size: 14px; min-height: 40px; white-space: pre-wrap; word-wrap: break-word; }
+      .result-copy { position: absolute; top: 6px; right: 6px; padding: 2px 8px; font-size: 11px; line-height: 1.6; background: #fff; border: 1px solid #d1d5db; border-radius: 4px; cursor: pointer; opacity: 0.85; }
+      .result-copy:hover:not(:disabled) { opacity: 1; background: #e5e7eb; }
+      .result-copy:disabled { cursor: default; opacity: 0.4; background: #f3f4f6; color: #9ca3af; }
       .muted { color: #6b7280; font-size: 12px; }
       .section { padding: 8px 0; }
       .divider { height: 1px; background: #e5e7eb; margin: 10px 0; }
@@ -99,12 +103,14 @@
       <textarea id="input" data-i18n-placeholder="popup_pastePlaceholder" placeholder="Paste cyrillic gibberish here…"></textarea>
       <div class="row">
         <button id="convert" data-i18n="popup_decrypt">Decrypt</button>
-        <button id="copy" disabled data-i18n="popup_copy">Copy</button>
         <select id="uiLocale" class="ui-locale" data-i18n-title="popup_languageLabel" data-i18n-aria-label="popup_languageLabel" style="margin-left:auto"></select>
         <a href="#" id="open-options" data-i18n="popup_settingsLink">Settings</a>
       </div>
       <div class="muted" id="info"></div>
-      <div class="result" id="result"></div>
+      <div class="result-wrap">
+        <div class="result" id="result"></div>
+        <button id="copy" class="result-copy" type="button" disabled data-i18n="popup_copy">Copy</button>
+      </div>
     </div>
 
     <div class="divider"></div>

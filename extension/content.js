@@ -43,7 +43,11 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   }
 
   if (msg?.type === "SHOW_TOAST") {
-    showToast(msg.text || "Done", msg.kind || "ok");
+    showToast(msg.text || "Done", msg.kind || "ok", {
+      result: msg.result,
+      copyLabel: msg.copyLabel,
+      copiedLabel: msg.copiedLabel,
+    });
     sendResponse({ ok: true });
     return;
   }
@@ -200,14 +204,17 @@ function undoLastChange(R) {
   return { ok: false, reason: "insert-rejected" };
 }
 
-function showToast(text, kind) {
+function showToast(text, kind, opts = {}) {
   try {
     const id = "vibenest-switcher-toast";
     const old = document.getElementById(id);
     if (old) old.remove();
+
+    const hasResult = typeof opts.result === "string" && opts.result.length > 0;
+    const bg = kind === "warn" ? "#b45309" : kind === "err" ? "#b91c1c" : "#2563eb";
+
     const el = document.createElement("div");
     el.id = id;
-    el.textContent = text;
     el.style.cssText = [
       "position:fixed",
       "bottom:20px",
@@ -218,24 +225,113 @@ function showToast(text, kind) {
       "font:13px/1.3 -apple-system,Segoe UI,system-ui,sans-serif",
       "color:#fff",
       "box-shadow:0 6px 24px rgba(0,0,0,0.22)",
-      `background:${kind === "warn" ? "#b45309" : kind === "err" ? "#b91c1c" : "#2563eb"}`,
-      "max-width:320px",
-      "pointer-events:none",
+      `background:${bg}`,
+      `max-width:${hasResult ? "360px" : "320px"}`,
+      `pointer-events:${hasResult ? "auto" : "none"}`,
       "opacity:0",
       "transform:translateY(8px)",
       "transition:opacity .15s ease, transform .15s ease",
     ].join(";");
+
+    const status = document.createElement("div");
+    status.textContent = text;
+    el.appendChild(status);
+
+    let hideTimer = null;
+    const doHide = () => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(8px)";
+      setTimeout(() => el.remove(), 200);
+    };
+    const scheduleHide = (ms) => {
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = setTimeout(doHide, ms);
+    };
+
+    if (hasResult) {
+      const body = document.createElement("div");
+      body.textContent = opts.result;
+      body.style.cssText = [
+        "margin-top:6px",
+        "padding:6px 8px",
+        "max-height:96px",
+        "overflow:auto",
+        "white-space:pre-wrap",
+        "word-break:break-word",
+        "user-select:text",
+        "font:12px ui-monospace,Menlo,Consolas,monospace",
+        "background:rgba(0,0,0,0.18)",
+        "border-radius:4px",
+      ].join(";");
+      el.appendChild(body);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      const labelCopy = opts.copyLabel || "Copy";
+      const labelCopied = opts.copiedLabel || "Copied";
+      btn.textContent = labelCopy;
+      btn.setAttribute("aria-label", labelCopy);
+      btn.style.cssText = [
+        "margin-top:6px",
+        "padding:3px 10px",
+        "background:#fff",
+        "color:#111827",
+        "border:0",
+        "border-radius:4px",
+        "cursor:pointer",
+        "font:12px inherit",
+      ].join(";");
+
+      btn.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+      });
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const ok = await copyToClipboard(opts.result);
+        if (ok) {
+          btn.textContent = labelCopied;
+          btn.setAttribute("aria-label", labelCopied);
+          scheduleHide(2000);
+        }
+      });
+      el.appendChild(btn);
+
+      el.addEventListener("mouseenter", () => {
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+      });
+      el.addEventListener("mouseleave", () => scheduleHide(2000));
+    }
+
     document.documentElement.appendChild(el);
     requestAnimationFrame(() => {
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
     });
-    setTimeout(() => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(8px)";
-      setTimeout(() => el.remove(), 200);
-    }, 2200);
+    scheduleHide(hasResult ? 6000 : 2200);
   } catch { /* ignore — page CSP, etc. */ }
+}
+
+async function copyToClipboard(text) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch { /* fall through to legacy path */ }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:-1000px;left:-1000px;opacity:0;pointer-events:none;";
+    document.documentElement.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return !!ok;
+  } catch {
+    return false;
+  }
 }
 
 function getSelectionText(R) {
