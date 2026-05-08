@@ -1,7 +1,7 @@
 // Run with: node --test extension/lib/config.test.mjs
 import test from "node:test";
 import assert from "node:assert/strict";
-import { isHostAllowed, detectDefaultLanguages, hasConfidentLanguageDetection } from "../config.js";
+import { isHostAllowed, isRestrictedUrl, detectDefaultLanguages, hasConfidentLanguageDetection } from "../config.js";
 
 test("default mode 'all' allows everything", () => {
   assert.equal(isHostAllowed("example.com", "all", []), true);
@@ -124,4 +124,33 @@ test("hasConfidentLanguageDetection: regional variants count once", () => {
   // en-US + en-GB are the same supported language → not enough by themselves.
   assert.equal(hasConfidentLanguageDetection(["en-US", "en-GB", "en"]), false);
   assert.equal(hasConfidentLanguageDetection(["en-US", "en-GB", "ru"]), true);
+});
+
+test("isRestrictedUrl: chrome:// and other privileged schemes are restricted", () => {
+  assert.equal(isRestrictedUrl("chrome://extensions"), true);
+  assert.equal(isRestrictedUrl("chrome://settings/"), true);
+  assert.equal(isRestrictedUrl("edge://settings"), true);
+  assert.equal(isRestrictedUrl("about:blank"), true);
+  assert.equal(isRestrictedUrl("view-source:https://example.com"), true);
+  assert.equal(isRestrictedUrl("chrome-extension://abcdefg/popup.html"), true);
+  assert.equal(isRestrictedUrl("devtools://devtools/bundled/inspector.html"), true);
+});
+
+test("isRestrictedUrl: Chrome Web Store hostnames are restricted", () => {
+  assert.equal(isRestrictedUrl("https://chromewebstore.google.com/category/extensions"), true);
+  assert.equal(isRestrictedUrl("https://chrome.google.com/webstore/detail/abc"), true);
+});
+
+test("isRestrictedUrl: regular http/https are allowed", () => {
+  assert.equal(isRestrictedUrl("https://example.com/"), false);
+  assert.equal(isRestrictedUrl("http://localhost:3000"), false);
+  assert.equal(isRestrictedUrl("https://chrome.google.com/"), false); // store path needed
+  assert.equal(isRestrictedUrl("https://www.google.com/"), false);
+});
+
+test("isRestrictedUrl: missing/garbage url is treated as restricted", () => {
+  assert.equal(isRestrictedUrl(""), true);
+  assert.equal(isRestrictedUrl(null), true);
+  assert.equal(isRestrictedUrl(undefined), true);
+  assert.equal(isRestrictedUrl("not a url"), true);
 });

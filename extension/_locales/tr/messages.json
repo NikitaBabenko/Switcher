@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "Bu sayfada metin alanı bulunamadı. Bir alana tıklayıp tekrar deneyin." },
   "popup_notEditable": { "message": "Etkin öğe bir metin alanı değil." },
   "popup_extensionNotLoaded": { "message": "Uzantının bağlanması için sayfayı yeniden yükleyin." },
+  "popup_pageNotSupported": { "message": "Bu sayfa desteklenmiyor. Metni aşağıdaki alana yapıştırın." },
+  "popup_detectedRestricted": { "message": "sayfa desteklenmiyor" },
   "popup_genericError": { "message": "Hata: $1" },
   "popup_couldntDecrypt": { "message": "Düzeltme başarısız: $1." },
   "popup_undone": { "message": "Geri alındı." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "Atlandı: $1 site politikanız tarafından hariç tutuluyor." },
   "notification_copiedToClipboard": { "message": "Panoya kopyalandı: $1" },
   "notification_selectFirst": { "message": "Önce metin seçin veya bir metin alanına tıklayın." },
+  "notification_pageNotSupported": { "message": "Bu sayfa uzantı tarafından desteklenmiyor. Yan paneli açın ve metni oradaki alana yapıştırın." },
   "notification_genericError": { "message": "Hata: $1" },
 
   "convert_languagesNotBundled": {

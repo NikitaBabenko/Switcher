@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "Не ўдалося знайсці тэкставае поле. Клікніце ў патрэбнае поле і паспрабуйце зноў." },
   "popup_notEditable": { "message": "Актыўны элемент — не тэкставае поле." },
   "popup_extensionNotLoaded": { "message": "Перазагрузіце старонку, каб пашырэнне падключылася." },
+  "popup_pageNotSupported": { "message": "Гэтая старонка не падтрымліваецца. Устаўце тэкст у поле ніжэй." },
+  "popup_detectedRestricted": { "message": "старонка не падтрымліваецца" },
   "popup_genericError": { "message": "Памылка: $1" },
   "popup_couldntDecrypt": { "message": "Не ўдалося выправіць: $1." },
   "popup_undone": { "message": "Адменена." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "Прапушчана: $1 выключаны палітыкай сайтаў." },
   "notification_copiedToClipboard": { "message": "Скапіявана ў буфер: $1" },
   "notification_selectFirst": { "message": "Спачатку вылучыце тэкст або клікніце ў тэкставае поле." },
+  "notification_pageNotSupported": { "message": "Гэтая старонка не падтрымліваецца пашырэннем. Адкрыйце бакавую панэль і ўстаўце тэкст у поле там." },
   "notification_genericError": { "message": "Памылка: $1" },
 
   "convert_languagesNotBundled": {

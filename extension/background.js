@@ -1,4 +1,4 @@
-import { getSettings, isHostAllowed, detectDefaultLanguages, hasConfidentLanguageDetection } from "./config.js";
+import { getSettings, isHostAllowed, isRestrictedUrl, detectDefaultLanguages, hasConfidentLanguageDetection } from "./config.js";
 import { detect as detectLocal, canHandleLanguages } from "./lib/detector.js";
 
 // Make the toolbar icon toggle the side panel. Top-level so it re-applies on
@@ -82,6 +82,22 @@ function hostnameOf(url) {
 }
 
 async function convertInActiveTab(tabId, tabUrl, fallbackText) {
+  // Pages where Chrome blocks content-script injection (chrome://, web store,
+  // etc.) can't be edited in place. The context-menu path still works because
+  // it carries selectionText and falls through to the clipboard route below,
+  // so only short-circuit when we have no fallback text to convert.
+  if (isRestrictedUrl(tabUrl) && !(fallbackText || "").trim()) {
+    await notify(
+      i18n("notification_title", null, "VibeNest Switcher"),
+      i18n(
+        "notification_pageNotSupported",
+        null,
+        "This page can't be edited by the extension. Open the side panel and paste the text into the field there.",
+      ),
+    );
+    return;
+  }
+
   const settings = await getSettings();
   const replaceWholeOnEmptySelection = settings.replaceWholeOnEmptySelection !== false;
   const hostname = hostnameOf(tabUrl);

@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "Δεν βρέθηκε πεδίο κειμένου σε αυτή τη σελίδα. Κάντε κλικ σε ένα και προσπαθήστε ξανά." },
   "popup_notEditable": { "message": "Το εστιασμένο στοιχείο δεν είναι πεδίο κειμένου." },
   "popup_extensionNotLoaded": { "message": "Φορτώστε ξανά τη σελίδα ώστε η επέκταση να συνδεθεί." },
+  "popup_pageNotSupported": { "message": "Αυτή η σελίδα δεν υποστηρίζεται. Επικολλήστε το κείμενο στο πεδίο παρακάτω." },
+  "popup_detectedRestricted": { "message": "η σελίδα δεν υποστηρίζεται" },
   "popup_genericError": { "message": "Σφάλμα: $1" },
   "popup_couldntDecrypt": { "message": "Αδυναμία διόρθωσης: $1." },
   "popup_undone": { "message": "Αναιρέθηκε." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "Παράκαμψη: το $1 εξαιρείται από την πολιτική σας." },
   "notification_copiedToClipboard": { "message": "Αντιγράφηκε στο πρόχειρο: $1" },
   "notification_selectFirst": { "message": "Επιλέξτε πρώτα κείμενο ή κάντε κλικ σε πεδίο κειμένου." },
+  "notification_pageNotSupported": { "message": "Αυτή η σελίδα δεν υποστηρίζεται από την επέκταση. Ανοίξτε το πλαϊνό πάνελ και επικολλήστε το κείμενο στο πεδίο εκεί." },
   "notification_genericError": { "message": "Σφάλμα: $1" },
 
   "convert_languagesNotBundled": {

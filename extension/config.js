@@ -112,6 +112,31 @@ export async function saveSettings(patch) {
   await store.set(patch);
 }
 
+// True for URLs where Chrome refuses to inject content scripts (chrome://,
+// chrome-extension:// of other extensions, edge://, view-source:, about:, the
+// Chrome Web Store, etc.). On such pages REPLACE_IN_COMPOSER will always fail
+// — callers should bail out early with a clearer "page not supported" message
+// instead of falling through to the misleading notification_selectFirst toast.
+export function isRestrictedUrl(url) {
+  if (!url) return true;
+  let parsed;
+  try { parsed = new URL(url); } catch { return true; }
+  const proto = parsed.protocol;
+  if (
+    proto === "chrome:" ||
+    proto === "edge:" ||
+    proto === "about:" ||
+    proto === "view-source:" ||
+    proto === "chrome-extension:" ||
+    proto === "devtools:" ||
+    proto === "chrome-search:"
+  ) return true;
+  const host = parsed.hostname.toLowerCase();
+  if (host === "chromewebstore.google.com") return true;
+  if (host === "chrome.google.com" && parsed.pathname.startsWith("/webstore")) return true;
+  return false;
+}
+
 // True when the extension is allowed to act on the given hostname under the
 // current siteMode/siteList policy. Pure function so it's testable.
 export function isHostAllowed(hostname, siteMode, siteList) {

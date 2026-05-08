@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "Kein Textfeld auf dieser Seite gefunden. Klicken Sie in eines und versuchen Sie es erneut." },
   "popup_notEditable": { "message": "Das fokussierte Element ist kein Textfeld." },
   "popup_extensionNotLoaded": { "message": "Seite neu laden, damit die Erweiterung sich verbinden kann." },
+  "popup_pageNotSupported": { "message": "Diese Seite wird nicht unterstützt. Fügen Sie den Text unten in das Feld ein." },
+  "popup_detectedRestricted": { "message": "Seite nicht unterstützt" },
   "popup_genericError": { "message": "Fehler: $1" },
   "popup_couldntDecrypt": { "message": "Korrektur fehlgeschlagen: $1." },
   "popup_undone": { "message": "Rückgängig gemacht." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "Übersprungen: $1 ist durch Ihre Seitenrichtlinie ausgeschlossen." },
   "notification_copiedToClipboard": { "message": "In Zwischenablage kopiert: $1" },
   "notification_selectFirst": { "message": "Wählen Sie zuerst Text aus oder klicken Sie in ein Textfeld." },
+  "notification_pageNotSupported": { "message": "Diese Seite wird von der Erweiterung nicht unterstützt. Öffnen Sie das Seitenpanel und fügen Sie den Text in das Feld dort ein." },
   "notification_genericError": { "message": "Fehler: $1" },
 
   "convert_languagesNotBundled": {

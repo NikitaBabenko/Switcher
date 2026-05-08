@@ -64,6 +64,8 @@
   "popup_composerNotFound": { "message": "Не удалось найти текстовое поле. Кликните в нужное поле и попробуйте снова." },
   "popup_notEditable": { "message": "Активный элемент — не текстовое поле." },
   "popup_extensionNotLoaded": { "message": "Перезагрузите страницу, чтобы расширение подключилось." },
+  "popup_pageNotSupported": { "message": "Эта страница не поддерживается. Вставьте текст в поле ниже." },
+  "popup_detectedRestricted": { "message": "страница не поддерживается" },
   "popup_genericError": {
     "message": "Ошибка: $1",
     "description": "$1 is the error message"
@@ -150,6 +152,7 @@
     "description": "$1 is the truncated converted text"
   },
   "notification_selectFirst": { "message": "Сначала выделите текст или кликните в текстовое поле." },
+  "notification_pageNotSupported": { "message": "Эта страница не поддерживается расширением. Откройте боковую панель и вставьте текст в поле там." },
   "notification_genericError": {
     "message": "Ошибка: $1",
     "description": "$1 is the error message"

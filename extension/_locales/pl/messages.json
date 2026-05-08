@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "Nie znaleziono pola tekstowego na tej stronie. Kliknij w pole i spróbuj ponownie." },
   "popup_notEditable": { "message": "Aktywny element nie jest polem tekstowym." },
   "popup_extensionNotLoaded": { "message": "Odśwież stronę, aby rozszerzenie się dołączyło." },
+  "popup_pageNotSupported": { "message": "Ta strona nie jest obsługiwana. Wklej tekst do pola poniżej." },
+  "popup_detectedRestricted": { "message": "strona nie jest obsługiwana" },
   "popup_genericError": { "message": "Błąd: $1" },
   "popup_couldntDecrypt": { "message": "Nie udało się poprawić: $1." },
   "popup_undone": { "message": "Cofnięto." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "Pominięto: $1 jest wykluczona przez politykę witryn." },
   "notification_copiedToClipboard": { "message": "Skopiowano do schowka: $1" },
   "notification_selectFirst": { "message": "Najpierw zaznacz tekst lub kliknij w pole tekstowe." },
+  "notification_pageNotSupported": { "message": "Ta strona nie jest obsługiwana przez rozszerzenie. Otwórz panel boczny i wklej tekst do pola tam." },
   "notification_genericError": { "message": "Błąd: $1" },
 
   "convert_languagesNotBundled": {

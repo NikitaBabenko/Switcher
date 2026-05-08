@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "No se encontró un campo de texto en esta página. Haz clic en uno y vuelve a intentar." },
   "popup_notEditable": { "message": "El elemento activo no es un campo de texto." },
   "popup_extensionNotLoaded": { "message": "Recarga la página para que la extensión se conecte." },
+  "popup_pageNotSupported": { "message": "Esta página no es compatible. Pega el texto en el campo de abajo." },
+  "popup_detectedRestricted": { "message": "página no compatible" },
   "popup_genericError": { "message": "Error: $1" },
   "popup_couldntDecrypt": { "message": "No se pudo corregir: $1." },
   "popup_undone": { "message": "Deshecho." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "Omitido: $1 está excluido por tu política de sitios." },
   "notification_copiedToClipboard": { "message": "Copiado al portapapeles: $1" },
   "notification_selectFirst": { "message": "Selecciona texto primero, o haz clic en un campo de texto." },
+  "notification_pageNotSupported": { "message": "Esta página no es compatible con la extensión. Abre el panel lateral y pega el texto en el campo allí." },
   "notification_genericError": { "message": "Error: $1" },
 
   "convert_languagesNotBundled": {

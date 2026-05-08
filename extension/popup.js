@@ -1,4 +1,4 @@
-import { getSettings, isHostAllowed } from "./config.js";
+import { getSettings, isHostAllowed, isRestrictedUrl } from "./config.js";
 import { bootstrap, t, availableUiLocales, getUiLocale, setUiLocale } from "./lib/i18n.js";
 
 const input = document.getElementById("input");
@@ -52,6 +52,17 @@ async function refreshDetected() {
   const tab = await getActiveTab();
   if (!tab?.id) {
     detectedLbl.textContent = t("popup_detectedNoTab");
+    return;
+  }
+
+  // chrome://, web store, etc. — Chrome blocks content scripts there entirely,
+  // so REPLACE_IN_COMPOSER will always fail. Tell the user up front and steer
+  // them to the textarea fallback instead of the misleading "select first" toast.
+  if (isRestrictedUrl(tab.url || "")) {
+    detectedLbl.textContent = t("popup_detectedRestricted");
+    info.textContent = t("popup_pageNotSupported");
+    decryptPageBtn.disabled = true;
+    undoBtn.disabled = true;
     return;
   }
 
@@ -119,6 +130,11 @@ overrideSel.addEventListener("change", async () => {
 decryptPageBtn.addEventListener("click", async () => {
   const tab = await getActiveTab();
   if (!tab?.id) return;
+  if (isRestrictedUrl(tab.url || "")) {
+    info.textContent = t("popup_pageNotSupported");
+    input.focus();
+    return;
+  }
   const settings = await getSettings();
   if (!isHostAllowed(hostnameOf(tab.url || ""), settings.siteMode, settings.siteList)) {
     info.textContent = t("popup_excludedByPolicyExplain", [hostnameOf(tab.url || "")]);

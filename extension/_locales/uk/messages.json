@@ -64,6 +64,8 @@
   "popup_composerNotFound": { "message": "Не вдалося знайти текстове поле. Клацніть у потрібне поле і спробуйте знову." },
   "popup_notEditable": { "message": "Активний елемент — не текстове поле." },
   "popup_extensionNotLoaded": { "message": "Перезавантажте сторінку, щоб розширення підключилося." },
+  "popup_pageNotSupported": { "message": "Ця сторінка не підтримується. Вставте текст у поле нижче." },
+  "popup_detectedRestricted": { "message": "сторінка не підтримується" },
   "popup_genericError": {
     "message": "Помилка: $1",
     "description": "$1 is the error message"
@@ -150,6 +152,7 @@
     "description": "$1 is the truncated converted text"
   },
   "notification_selectFirst": { "message": "Спочатку виділіть текст або клацніть у текстове поле." },
+  "notification_pageNotSupported": { "message": "Ця сторінка не підтримується розширенням. Відкрийте бічну панель і вставте текст у поле там." },
   "notification_genericError": {
     "message": "Помилка: $1",
     "description": "$1 is the error message"

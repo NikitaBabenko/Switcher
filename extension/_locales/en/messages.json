@@ -67,6 +67,8 @@
   "popup_composerNotFound": { "message": "Couldn't find a text field on this page. Click into one and try again." },
   "popup_notEditable": { "message": "Focused element is not a text field." },
   "popup_extensionNotLoaded": { "message": "Reload this page so the extension can attach." },
+  "popup_pageNotSupported": { "message": "This page can't be edited by the extension. Paste the text into the field below." },
+  "popup_detectedRestricted": { "message": "page not supported" },
   "popup_genericError": {
     "message": "Error: $1",
     "description": "$1 is the error message"
@@ -153,6 +155,7 @@
     "description": "$1 is the truncated converted text"
   },
   "notification_selectFirst": { "message": "Select some text first, or click into a text field." },
+  "notification_pageNotSupported": { "message": "This page can't be edited by the extension. Open the side panel and paste the text into the field there." },
   "notification_genericError": {
     "message": "Error: $1",
     "description": "$1 is the error message"

@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "Aucun champ texte trouvé sur cette page. Cliquez dans un champ et réessayez." },
   "popup_notEditable": { "message": "L'élément ciblé n'est pas un champ texte." },
   "popup_extensionNotLoaded": { "message": "Rechargez la page pour que l'extension s'attache." },
+  "popup_pageNotSupported": { "message": "Cette page n'est pas prise en charge. Collez le texte dans le champ ci-dessous." },
+  "popup_detectedRestricted": { "message": "page non prise en charge" },
   "popup_genericError": { "message": "Erreur : $1" },
   "popup_couldntDecrypt": { "message": "Correction impossible : $1." },
   "popup_undone": { "message": "Annulé." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "Ignoré : $1 est exclu par votre politique de sites." },
   "notification_copiedToClipboard": { "message": "Copié dans le presse-papier : $1" },
   "notification_selectFirst": { "message": "Sélectionnez d'abord du texte, ou cliquez dans un champ texte." },
+  "notification_pageNotSupported": { "message": "Cette page n'est pas prise en charge par l'extension. Ouvrez le panneau latéral et collez le texte dans le champ." },
   "notification_genericError": { "message": "Erreur : $1" },
 
   "convert_languagesNotBundled": {

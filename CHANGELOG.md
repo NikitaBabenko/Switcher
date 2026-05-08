@@ -19,6 +19,10 @@ All notable changes to **VibeNest Switcher** are tracked here. Format follows [K
 - `lib/build-models.mjs` now decomposes the Korean wordlist to jamo before training the trigram model so it scores post-transposition output correctly.
 - `LanguageModel.score` handles the Korean decompose internally (rather than special-casing in `addCandidates`); transposition with Korean source/target goes through a new `transposeText` helper.
 
+### Fixed
+- Misleading "Select some text first…" notification on `chrome://`, `edge://`, the Chrome Web Store, and other privileged pages where Chrome blocks content-script injection. Added `isRestrictedUrl()` helper in `config.js`; the hotkey/context-menu path in `background.js` and the side panel in `popup.js` now bail out early with a new `notification_pageNotSupported` / `popup_pageNotSupported` message and auto-focus the paste-textarea fallback. The pages still can't be edited in place (Chrome doesn't allow it), but the user finally sees an honest reason instead of being told to do something they already did.
+- 4 new tests for `isRestrictedUrl` covering chrome:// / edge:// / about: / view-source: / Chrome Web Store / regular https. **260 total, all green.**
+
 ## [0.2.0] — initial Chrome Web Store submission
 
 Snapshot of the codebase prior to pl/es/ko. Documented retroactively from git history.

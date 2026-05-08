@@ -49,6 +49,8 @@
   "popup_composerNotFound": { "message": "לא נמצא שדה טקסט בדף. לחץ על שדה ונסה שוב." },
   "popup_notEditable": { "message": "האלמנט הפעיל אינו שדה טקסט." },
   "popup_extensionNotLoaded": { "message": "טען מחדש את הדף כדי שההרחבה תתחבר." },
+  "popup_pageNotSupported": { "message": "דף זה אינו נתמך. הדבק את הטקסט בשדה למטה." },
+  "popup_detectedRestricted": { "message": "הדף אינו נתמך" },
   "popup_genericError": { "message": "שגיאה: $1" },
   "popup_couldntDecrypt": { "message": "לא ניתן לתקן: $1." },
   "popup_undone": { "message": "בוטל." },
@@ -111,6 +113,7 @@
   "notification_skippedPolicy": { "message": "דולג: $1 מוחרג ממדיניות האתרים שלך." },
   "notification_copiedToClipboard": { "message": "הועתק ללוח: $1" },
   "notification_selectFirst": { "message": "בחר טקסט תחילה, או לחץ בשדה טקסט." },
+  "notification_pageNotSupported": { "message": "דף זה אינו נתמך על ידי ההרחבה. פתח את הלוח הצדדי והדבק את הטקסט בשדה שם." },
   "notification_genericError": { "message": "שגיאה: $1" },
 
   "convert_languagesNotBundled": {
