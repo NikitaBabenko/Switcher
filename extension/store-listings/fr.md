@@ -7,7 +7,7 @@ Vous avez tapé **`ghbdtn`** alors que vous vouliez **`привет`** ? Appuyez
 - **100% open source** — code source complet sur GitHub : https://github.com/NikitaBabenko/Switcher
 - **Entièrement hors ligne par défaut** — aucune télémétrie, aucune analytique, aucun appel cloud ; le modèle de langue est intégré dans l'extension (~270 Ko)
 - **Aucun compte, aucune connexion, aucun paiement** — installez et utilisez
-- **9 langues d'origine** — la plupart des alternatives n'en couvrent qu'une ou deux
+- **12 langues d'origine** — la plupart des alternatives n'en couvrent qu'une ou deux
 - **Manifest V3** — permissions minimales, conforme aux règles Chrome 2025
 - **Multi-navigateur** — fonctionne sur Chrome et les forks Chromium ; Edge et Firefox sont prévus
 
@@ -45,7 +45,7 @@ Il existe un repli API distant optionnel (désactivé par défaut), activable da
 
 ## Langues prises en charge
 
-English, Русский, Українська, Беларуская, Deutsch, Français, Ελληνικά, עברית, Türkçe.
+English, Русский, Українська, Беларуская, Deutsch, Français, Ελληνικά, עברית, Türkçe, Polski, Español, 한국어.
 
 Besoin d'une autre ? Ouvrez une issue sur GitHub ou écrivez à info@vibenest.net — ajouter une disposition + une liste de mots prend quelques heures.
 

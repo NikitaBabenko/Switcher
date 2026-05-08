@@ -35,6 +35,10 @@ test("includes lib/data.js and lib/detector.js (runtime data + JS port)", () => 
   assert.equal(shouldInclude("lib/detector.js"), true);
 });
 
+test("includes lib/hangul.js (Korean Hangul compose/decompose helper)", () => {
+  assert.equal(shouldInclude("lib/hangul.js"), true);
+});
+
 test("includes lib/i18n.js (localization helper)", () => {
   assert.equal(shouldInclude("lib/i18n.js"), true);
 });
@@ -160,6 +164,7 @@ test("real extension tree includes a stable set of files", async () => {
     "options.html",
     "lib/detector.js",
     "lib/data.js",
+    "lib/hangul.js",
     "lib/i18n.js",
     "_locales/en/messages.json",
     "_locales/ru/messages.json",

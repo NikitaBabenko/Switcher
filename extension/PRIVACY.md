@@ -16,8 +16,9 @@ advertising scripts.
   tab when you trigger a conversion (toolbar button, `Ctrl+Shift+L`, context
   menu item, or — if you opted in — automatic correction after a space).
 - Runs the layout-detection algorithm **inside your browser** against a
-  bundled char-trigram language model (9 languages: English, Russian,
-  Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish).
+  bundled char-trigram language model (12 languages: English, Russian,
+  Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish, Polish,
+  Spanish, Korean).
 - Writes the corrected text back into the same field, or to the clipboard if
   the field can't be modified directly.
 

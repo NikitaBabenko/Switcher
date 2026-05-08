@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "키보드 레이아웃 전환기 · 잘못된 입력 수정 · 9개 언어",
+    "message": "키보드 레이아웃 전환기 · 잘못된 입력 수정 · 12개 언어",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "잘못된 키보드 레이아웃으로 입력된 텍스트를 수정합니다. 9개 언어: 한국어, 영어, 러시아어, 독일어 외 5개. 오프라인, 오픈소스.",
+    "message": "잘못된 키보드 레이아웃으로 입력된 텍스트를 수정합니다. 12개 언어: 한국어, 영어, 러시아어, 폴란드어 외 8개. 오프라인, 오픈소스.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
@@ -70,7 +70,7 @@
   },
   "options_privacyH2": { "message": "개인정보 보호" },
   "options_privacyBody": {
-    "message": "기본적으로 수정은 사용자 기기에서만 실행됩니다 — 어떤 텍스트도 브라우저를 떠나지 않습니다. 9개 내장 언어: 영어, 러시아어, 우크라이나어, 벨라루스어, 독일어, 프랑스어, 그리스어, 히브리어, 터키어."
+    "message": "기본적으로 수정은 사용자 기기에서만 실행됩니다 — 어떤 텍스트도 브라우저를 떠나지 않습니다. 12개 내장 언어: 영어, 러시아어, 우크라이나어, 벨라루스어, 독일어, 프랑스어, 그리스어, 히브리어, 터키어, 폴란드어, 스페인어, 한국어."
   },
   "options_useApiFallback": { "message": "원격 API 폴백 허용" },
   "options_apiEndpoint": { "message": "API 엔드포인트 (선택)" },

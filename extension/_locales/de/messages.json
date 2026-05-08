@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Tastatur-Layout-Korrektor · 9 Sprachen (Russisch, Deutsch, EN, FR + 5)",
+    "message": "Tastatur-Layout-Korrektor · 12 Sprachen (Russisch, Deutsch, EN, FR + 8)",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Behebt Text in falschem Tastaturlayout. 9 Sprachen: Russisch, Deutsch, Englisch, Französisch + 5 mehr. Offline, Open Source.",
+    "message": "Behebt Text in falschem Tastaturlayout. 12 Sprachen: Russisch, Deutsch, Koreanisch, Polnisch + 8 mehr. Offline, Open Source.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
@@ -70,7 +70,7 @@
   },
   "options_privacyH2": { "message": "Datenschutz" },
   "options_privacyBody": {
-    "message": "Standardmäßig läuft die Korrektur vollständig auf Ihrem Gerät — kein Text verlässt den Browser. 9 mitgelieferte Sprachen: Englisch, Russisch, Ukrainisch, Belarussisch, Deutsch, Französisch, Griechisch, Hebräisch, Türkisch."
+    "message": "Standardmäßig läuft die Korrektur vollständig auf Ihrem Gerät — kein Text verlässt den Browser. 12 mitgelieferte Sprachen: Englisch, Russisch, Ukrainisch, Belarussisch, Deutsch, Französisch, Griechisch, Hebräisch, Türkisch, Polnisch, Spanisch, Koreanisch."
   },
   "options_useApiFallback": { "message": "Remote-API-Fallback erlauben" },
   "options_apiEndpoint": { "message": "API-Endpunkt (optional)" },

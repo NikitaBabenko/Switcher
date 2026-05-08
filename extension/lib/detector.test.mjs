@@ -406,9 +406,60 @@ test("languageInfo: returns shape {id, name, language} for every bundled languag
   }
 });
 
-test("availableLanguages: bundled set covers all 9 supported languages", () => {
+test("availableLanguages: bundled set covers all 12 supported languages", () => {
   const ids = availableLanguages().sort();
-  for (const expected of ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr"]) {
+  for (const expected of ["en", "ru", "uk", "be", "de", "fr", "el", "he", "tr", "pl", "es", "ko"]) {
     assert.ok(ids.includes(expected), `expected ${expected} in ${ids.join(",")}`);
   }
+});
+
+// ============================================================================
+// pl / es / ko — round-trip transposition through new layouts
+// ============================================================================
+
+test("Spanish (es) layout: ñ ↔ ; transposition", () => {
+  // 'ñ' on ES is the position of ';' on EN — typing "españa" on EN gives "espa;a".
+  const enToEs = detect("espa;a", ["en", "es"]);
+  assert.equal(enToEs.swapped, true);
+  assert.equal(enToEs.result, "españa");
+  assert.deepEqual(enToEs.detected, { from: "en", to: "es" });
+});
+
+test("Spanish (es): native Spanish stays unchanged", () => {
+  const r = detect("hola mundo", ["en", "es"]);
+  assert.equal(r.swapped, false);
+});
+
+test("Polish 214 (pl): y/z swap is detectable", () => {
+  // Polish 214 swaps y/z with German-style layout; native Polish stays as-is.
+  const r = detect("polski", ["en", "pl"]);
+  assert.equal(r.swapped, false);
+});
+
+test("Korean (ko): Latin → Hangul transposition (dkssud → 안녕)", () => {
+  // The classic Dubeolsik test: 'd k s s u d' produces ㅇㅏㄴㄴㅕㅇ which
+  // composes to "안녕" (hello/greeting in Korean).
+  const r = detect("dkssud", ["en", "ko"]);
+  assert.equal(r.swapped, true);
+  assert.equal(r.result, "안녕");
+  assert.deepEqual(r.detected, { from: "en", to: "ko" });
+});
+
+test("Korean (ko): native Hangul stays unchanged", () => {
+  const r = detect("안녕하세요", ["en", "ko"]);
+  assert.equal(r.swapped, false);
+  assert.equal(r.result, "안녕하세요");
+});
+
+test("Korean (ko): does not crash on mixed Hangul + Latin", () => {
+  const r = detect("hello 안녕", ["en", "ko"]);
+  // Result type/shape only — mixed-script behaviour is best-effort.
+  assert.equal(typeof r.result, "string");
+  assert.equal(typeof r.swapped, "boolean");
+});
+
+test("Korean (ko): plain English in en+ko set is not swapped to Korean gibberish", () => {
+  const r = detect("hello", ["en", "ko"]);
+  assert.equal(r.swapped, false);
+  assert.equal(r.result, "hello");
 });

@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Keyboard Layout Switcher — Fix Mistyped Text · 9 Languages",
+    "message": "Keyboard Layout Switcher — Fix Mistyped Text · 12 Languages",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Fix text typed in the wrong keyboard layout. 9 languages including Russian, German, French, Ukrainian. Offline, open source.",
+    "message": "Fix text typed in the wrong keyboard layout. 12 languages: Russian, Korean, Polish, Spanish + 8 more. Offline, open source.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
@@ -97,7 +97,7 @@
   },
   "options_privacyH2": { "message": "Privacy" },
   "options_privacyBody": {
-    "message": "By default, decryption runs entirely on your machine — no text leaves the browser. Bundled languages: 9 (English, Russian, Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish)."
+    "message": "By default, decryption runs entirely on your machine — no text leaves the browser. Bundled languages: 12 (English, Russian, Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish, Polish, Spanish, Korean)."
   },
   "options_useApiFallback": { "message": "Allow remote API fallback" },
   "options_apiEndpoint": { "message": "API endpoint (optional)" },

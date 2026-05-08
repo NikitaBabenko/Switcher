@@ -9,6 +9,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import { decomposeHangul } from "./hangul.js";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const EXT_ROOT = path.resolve(__dirname, "..");
@@ -74,7 +75,11 @@ function build() {
   for (const id of Object.keys(layouts).sort()) {
     const layout = layouts[id];
     const alphabet = alphabetOf(layout);
-    const words = readWords(path.join(WORDLISTS_DIR, `${id}.txt`));
+    let words = readWords(path.join(WORDLISTS_DIR, `${id}.txt`));
+    // Korean wordlists are stored as natural composed Hangul, but the runtime
+    // detector transposes through compatibility-jamo positions. Decompose to
+    // keystroke form so the trigram model scores post-transposition output.
+    if (id === "ko") words = words.map(decomposeHangul);
     const { counts, total } = trigramsFor(words);
     languages[id] = { layout, alphabet, total, counts };
   }

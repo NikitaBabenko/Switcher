@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Disposición de teclado — corrector de tipeo · 9 idiomas",
+    "message": "Disposición de teclado — corrector de tipeo · 12 idiomas",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Corrige texto escrito con disposición incorrecta de teclado. 9 idiomas: ruso, inglés, alemán, francés + 5 más. Sin conexión.",
+    "message": "Corrige texto escrito con disposición incorrecta de teclado. 12 idiomas: español, ruso, coreano, polaco + 8 más. Sin conexión.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
@@ -70,7 +70,7 @@
   },
   "options_privacyH2": { "message": "Privacidad" },
   "options_privacyBody": {
-    "message": "Por defecto, la corrección se ejecuta totalmente en tu dispositivo — ningún texto sale del navegador. 9 idiomas incluidos: inglés, ruso, ucraniano, bielorruso, alemán, francés, griego, hebreo, turco."
+    "message": "Por defecto, la corrección se ejecuta totalmente en tu dispositivo — ningún texto sale del navegador. 12 idiomas incluidos: inglés, ruso, ucraniano, bielorruso, alemán, francés, griego, hebreo, turco, polaco, español, coreano."
   },
   "options_useApiFallback": { "message": "Permitir respaldo API remoto" },
   "options_apiEndpoint": { "message": "Endpoint de API (opcional)" },

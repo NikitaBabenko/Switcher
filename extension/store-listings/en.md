@@ -7,7 +7,7 @@ Type **`ghbdtn`** when you meant **`привет`**? Press **Ctrl+Shift+L** and 
 - **100% open source** — full source on GitHub: https://github.com/NikitaBabenko/Switcher
 - **Fully offline by default** — no telemetry, no analytics, no cloud calls; the language model is bundled into the extension (~270 KB)
 - **No account, no sign-in, no payment** — install and use
-- **9 languages out of the box** — most layout-fix extensions cover one or two
+- **12 languages out of the box** — most layout-fix extensions cover one or two
 - **Modern Manifest V3** — minimal permissions, audited and ready for Chrome's 2025 policy
 - **Cross-browser ready** — works in Chrome and Chromium-based browsers; Edge & Firefox ports on roadmap
 
@@ -45,7 +45,7 @@ There is an optional remote API fallback (off by default) that you can enable in
 
 ## Supported languages
 
-English, Русский, Українська, Беларуская, Deutsch, Français, Ελληνικά, עברית, Türkçe.
+English, Русский, Українська, Беларуская, Deutsch, Français, Ελληνικά, עברית, Türkçe, Polski, Español, 한국어.
 
 Need another? Open an issue on GitHub or write to info@vibenest.net — adding a layout + wordlist takes a few hours.
 

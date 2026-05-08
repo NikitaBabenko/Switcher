@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Klavye Düzeni Düzeltici · 9 dil (Türkçe, Rusça, İngilizce + 6)",
+    "message": "Klavye Düzeni Düzeltici · 12 dil (Türkçe, Rusça, İngilizce + 9)",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Yanlış klavye düzeniyle yazılmış metni düzeltir. 9 dil: Türkçe, Rusça, İngilizce, Almanca + 5 dil daha. Çevrimdışı, açık kaynak.",
+    "message": "Yanlış klavye düzeniyle yazılmış metni düzeltir. 12 dil: Türkçe, Rusça, Korece, Lehçe + 8 dil daha. Çevrimdışı, açık kaynak.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
@@ -70,7 +70,7 @@
   },
   "options_privacyH2": { "message": "Gizlilik" },
   "options_privacyBody": {
-    "message": "Varsayılan olarak düzeltme tamamen cihazınızda çalışır — hiçbir metin tarayıcıyı terk etmez. 9 yerleşik dil: İngilizce, Rusça, Ukraynaca, Belarusça, Almanca, Fransızca, Yunanca, İbranice, Türkçe."
+    "message": "Varsayılan olarak düzeltme tamamen cihazınızda çalışır — hiçbir metin tarayıcıyı terk etmez. 12 yerleşik dil: İngilizce, Rusça, Ukraynaca, Belarusça, Almanca, Fransızca, Yunanca, İbranice, Türkçe, Lehçe, İspanyolca, Korece."
   },
   "options_useApiFallback": { "message": "Uzak API yedeğine izin ver" },
   "options_apiEndpoint": { "message": "API uç noktası (isteğe bağlı)" },

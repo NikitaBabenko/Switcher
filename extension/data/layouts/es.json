@@ -1,0 +1,7 @@
+{
+  "id": "es",
+  "name": "Español (QWERTY)",
+  "language": "es",
+  "normal": "º1234567890'¡qwertyuiop`+asdfghjklñ´zxcvbnm,.-",
+  "shift":  "ª!\"·$%&/()=?¿QWERTYUIOP^*ASDFGHJKLÑ¨ZXCVBNM;:_"
+}

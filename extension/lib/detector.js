@@ -2,6 +2,7 @@
 // browser using the precomputed trigram counts in data.js.
 
 import { LANGUAGES } from "./data.js";
+import { hasHangul, decomposeHangul, composeHangul } from "./hangul.js";
 
 const LETTER = /\p{L}/u;
 const isLetter = (ch) => LETTER.test(ch);
@@ -196,9 +197,16 @@ function caseNaturalness(text) {
 }
 
 function addCandidates(candidates, text, langs, reg) {
-  // Native (no swap) candidates — keep input as-is, score under each language.
+  // Korean: keystrokes produce compatibility jamo, but the IME composes them
+  // into Hangul syllables. Decompose any Hangul once so transposition and
+  // jamo-trigram scoring see the keystroke form.
+  const decomposed = hasHangul(text) ? decomposeHangul(text) : text;
+
+  // Native (no swap) candidates — keep input as-is for display, but score
+  // Korean against the decomposed form so it matches the jamo-trigram model.
   for (const lang of langs) {
-    const score = reg.models[lang].score(text);
+    const scoreText = lang === "ko" ? decomposed : text;
+    const score = reg.models[lang].score(scoreText);
     candidates.push({ text, from: lang, to: lang, score });
   }
   // Swap candidates.
@@ -207,10 +215,15 @@ function addCandidates(candidates, text, langs, reg) {
       if (from === to) continue;
       const fromL = reg.layouts[from];
       const toL = reg.layouts[to];
-      const converted = convertText(text, fromL, toL);
-      if (converted === text) continue;
-      const score = reg.models[to].score(converted);
-      candidates.push({ text: converted, from, to, score });
+      // If the source is Korean, transpose from the keystroke (jamo) form.
+      const transInput = from === "ko" ? decomposed : text;
+      const convertedRaw = convertText(transInput, fromL, toL);
+      // Score the raw transposition output (jamo when target is Korean).
+      const score = reg.models[to].score(convertedRaw);
+      // For display, recompose Korean output back into Hangul syllables.
+      const displayText = to === "ko" ? composeHangul(convertedRaw) : convertedRaw;
+      if (displayText === text) continue;
+      candidates.push({ text: displayText, from, to, score });
     }
   }
 }

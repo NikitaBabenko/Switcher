@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Correcteur de disposition · 9 langues (russe, anglais, allemand + 6)",
+    "message": "Correcteur de disposition · 12 langues (russe, anglais, allemand + 9)",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Corrige le texte tapé dans la mauvaise disposition. 9 langues : russe, anglais, allemand, français + 5 autres. Hors ligne.",
+    "message": "Corrige le texte tapé dans la mauvaise disposition. 12 langues : russe, coréen, polonais, espagnol + 8 autres. Hors ligne.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
@@ -70,7 +70,7 @@
   },
   "options_privacyH2": { "message": "Confidentialité" },
   "options_privacyBody": {
-    "message": "Par défaut, la correction s'exécute entièrement sur votre machine — aucun texte ne quitte le navigateur. 9 langues incluses : anglais, russe, ukrainien, biélorusse, allemand, français, grec, hébreu, turc."
+    "message": "Par défaut, la correction s'exécute entièrement sur votre machine — aucun texte ne quitte le navigateur. 12 langues incluses : anglais, russe, ukrainien, biélorusse, allemand, français, grec, hébreu, turc, polonais, espagnol, coréen."
   },
   "options_useApiFallback": { "message": "Autoriser le repli API distant" },
   "options_apiEndpoint": { "message": "Endpoint API (optionnel)" },

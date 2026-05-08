@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build:models": "node lib/build-models.mjs",
-    "test": "node --test lib/detector.test.mjs lib/config.test.mjs lib/adapters.test.mjs lib/autocorrect.test.mjs lib/replace.test.mjs lib/content.test.mjs lib/package.test.mjs lib/i18n.test.mjs",
+    "test": "node --test lib/detector.test.mjs lib/config.test.mjs lib/adapters.test.mjs lib/autocorrect.test.mjs lib/replace.test.mjs lib/content.test.mjs lib/package.test.mjs lib/i18n.test.mjs lib/hangul.test.mjs",
     "package": "node tools/package.mjs"
   }
 }

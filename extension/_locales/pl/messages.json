@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Układ klawiatury — przełącznik i poprawka błędów · 9 języków",
+    "message": "Układ klawiatury — przełącznik i poprawka błędów · 12 języków",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
-    "message": "Poprawia tekst wpisany w niewłaściwym układzie klawiatury. 9 języków: polski, rosyjski, angielski, niemiecki + 5 innych. Offline.",
+    "message": "Poprawia tekst wpisany w niewłaściwym układzie klawiatury. 12 języków: polski, rosyjski, koreański, hiszpański + 8 innych. Offline.",
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
@@ -70,7 +70,7 @@
   },
   "options_privacyH2": { "message": "Prywatność" },
   "options_privacyBody": {
-    "message": "Domyślnie cała korekta odbywa się na Twoim urządzeniu — żadna litera nie opuszcza przeglądarki. 9 wbudowanych języków: angielski, rosyjski, ukraiński, białoruski, niemiecki, francuski, grecki, hebrajski, turecki."
+    "message": "Domyślnie cała korekta odbywa się na Twoim urządzeniu — żadna litera nie opuszcza przeglądarki. 12 wbudowanych języków: angielski, rosyjski, ukraiński, białoruski, niemiecki, francuski, grecki, hebrajski, turecki, polski, hiszpański, koreański."
   },
   "options_useApiFallback": { "message": "Zezwól na zdalny fallback API" },
   "options_apiEndpoint": { "message": "Endpoint API (opcjonalny)" },

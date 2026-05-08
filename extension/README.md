@@ -2,7 +2,7 @@
 
 Manifest V3 extension that fixes text typed in the wrong keyboard layout. Runs
 **fully offline by default** — the layout-detection engine, including a
-char-trigram language model trained on 9 wordlists, is bundled into the
+char-trigram language model trained on 12 wordlists, is bundled into the
 extension. No data leaves the browser unless the user explicitly enables the
 remote API fallback in Options.
 
@@ -23,11 +23,12 @@ extension/
 ├─ config.js                  Storage wrapper + DEFAULTS + isHostAllowed.
 ├─ lib/
 │   ├─ detector.js            JS port of LayoutDetector + LanguageModel + Caps Lock heuristic.
-│   ├─ data.js                AUTO-GENERATED — bundled trigram counts (9 langs, ~270 KB).
+│   ├─ hangul.js              Korean Hangul ↔ jamo decompose/compose (used by detector + build-models).
+│   ├─ data.js                AUTO-GENERATED — bundled trigram counts (12 langs, ~360 KB).
 │   ├─ i18n.js                Localization helper: chrome.i18n with explicit override layer.
 │   ├─ build-models.mjs       Regenerates data.js from data/{layouts,wordlists}/.
 │   ├─ test-helpers.mjs       Shared VM loader + chrome/location/document mocks for tests.
-│   └─ *.test.mjs             223 Node tests (see § Tests).
+│   └─ *.test.mjs             256 Node tests (see § Tests).
 ├─ _locales/<code>/messages.json  Localized UI strings; en is the master, 11 others mirror its keys (12 UI locales total: en/ru/uk/be/de/fr/el/he/tr/pl/es/ko).
 ├─ data/
 │   ├─ layouts/*.json         Source-of-truth layout tables (46 chars normal + shift each).
@@ -128,7 +129,7 @@ cd extension
 npm test
 ```
 
-223 Node tests across eight files:
+256 Node tests across nine files:
 
 | File | Covers |
 |---|---|
@@ -138,8 +139,9 @@ npm test
 | `lib/autocorrect.test.mjs` | `extractLastWordInput`, `extractLastWordContentEditable`, `isAutoCorrectEligible` (password/OTP/cc-* skip, readOnly, contenteditable). |
 | `lib/replace.test.mjs` | `isInputLike`, `isContentEditable`, `inputLikeHasSelection`, `getInputLikeSelectionText`, `dispatchInputEvent` shape, `replaceInElement` reasons. |
 | `lib/content.test.mjs` | Undo memory: `rememberChange` / `canUndo` / `undoLastChange` for input-whole, input-selection, contenteditable, element-gone. |
-| `lib/package.test.mjs` | `shouldInclude` allow/deny matrix; live-tree assertion that the zip ships exactly the right files (incl. all 9 `_locales/`, exclusion of `store-listings/` + `test-fixtures/`). |
-| `lib/i18n.test.mjs` | `resolveLocaleSync` (override + fallback), `t` substitutions, presence of `__MSG_*__` tokens in manifest, and key-set parity across all 9 locale files. |
+| `lib/package.test.mjs` | `shouldInclude` allow/deny matrix; live-tree assertion that the zip ships exactly the right files (incl. all 12 `_locales/`, exclusion of `store-listings/` + `test-fixtures/`). |
+| `lib/i18n.test.mjs` | `resolveLocaleSync` (override + fallback), `t` substitutions, presence of `__MSG_*__` tokens in manifest, and key-set parity across all 12 locale files. |
+| `lib/hangul.test.mjs` | `decomposeHangul` / `composeHangul` / `hasHangul`: simple syllables, compound vowels (와 → ㅗㅏ), compound finals (값 → ㄱㅅ), round-trips, mixed-script paragraphs. |
 
 Tests for IIFE content-scripts use `node:vm` to load the file with mocked
 `globalThis`/`location`/`document`/`chrome`. There is no production-code
@@ -173,7 +175,7 @@ The same suite runs in GitHub Actions on every push — see [`.github/workflows/
 
 ```
 cd extension
-npm test                # 223 Node tests, all green
+npm test                # 256 Node tests, all green
 npm run package         # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 
