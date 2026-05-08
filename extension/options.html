@@ -4,38 +4,41 @@
     <meta charset="utf-8" />
     <title>VibeNest Switcher — settings</title>
     <style>
-      body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 600px; margin: 24px auto; padding: 16px; }
+      body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 600px; margin: 24px auto; padding: 16px; background: #3f3f46; color: #e5e7eb; }
+      html { background: #27272a; }
       h1 { font-size: 1.4rem; }
       label { display: block; margin: 8px 0; }
       input[type="text"] { width: 100%; padding: 6px; box-sizing: border-box; }
       textarea { width: 100%; min-height: 90px; padding: 6px; box-sizing: border-box; font-family: ui-monospace, "Cascadia Mono", Menlo, monospace; font-size: 13px; }
       select { padding: 4px 6px; }
       .lang-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; margin: 8px 0; }
-      .lang-list label { display: flex; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid #e5e7eb; border-radius: 6px; }
-      button { padding: 8px 16px; cursor: pointer; }
-      .saved { color: green; margin-left: 8px; display: none; }
+      .lang-list label { display: flex; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid #52525b; border-radius: 6px; }
+      button { padding: 10px 20px; cursor: pointer; font-family: inherit; font-size: 14px; color: #fff; background: #ea580c; border: 0; border-radius: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -3px 0 #c2410c, 0 2px 0 #9a3412; transition: transform 80ms ease, box-shadow 80ms ease, background 80ms ease; }
+      button:hover { background: #f97316; }
+      button:active { transform: translateY(1px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -2px 0 #c2410c, 0 1px 0 #9a3412; }
+      .saved { color: #4ade80; margin-left: 8px; display: none; }
       .saved.on { display: inline; }
-      .muted { color: #6b7280; font-size: 0.9rem; }
+      .muted { color: #a1a1aa; font-size: 0.9rem; }
       .contact {
         margin-top: 32px;
         padding-top: 16px;
-        border-top: 1px solid #e5e7eb;
-        color: #6b7280;
+        border-top: 1px solid #52525b;
+        color: #a1a1aa;
         font-size: 0.9rem;
       }
-      .contact a { color: #2563eb; }
+      .contact a { color: #ea580c; }
       .first-run {
         display: none;
         margin: 16px 0 24px;
         padding: 12px 16px;
-        background: #eff6ff;
-        border-left: 4px solid #2563eb;
+        background: #fff7ed;
+        border-left: 4px solid #ea580c;
         border-radius: 6px;
-        color: #1e40af;
+        color: #9a3412;
         line-height: 1.5;
       }
       .first-run.on { display: block; }
-      .first-run strong { color: #1e3a8a; }
+      .first-run strong { color: #7c2d12; }
       .ui-language { display: flex; gap: 12px; align-items: center; margin: 8px 0; }
       .ui-language select { font-family: inherit; }
     </style>

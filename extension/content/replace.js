@@ -179,6 +179,17 @@
     return { ok: false, reason: "not-editable" };
   }
 
+  // Remember the most recently focused editable so we can recover when something
+  // outside the page (the side panel, a popup) blurs the page and document.
+  // activeElement falls back to <body>. WeakRef so we don't pin DOM after nav.
+  let lastFocusedEditableRef = null;
+  document.addEventListener("focusin", (e) => {
+    const t = e.target;
+    if (t && t.nodeType === Node.ELEMENT_NODE && isEditable(t)) {
+      try { lastFocusedEditableRef = new WeakRef(t); } catch { lastFocusedEditableRef = null; }
+    }
+  }, true);
+
   // Walk into shadow roots and same-origin iframes to find the actually-focused
   // editable element (document.activeElement only sees the host element from outside).
   function findActiveEditable() {
@@ -203,7 +214,11 @@
       }
       return null;
     }
-    return descend(document);
+    const live = descend(document);
+    if (live) return live;
+    const cached = lastFocusedEditableRef?.deref();
+    if (cached && cached.isConnected && isEditable(cached)) return cached;
+    return null;
   }
 
   function queryDeepFirst(selectors, root) {

@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "활성 필드 수정" },
   "popup_undo": { "message": "실행 취소" },
   "popup_undoTitle": { "message": "이 페이지의 마지막 수정을 실행 취소" },
+  "popup_closePanel": { "message": "패널 닫기" },
   "popup_shortcutHintBefore": { "message": "팁: 필드를 포커스하고" },
   "popup_shortcutHintAfter": { "message": "를 누르세요 — 동일한 결과." },
   "popup_pasteHeader": { "message": "또는 텍스트를 붙여넣고 수정:" },

@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "Aktives Feld korrigieren" },
   "popup_undo": { "message": "Rückgängig" },
   "popup_undoTitle": { "message": "Letzte Korrektur auf dieser Seite rückgängig machen" },
+  "popup_closePanel": { "message": "Panel schließen" },
   "popup_shortcutHintBefore": { "message": "Tipp: Feld fokussieren und drücken Sie" },
   "popup_shortcutHintAfter": { "message": "— mit gleichem Effekt." },
   "popup_pasteHeader": { "message": "Oder Text einfügen und korrigieren:" },

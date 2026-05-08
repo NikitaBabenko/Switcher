@@ -36,6 +36,7 @@
   "popup_decryptFocused": { "message": "Исправить активное поле" },
   "popup_undo": { "message": "Отменить" },
   "popup_undoTitle": { "message": "Отменить последнее исправление на этой странице" },
+  "popup_closePanel": { "message": "Закрыть панель" },
   "popup_shortcutHintBefore": { "message": "Подсказка: фокус на поле и нажмите" },
   "popup_shortcutHintAfter": { "message": "— то же самое." },
   "popup_pasteHeader": { "message": "Или вставьте текст и исправьте:" },

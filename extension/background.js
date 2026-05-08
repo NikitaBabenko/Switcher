@@ -1,6 +1,12 @@
 import { getSettings, isHostAllowed, detectDefaultLanguages, hasConfidentLanguageDetection } from "./config.js";
 import { detect as detectLocal, canHandleLanguages } from "./lib/detector.js";
 
+// Make the toolbar icon toggle the side panel. Top-level so it re-applies on
+// every service-worker wakeup (setPanelBehavior is idempotent). On older Chrome
+// builds without sidePanel support this just no-ops.
+chrome.sidePanel?.setPanelBehavior({ openPanelOnActionClick: true })
+  .catch(() => { /* unsupported — extension still loads, panel just won't open via icon */ });
+
 const MENU_ID = "switcher-convert-selection";
 const DEFAULTS_FLAG = "__defaults_v1";
 

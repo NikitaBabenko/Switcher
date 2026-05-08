@@ -36,6 +36,7 @@
   "popup_decryptFocused": { "message": "Виправити активне поле" },
   "popup_undo": { "message": "Скасувати" },
   "popup_undoTitle": { "message": "Скасувати останнє виправлення на цій сторінці" },
+  "popup_closePanel": { "message": "Закрити панель" },
   "popup_shortcutHintBefore": { "message": "Підказка: фокус у полі та натисніть" },
   "popup_shortcutHintAfter": { "message": "— те саме." },
   "popup_pasteHeader": { "message": "Або вставте текст і виправте:" },

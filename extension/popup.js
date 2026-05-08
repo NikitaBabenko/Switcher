@@ -17,6 +17,10 @@ document.getElementById("open-options").addEventListener("click", (e) => {
   chrome.runtime.openOptionsPage();
 });
 
+document.getElementById("close-panel").addEventListener("click", () => {
+  window.close();
+});
+
 async function getActiveTab() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   return tab ?? null;
@@ -97,6 +101,14 @@ uiLocaleSel.addEventListener("change", async () => {
   overrideSel.value = await readOverride(tab?.id);
   await refreshDetected();
 })();
+
+// Side panel survives tab switches (popup didn't), so re-sync the override
+// dropdown and "Detected" line when the user moves to another tab.
+chrome.tabs.onActivated.addListener(async () => {
+  const tab = await getActiveTab();
+  overrideSel.value = await readOverride(tab?.id);
+  await refreshDetected();
+});
 
 overrideSel.addEventListener("change", async () => {
   const tab = await getActiveTab();

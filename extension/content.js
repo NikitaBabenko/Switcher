@@ -211,7 +211,7 @@ function showToast(text, kind, opts = {}) {
     if (old) old.remove();
 
     const hasResult = typeof opts.result === "string" && opts.result.length > 0;
-    const bg = kind === "warn" ? "#b45309" : kind === "err" ? "#b91c1c" : "#2563eb";
+    const bg = kind === "warn" ? "#b45309" : kind === "err" ? "#b91c1c" : "#ea580c";
 
     const el = document.createElement("div");
     el.id = id;

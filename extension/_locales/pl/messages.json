@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "Popraw aktywne pole" },
   "popup_undo": { "message": "Cofnij" },
   "popup_undoTitle": { "message": "Cofnij ostatnią poprawkę na tej stronie" },
+  "popup_closePanel": { "message": "Zamknij panel" },
   "popup_shortcutHintBefore": { "message": "Wskazówka: aktywuj pole i naciśnij" },
   "popup_shortcutHintAfter": { "message": "— ten sam efekt." },
   "popup_pasteHeader": { "message": "Albo wklej tekst i popraw:" },

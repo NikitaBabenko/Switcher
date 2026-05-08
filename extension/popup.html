@@ -4,28 +4,48 @@
     <meta charset="utf-8" />
     <title>VibeNest Switcher</title>
     <style>
-      body { font-family: -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 12px; width: 340px; }
+      html, body { height: 100%; }
+      body { font-family: -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 12px; min-width: 280px; background: #3f3f46; color: #e5e7eb; box-sizing: border-box; display: flex; flex-direction: column; }
+      .content { flex: 1; }
       textarea { width: 100%; height: 100px; box-sizing: border-box; font-family: inherit; font-size: 14px; }
       .row { display: flex; gap: 8px; margin-top: 8px; align-items: center; }
-      button { padding: 6px 12px; cursor: pointer; }
-      button.primary { background: #2563eb; color: #fff; border: 1px solid #1d4ed8; border-radius: 6px; }
-      button.primary:disabled { background: #9ca3af; border-color: #9ca3af; cursor: default; }
+      button { padding: 8px 14px; cursor: pointer; font-family: inherit; font-size: 13px; color: #1f2937; background: #fff; border: 0; border-radius: 8px; box-shadow: inset 0 -2px 0 #d1d5db, 0 1px 0 #b8bcc2; }
+      button:hover:not(:disabled) { background: #fafafa; }
+      button:active:not(:disabled) { transform: translateY(1px); box-shadow: inset 0 -1px 0 #d1d5db, 0 0 0 #b8bcc2; }
+      button:disabled { color: #9ca3af; box-shadow: inset 0 -2px 0 #e5e7eb; cursor: default; }
+      button.primary { background: #ea580c; color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -3px 0 #c2410c, 0 2px 0 #9a3412; }
+      button.primary:hover:not(:disabled) { background: #f97316; }
+      button.primary:active:not(:disabled) { transform: translateY(1px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -2px 0 #c2410c, 0 1px 0 #9a3412; }
+      button.primary:disabled { background: #9ca3af; color: #fff; box-shadow: inset 0 -3px 0 #6b7280; cursor: default; }
+      .keycap { width: 100%; height: 56px; padding: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, #f97316 0%, #ea580c 60%, #d4540a 100%); border: 0; border-radius: 10px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -6px 0 #c2410c, 0 3px 0 #9a3412, 0 6px 12px rgba(154,52,18,0.25); cursor: pointer; transition: transform 80ms ease, box-shadow 80ms ease, background 80ms ease; }
+      .keycap:hover:not(:disabled) { background: linear-gradient(180deg, #fb923c 0%, #f97316 60%, #ea580c 100%); }
+      .keycap:active:not(:disabled) { transform: translateY(2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -3px 0 #c2410c, 0 1px 0 #9a3412, 0 2px 4px rgba(154,52,18,0.25); }
+      .keycap:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+      .keycap svg { width: 84px; height: 30px; fill: #fff; pointer-events: none; }
+      button:focus-visible:not(.keycap):not(.banner-close) { outline: 2px solid #fdba74; outline-offset: 2px; }
+      .primary-action { margin-top: 10px; }
       select { padding: 4px 6px; font-family: inherit; }
       .result-wrap { position: relative; margin-top: 8px; }
-      .result { padding: 8px; padding-right: 64px; background: #f3f4f6; border-radius: 6px; font-size: 14px; min-height: 40px; white-space: pre-wrap; word-wrap: break-word; }
-      .result-copy { position: absolute; top: 6px; right: 6px; padding: 2px 8px; font-size: 11px; line-height: 1.6; background: #fff; border: 1px solid #d1d5db; border-radius: 4px; cursor: pointer; opacity: 0.85; }
+      .result-wrap:has(.result:empty) { display: none; }
+      .result { padding: 8px; padding-right: 64px; background: #f3f4f6; border-radius: 6px; font-size: 14px; white-space: pre-wrap; word-wrap: break-word; color: #111827; }
+      .result-copy { position: absolute; top: 6px; right: 6px; padding: 2px 8px; font-size: 11px; line-height: 1.6; background: #fff; border: 1px solid #d1d5db; border-radius: 4px; box-shadow: none; cursor: pointer; opacity: 0.85; color: #111827; }
       .result-copy:hover:not(:disabled) { opacity: 1; background: #e5e7eb; }
-      .result-copy:disabled { cursor: default; opacity: 0.4; background: #f3f4f6; color: #9ca3af; }
-      .muted { color: #6b7280; font-size: 12px; }
+      .result-copy:disabled { cursor: default; opacity: 0.4; background: #f3f4f6; color: #9ca3af; box-shadow: none; }
+      #info:empty, #detected:empty { display: none; }
+      .muted { color: #a1a1aa; font-size: 12px; }
       .section { padding: 8px 0; }
-      .divider { height: 1px; background: #e5e7eb; margin: 10px 0; }
-      a { color: #2563eb; }
-      .banner { margin: -12px -12px 10px; padding: 6px 12px; background: #2563eb; color: #fff; font-size: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+      .divider { height: 1px; background: #52525b; margin: 10px 0; }
+      a { color: #ea580c; }
+      .banner { margin: -12px -12px 10px; padding: 6px 12px; background: #ea580c; color: #fff; font-size: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
       .banner .brand { font-weight: 600; }
       .banner a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); }
       .banner a:hover { border-bottom-color: #fff; }
+      .banner-close { background: transparent; color: #fff; border: 0; box-shadow: none; padding: 2px 8px; margin: -2px -6px -2px 4px; font-size: 18px; line-height: 1; cursor: pointer; border-radius: 4px; opacity: 0.85; transition: background 80ms ease, opacity 80ms ease; }
+      .banner-close:hover:not(:disabled) { background: rgba(255,255,255,0.2); opacity: 1; }
+      .banner-close:focus-visible { outline: 2px solid #fff; outline-offset: -1px; }
       label.inline { display: flex; align-items: center; gap: 6px; }
-      .shortcut-hint { margin-top: 8px; font-size: 11px; }
+      .shortcut-hint { margin-top: 8px; font-size: 11px; line-height: 1.6; }
+      .shortcut-hint .kbd-combo { white-space: nowrap; }
       .shortcut-hint kbd {
         background: #fff;
         border: 1px solid #d1d5db;
@@ -42,12 +62,12 @@
         align-items: center;
         gap: 8px;
         font-size: 11px;
-        color: #4b5563;
+        color: #a1a1aa;
       }
       .privacy a {
-        color: #2563eb;
+        color: #ea580c;
         text-decoration: none;
-        border-bottom: 1px dashed #93c5fd;
+        border-bottom: 1px dashed #fdba74;
       }
       .privacy a:hover { border-bottom-style: solid; }
       .ui-locale { font-size: 11px; padding: 2px 4px; max-width: 110px; }
@@ -60,8 +80,13 @@
         <a href="https://vibenest.net" target="_blank">vibenest.net</a> ·
         <a href="https://t.me/SynthCabalBot" target="_blank">@SynthCabalBot</a>
       </span>
+      <button id="close-panel" type="button" class="banner-close"
+              data-i18n-aria-label="popup_closePanel"
+              data-i18n-title="popup_closePanel"
+              aria-label="Close">×</button>
     </div>
 
+    <main class="content">
     <div class="section">
       <div class="row">
         <label class="inline" for="adapter-override"><span class="muted" data-i18n="popup_siteLabel">Site</span></label>
@@ -91,7 +116,7 @@
       </div>
       <div class="muted shortcut-hint">
         <span data-i18n="popup_shortcutHintBefore">Tip: focus a field and press</span>
-        <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>
+        <span class="kbd-combo"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd></span>
         <span data-i18n="popup_shortcutHintAfter">for the same thing.</span>
       </div>
     </div>
@@ -101,23 +126,37 @@
     <div class="section">
       <div class="muted" data-i18n="popup_pasteHeader" style="margin-bottom:4px">Or paste text and decrypt:</div>
       <textarea id="input" data-i18n-placeholder="popup_pastePlaceholder" placeholder="Paste cyrillic gibberish here…"></textarea>
-      <div class="row">
-        <button id="convert" data-i18n="popup_decrypt">Decrypt</button>
-        <select id="uiLocale" class="ui-locale" data-i18n-title="popup_languageLabel" data-i18n-aria-label="popup_languageLabel" style="margin-left:auto"></select>
-        <a href="#" id="open-options" data-i18n="popup_settingsLink">Settings</a>
+      <div class="primary-action">
+        <button id="convert" class="keycap" type="button"
+                data-i18n-aria-label="popup_decrypt"
+                data-i18n-title="popup_decrypt"
+                aria-label="Decrypt" title="Decrypt">
+          <svg viewBox="0 0 80 28" aria-hidden="true">
+            <path d="M2,14 L14,2 L14,8 L34,8 L28,14 L34,20 L14,20 L14,26 Z" />
+            <path d="M78,14 L66,26 L66,20 L46,20 L52,14 L46,8 L66,8 L66,2 Z" />
+          </svg>
+        </button>
       </div>
-      <div class="muted" id="info"></div>
+      <div class="row">
+        <select id="uiLocale" class="ui-locale" data-i18n-title="popup_languageLabel" data-i18n-aria-label="popup_languageLabel"></select>
+        <a href="#" id="open-options" data-i18n="popup_settingsLink" style="margin-left:auto">Settings</a>
+      </div>
+      <div class="muted" id="info" aria-live="polite"></div>
       <div class="result-wrap">
-        <div class="result" id="result"></div>
+        <div class="result" id="result" aria-live="polite"></div>
         <button id="copy" class="result-copy" type="button" disabled data-i18n="popup_copy">Copy</button>
       </div>
     </div>
 
-    <div class="divider"></div>
-    <div class="privacy">
-      <span data-i18n="popup_privacyNote">🔒 Runs entirely in your browser. No text leaves your device.</span>
-      <a href="https://github.com/NikitaBabenko/Switcher" target="_blank" rel="noopener noreferrer" data-i18n="popup_sourceOnGitHub">Source on GitHub</a>
-    </div>
+    </main>
+
+    <footer class="footer">
+      <div class="divider"></div>
+      <div class="privacy">
+        <span data-i18n="popup_privacyNote">🔒 Runs entirely in your browser. No text leaves your device.</span>
+        <a href="https://github.com/NikitaBabenko/Switcher" target="_blank" rel="noopener noreferrer" data-i18n="popup_sourceOnGitHub">Source on GitHub</a>
+      </div>
+    </footer>
 
     <script src="popup.js" type="module"></script>
   </body>

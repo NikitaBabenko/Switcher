@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "Etkin alanı düzelt" },
   "popup_undo": { "message": "Geri al" },
   "popup_undoTitle": { "message": "Bu sayfadaki son düzeltmeyi geri al" },
+  "popup_closePanel": { "message": "Paneli kapat" },
   "popup_shortcutHintBefore": { "message": "İpucu: bir alana odaklanıp" },
   "popup_shortcutHintAfter": { "message": "tuşuna basın — aynı sonuç." },
   "popup_pasteHeader": { "message": "Veya metni yapıştırıp düzeltin:" },

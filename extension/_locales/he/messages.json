@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "תקן את השדה הפעיל" },
   "popup_undo": { "message": "בטל" },
   "popup_undoTitle": { "message": "בטל את התיקון האחרון בדף זה" },
+  "popup_closePanel": { "message": "סגור פאנל" },
   "popup_shortcutHintBefore": { "message": "טיפ: מקד שדה ולחץ" },
   "popup_shortcutHintAfter": { "message": "— אותה תוצאה." },
   "popup_pasteHeader": { "message": "או הדבק טקסט ותקן:" },

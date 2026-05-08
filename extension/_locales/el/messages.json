@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "Διόρθωση εστιασμένου πεδίου" },
   "popup_undo": { "message": "Αναίρεση" },
   "popup_undoTitle": { "message": "Αναίρεση τελευταίας διόρθωσης σε αυτή τη σελίδα" },
+  "popup_closePanel": { "message": "Κλείσιμο πίνακα" },
   "popup_shortcutHintBefore": { "message": "Συμβουλή: εστιάστε σε ένα πεδίο και πατήστε" },
   "popup_shortcutHintAfter": { "message": "— ίδιο αποτέλεσμα." },
   "popup_pasteHeader": { "message": "Ή επικολλήστε κείμενο και διορθώστε:" },

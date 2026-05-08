@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "Corregir campo activo" },
   "popup_undo": { "message": "Deshacer" },
   "popup_undoTitle": { "message": "Deshacer la última corrección en esta página" },
+  "popup_closePanel": { "message": "Cerrar panel" },
   "popup_shortcutHintBefore": { "message": "Tip: enfoca un campo y pulsa" },
   "popup_shortcutHintAfter": { "message": "— mismo resultado." },
   "popup_pasteHeader": { "message": "O pega texto y corrige:" },

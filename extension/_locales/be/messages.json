@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "Выправіць актыўнае поле" },
   "popup_undo": { "message": "Адмяніць" },
   "popup_undoTitle": { "message": "Адмяніць апошняе выпраўленне на гэтай старонцы" },
+  "popup_closePanel": { "message": "Закрыць панэль" },
   "popup_shortcutHintBefore": { "message": "Падказка: фокус у полі і націсніце" },
   "popup_shortcutHintAfter": { "message": "— тое самае." },
   "popup_pasteHeader": { "message": "Або ўстаўце тэкст і выправіце:" },

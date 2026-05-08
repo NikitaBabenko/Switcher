@@ -36,6 +36,10 @@
   "popup_decryptFocused": { "message": "Decrypt focused field" },
   "popup_undo": { "message": "Undo" },
   "popup_undoTitle": { "message": "Undo the last decrypt on this page" },
+  "popup_closePanel": {
+    "message": "Close panel",
+    "description": "Aria-label and tooltip for the × close button in the side panel banner"
+  },
   "popup_shortcutHintBefore": { "message": "Tip: focus a field and press" },
   "popup_shortcutHintAfter": { "message": "for the same thing." },
   "popup_pasteHeader": { "message": "Or paste text and decrypt:" },

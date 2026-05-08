@@ -30,6 +30,7 @@
   "popup_decryptFocused": { "message": "Corriger le champ actif" },
   "popup_undo": { "message": "Annuler" },
   "popup_undoTitle": { "message": "Annuler la dernière correction sur cette page" },
+  "popup_closePanel": { "message": "Fermer le panneau" },
   "popup_shortcutHintBefore": { "message": "Astuce : ciblez un champ et appuyez sur" },
   "popup_shortcutHintAfter": { "message": "— résultat identique." },
   "popup_pasteHeader": { "message": "Ou collez un texte et corrigez :" },
