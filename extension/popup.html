@@ -70,7 +70,6 @@
         border-bottom: 1px dashed #fdba74;
       }
       .privacy a:hover { border-bottom-style: solid; }
-      .ui-locale { font-size: 11px; padding: 2px 4px; max-width: 110px; }
     </style>
   </head>
   <body>
@@ -89,27 +88,9 @@
     <main class="content">
     <div class="section">
       <div class="row">
-        <label class="inline" for="adapter-override"><span class="muted" data-i18n="popup_siteLabel">Site</span></label>
-        <select id="adapter-override">
-          <option value="auto" data-i18n="siteAdapter_auto">Auto</option>
-          <option value="twitter">Twitter / X</option>
-          <option value="facebook">Facebook</option>
-          <option value="messenger">Messenger</option>
-          <option value="vk">VK (feed)</option>
-          <option value="vk-im">VK Messages</option>
-          <option value="instagram">Instagram</option>
-          <option value="telegram">Telegram Web</option>
-          <option value="whatsapp">WhatsApp Web</option>
-          <option value="discord">Discord</option>
-          <option value="slack">Slack</option>
-          <option value="reddit">Reddit</option>
-          <option value="linkedin">LinkedIn</option>
-          <option value="twitch">Twitch</option>
-          <option value="mastodon">Mastodon</option>
-          <option value="generic" data-i18n="siteAdapter_generic">Other / generic</option>
-        </select>
+        <label class="inline" for="uiLocale"><span class="muted" data-i18n="popup_languageLabel">Language</span></label>
+        <select id="uiLocale" data-i18n-title="popup_languageLabel" data-i18n-aria-label="popup_languageLabel"></select>
       </div>
-      <div class="muted" id="detected" style="margin-top:4px"></div>
       <div class="row">
         <button id="decrypt-page" class="primary" data-i18n="popup_decryptFocused">Decrypt focused field</button>
         <button id="undo" disabled data-i18n="popup_undo" data-i18n-title="popup_undoTitle">Undo</button>
@@ -137,15 +118,39 @@
           </svg>
         </button>
       </div>
-      <div class="row">
-        <select id="uiLocale" class="ui-locale" data-i18n-title="popup_languageLabel" data-i18n-aria-label="popup_languageLabel"></select>
-        <a href="#" id="open-options" data-i18n="popup_settingsLink" style="margin-left:auto">Settings</a>
-      </div>
       <div class="muted" id="info" aria-live="polite"></div>
       <div class="result-wrap">
         <div class="result" id="result" aria-live="polite"></div>
         <button id="copy" class="result-copy" type="button" disabled data-i18n="popup_copy">Copy</button>
       </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="row">
+        <label class="inline" for="adapter-override"><span class="muted" data-i18n="popup_siteLabel">Site</span></label>
+        <select id="adapter-override">
+          <option value="auto" data-i18n="siteAdapter_auto">Auto</option>
+          <option value="twitter">Twitter / X</option>
+          <option value="facebook">Facebook</option>
+          <option value="messenger">Messenger</option>
+          <option value="vk">VK (feed)</option>
+          <option value="vk-im">VK Messages</option>
+          <option value="instagram">Instagram</option>
+          <option value="telegram">Telegram Web</option>
+          <option value="whatsapp">WhatsApp Web</option>
+          <option value="discord">Discord</option>
+          <option value="slack">Slack</option>
+          <option value="reddit">Reddit</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="twitch">Twitch</option>
+          <option value="mastodon">Mastodon</option>
+          <option value="generic" data-i18n="siteAdapter_generic">Other / generic</option>
+        </select>
+        <a href="#" id="open-options" data-i18n="popup_settingsLink" style="margin-left:auto">Settings</a>
+      </div>
+      <div class="muted" id="detected" style="margin-top:4px"></div>
     </div>
 
     </main>
