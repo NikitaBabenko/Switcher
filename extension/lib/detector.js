@@ -2,7 +2,7 @@
 // browser using the precomputed trigram counts in data.js.
 
 import { LANGUAGES } from "./data.js";
-import { hasHangul, decomposeHangul, composeHangul } from "./hangul.js";
+import { decomposeHangul, composeHangul } from "./hangul.js";
 
 const LETTER = /\p{L}/u;
 const isLetter = (ch) => LETTER.test(ch);
@@ -67,7 +67,11 @@ class LanguageModel {
 
   score(text) {
     if (!text || !text.trim()) return -1000;
-    const lower = text.toLowerCase();
+    // Korean is trained on jamo trigrams. Composed Hangul syllables (안) won't
+    // match — decompose to keystroke jamo (ㅇㅏㄴ) before scoring. Non-Hangul
+    // text passes through unchanged.
+    const normalised = this.language === "ko" ? decomposeHangul(text) : text;
+    const lower = normalised.toLowerCase();
     let alpha = 0;
     let inAlphabet = 0;
     for (const c of lower) {
@@ -196,34 +200,32 @@ function caseNaturalness(text) {
   return total;
 }
 
-function addCandidates(candidates, text, langs, reg) {
-  // Korean: keystrokes produce compatibility jamo, but the IME composes them
-  // into Hangul syllables. Decompose any Hangul once so transposition and
-  // jamo-trigram scoring see the keystroke form.
-  const decomposed = hasHangul(text) ? decomposeHangul(text) : text;
+// Position-mapped transposition with Korean Hangul awareness wrapped around
+// the inner convertText. When the source is Korean, decompose composed
+// Hangul to keystroke jamo first; when the target is Korean, recompose the
+// jamo output back to Hangul for display. For all other pairs this is just
+// convertText.
+function transposeText(text, fromLayout, toLayout) {
+  const input = fromLayout.id === "ko" ? decomposeHangul(text) : text;
+  const result = convertText(input, fromLayout, toLayout);
+  return toLayout.id === "ko" ? composeHangul(result) : result;
+}
 
-  // Native (no swap) candidates — keep input as-is for display, but score
-  // Korean against the decomposed form so it matches the jamo-trigram model.
+function addCandidates(candidates, text, langs, reg) {
+  // Native (no swap) candidates — score the input against each enabled
+  // language. LanguageModel.score handles the Korean decompose internally.
   for (const lang of langs) {
-    const scoreText = lang === "ko" ? decomposed : text;
-    const score = reg.models[lang].score(scoreText);
+    const score = reg.models[lang].score(text);
     candidates.push({ text, from: lang, to: lang, score });
   }
   // Swap candidates.
   for (const from of langs) {
     for (const to of langs) {
       if (from === to) continue;
-      const fromL = reg.layouts[from];
-      const toL = reg.layouts[to];
-      // If the source is Korean, transpose from the keystroke (jamo) form.
-      const transInput = from === "ko" ? decomposed : text;
-      const convertedRaw = convertText(transInput, fromL, toL);
-      // Score the raw transposition output (jamo when target is Korean).
-      const score = reg.models[to].score(convertedRaw);
-      // For display, recompose Korean output back into Hangul syllables.
-      const displayText = to === "ko" ? composeHangul(convertedRaw) : convertedRaw;
-      if (displayText === text) continue;
-      candidates.push({ text: displayText, from, to, score });
+      const converted = transposeText(text, reg.layouts[from], reg.layouts[to]);
+      if (converted === text) continue;
+      const score = reg.models[to].score(converted);
+      candidates.push({ text: converted, from, to, score });
     }
   }
 }
@@ -317,6 +319,7 @@ export const __testInternals = {
   Layout,
   LanguageModel,
   convertText,
+  transposeText,
   hasLetter,
   hasMixedCase,
   invertCase,
