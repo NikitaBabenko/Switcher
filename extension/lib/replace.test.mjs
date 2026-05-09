@@ -5,6 +5,39 @@ import { loadReplace } from "./test-helpers.mjs";
 
 const R = loadReplace();
 
+class FakeDataTransfer {
+  constructor() { this._data = {}; }
+  setData(type, data) { this._data[type] = data; }
+  getData(type) { return this._data[type] ?? ""; }
+}
+class FakeClipboardEvent {
+  constructor(type, init = {}) {
+    this.type = type;
+    this.clipboardData = init.clipboardData ?? null;
+    this.bubbles = !!init.bubbles;
+    this.cancelable = !!init.cancelable;
+    this.defaultPrevented = false;
+  }
+  preventDefault() { this.defaultPrevented = true; }
+}
+function loadReplaceWithClipboard(opts = {}) {
+  // makeContext puts `extras` into the vm context globals; the top-level
+  // `document` override is destructured separately. Forward both correctly.
+  const { extras: callerExtras, ...rest } = opts;
+  return loadReplace({
+    ...rest,
+    extras: { ClipboardEvent: FakeClipboardEvent, DataTransfer: FakeDataTransfer, ...(callerExtras || {}) },
+  });
+}
+function frameworkEl(marker, extras = {}) {
+  const el = { nodeType: 1, tagName: "DIV", isContentEditable: true, ...extras };
+  el.closest = (sel) => {
+    const parts = sel.split(",").map((s) => s.trim());
+    return parts.some((p) => marker.includes(p)) ? el : null;
+  };
+  return el;
+}
+
 function input(type, props = {}) {
   return { nodeType: 1, tagName: "INPUT", type, ...props };
 }
@@ -270,4 +303,186 @@ test("replaceInElement: input-like + whole mode → ok", () => {
   const r = R.replaceInElement(el, "new", "whole");
   assert.equal(r.ok, true);
   assert.equal(el.value, "new");
+});
+
+// ============================================================================
+// detectFramework
+// ============================================================================
+
+test("detectFramework: lexical via [data-lexical-editor]", () => {
+  const el = frameworkEl(['[data-lexical-editor="true"]', '[data-lexical-editor]']);
+  assert.equal(R.detectFramework(el), "lexical");
+});
+
+test("detectFramework: slate via [data-slate-editor]", () => {
+  const el = frameworkEl(['[data-slate-editor="true"]']);
+  assert.equal(R.detectFramework(el), "slate");
+});
+
+test("detectFramework: draftjs via .public-DraftEditor-content (Twitter, Reddit)", () => {
+  const el = frameworkEl(['.public-DraftEditor-content']);
+  assert.equal(R.detectFramework(el), "draftjs");
+});
+
+test("detectFramework: draftjs via .DraftEditor-root", () => {
+  const el = frameworkEl(['.DraftEditor-root']);
+  assert.equal(R.detectFramework(el), "draftjs");
+});
+
+test("detectFramework: draftjs via .public-DraftStyleDefault-block", () => {
+  const el = frameworkEl(['.public-DraftStyleDefault-block']);
+  assert.equal(R.detectFramework(el), "draftjs");
+});
+
+test("detectFramework: prosemirror via .ProseMirror", () => {
+  const el = frameworkEl(['.ProseMirror']);
+  assert.equal(R.detectFramework(el), "prosemirror");
+});
+
+test("detectFramework: quill via .ql-editor", () => {
+  const el = frameworkEl(['.ql-editor']);
+  assert.equal(R.detectFramework(el), "quill");
+});
+
+test("detectFramework: returns null for plain contenteditable", () => {
+  const el = frameworkEl([]);
+  assert.equal(R.detectFramework(el), null);
+});
+
+test("detectFramework: null/undefined/non-element → null", () => {
+  assert.equal(R.detectFramework(null), null);
+  assert.equal(R.detectFramework(undefined), null);
+  assert.equal(R.detectFramework({ nodeType: 3 }), null);
+});
+
+test("detectFramework: element without closest method → null (graceful)", () => {
+  assert.equal(R.detectFramework({ nodeType: 1, tagName: "DIV" }), null);
+});
+
+// ============================================================================
+// replaceViaSyntheticPaste
+// ============================================================================
+
+test("replaceViaSyntheticPaste: dispatches paste with text/plain payload", () => {
+  const Rc = loadReplaceWithClipboard();
+  let captured = null;
+  const el = {
+    nodeType: 1, tagName: "DIV", isContentEditable: true,
+    dispatchEvent(ev) { captured = ev; ev.preventDefault(); return false; },
+  };
+  const ok = Rc.replaceViaSyntheticPaste(el, "привет");
+  assert.equal(ok, true);
+  assert.equal(captured.type, "paste");
+  assert.equal(captured.bubbles, true);
+  assert.equal(captured.cancelable, true);
+  assert.equal(captured.clipboardData.getData("text/plain"), "привет");
+});
+
+test("replaceViaSyntheticPaste: returns false when no handler cancels (no editor took it)", () => {
+  const Rc = loadReplaceWithClipboard();
+  const el = {
+    nodeType: 1, tagName: "DIV", isContentEditable: true,
+    dispatchEvent() { return true; },
+  };
+  assert.equal(Rc.replaceViaSyntheticPaste(el, "x"), false);
+});
+
+test("replaceViaSyntheticPaste: returns false when ClipboardEvent ctor unavailable", () => {
+  // Default loadReplace context has no ClipboardEvent — try/catch must swallow.
+  const el = { nodeType: 1, tagName: "DIV", dispatchEvent() { return false; } };
+  assert.equal(R.replaceViaSyntheticPaste(el, "x"), false);
+});
+
+// ============================================================================
+// replaceContentEditableSelection: framework branch uses paste-first
+// ============================================================================
+
+test("replaceContentEditableSelection: framework editor → synthetic paste, no execCommand", () => {
+  let execCalled = false;
+  const Rc = loadReplaceWithClipboard({
+    document: {
+      addEventListener() {},
+      activeElement: null,
+      queryCommandSupported: () => { execCalled = true; return true; },
+      execCommand: () => { execCalled = true; return true; },
+      ownerDocument: null,
+      defaultView: null,
+    },
+  });
+  let pasteEv = null;
+  const el = frameworkEl(['.public-DraftEditor-content'], {
+    focus() {},
+    dispatchEvent(ev) {
+      if (ev.type === "paste") { pasteEv = ev; ev.preventDefault(); return false; }
+      return true;
+    },
+  });
+  const ok = Rc.replaceContentEditableSelection(el, "новый");
+  assert.equal(ok, true);
+  assert.equal(execCalled, false);
+  assert.equal(pasteEv?.clipboardData.getData("text/plain"), "новый");
+});
+
+test("replaceContentEditableSelection: plain contenteditable still uses execCommand path", () => {
+  let execArg = null;
+  const Rc = loadReplace({
+    document: {
+      addEventListener() {},
+      activeElement: null,
+      queryCommandSupported: () => true,
+      execCommand: (_cmd, _ui, value) => { execArg = value; return true; },
+      ownerDocument: null,
+      defaultView: null,
+    },
+  });
+  let pasteSeen = false;
+  const el = frameworkEl([], {
+    focus() {},
+    dispatchEvent(ev) { if (ev.type === "paste") pasteSeen = true; return true; },
+  });
+  const ok = Rc.replaceContentEditableSelection(el, "plain");
+  assert.equal(ok, true);
+  assert.equal(execArg, "plain");
+  assert.equal(pasteSeen, false);
+});
+
+test("replaceContentEditableAll: framework whole-mode fires selectionchange on document before paste on element", () => {
+  const dispatchLog = [];
+  const fakeRange = {};
+  const fakeSelection = {
+    rangeCount: 0,
+    removeAllRanges() {},
+    addRange() { this.rangeCount = 1; },
+  };
+  const fakeDoc = {
+    addEventListener() {},
+    activeElement: null,
+    queryCommandSupported: () => false,
+    execCommand: () => false,
+    createRange: () => ({ selectNodeContents() {} }),
+    createTextNode: (data) => ({ nodeType: 3, data }),
+    ownerDocument: null,
+    defaultView: null,
+    dispatchEvent(ev) { dispatchLog.push(["doc", ev.type]); return true; },
+  };
+  const Rc = loadReplaceWithClipboard({
+    document: fakeDoc,
+    extras: { window: { getSelection: () => fakeSelection } },
+  });
+  const el = frameworkEl(['.public-DraftEditor-content'], {
+    focus() {},
+    dispatchEvent(ev) {
+      dispatchLog.push(["el", ev.type]);
+      if (ev.type === "paste") { ev.preventDefault(); return false; }
+      return true;
+    },
+    ownerDocument: fakeDoc,
+  });
+  const ok = Rc.replaceContentEditableAll(el, "новый");
+  assert.equal(ok, true);
+  const docSelChange = dispatchLog.findIndex(([t, k]) => t === "doc" && k === "selectionchange");
+  const elPaste = dispatchLog.findIndex(([t, k]) => t === "el" && k === "paste");
+  assert.ok(docSelChange >= 0, "selectionchange should fire on the document");
+  assert.ok(elPaste >= 0, "paste should fire on the element");
+  assert.ok(docSelChange < elPaste, "selectionchange must precede paste");
 });

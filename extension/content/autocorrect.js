@@ -117,8 +117,10 @@
   }
 
   function replaceWordContentEditable(info, replacement, triggerChar) {
-    // Select [word + trigger char] and use execCommand("insertText") so the
-    // host framework (Lexical/Slate/ProseMirror) receives a real input event.
+    // Select [word + trigger char] and let the host framework apply the swap.
+    // Prefer a synthetic paste for framework editors (DraftJS/Slate/Quill/
+    // ProseMirror/Lexical) because their onPaste pipelines update internal
+    // state — execCommand and raw text-node mutation get reverted by them.
     const doc = info.node.ownerDocument || document;
     const win = doc.defaultView || window;
     const sel = win.getSelection();
@@ -131,6 +133,13 @@
     } catch { return false; }
     sel.removeAllRanges();
     sel.addRange(range);
+
+    let host = info.node.parentElement;
+    while (host && !host.isContentEditable) host = host.parentElement;
+    if (host && R.detectFramework(host) && R.replaceViaSyntheticPaste(host, replacement + triggerChar)) {
+      return true;
+    }
+
     if (doc.queryCommandSupported && doc.queryCommandSupported("insertText")) {
       try {
         if (doc.execCommand("insertText", false, replacement + triggerChar)) {
@@ -147,9 +156,6 @@
       r2.collapse(true);
       sel.removeAllRanges();
       sel.addRange(r2);
-      // Best-effort input event on the editable host.
-      let host = info.node.parentElement;
-      while (host && !host.isContentEditable) host = host.parentElement;
       if (host) {
         host.dispatchEvent(new InputEvent("input", {
           inputType: "insertReplacementText",

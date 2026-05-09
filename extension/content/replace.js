@@ -117,8 +117,58 @@
     return true;
   }
 
+  // Walk up from `el` looking for telltale class/attribute markers of
+  // framework-managed rich-text editors. Those editors (DraftJS on Twitter/X,
+  // Slate on Discord, Quill on Slack/LinkedIn, ProseMirror on vk, Lexical on
+  // Meta apps) intercept beforeinput/input and reconcile the DOM to their own
+  // model — so execCommand("insertText") is unreliable and a raw textNode
+  // insert gets reverted on the next render. Detection lets the caller switch
+  // to a synthetic-paste route those editors handle natively via their
+  // `onPaste` command pipeline.
+  function detectFramework(el) {
+    if (!el || el.nodeType !== Node.ELEMENT_NODE) return null;
+    const closest = typeof el.closest === "function" ? el.closest.bind(el) : null;
+    if (!closest) return null;
+    try {
+      if (closest('[data-lexical-editor="true"], [data-lexical-editor]')) return "lexical";
+      if (closest('[data-slate-editor="true"]')) return "slate";
+      if (closest('.public-DraftEditor-content, .DraftEditor-root, .public-DraftStyleDefault-block')) return "draftjs";
+      if (closest('.ProseMirror')) return "prosemirror";
+      if (closest('.ql-editor')) return "quill";
+    } catch {}
+    return null;
+  }
+
+  // Push text into a framework-controlled contenteditable by dispatching a
+  // synthetic `paste` event with a populated DataTransfer. The editor's own
+  // onPaste handler reads `text/plain` and applies the change through its
+  // command pipeline, which is what keeps internal state in sync.
+  // Caller must set the desired Selection range before calling — paste
+  // replaces whatever is currently selected. Returns true only if a handler
+  // canceled the event (preventDefault), which is the standard signal that
+  // an editor took ownership of the insert.
+  function replaceViaSyntheticPaste(el, text) {
+    try {
+      const dt = new DataTransfer();
+      dt.setData("text/plain", text);
+      const ev = new ClipboardEvent("paste", {
+        clipboardData: dt,
+        bubbles: true,
+        cancelable: true,
+      });
+      const notCanceled = el.dispatchEvent(ev);
+      return !notCanceled;
+    } catch {
+      return false;
+    }
+  }
+
   function replaceContentEditableSelection(el, text) {
-    focusElement(el);
+    if (findActiveEditable() !== el) focusElement(el);
+    if (detectFramework(el) && replaceViaSyntheticPaste(el, text)) {
+      dispatchInputEvent(el, text, "insertFromPaste");
+      return true;
+    }
     const doc = el.ownerDocument || document;
     if (doc.queryCommandSupported && doc.queryCommandSupported("insertText")) {
       try {
@@ -145,8 +195,17 @@
   }
 
   function replaceContentEditableAll(el, text) {
-    focusElement(el);
+    if (findActiveEditable() !== el) focusElement(el);
     if (!selectAllContentEditable(el)) return false;
+    // Framework editors (DraftJS on Twitter, etc.) gate their internal
+    // selection model through React state. The Range we just set fires
+    // selectionchange, but the editor's listener may not pick it up before
+    // the synchronous paste below — leaving the model selection collapsed at
+    // the cursor and turning the paste into an insert. Force-firing the
+    // event here lets the editor sync its model in time for the paste.
+    if (detectFramework(el)) {
+      try { (el.ownerDocument || document).dispatchEvent(new Event("selectionchange")); } catch {}
+    }
     return replaceContentEditableSelection(el, text);
   }
 
@@ -271,5 +330,7 @@
     findActiveEditable,
     queryDeepFirst,
     dispatchInputEvent,
+    detectFramework,
+    replaceViaSyntheticPaste,
   };
 })();

@@ -6,6 +6,10 @@ All notable changes to **VibeNest Switcher** are tracked here. Format follows [K
 
 ## [Unreleased]
 
+### Fixed
+- **In-place replacement on Twitter/X (and other framework-controlled rich editors) — right-click and Ctrl+Shift+L now actually rewrite the compose box instead of falling back to clipboard or appending at the cursor.** Twitter compose, Reddit posts (DraftJS), Discord (Slate), LinkedIn / Slack (Quill), vk feed (ProseMirror), and Lexical-based editors reconcile DOM mutations against their own model — so the previous `execCommand("insertText")` → raw `range.deleteContents()` / `range.insertNode()` chain in `content/replace.js` either no-ops or gets reverted on the next render, leaving the converted text on the clipboard with a misleading toast. Added `detectFramework(el)` (matches each editor's marker class/attribute) and `replaceViaSyntheticPaste(el, text)` (dispatches a `ClipboardEvent("paste")` with a `DataTransfer` text/plain payload — the editor's own `onPaste` pipeline then applies the change through its normal command path). For whole-field mode (no user selection) the fix also force-fires a synthetic `selectionchange` after `selectAllContentEditable` so the editor syncs its model selection before paste lands; without it the paste was landing at the stale collapsed cursor and just appending. The same paste-first path is wired into the opt-in auto-correct (`content/autocorrect.js`). `focusElement` is now guarded on `findActiveEditable() !== el` to avoid collapsing the live selection on already-focused React editors.
+- 17 new tests covering framework detection (Lexical / Slate / DraftJS / ProseMirror / Quill markers), synthetic-paste dispatch shape, the selectionchange-before-paste ordering for whole-mode, and a regression check that plain contenteditable still goes through the `execCommand` path. **276 total, all green.**
+
 ## [0.3.0] — 2026-05-09
 
 ### Added
