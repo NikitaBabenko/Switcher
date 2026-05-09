@@ -64,7 +64,9 @@ async function load() {
     cb.value = l.id;
     cb.checked = enabled.has(l.id);
     const span = document.createElement("span");
-    span.textContent = `${l.name} (${l.id})`;
+    // Layout marker like "(JCUKEN)" is hidden from the label; the source string stays in the layout JSON so we can re-enable later.
+    const displayName = l.name.replace(/\s*\([^)]*\)\s*$/, "");
+    span.textContent = `${displayName} (${l.id})`;
     wrap.appendChild(cb);
     wrap.appendChild(span);
     langList.appendChild(wrap);
