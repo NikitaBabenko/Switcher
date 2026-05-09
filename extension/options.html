@@ -60,21 +60,24 @@
     <h2 data-i18n="options_privacyH2">Privacy</h2>
     <p class="muted" data-i18n="options_privacyBody">
       By default, decryption runs entirely on your machine — no text leaves the
-      browser. Bundled languages: 9 (English, Russian, Ukrainian, Belarusian,
-      German, French, Greek, Hebrew, Turkish).
+      browser. Bundled languages: 12 (English, Russian, Ukrainian, Belarusian,
+      German, French, Greek, Hebrew, Turkish, Polish, Spanish, Korean).
     </p>
 
-    <label>
-      <input type="checkbox" id="useApiFallback" />
-      <span data-i18n="options_useApiFallback">Allow remote API fallback</span>
-    </label>
-    <label>
-      <span data-i18n="options_apiEndpoint">API endpoint (optional)</span>
-      <input type="text" id="apiBase" placeholder="https://example.com" />
-    </label>
-    <p class="muted" data-i18n="options_apiEndpointHint">
-      Used only when the checkbox is on. Leave empty to stay fully offline.
-    </p>
+    <!-- API fallback controls hidden for now; remove `hidden` to re-enable. Kept in the DOM so options.js bindings still work. -->
+    <div hidden>
+      <label>
+        <input type="checkbox" id="useApiFallback" />
+        <span data-i18n="options_useApiFallback">Allow remote API fallback</span>
+      </label>
+      <label>
+        <span data-i18n="options_apiEndpoint">API endpoint (optional)</span>
+        <input type="text" id="apiBase" placeholder="https://example.com" />
+      </label>
+      <p class="muted" data-i18n="options_apiEndpointHint">
+        Used only when the checkbox is on. Leave empty to stay fully offline.
+      </p>
+    </div>
 
     <h2 id="languages" data-i18n="options_languagesH2">Languages</h2>
     <p class="muted" data-i18n="options_languagesHint">Pick the languages the layout should switch between. At least 2.</p>
