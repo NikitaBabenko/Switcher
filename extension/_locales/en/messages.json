@@ -43,7 +43,7 @@
   "popup_shortcutHintBefore": { "message": "Tip: focus a field and press" },
   "popup_shortcutHintAfter": { "message": "for the same thing." },
   "popup_pasteHeader": { "message": "Or paste text and decrypt:" },
-  "popup_pastePlaceholder": { "message": "Paste cyrillic gibberish here…" },
+  "popup_pastePlaceholder": { "message": "Paste mistyped text here…" },
   "popup_decrypt": { "message": "Decrypt" },
   "popup_copy": { "message": "Copy" },
   "popup_copied": { "message": "Copied" },
