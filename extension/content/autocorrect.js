@@ -136,8 +136,15 @@
 
     let host = info.node.parentElement;
     while (host && !host.isContentEditable) host = host.parentElement;
-    if (host && R.detectFramework(host) && R.replaceViaSyntheticPaste(host, replacement + triggerChar)) {
-      return true;
+    if (host && R.detectFramework(host)) {
+      // Force the editor's selection model to sync with our programmatic Range
+      // before the paste — without this, framework editors (DraftJS/Slate/Quill/
+      // ProseMirror/Lexical) treat the paste as an insert at their cached cursor
+      // and append the correction instead of replacing the original word.
+      try { doc.dispatchEvent(new Event("selectionchange")); } catch {}
+      if (R.replaceViaSyntheticPaste(host, replacement + triggerChar)) {
+        return true;
+      }
     }
 
     if (doc.queryCommandSupported && doc.queryCommandSupported("insertText")) {
