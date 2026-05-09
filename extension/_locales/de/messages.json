@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Tastatur-Layout-Korrektor · 12 Sprachen (Russisch, Deutsch, EN, FR + 8)",
+    "message": "Tastatur-Layout-Korrektor (Russisch, Deutsch, EN, FR) · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Tastatur-Layout-Korrektor (Strg+Umschalt+L)",
+    "message": "VibeNest Switcher · Tastatur-Layout (Strg+Umschalt+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

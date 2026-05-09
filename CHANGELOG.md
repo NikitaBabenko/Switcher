@@ -6,6 +6,8 @@ All notable changes to **VibeNest Switcher** are tracked here. Format follows [K
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-05-09
+
 ### Added
 - **Polish (214) keyboard layout** — `data/layouts/pl.json` + top-3000 wordlist from [hermitdave/FrequencyWords](https://github.com/hermitdave/FrequencyWords).
 - **Spanish (QWERTY) keyboard layout** — `data/layouts/es.json` with ñ on the `;` position, ¡ ¿ on the number row, etc.

@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Disposición de teclado — corrector de tipeo · 12 idiomas",
+    "message": "Disposición de teclado — corrector de tipeo · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Disposición de teclado (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · Disposición de teclado (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {
@@ -62,12 +62,12 @@
   "siteAdapter_auto": { "message": "Auto" },
   "siteAdapter_generic": { "message": "Otro / genérico" },
 
-  "options_title": { "message": "Switcher — ajustes" },
-  "options_h1": { "message": "Switcher — ajustes" },
+  "options_title": { "message": "VibeNest Switcher — ajustes" },
+  "options_h1": { "message": "VibeNest Switcher — ajustes" },
   "options_uiLanguageH2": { "message": "Idioma de la interfaz" },
   "options_uiLanguageHint": { "message": "Idioma del popup y de esta página. Auto = seguir el idioma del navegador." },
   "options_uiLanguageAuto": { "message": "Auto (idioma del navegador)" },
-  "options_firstRunWelcome": { "message": "Bienvenido a Switcher." },
+  "options_firstRunWelcome": { "message": "Bienvenido a VibeNest Switcher." },
   "options_firstRunBody": {
     "message": "No pudimos detectar automáticamente los idiomas que escribes a partir de la configuración del navegador. Elige al menos dos abajo — puedes cambiarlo en cualquier momento desde esta página."
   },
@@ -109,7 +109,7 @@
   "toast_alreadyCorrect": { "message": "Switcher: la disposición ya era correcta" },
   "toast_undone": { "message": "Switcher: deshecho" },
 
-  "notification_title": { "message": "Switcher" },
+  "notification_title": { "message": "VibeNest Switcher" },
   "notification_skippedPolicy": { "message": "Omitido: $1 está excluido por tu política de sitios." },
   "notification_copiedToClipboard": { "message": "Copiado al portapapeles: $1" },
   "notification_selectFirst": { "message": "Selecciona texto primero, o haz clic en un campo de texto." },

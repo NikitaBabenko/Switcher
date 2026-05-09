@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Раскладка клавіятуры — пераключальнік і выпраўленне · 12 моў",
+    "message": "Раскладка клавіятуры — пераключальнік і выпраўленне · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Раскладка клавіятуры (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · Раскладка клавіятуры (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Correcteur de disposition · 12 langues (russe, anglais, allemand + 9)",
+    "message": "Correcteur de disposition (russe, anglais, allemand) · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Correcteur de disposition (Ctrl+Maj+L)",
+    "message": "VibeNest Switcher · Disposition de clavier (Ctrl+Maj+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

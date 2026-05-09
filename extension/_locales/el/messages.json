@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Διόρθωση Διάταξης Πληκτρολογίου · 12 γλώσσες",
+    "message": "Διόρθωση Διάταξης Πληκτρολογίου · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Διόρθωση Διάταξης (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · Διάταξη πληκτρολογίου (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

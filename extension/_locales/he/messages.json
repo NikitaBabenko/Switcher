@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "תיקון פריסת מקלדת · 12 שפות (עברית, רוסית, אנגלית + 9)",
+    "message": "תיקון פריסת מקלדת (עברית, רוסית, אנגלית) · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "תיקון פריסת מקלדת (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · פריסת מקלדת (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

@@ -1,7 +1,7 @@
 {
   "name": "vibenest-switcher-extension",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Build/test/package scripts for the VibeNest Switcher Chrome extension. The extension itself is plain JS; this file exists only for tooling.",
   "type": "module",
   "scripts": {

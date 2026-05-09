@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "키보드 레이아웃 전환기 · 잘못된 입력 수정 · 12개 언어",
+    "message": "키보드 레이아웃 전환기 · 잘못된 입력 수정 · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "키보드 레이아웃 전환기 (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · 키보드 레이아웃 (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {
@@ -62,12 +62,12 @@
   "siteAdapter_auto": { "message": "자동" },
   "siteAdapter_generic": { "message": "기타 / 일반" },
 
-  "options_title": { "message": "Switcher — 설정" },
-  "options_h1": { "message": "Switcher — 설정" },
+  "options_title": { "message": "VibeNest Switcher — 설정" },
+  "options_h1": { "message": "VibeNest Switcher — 설정" },
   "options_uiLanguageH2": { "message": "인터페이스 언어" },
   "options_uiLanguageHint": { "message": "팝업과 이 페이지의 언어. 자동 = 브라우저 언어 따르기." },
   "options_uiLanguageAuto": { "message": "자동 (브라우저 언어)" },
-  "options_firstRunWelcome": { "message": "Switcher에 오신 것을 환영합니다." },
+  "options_firstRunWelcome": { "message": "VibeNest Switcher에 오신 것을 환영합니다." },
   "options_firstRunBody": {
     "message": "브라우저 로케일에서 사용자가 입력하는 언어를 자동으로 감지하지 못했습니다. 아래에서 최소 두 개 선택하세요 — 언제든지 이 페이지에서 변경할 수 있습니다."
   },
@@ -109,7 +109,7 @@
   "toast_alreadyCorrect": { "message": "Switcher: 레이아웃이 이미 올바릅니다" },
   "toast_undone": { "message": "Switcher: 실행 취소됨" },
 
-  "notification_title": { "message": "Switcher" },
+  "notification_title": { "message": "VibeNest Switcher" },
   "notification_skippedPolicy": { "message": "건너뜀: $1은(는) 사이트 정책으로 제외되어 있습니다." },
   "notification_copiedToClipboard": { "message": "클립보드에 복사됨: $1" },
   "notification_selectFirst": { "message": "먼저 텍스트를 선택하거나 텍스트 필드를 클릭하세요." },

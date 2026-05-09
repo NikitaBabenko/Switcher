@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Układ klawiatury — przełącznik i poprawka błędów · 12 języków",
+    "message": "Układ klawiatury — poprawka błędów (polski, rosyjski, EN) · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Układ klawiatury (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · Układ klawiatury (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {
@@ -62,12 +62,12 @@
   "siteAdapter_auto": { "message": "Auto" },
   "siteAdapter_generic": { "message": "Inny / ogólny" },
 
-  "options_title": { "message": "Switcher — ustawienia" },
-  "options_h1": { "message": "Switcher — ustawienia" },
+  "options_title": { "message": "VibeNest Switcher — ustawienia" },
+  "options_h1": { "message": "VibeNest Switcher — ustawienia" },
   "options_uiLanguageH2": { "message": "Język interfejsu" },
   "options_uiLanguageHint": { "message": "Język popupu i tej strony. Auto = zgodnie z językiem przeglądarki." },
   "options_uiLanguageAuto": { "message": "Auto (język przeglądarki)" },
-  "options_firstRunWelcome": { "message": "Witamy w Switcherze." },
+  "options_firstRunWelcome": { "message": "Witamy w VibeNest Switcherze." },
   "options_firstRunBody": {
     "message": "Nie udało się wykryć języków, w których piszesz, na podstawie ustawień przeglądarki. Wybierz poniżej co najmniej dwa — możesz to zmienić w dowolnej chwili."
   },
@@ -109,7 +109,7 @@
   "toast_alreadyCorrect": { "message": "Switcher: układ był już poprawny" },
   "toast_undone": { "message": "Switcher: cofnięto" },
 
-  "notification_title": { "message": "Switcher" },
+  "notification_title": { "message": "VibeNest Switcher" },
   "notification_skippedPolicy": { "message": "Pominięto: $1 jest wykluczona przez politykę witryn." },
   "notification_copiedToClipboard": { "message": "Skopiowano do schowka: $1" },
   "notification_selectFirst": { "message": "Najpierw zaznacz tekst lub kliknij w pole tekstowe." },

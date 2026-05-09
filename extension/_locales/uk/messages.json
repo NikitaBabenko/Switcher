@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Розкладка клавіатури — перемикач і виправлення · 12 мов",
+    "message": "Розкладка клавіатури — перемикач і виправлення · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Розкладка клавіатури (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · Розкладка клавіатури (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {

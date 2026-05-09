@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Klavye Düzeni Düzeltici · 12 dil (Türkçe, Rusça, İngilizce + 9)",
+    "message": "Klavye Düzeni Düzeltici (Türkçe, Rusça, İngilizce) · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -8,7 +8,7 @@
     "description": "Manifest description, also serves as store short description (132 chars max)"
   },
   "actionTitle": {
-    "message": "Klavye Düzeni Düzeltici (Ctrl+Shift+L)",
+    "message": "VibeNest Switcher · Klavye Düzeni (Ctrl+Shift+L)",
     "description": "Toolbar icon hover tooltip"
   },
   "commandDescription": {
