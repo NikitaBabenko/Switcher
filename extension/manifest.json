@@ -3,7 +3,7 @@
   "default_locale": "en",
   "name": "__MSG_appName__",
   "description": "__MSG_appShortDescription__",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "author": "VibeNest",
   "homepage_url": "https://vibenest.net",
   "permissions": ["contextMenus", "storage", "activeTab", "scripting", "notifications", "clipboardWrite", "sidePanel"],
