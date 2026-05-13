@@ -6,6 +6,16 @@ locale: ru
 hreflang:
   en: /switcher
   ru: /ru/switcher
+  uk: /uk/switcher
+  be: /be/switcher
+  de: /de/switcher
+  fr: /fr/switcher
+  el: /el/switcher
+  he: /he/switcher
+  tr: /tr/switcher
+  pl: /pl/switcher
+  es: /es/switcher
+  ko: /ko/switcher
 canonical: https://vibenest.net/ru/switcher
 og_image: /og/switcher-ru.png
 schema:
@@ -45,7 +55,7 @@ last_updated: 2026-05-08
 | `xfq c kbvjyjv` | `чай с лимоном` |
 | `Руддщ Цщкдв` | `Hello World` |
 
-То же самое горячее сочетание работает в любую сторону между всеми девятью поддерживаемыми раскладками. Можно также вставить кривой текст в popup на тулбаре и скопировать оттуда исправленный.
+То же самое горячее сочетание работает в любую сторону между всеми 12 поддерживаемыми раскладками. Можно также вставить кривой текст в popup на тулбаре и скопировать оттуда исправленный.
 
 ## Проблема, о которой обычно молчат
 

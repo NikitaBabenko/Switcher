@@ -6,6 +6,16 @@ locale: en
 hreflang:
   en: /switcher
   ru: /ru/switcher
+  uk: /uk/switcher
+  be: /be/switcher
+  de: /de/switcher
+  fr: /fr/switcher
+  el: /el/switcher
+  he: /he/switcher
+  tr: /tr/switcher
+  pl: /pl/switcher
+  es: /es/switcher
+  ko: /ko/switcher
 canonical: https://vibenest.net/switcher
 og_image: /og/switcher-en.png
 schema:
