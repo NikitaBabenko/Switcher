@@ -27,7 +27,7 @@ keywords_secondary:
   - keyboard layout switcher
   - wrong keyboard layout
   - keyboard layout converter
-  - russian to english keyboard
+  - multilingual keyboard chrome
   - fix mistyped text
 last_updated: 2026-05-08
 ---
@@ -36,7 +36,7 @@ last_updated: 2026-05-08
 
 # Keyboard Layout Switcher: Fix Mistyped Text in 12 Languages
 
-You typed `ghbdtn` and you meant `привет`. **VibeNest Switcher** is a multilingual keyboard layout switcher and corrector for Chrome that catches text typed in the wrong keyboard layout and rewrites it correctly in a single keystroke, so you don't have to select, copy, or retype anything by hand. It runs fully offline, the source is on GitHub, and it ships with 12 keyboard layouts including Korean Hangul.
+You typed `dkssudgktpdy` and you meant `안녕하세요`. Or `gtbf` instead of `γεια`. **VibeNest Switcher** is a multilingual keyboard layout switcher and corrector for Chrome that catches text typed in the wrong keyboard layout and rewrites it correctly in a single keystroke, so you don't have to select, copy, or retype anything by hand. It runs fully offline, the source is on GitHub, and it ships with 12 keyboard layouts including Korean Hangul.
 
 [**Install from Chrome Web Store →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
@@ -50,19 +50,19 @@ The wrong-layout typo is a daily tax for anyone who writes in two scripts. The O
 
 | You typed (wrong layout) | What you actually meant |
 |---|---|
+| `dkssudgktpdy` | `안녕하세요` |
+| `gtbf` | `γεια` |
+| `akkv` | `שלום` |
+| `ьукрфиф` | `merhaba` |
 | `ghbdtn` | `привет` |
-| `Руддщ` | `Hello` |
-| `Lf, ds nfv;t!` | `Да, вы там же!` |
-| `xfq c kbvjyjv` | `чай с лимоном` |
-| `Руддщ Цщкдв` | `Hello World` |
 
 The same keyboard shortcut works in every direction across the 12 supported layouts. You can also paste mistyped text into the toolbar popup and copy out the corrected version.
 
 ## The wrong-layout problem nobody talks about
 
-If you write in Cyrillic and Latin every day (or in Greek and Latin, or Hebrew and Latin, or any pair where the keys overlap), you know the rhythm: you forget to switch, you stare at the screen, you select the text, delete it, and retype it. That five-second penalty hits dozens of times a day for translators, bilingual writers, IT engineers, helpdesk staff, language students, and anyone with a multi-script workflow. Multiplied across a year, it is days of life lost to one bad habit between hand and operating system.
+If you write across two scripts every day (Hangul and Latin, Cyrillic and Latin, Greek and Latin, Hebrew and Latin, or any pair where the keys overlap), you know the rhythm: you forget to switch, you stare at the screen, you select the text, delete it, and retype it. That five-second penalty hits dozens of times a day for translators, bilingual writers, IT engineers, helpdesk staff, language students, and anyone with a multi-script workflow. Multiplied across a year, it is days of life lost to one bad habit between hand and operating system.
 
-The OS-level layout switcher does not solve this: it only helps with the *next* keystroke. Phonetic transliteration tools also do not solve this; they are designed to let you type in a script you do not have a keyboard for, by spelling words phonetically (`privet` → `привет`). That is a different category. **VibeNest Switcher fixes exactly that moment**: you finished typing, you noticed the wrong keyboard layout, and you want it fixed in one motion without leaving the field.
+The OS-level layout switcher does not solve this: it only helps with the *next* keystroke. Phonetic transliteration tools also do not solve this; they are designed to let you type in a script you do not have a physical keyboard for, by spelling words phonetically. That is a different category. **VibeNest Switcher fixes exactly that moment**: you finished typing, you noticed the wrong keyboard layout, and you want it fixed in one motion without leaving the field.
 
 The traditional answer on the desktop has been a small family of layout-switcher utilities, all of them closed source, Windows-only, and unable to reach into the modern web apps where most typing happens. VibeNest Switcher is the open-source, browser-native, fully offline alternative: it works inside the field where you are actually typing, on every operating system Chrome runs on.
 
@@ -111,9 +111,9 @@ VibeNest Switcher is the only entry that is open source, browser-native, and ful
 
 Install VibeNest Switcher, place your cursor in any text field that contains the mistyped text, and press **`Ctrl+Shift+L`**. The extension detects which two layouts the text was typed under, transposes it back to what you meant, and rewrites the field in place. You don't have to select, copy, or retype anything. The same shortcut works in Twitter, Slack, Gmail, Notion, Discord, Reddit, LinkedIn, and any other text input on the open web. If the field cannot be modified directly (for example a read-only export view), the extension falls back to copying the corrected text to the clipboard and shows a small notification so you know it is ready to paste.
 
-### How do I switch between Russian and English keyboard input?
+### How do I switch the keyboard input language quickly?
 
-VibeNest Switcher does not replace your operating system's layout-switch shortcut: keep using whatever combination your OS gives you to flip the active layout. What it does is fix text you have already typed under the wrong layout. If you started writing in English while the field was set to Russian (so `Руддщ` appears instead of `Hello`), one keystroke rewrites it. The same goes for the reverse direction (`russian to english keyboard` and `english to russian keyboard`): `ghbdtn` becomes `привет` in one motion, with no extra clicks.
+VibeNest Switcher does not replace your operating system's layout-switch shortcut: keep using whatever combination your OS gives you to flip the active input language. What this extension does is fix text you have already typed under the wrong layout. If you started writing in one language while the field was set to another script (so `dkssudgktpdy` appears instead of `안녕하세요`, or `Руддщ` instead of `Hello`), one keystroke rewrites the field in place. The same shortcut works in any direction between the 12 supported layouts.
 
 ### Is this a multilingual keyboard tool?
 
@@ -123,13 +123,13 @@ Yes. VibeNest Switcher is a multilingual keyboard layout corrector with 12 layou
 
 It is a desktop application for Windows. VibeNest Switcher is the open-source, browser-native alternative that runs entirely inside Chrome and any Chromium-based browser, which means it works on macOS, Linux, ChromeOS, and Windows alike, and it works inside the browser text fields where most modern typing happens. The detection idea is the same (transpose-then-score), but the model is bundled and offline; nothing about your text leaves the browser. The source is on [GitHub](https://github.com/NikitaBabenko/Switcher), so the privacy posture is something you can verify in the code rather than something you have to take on trust.
 
-### Does it transliterate Cyrillic to Latin (or vice versa)?
+### Does it transliterate between scripts?
 
-**No.** This is layout-fix, not phonetic typing. If you want a tool that lets you type Russian on a US-only keyboard by spelling words phonetically (`privet` for `привет`, `spasibo` for `спасибо`), that is a different category (phonetic transliterators like Cyrillatin or Translit). VibeNest Switcher is for the case where you have both layouts already, you typed in the wrong one by accident, and you want the result corrected in place. The two categories solve adjacent problems but they are not interchangeable.
+**No.** This is layout-fix, not phonetic typing. If you want a tool that lets you type in a script you do not have a physical keyboard for by spelling words phonetically, that is a different category (phonetic transliterators like Cyrillatin or Translit). VibeNest Switcher is for the case where you have both layouts already, you typed in the wrong one by accident, and you want the result corrected in place. The two categories solve adjacent problems but they are not interchangeable.
 
 ### Does it work offline? What data leaves my browser?
 
-It works fully offline by default. The bundled trigram language model lives inside the extension package; detection runs on your device. **No text and no metadata is sent anywhere.** There is no analytics SDK, telemetry, remote logging, or third-party script. There is an optional remote-API fallback in Options that is **off by default**, with an empty URL field; if you never enable it, the extension never makes a network request related to text conversion. Permissions and their justifications are spelled out line-by-line in [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md), and you can audit the data-flow path against the source on GitHub.
+It works fully offline by default. The bundled trigram language model lives inside the extension package; detection runs on your device. **No text and no metadata is sent anywhere.** There is no analytics SDK, telemetry, remote logging, or third-party script. There is an optional remote-API fallback in Options that is **off by default**, with an empty URL field; if you never enable it, the extension never makes a network request related to text conversion. Permissions and their justifications are spelled out line-by-line in [PRIVACY.md](https://vibenest.net/switcher/privacy), and you can audit the data-flow path against the source on GitHub.
 
 ### Which 12 keyboard layouts are supported?
 
@@ -144,7 +144,7 @@ Yes to both. VibeNest Switcher is free, with no account, no payment, and no ads.
 [**Install from Chrome Web Store →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub**: <https://github.com/NikitaBabenko/Switcher>
-- **Privacy policy**: <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **Privacy policy**: <https://vibenest.net/switcher/privacy>
 - **Email**: **info@vibenest.net** for suggestions, bug reports, and new-language requests
 
 ---

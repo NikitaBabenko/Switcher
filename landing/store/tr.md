@@ -73,7 +73,7 @@ GİZLİLİK
 
 Varsayılan olarak eklenti çevrimdışı çalışır. Gömülü algılayıcı tarayıcıda yaşar. Ne metin ne meta veri hiçbir yere gönderilmez. Eklentide analytics SDK'sı, telemetri, uzak günlük veya üçüncü taraf betikler yok.
 
-İzinler ve gerekçeleri gizlilik politikasında satır satır açıklanır: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+İzinler ve gerekçeleri gizlilik politikasında satır satır açıklanır: https://vibenest.net/switcher/privacy
 
 Seçeneklerde isteğe bağlı bir uzak API yedeği var, varsayılan kapalı, URL alanı boş.
 
@@ -130,6 +130,6 @@ Sürüm 1.0.0 (12 Mayıs 2026)
 KAYNAK KOD VE İLETİŞİM
 
 - GitHub: https://github.com/NikitaBabenko/Switcher
-- Gizlilik politikası: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- Gizlilik politikası: https://vibenest.net/switcher/privacy
 - Öneri, hata bildirimi ve yeni dil talepleri için e-posta: info@vibenest.net
 

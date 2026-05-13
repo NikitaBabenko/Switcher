@@ -73,7 +73,7 @@ VibeNest Switcher гэта пашырэнне для Chrome, якое выпра
 
 Па змаўчанні пашырэнне працуе афлайн. Убудаваны дэтэктар жыве ў браўзеры. Ні тэкст, ні метададзеныя нікуды не адпраўляюцца. У пашырэнні няма аналітыкі SDK, няма тэлеметрыі, няма аддаленага лагіравання, няма іншых скрыптаў.
 
-Усе дазволы і іх абгрунтаванні расфасаваны парадкова ў палітыцы канфідэнцыяльнасці: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+Усе дазволы і іх абгрунтаванні расфасаваны парадкова ў палітыцы канфідэнцыяльнасці: https://vibenest.net/switcher/privacy
 
 У наладах ёсць апцыянальны fallback на аддалены API, па змаўчанні выключаны, поле URL пустое.
 
@@ -127,6 +127,6 @@ English, Русский, Українська, Беларуская, Deutsch, Fr
 ЗЫХОДНІКІ І КАНТАКТЫ
 
 - GitHub: https://github.com/NikitaBabenko/Switcher
-- Палітыка канфідэнцыяльнасці: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- Палітыка канфідэнцыяльнасці: https://vibenest.net/switcher/privacy
 - Пошта: info@vibenest.net
 

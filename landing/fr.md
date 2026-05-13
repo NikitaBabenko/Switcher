@@ -128,7 +128,7 @@ Non. C'est de la correction de disposition, pas de la saisie phonétique. Si vou
 
 ### Ça marche hors ligne ? Qu'est-ce qui quitte mon navigateur ?
 
-Entièrement hors ligne par défaut. Le modèle de langage à trigrammes embarqué vit dans le paquet de l'extension ; la détection s'exécute sur votre appareil. **Ni texte ni métadonnées ne partent où que ce soit.** Pas de SDK d'analytics, pas de télémétrie, pas de logging distant, pas de script tiers. Les Options proposent un fallback API distant optionnel, **désactivé par défaut**, avec champ URL vide ; si vous ne l'activez jamais, l'extension ne fait aucun appel réseau lié à la conversion de texte. Les permissions et leur justification sont détaillées ligne par ligne dans [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md), et le chemin du flux de données s'audite par rapport au code sur GitHub.
+Entièrement hors ligne par défaut. Le modèle de langage à trigrammes embarqué vit dans le paquet de l'extension ; la détection s'exécute sur votre appareil. **Ni texte ni métadonnées ne partent où que ce soit.** Pas de SDK d'analytics, pas de télémétrie, pas de logging distant, pas de script tiers. Les Options proposent un fallback API distant optionnel, **désactivé par défaut**, avec champ URL vide ; si vous ne l'activez jamais, l'extension ne fait aucun appel réseau lié à la conversion de texte. Les permissions et leur justification sont détaillées ligne par ligne dans [PRIVACY.md](https://vibenest.net/switcher/privacy), et le chemin du flux de données s'audite par rapport au code sur GitHub.
 
 ### Quelles sont les 12 dispositions de clavier supportées ?
 
@@ -143,7 +143,7 @@ Oui pour les deux. VibeNest Switcher est gratuit, sans compte, sans paiement, sa
 [**Installer depuis le Chrome Web Store →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub** : <https://github.com/NikitaBabenko/Switcher>
-- **Politique de confidentialité** : <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **Politique de confidentialité** : <https://vibenest.net/switcher/privacy>
 - **E-mail** : **info@vibenest.net** pour suggestions, rapports de bugs et demandes de nouvelles langues
 
 ---

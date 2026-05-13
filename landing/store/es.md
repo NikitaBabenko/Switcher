@@ -73,7 +73,7 @@ PRIVACIDAD
 
 Por defecto la extensión funciona sin conexión. El detector incluido vive en el navegador. Ni texto, ni metadatos, ni eventos se envían a ningún sitio. En la extensión no hay SDK de analítica, no hay telemetría, no hay logging remoto, no hay scripts de terceros. El paquete es lo bastante pequeño para leerlo de principio a fin en GitHub.
 
-Los permisos y su justificación están detallados línea por línea en la política de privacidad: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+Los permisos y su justificación están detallados línea por línea en la política de privacidad: https://vibenest.net/switcher/privacy
 
 En Opciones hay un fallback opcional a una API remota, desactivado por defecto, con el campo URL vacío. Si nunca lo activas, la extensión no hace ni una sola petición de red relacionada con la conversión de texto.
 
@@ -132,6 +132,6 @@ Versiones anteriores añadieron las disposiciones coreana, polaca y española (v
 CÓDIGO FUENTE Y CONTACTO
 
 - GitHub: https://github.com/NikitaBabenko/Switcher
-- Política de privacidad: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- Política de privacidad: https://vibenest.net/switcher/privacy
 - Correo para sugerencias, reportes de errores y peticiones de nuevos idiomas: info@vibenest.net
 

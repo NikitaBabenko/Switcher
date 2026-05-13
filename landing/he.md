@@ -119,7 +119,7 @@ VibeNest Switcher לא מחליף את החלפת הפריסה ברמת מערכ
 
 ### זה עובד אופליין? מה עוזב את הדפדפן שלי?
 
-אופליין לחלוטין כברירת מחדל. מודל הטריגרמות המובנה גר בתוך חבילת התוסף; הזיהוי רץ במכשיר שלך. **שום טקסט ושום מטא-נתון לא נשלחים לשום מקום.** ללא SDK של אנליטיקה, ללא טלמטריה, ללא לוגים מרוחקים, ללא סקריפטים של צדדים שלישיים. בהגדרות יש fallback אופציונלי ל-API מרוחק, **כבוי כברירת מחדל** ועם שדה URL ריק. ההרשאות וההצדקה שלהן מפורטות בקובץ [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md).
+אופליין לחלוטין כברירת מחדל. מודל הטריגרמות המובנה גר בתוך חבילת התוסף; הזיהוי רץ במכשיר שלך. **שום טקסט ושום מטא-נתון לא נשלחים לשום מקום.** ללא SDK של אנליטיקה, ללא טלמטריה, ללא לוגים מרוחקים, ללא סקריפטים של צדדים שלישיים. בהגדרות יש fallback אופציונלי ל-API מרוחק, **כבוי כברירת מחדל** ועם שדה URL ריק. ההרשאות וההצדקה שלהן מפורטות בקובץ [PRIVACY.md](https://vibenest.net/switcher/privacy).
 
 ### אילו 12 פריסות מקלדת נתמכות?
 
@@ -134,7 +134,7 @@ VibeNest Switcher לא מחליף את החלפת הפריסה ברמת מערכ
 [**להתקין מ-Chrome Web Store ←**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub**: <https://github.com/NikitaBabenko/Switcher>
-- **מדיניות פרטיות**: <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **מדיניות פרטיות**: <https://vibenest.net/switcher/privacy>
 - **דוא"ל**: **info@vibenest.net** להצעות, דיווחי באגים ובקשות לשפות חדשות
 
 ---

@@ -128,7 +128,7 @@ VibeNest Switcher는 운영체제의 활성 입력 언어 전환을 대체하지
 
 ### 오프라인으로 동작하나요? 어떤 데이터가 브라우저를 떠나나요?
 
-기본적으로 완전 오프라인입니다. 내장 트라이그램 언어 모델은 확장 패키지 안에 들어 있고, 감지는 사용자 기기에서 실행됩니다. **텍스트와 메타데이터 어느 것도 어디로도 전송되지 않습니다.** 분석 SDK 없음, 텔레메트리 없음, 원격 로깅 없음, 서드파티 스크립트 없음. 옵션에 원격 API 폴백이 있지만 **기본은 꺼져 있고** URL 필드도 비어 있습니다. 직접 켜지 않으면 텍스트 변환과 관련된 네트워크 호출은 단 한 건도 발생하지 않습니다. 권한과 그 사유는 [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md)에 줄 단위로 적혀 있고, 데이터 흐름 경로는 GitHub의 소스로 감사할 수 있습니다.
+기본적으로 완전 오프라인입니다. 내장 트라이그램 언어 모델은 확장 패키지 안에 들어 있고, 감지는 사용자 기기에서 실행됩니다. **텍스트와 메타데이터 어느 것도 어디로도 전송되지 않습니다.** 분석 SDK 없음, 텔레메트리 없음, 원격 로깅 없음, 서드파티 스크립트 없음. 옵션에 원격 API 폴백이 있지만 **기본은 꺼져 있고** URL 필드도 비어 있습니다. 직접 켜지 않으면 텍스트 변환과 관련된 네트워크 호출은 단 한 건도 발생하지 않습니다. 권한과 그 사유는 [PRIVACY.md](https://vibenest.net/switcher/privacy)에 줄 단위로 적혀 있고, 데이터 흐름 경로는 GitHub의 소스로 감사할 수 있습니다.
 
 ### 어떤 12개 키보드 레이아웃이 지원되나요?
 
@@ -143,7 +143,7 @@ VibeNest Switcher는 운영체제의 활성 입력 언어 전환을 대체하지
 [**Chrome 웹 스토어에서 설치하기 →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub**: <https://github.com/NikitaBabenko/Switcher>
-- **개인정보 처리방침**: <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **개인정보 처리방침**: <https://vibenest.net/switcher/privacy>
 - **이메일**: 제안, 버그 신고, 새 언어 요청은 **info@vibenest.net**
 
 ---

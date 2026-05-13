@@ -119,7 +119,7 @@ O, Windows için masaüstü bir uygulamadır. VibeNest Switcher Chrome ve her Ch
 
 ### Çevrimdışı çalışıyor mu? Tarayıcımdan ne çıkıyor?
 
-Varsayılan olarak tamamen çevrimdışı. Gömülü trigram dil modeli eklenti paketinin içinde yaşar; algılama cihazında çalışır. **Ne metin ne meta veri hiçbir yere gönderilir.** Analytics SDK'sı yok, telemetri yok, uzak günlük yok, üçüncü taraf betikler yok. Seçeneklerde isteğe bağlı uzak API yedeği vardır ama **varsayılan olarak kapalı** ve URL alanı boştur. İzinler ve gerekçeleri [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md) içinde satır satır anlatılır.
+Varsayılan olarak tamamen çevrimdışı. Gömülü trigram dil modeli eklenti paketinin içinde yaşar; algılama cihazında çalışır. **Ne metin ne meta veri hiçbir yere gönderilir.** Analytics SDK'sı yok, telemetri yok, uzak günlük yok, üçüncü taraf betikler yok. Seçeneklerde isteğe bağlı uzak API yedeği vardır ama **varsayılan olarak kapalı** ve URL alanı boştur. İzinler ve gerekçeleri [PRIVACY.md](https://vibenest.net/switcher/privacy) içinde satır satır anlatılır.
 
 ### Hangi 12 klavye düzeni destekleniyor?
 
@@ -134,7 +134,7 @@ Varsayılan olarak tamamen çevrimdışı. Gömülü trigram dil modeli eklenti 
 [**Chrome Web Store'dan yükle →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub**: <https://github.com/NikitaBabenko/Switcher>
-- **Gizlilik politikası**: <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **Gizlilik politikası**: <https://vibenest.net/switcher/privacy>
 - **E-posta**: öneri, hata bildirimi ve yeni dil talepleri için **info@vibenest.net**
 
 ---

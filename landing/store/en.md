@@ -1,6 +1,6 @@
 # VibeNest Switcher: Detailed description (English)
 
-Type `ghbdtn` when you meant `привет`. Press `Ctrl+Shift+L`. The gibberish becomes the right text without retyping, without leaving the field, and without sending a single character to a server.
+Type `dkssudgktpdy` when you meant `안녕하세요`. Or `gtbf` instead of `γεια`. Press `Ctrl+Shift+L`. The gibberish becomes the right text without retyping, without leaving the field, and without sending a single character to a server.
 
 VibeNest Switcher is a Chrome extension that catches text typed in the wrong keyboard layout and rewrites it correctly in a single keystroke. It runs fully offline by default. The source is on GitHub. It ships with 12 keyboard layouts (English, Russian, Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish, Polish, Spanish, Korean) and a matching set of 12 UI translations.
 
@@ -14,7 +14,7 @@ Fully offline by default. The language model is bundled inside the extension pac
 
 No account, no sign-in, no payment, no ads. Install and use.
 
-12 keyboard layouts out of the box. Most layout-fix extensions cover one or two pairs (Russian/English). VibeNest handles any pair you enable.
+12 keyboard layouts out of the box. Most layout-fix extensions cover only one or two language pairs. VibeNest handles any pair you enable.
 
 Modern Manifest V3 build. Audited minimum permissions, forward-compatible with Chrome's 2025 policy. No migration work on your side.
 
@@ -32,7 +32,7 @@ Right-click context menu. With text selected on the page, right-click and choose
 
 Auto-correct as you type. Opt-in, off by default. When enabled, the extension watches what you type and corrects obvious wrong-layout words after the space. Press Backspace immediately to reject any auto-correction. Fields that look like passwords (input type=password, autocomplete=current-password) and OTP / card-number fields are hard-excluded from auto-correction by design.
 
-Per-page Undo. The popup keeps a one-step undo for the last fix on the current page; useful when the conversion went the wrong way (Cyrillic vs Latin transliteration of a proper noun, for example).
+Per-page Undo. The popup keeps a one-step undo for the last fix on the current page; useful when the conversion went the wrong way for a proper noun on a script boundary.
 
 Site adapters. Pre-built handlers for sites with non-standard text input (contenteditable wrappers, React-managed inputs, frame-isolated composers): Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon. A generic adapter covers every other site.
 
@@ -63,9 +63,9 @@ WHO IT'S FOR
 - Bilingual writers who alternate between English and another script several times per day.
 - Translators who flip between source and target languages mid-paragraph.
 - Developers and IT staff working in mixed-language environments (commit messages, ticket comments, code reviews across cultures).
-- Help-desk teams who'd rather not send a colleague's email to "Уважаемые коллеги, ifkjvtt..."
+- Help-desk teams who'd rather not send a colleague an email that opens with wrong-layout gibberish instead of their intended greeting.
 - Language students who copy text between dictionary, notes, and a chat with a tutor.
-- Anyone with a multi-script workflow (Cyrillic + Latin, Greek + Latin, Hebrew + Latin, Hangul + Latin).
+- Anyone with a multi-script workflow (Hangul + Latin, Cyrillic + Latin, Greek + Latin, Hebrew + Latin).
 
 ============================================================
 
@@ -73,7 +73,7 @@ PRIVACY
 
 By default the extension is offline-only. The bundled detector runs in your browser. No text, no metadata, no events are sent anywhere. There is no analytics SDK, no telemetry, no remote logging, and no third-party script in the extension. The package is small enough to read end-to-end on GitHub.
 
-Permissions and their justifications are spelled out line-by-line in the privacy policy: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+Permissions and their justifications are spelled out line-by-line in the privacy policy: https://vibenest.net/switcher/privacy
 
 There is an optional remote-API fallback in Options that is off by default, with an empty URL field. If you never enable it, the extension never makes a network request related to text conversion. The fallback exists for users who run their own conversion endpoint and want the popup to point at it; it is not a default and never reaches a third-party service.
 
@@ -84,14 +84,14 @@ FAQ
 Q: How do I fix text typed in the wrong layout?
 A: Place the cursor in the text field, press Ctrl+Shift+L. The extension detects the layout pair, transposes the characters, and rewrites the field in place. Works in Twitter, Slack, Discord, Gmail, Notion, Reddit, LinkedIn, WhatsApp Web, Telegram Web, and any other text input on the open web.
 
-Q: How do I switch between Russian and English keyboard input?
+Q: How do I switch the keyboard input language quickly?
 A: VibeNest Switcher does not replace your OS layout-switch shortcut. Keep using whatever combination your OS gives you to flip the active layout. The extension fixes text you have already typed under the wrong layout, that is the part the OS does not handle.
 
 Q: Is this a multilingual keyboard tool?
 A: Yes. 12 layouts, detects and converts between any pair you enable.
 
-Q: Does it transliterate Cyrillic to Latin?
-A: No. This is layout-fix, not phonetic typing. Phonetic input tools that let you type Russian without a Russian keyboard are a different category.
+Q: Does it transliterate between scripts?
+A: No. This is layout-fix, not phonetic typing. Phonetic input tools that let you type in a script without that physical keyboard are a different category.
 
 Q: Does it work offline?
 A: Yes. Fully offline by default. The trigram model is inside the extension package. No text or metadata is sent anywhere.
@@ -135,6 +135,6 @@ Earlier releases added the Korean, Polish, and Spanish layouts (v0.3.0), site ad
 SOURCE CODE & CONTACT
 
 - GitHub: https://github.com/NikitaBabenko/Switcher
-- Privacy policy: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- Privacy policy: https://vibenest.net/switcher/privacy
 - Email for suggestions, bug reports, and new-language requests: info@vibenest.net
 

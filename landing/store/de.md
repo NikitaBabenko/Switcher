@@ -73,7 +73,7 @@ DATENSCHUTZ
 
 Standardmäßig läuft die Erweiterung offline. Der eingebettete Detektor lebt im Browser. Weder Text noch Metadaten noch Ereignisse werden irgendwohin gesendet. In der Erweiterung gibt es kein Analytics-SDK, keine Telemetrie, kein Remote-Logging und kein Drittanbieter-Skript. Das Paket ist klein genug, um es auf GitHub vollständig zu lesen.
 
-Berechtigungen und Begründungen stehen zeilenweise in der Datenschutzerklärung: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+Berechtigungen und Begründungen stehen zeilenweise in der Datenschutzerklärung: https://vibenest.net/switcher/privacy
 
 In den Optionen gibt es einen optionalen Remote-API-Fallback, standardmäßig aus, mit leerem URL-Feld. Wer ihn nie aktiviert, löst keinen einzigen Netzwerkaufruf für die Text-Konvertierung aus. Der Fallback existiert für Nutzende, die einen eigenen Konvertierungs-Endpunkt betreiben und wollen, dass das Popup dorthin spricht; er ist kein Default und erreicht nie einen Drittanbieter-Service.
 
@@ -132,6 +132,6 @@ Frühere Versionen brachten die Layouts Koreanisch, Polnisch und Spanisch (v0.3.
 QUELLCODE UND KONTAKT
 
 - GitHub: https://github.com/NikitaBabenko/Switcher
-- Datenschutz: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- Datenschutz: https://vibenest.net/switcher/privacy
 - E-Mail für Vorschläge, Bug-Reports und Anfragen zu neuen Sprachen: info@vibenest.net
 

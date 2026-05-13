@@ -73,7 +73,7 @@ CONFIDENTIALITÉ
 
 Par défaut l'extension fonctionne hors ligne. Le détecteur embarqué tourne dans le navigateur. Ni texte, ni métadonnées, ni événements ne sont envoyés où que ce soit. Aucun SDK d'analytics, aucune télémétrie, aucun logging distant, aucun script tiers dans l'extension. Le paquet est assez petit pour être lu de bout en bout sur GitHub.
 
-Les permissions et leur justification sont détaillées ligne par ligne dans la politique de confidentialité : https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+Les permissions et leur justification sont détaillées ligne par ligne dans la politique de confidentialité : https://vibenest.net/switcher/privacy
 
 Les Options proposent un fallback API distant optionnel, désactivé par défaut, avec champ URL vide. Si vous ne l'activez jamais, l'extension ne fait pas un seul appel réseau lié à la conversion de texte. Le fallback existe pour les personnes qui font tourner leur propre endpoint de conversion et veulent que le popup pointe dessus ; ce n'est pas un défaut et il ne touche jamais un service tiers.
 
@@ -132,6 +132,6 @@ Les versions antérieures ont apporté les dispositions coréenne, polonaise et 
 CODE SOURCE ET CONTACT
 
 - GitHub : https://github.com/NikitaBabenko/Switcher
-- Politique de confidentialité : https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- Politique de confidentialité : https://vibenest.net/switcher/privacy
 - E-mail pour suggestions, rapports de bugs et demandes de nouvelles langues : info@vibenest.net
 

@@ -128,7 +128,7 @@ Nein. Das hier ist Layout-Reparatur, keine phonetische Eingabe. Wer Russisch auf
 
 ### Arbeitet es offline? Was verlässt meinen Browser?
 
-Standardmäßig vollständig offline. Das mitgelieferte Trigramm-Sprachmodell wohnt im Erweiterungspaket; die Erkennung läuft auf Ihrem Gerät. **Weder Text noch Metadaten werden irgendwohin geschickt.** Kein Analytics-SDK, keine Telemetrie, kein Remote-Logging, kein Drittanbieter-Skript. In den Optionen gibt es einen optionalen Remote-API-Fallback, der **standardmäßig aus** und mit leerem URL-Feld vorinstalliert ist; aktivieren Sie ihn nicht, macht die Erweiterung keinen Netzwerkaufruf zur Text-Konvertierung. Berechtigungen und deren Begründung stehen zeilenweise in [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md), und der Data-Flow lässt sich gegen den Quellcode auf GitHub prüfen.
+Standardmäßig vollständig offline. Das mitgelieferte Trigramm-Sprachmodell wohnt im Erweiterungspaket; die Erkennung läuft auf Ihrem Gerät. **Weder Text noch Metadaten werden irgendwohin geschickt.** Kein Analytics-SDK, keine Telemetrie, kein Remote-Logging, kein Drittanbieter-Skript. In den Optionen gibt es einen optionalen Remote-API-Fallback, der **standardmäßig aus** und mit leerem URL-Feld vorinstalliert ist; aktivieren Sie ihn nicht, macht die Erweiterung keinen Netzwerkaufruf zur Text-Konvertierung. Berechtigungen und deren Begründung stehen zeilenweise in [PRIVACY.md](https://vibenest.net/switcher/privacy), und der Data-Flow lässt sich gegen den Quellcode auf GitHub prüfen.
 
 ### Welche 12 Tastatur-Layouts werden unterstützt?
 
@@ -143,7 +143,7 @@ Beides ja. VibeNest Switcher ist kostenlos, ohne Konto, ohne Bezahlung, ohne Wer
 [**Aus dem Chrome Web Store installieren →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub**: <https://github.com/NikitaBabenko/Switcher>
-- **Datenschutz**: <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **Datenschutz**: <https://vibenest.net/switcher/privacy>
 - **E-Mail**: **info@vibenest.net** für Vorschläge, Bug-Reports und Anfragen zu neuen Sprachen
 
 ---

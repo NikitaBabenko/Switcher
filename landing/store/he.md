@@ -73,7 +73,7 @@ VibeNest Switcher הוא תוסף Chrome שמתקן טקסט שהוקלד בפר
 
 כברירת מחדל התוסף עובד אופליין. הגלאי המובנה חי בדפדפן. שום טקסט, שום מטא-נתונים, שום אירועים לא נשלחים לשום מקום. אין SDK של אנליטיקה, אין טלמטריה, אין רישום מרחוק, אין סקריפטים של צד שלישי.
 
-ההרשאות וההצדקות שלהן מפורטות שורה אחר שורה במדיניות הפרטיות: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+ההרשאות וההצדקות שלהן מפורטות שורה אחר שורה במדיניות הפרטיות: https://vibenest.net/switcher/privacy
 
 בהגדרות יש fallback אופציונלי ל-API מרוחק, כבוי כברירת מחדל ועם שדה URL ריק.
 
@@ -130,6 +130,6 @@ English, Русский, Українська, Беларуская, Deutsch, Fr
 קוד מקור ויצירת קשר
 
 - GitHub: https://github.com/NikitaBabenko/Switcher
-- מדיניות פרטיות: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- מדיניות פרטיות: https://vibenest.net/switcher/privacy
 - דוא"ל להצעות, דיווחי באגים ובקשות לשפות חדשות: info@vibenest.net
 

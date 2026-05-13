@@ -128,7 +128,7 @@ Nie. To poprawka układu, nie pisanie fonetyczne. Jeśli szukasz narzędzia do p
 
 ### Czy działa offline? Co opuszcza moją przeglądarkę?
 
-W pełni offline domyślnie. Wbudowany model trigramowy mieszka w paczce rozszerzenia; detekcja chodzi na twoim urządzeniu. **Ani tekst, ani metadane nigdzie nie wychodzą.** Bez SDK analityki, bez telemetrii, bez zdalnego logowania, bez skryptów stron trzecich. W Opcjach jest opcjonalny fallback na zdalny API, **domyślnie wyłączony**, z pustym polem URL; jeśli sam go nie włączysz, rozszerzenie nie zrobi ani jednego zapytania sieciowego związanego z konwersją tekstu. Uprawnienia i ich uzasadnienia są spisane linijka po linijce w [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md), a ścieżkę przepływu danych da się sprawdzić w kodzie na GitHubie.
+W pełni offline domyślnie. Wbudowany model trigramowy mieszka w paczce rozszerzenia; detekcja chodzi na twoim urządzeniu. **Ani tekst, ani metadane nigdzie nie wychodzą.** Bez SDK analityki, bez telemetrii, bez zdalnego logowania, bez skryptów stron trzecich. W Opcjach jest opcjonalny fallback na zdalny API, **domyślnie wyłączony**, z pustym polem URL; jeśli sam go nie włączysz, rozszerzenie nie zrobi ani jednego zapytania sieciowego związanego z konwersją tekstu. Uprawnienia i ich uzasadnienia są spisane linijka po linijce w [PRIVACY.md](https://vibenest.net/switcher/privacy), a ścieżkę przepływu danych da się sprawdzić w kodzie na GitHubie.
 
 ### Jakie 12 układów klawiatury jest obsługiwanych?
 
@@ -143,7 +143,7 @@ Tak na oba pytania. VibeNest Switcher jest darmowe, bez konta, bez płatności, 
 [**Zainstaluj z Chrome Web Store →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub**: <https://github.com/NikitaBabenko/Switcher>
-- **Polityka prywatności**: <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **Polityka prywatności**: <https://vibenest.net/switcher/privacy>
 - **E-mail**: **info@vibenest.net** w sprawie sugestii, zgłoszeń błędów i próśb o nowe języki
 
 ---

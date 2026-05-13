@@ -73,7 +73,7 @@ PRYWATNOŚĆ
 
 Domyślnie rozszerzenie pracuje offline. Wbudowany detektor mieszka w przeglądarce. Ani tekst, ani metadane, ani zdarzenia nigdzie się nie wysyłają. W rozszerzeniu nie ma SDK analityki, nie ma telemetrii, nie ma zdalnego logowania, nie ma skryptów stron trzecich. Paczka jest na tyle mała, żeby przeczytać ją w całości na GitHubie.
 
-Wszystkie uprawnienia i ich uzasadnienia są spisane linijka po linijce w polityce prywatności: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+Wszystkie uprawnienia i ich uzasadnienia są spisane linijka po linijce w polityce prywatności: https://vibenest.net/switcher/privacy
 
 W Opcjach jest opcjonalny fallback na zdalny API, domyślnie wyłączony, pole URL puste. Jeśli sam go nie włączysz, rozszerzenie nie zrobi ani jednego zapytania sieciowego związanego z konwersją tekstu.
 
@@ -132,6 +132,6 @@ Wcześniejsze wydania dodały układy koreański, polski i hiszpański (v0.3.0),
 KOD ŹRÓDŁOWY I KONTAKT
 
 - GitHub: https://github.com/NikitaBabenko/Switcher
-- Polityka prywatności: https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md
+- Polityka prywatności: https://vibenest.net/switcher/privacy
 - E-mail do sugestii, zgłoszeń błędów i próśb o nowe języki: info@vibenest.net
 

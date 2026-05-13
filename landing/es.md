@@ -127,7 +127,7 @@ No. Esto es corrección de disposición, no escritura fonética. Si buscas una h
 
 ### ¿Funciona sin conexión? ¿Qué sale de mi navegador?
 
-Totalmente sin conexión por defecto. El modelo de lenguaje de trigramas incluido vive dentro del paquete de la extensión; la detección corre en tu dispositivo. **Ni el texto ni los metadatos salen a ningún sitio.** Sin SDK de analítica, sin telemetría, sin logging remoto, sin scripts de terceros. En Opciones hay un fallback opcional a una API remota, **desactivado por defecto**, con el campo URL vacío; si nunca lo activas, la extensión no hace ni una sola petición de red relacionada con la conversión de texto. Los permisos y su justificación están detallados línea por línea en [PRIVACY.md](https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md), y el flujo de datos se puede auditar contra el código fuente en GitHub.
+Totalmente sin conexión por defecto. El modelo de lenguaje de trigramas incluido vive dentro del paquete de la extensión; la detección corre en tu dispositivo. **Ni el texto ni los metadatos salen a ningún sitio.** Sin SDK de analítica, sin telemetría, sin logging remoto, sin scripts de terceros. En Opciones hay un fallback opcional a una API remota, **desactivado por defecto**, con el campo URL vacío; si nunca lo activas, la extensión no hace ni una sola petición de red relacionada con la conversión de texto. Los permisos y su justificación están detallados línea por línea en [PRIVACY.md](https://vibenest.net/switcher/privacy), y el flujo de datos se puede auditar contra el código fuente en GitHub.
 
 ### ¿Cuáles son las 12 disposiciones de teclado soportadas?
 
@@ -142,7 +142,7 @@ Sí a ambas. VibeNest Switcher es gratis, sin cuenta, sin pago, sin anuncios. El
 [**Instalar desde Chrome Web Store →**](https://chrome.google.com/webstore/detail/vibenest-switcher/)
 
 - **GitHub**: <https://github.com/NikitaBabenko/Switcher>
-- **Política de privacidad**: <https://github.com/NikitaBabenko/Switcher/blob/main/extension/PRIVACY.md>
+- **Política de privacidad**: <https://vibenest.net/switcher/privacy>
 - **Correo**: **info@vibenest.net** para sugerencias, reportes de bugs y peticiones de nuevos idiomas
 
 ---
