@@ -32,7 +32,7 @@
   "popup_undoTitle": { "message": "이 페이지의 마지막 수정을 실행 취소" },
   "popup_closePanel": { "message": "패널 닫기" },
   "popup_shortcutHintBefore": { "message": "팁: 필드를 포커스하고" },
-  "popup_shortcutHintAfter": { "message": "를 누르세요 — 동일한 결과." },
+  "popup_shortcutHintAfter": { "message": "를 누르세요. 동일한 결과." },
   "popup_pasteHeader": { "message": "또는 텍스트를 붙여넣고 수정:" },
   "popup_pastePlaceholder": { "message": "잘못된 레이아웃의 텍스트를 여기에 붙여넣기…" },
   "popup_decrypt": { "message": "수정" },
@@ -62,18 +62,18 @@
   "siteAdapter_auto": { "message": "자동" },
   "siteAdapter_generic": { "message": "기타 / 일반" },
 
-  "options_title": { "message": "VibeNest Switcher — 설정" },
-  "options_h1": { "message": "VibeNest Switcher — 설정" },
+  "options_title": { "message": "VibeNest Switcher: 설정" },
+  "options_h1": { "message": "VibeNest Switcher: 설정" },
   "options_uiLanguageH2": { "message": "인터페이스 언어" },
   "options_uiLanguageHint": { "message": "팝업과 이 페이지의 언어. 자동 = 브라우저 언어 따르기." },
   "options_uiLanguageAuto": { "message": "자동 (브라우저 언어)" },
   "options_firstRunWelcome": { "message": "VibeNest Switcher에 오신 것을 환영합니다." },
   "options_firstRunBody": {
-    "message": "브라우저 로케일에서 사용자가 입력하는 언어를 자동으로 감지하지 못했습니다. 아래에서 최소 두 개 선택하세요 — 언제든지 이 페이지에서 변경할 수 있습니다."
+    "message": "브라우저 로케일에서 사용자가 입력하는 언어를 자동으로 감지하지 못했습니다. 아래에서 최소 두 개 선택하세요. 언제든지 이 페이지에서 변경할 수 있습니다."
   },
   "options_privacyH2": { "message": "개인정보 보호" },
   "options_privacyBody": {
-    "message": "기본적으로 수정은 사용자 기기에서만 실행됩니다 — 어떤 텍스트도 브라우저를 떠나지 않습니다. 12개 내장 언어: 영어, 러시아어, 우크라이나어, 벨라루스어, 독일어, 프랑스어, 그리스어, 히브리어, 터키어, 폴란드어, 스페인어, 한국어."
+    "message": "기본적으로 수정은 사용자 기기에서만 실행됩니다. 어떤 텍스트도 브라우저를 떠나지 않습니다. 12개 내장 언어: 영어, 러시아어, 우크라이나어, 벨라루스어, 독일어, 프랑스어, 그리스어, 히브리어, 터키어, 폴란드어, 스페인어, 한국어."
   },
   "options_useApiFallback": { "message": "원격 API 폴백 허용" },
   "options_apiEndpoint": { "message": "API 엔드포인트 (선택)" },
@@ -83,7 +83,7 @@
   "options_behaviourH2": { "message": "동작" },
   "options_replaceWhole": { "message": "선택이 없을 때 composer 전체 수정" },
   "options_replaceWholeHint": {
-    "message": "꺼짐 — 확장 프로그램은 명시적으로 선택된 텍스트만 수정합니다. 지원되는 사이트에서 빈 선택일 때는 필드를 건드리지 않고 알림만 표시합니다."
+    "message": "꺼짐: 확장 프로그램은 명시적으로 선택된 텍스트만 수정합니다. 지원되는 사이트에서 빈 선택일 때는 필드를 건드리지 않고 알림만 표시합니다."
   },
   "options_autoCorrect": { "message": "입력 중 자동 수정 (Punto Switcher 스타일)" },
   "options_autoCorrectHint": {
@@ -103,7 +103,7 @@
   "options_save": { "message": "저장" },
   "options_saved": { "message": "저장됨 ✓" },
   "options_pickAtLeastTwo": { "message": "언어를 최소 2개 선택하세요." },
-  "options_contactBody": { "message": "제안, 버그 신고, 새 언어 요청 환영합니다 — 이메일:" },
+  "options_contactBody": { "message": "제안, 버그 신고, 새 언어 요청 환영합니다. 이메일:" },
 
   "toast_decrypted": { "message": "Switcher: $1" },
   "toast_alreadyCorrect": { "message": "Switcher: 레이아웃이 이미 올바릅니다" },

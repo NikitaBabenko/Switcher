@@ -32,7 +32,7 @@
   "popup_undoTitle": { "message": "בטל את התיקון האחרון בדף זה" },
   "popup_closePanel": { "message": "סגור פאנל" },
   "popup_shortcutHintBefore": { "message": "טיפ: מקד שדה ולחץ" },
-  "popup_shortcutHintAfter": { "message": "— אותה תוצאה." },
+  "popup_shortcutHintAfter": { "message": "אותה תוצאה." },
   "popup_pasteHeader": { "message": "או הדבק טקסט ותקן:" },
   "popup_pastePlaceholder": { "message": "הדבק כאן טקסט בפריסה שגויה…" },
   "popup_decrypt": { "message": "תקן" },
@@ -62,18 +62,18 @@
   "siteAdapter_auto": { "message": "אוטומטי" },
   "siteAdapter_generic": { "message": "אחר / כללי" },
 
-  "options_title": { "message": "VibeNest Switcher — הגדרות" },
-  "options_h1": { "message": "VibeNest Switcher — הגדרות" },
+  "options_title": { "message": "VibeNest Switcher: הגדרות" },
+  "options_h1": { "message": "VibeNest Switcher: הגדרות" },
   "options_uiLanguageH2": { "message": "שפת ממשק" },
   "options_uiLanguageHint": { "message": "שפת הפופאפ והדף הזה. אוטומטי = לפי שפת הדפדפן." },
   "options_uiLanguageAuto": { "message": "אוטומטי (שפת הדפדפן)" },
   "options_firstRunWelcome": { "message": "ברוכים הבאים ל-VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "לא הצלחנו לזהות אוטומטית את השפות שבהן אתה מקליד מתוך הגדרות הדפדפן. בחר לפחות שתיים למטה — ניתן לשנות בכל עת מהדף הזה."
+    "message": "לא הצלחנו לזהות אוטומטית את השפות שבהן אתה מקליד מתוך הגדרות הדפדפן. בחר לפחות שתיים למטה; ניתן לשנות בכל עת מהדף הזה."
   },
   "options_privacyH2": { "message": "פרטיות" },
   "options_privacyBody": {
-    "message": "כברירת מחדל, התיקון רץ לחלוטין על המכשיר שלך — שום טקסט לא עוזב את הדפדפן. 12 שפות מובנות: אנגלית, רוסית, אוקראינית, בלארוסית, גרמנית, צרפתית, יוונית, עברית, טורקית, פולנית, ספרדית, קוריאנית."
+    "message": "כברירת מחדל, התיקון רץ לחלוטין על המכשיר שלך: שום טקסט לא עוזב את הדפדפן. 12 שפות מובנות: אנגלית, רוסית, אוקראינית, בלארוסית, גרמנית, צרפתית, יוונית, עברית, טורקית, פולנית, ספרדית, קוריאנית."
   },
   "options_useApiFallback": { "message": "אפשר fallback ל-API מרוחק" },
   "options_apiEndpoint": { "message": "API endpoint (אופציונלי)" },
@@ -83,7 +83,7 @@
   "options_behaviourH2": { "message": "התנהגות" },
   "options_replaceWhole": { "message": "תקן את כל ה-composer כשאין בחירה" },
   "options_replaceWholeHint": {
-    "message": "כבוי — ההרחבה מתקנת רק טקסט שנבחר במפורש; באתרים נתמכים עם בחירה ריקה היא תציג הודעה במקום לגעת בשדה."
+    "message": "כבוי: ההרחבה מתקנת רק טקסט שנבחר במפורש; באתרים נתמכים עם בחירה ריקה היא תציג הודעה במקום לגעת בשדה."
   },
   "options_autoCorrect": { "message": "תיקון אוטומטי תוך כדי הקלדה (סגנון Punto Switcher)" },
   "options_autoCorrectHint": {
@@ -103,7 +103,7 @@
   "options_save": { "message": "שמור" },
   "options_saved": { "message": "נשמר ✓" },
   "options_pickAtLeastTwo": { "message": "בחר לפחות 2 שפות." },
-  "options_contactBody": { "message": "פתוחים להצעות, דיווחי באגים ובקשות לשפות חדשות — כתבו ל-" },
+  "options_contactBody": { "message": "פתוחים להצעות, דיווחי באגים ובקשות לשפות חדשות, כתבו ל-" },
 
   "toast_decrypted": { "message": "Switcher: $1" },
   "toast_alreadyCorrect": { "message": "Switcher: הפריסה כבר נכונה" },

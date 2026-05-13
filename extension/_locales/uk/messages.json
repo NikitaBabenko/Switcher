@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Розкладка клавіатури — перемикач і виправлення · VibeNest",
+    "message": "Розкладка клавіатури: перемикач і виправлення · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -38,7 +38,7 @@
   "popup_undoTitle": { "message": "Скасувати останнє виправлення на цій сторінці" },
   "popup_closePanel": { "message": "Закрити панель" },
   "popup_shortcutHintBefore": { "message": "Підказка: фокус у полі та натисніть" },
-  "popup_shortcutHintAfter": { "message": "— те саме." },
+  "popup_shortcutHintAfter": { "message": "те саме." },
   "popup_pasteHeader": { "message": "Або вставте текст і виправте:" },
   "popup_pastePlaceholder": { "message": "Вставте сюди текст не в тій розкладці…" },
   "popup_decrypt": { "message": "Виправити" },
@@ -62,7 +62,7 @@
   },
   "popup_emptyField": { "message": "В активному полі немає тексту." },
   "popup_composerNotFound": { "message": "Не вдалося знайти текстове поле. Клацніть у потрібне поле і спробуйте знову." },
-  "popup_notEditable": { "message": "Активний елемент — не текстове поле." },
+  "popup_notEditable": { "message": "Активний елемент не є текстовим полем." },
   "popup_extensionNotLoaded": { "message": "Перезавантажте сторінку, щоб розширення підключилося." },
   "popup_pageNotSupported": { "message": "Ця сторінка не підтримується. Вставте текст у поле нижче." },
   "popup_detectedRestricted": { "message": "сторінка не підтримується" },
@@ -89,28 +89,28 @@
   "siteAdapter_auto": { "message": "Авто" },
   "siteAdapter_generic": { "message": "Інший / загальний" },
 
-  "options_title": { "message": "VibeNest Switcher — налаштування" },
-  "options_h1": { "message": "VibeNest Switcher — налаштування" },
+  "options_title": { "message": "VibeNest Switcher: налаштування" },
+  "options_h1": { "message": "VibeNest Switcher: налаштування" },
   "options_uiLanguageH2": { "message": "Мова інтерфейсу" },
-  "options_uiLanguageHint": { "message": "Мова popup'а та цієї сторінки. «Авто» — слідувати мові браузера." },
+  "options_uiLanguageHint": { "message": "Мова popup'а та цієї сторінки. «Авто» означає слідувати мові браузера." },
   "options_uiLanguageAuto": { "message": "Авто (мова браузера)" },
   "options_firstRunWelcome": { "message": "Ласкаво просимо в VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "Не вдалося автоматично визначити мови, якими ви пишете, за локаллю браузера. Виберіть хоча б дві нижче — це можна змінити будь-коли."
+    "message": "Не вдалося автоматично визначити мови, якими ви пишете, за локаллю браузера. Виберіть хоча б дві нижче; це можна змінити будь-коли."
   },
   "options_privacyH2": { "message": "Конфіденційність" },
   "options_privacyBody": {
-    "message": "За замовчуванням вся обробка відбувається на вашому пристрої — жодна буква не покидає браузер. Вбудовано 12 мов: англійська, російська, українська, білоруська, німецька, французька, грецька, іврит, турецька, польська, іспанська, корейська."
+    "message": "За замовчуванням вся обробка відбувається на вашому пристрої: жодна буква не покидає браузер. Вбудовано 12 мов: англійська, російська, українська, білоруська, німецька, французька, грецька, іврит, турецька, польська, іспанська, корейська."
   },
   "options_useApiFallback": { "message": "Дозволити fallback на віддалений API" },
   "options_apiEndpoint": { "message": "API-ендпойнт (опціонально)" },
-  "options_apiEndpointHint": { "message": "Використовується лише при увімкненому прапорці. Залиште пустим — будете повністю офлайн." },
+  "options_apiEndpointHint": { "message": "Використовується лише при увімкненому прапорці. Залиште пустим, щоб бути повністю офлайн." },
   "options_languagesH2": { "message": "Мови" },
   "options_languagesHint": { "message": "Виберіть мови, між якими розширення перемикатиме розкладку. Мінімум 2." },
   "options_behaviourH2": { "message": "Поведінка" },
   "options_replaceWhole": { "message": "Виправляти весь композер, якщо нічого не виділено" },
   "options_replaceWholeHint": {
-    "message": "Вимк — розширення виправить лише явно виділений текст; на підтримуваних сайтах при порожньому виділенні покаже сповіщення, не чіпаючи поле."
+    "message": "Вимк: розширення виправить лише явно виділений текст; на підтримуваних сайтах при порожньому виділенні покаже сповіщення, не чіпаючи поле."
   },
   "options_autoCorrect": { "message": "Автовиправлення під час набору (як у Punto Switcher)" },
   "options_autoCorrectHint": {
@@ -133,7 +133,7 @@
   "options_save": { "message": "Зберегти" },
   "options_saved": { "message": "Збережено ✓" },
   "options_pickAtLeastTwo": { "message": "Виберіть щонайменше 2 мови." },
-  "options_contactBody": { "message": "Відкриті для пропозицій, баг-репортів і заявок на нові мови — пишіть на" },
+  "options_contactBody": { "message": "Відкриті для пропозицій, баг-репортів і заявок на нові мови, пишіть на" },
 
   "toast_decrypted": {
     "message": "Switcher: $1",

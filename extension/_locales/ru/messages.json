@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Раскладка клавиатуры — переключатель и исправление · VibeNest",
+    "message": "Раскладка клавиатуры: переключатель и исправление · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -38,7 +38,7 @@
   "popup_undoTitle": { "message": "Отменить последнее исправление на этой странице" },
   "popup_closePanel": { "message": "Закрыть панель" },
   "popup_shortcutHintBefore": { "message": "Подсказка: фокус на поле и нажмите" },
-  "popup_shortcutHintAfter": { "message": "— то же самое." },
+  "popup_shortcutHintAfter": { "message": "то же самое." },
   "popup_pasteHeader": { "message": "Или вставьте текст и исправьте:" },
   "popup_pastePlaceholder": { "message": "Вставьте сюда текст не в той раскладке…" },
   "popup_decrypt": { "message": "Исправить" },
@@ -62,7 +62,7 @@
   },
   "popup_emptyField": { "message": "В активном поле нет текста." },
   "popup_composerNotFound": { "message": "Не удалось найти текстовое поле. Кликните в нужное поле и попробуйте снова." },
-  "popup_notEditable": { "message": "Активный элемент — не текстовое поле." },
+  "popup_notEditable": { "message": "Активный элемент не является текстовым полем." },
   "popup_extensionNotLoaded": { "message": "Перезагрузите страницу, чтобы расширение подключилось." },
   "popup_pageNotSupported": { "message": "Эта страница не поддерживается. Вставьте текст в поле ниже." },
   "popup_detectedRestricted": { "message": "страница не поддерживается" },
@@ -89,28 +89,28 @@
   "siteAdapter_auto": { "message": "Авто" },
   "siteAdapter_generic": { "message": "Другой / общий" },
 
-  "options_title": { "message": "VibeNest Switcher — настройки" },
-  "options_h1": { "message": "VibeNest Switcher — настройки" },
+  "options_title": { "message": "VibeNest Switcher: настройки" },
+  "options_h1": { "message": "VibeNest Switcher: настройки" },
   "options_uiLanguageH2": { "message": "Язык интерфейса" },
-  "options_uiLanguageHint": { "message": "Язык popup'а и этой страницы. «Авто» — следовать языку браузера." },
+  "options_uiLanguageHint": { "message": "Язык popup'а и этой страницы. «Авто» означает следовать языку браузера." },
   "options_uiLanguageAuto": { "message": "Авто (язык браузера)" },
   "options_firstRunWelcome": { "message": "Добро пожаловать в VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "Не удалось автоматически определить языки, на которых вы печатаете, по локали браузера. Выберите хотя бы два ниже — это можно изменить в любой момент."
+    "message": "Не удалось автоматически определить языки, на которых вы печатаете, по локали браузера. Выберите хотя бы два ниже; это можно изменить в любой момент."
   },
   "options_privacyH2": { "message": "Приватность" },
   "options_privacyBody": {
-    "message": "По умолчанию вся обработка происходит на вашем устройстве — ни одна буква не уходит из браузера. Встроено 12 языков: английский, русский, украинский, белорусский, немецкий, французский, греческий, иврит, турецкий, польский, испанский, корейский."
+    "message": "По умолчанию вся обработка происходит на вашем устройстве: ни одна буква не уходит из браузера. Встроено 12 языков: английский, русский, украинский, белорусский, немецкий, французский, греческий, иврит, турецкий, польский, испанский, корейский."
   },
   "options_useApiFallback": { "message": "Разрешить fallback на удалённый API" },
   "options_apiEndpoint": { "message": "API-эндпоинт (опционально)" },
-  "options_apiEndpointHint": { "message": "Используется только при включённом флажке. Оставьте пустым — будете полностью офлайн." },
+  "options_apiEndpointHint": { "message": "Используется только при включённом флажке. Оставьте пустым, чтобы быть полностью офлайн." },
   "options_languagesH2": { "message": "Языки" },
   "options_languagesHint": { "message": "Выберите языки, между которыми расширение будет переключать раскладку. Минимум 2." },
   "options_behaviourH2": { "message": "Поведение" },
   "options_replaceWhole": { "message": "Исправлять весь композер, если ничего не выделено" },
   "options_replaceWholeHint": {
-    "message": "Выкл — расширение исправит только явно выделенный текст; на поддерживаемых сайтах при пустом выделении покажет уведомление, не трогая поле."
+    "message": "Выкл: расширение исправит только явно выделенный текст; на поддерживаемых сайтах при пустом выделении покажет уведомление, не трогая поле."
   },
   "options_autoCorrect": { "message": "Автоисправление по ходу набора (как в Punto Switcher)" },
   "options_autoCorrectHint": {
@@ -133,7 +133,7 @@
   "options_save": { "message": "Сохранить" },
   "options_saved": { "message": "Сохранено ✓" },
   "options_pickAtLeastTwo": { "message": "Выберите хотя бы 2 языка." },
-  "options_contactBody": { "message": "Открыты для предложений, баг-репортов и заявок на новые языки — пишите на" },
+  "options_contactBody": { "message": "Открыты для предложений, баг-репортов и заявок на новые языки, пишите на" },
 
   "toast_decrypted": {
     "message": "Switcher: $1",

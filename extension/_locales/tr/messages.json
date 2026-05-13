@@ -32,7 +32,7 @@
   "popup_undoTitle": { "message": "Bu sayfadaki son düzeltmeyi geri al" },
   "popup_closePanel": { "message": "Paneli kapat" },
   "popup_shortcutHintBefore": { "message": "İpucu: bir alana odaklanıp" },
-  "popup_shortcutHintAfter": { "message": "tuşuna basın — aynı sonuç." },
+  "popup_shortcutHintAfter": { "message": "tuşuna basın, aynı sonucu verir." },
   "popup_pasteHeader": { "message": "Veya metni yapıştırıp düzeltin:" },
   "popup_pastePlaceholder": { "message": "Yanlış düzendeki metni buraya yapıştırın…" },
   "popup_decrypt": { "message": "Düzelt" },
@@ -62,18 +62,18 @@
   "siteAdapter_auto": { "message": "Otomatik" },
   "siteAdapter_generic": { "message": "Diğer / genel" },
 
-  "options_title": { "message": "VibeNest Switcher — ayarlar" },
-  "options_h1": { "message": "VibeNest Switcher — ayarlar" },
+  "options_title": { "message": "VibeNest Switcher: ayarlar" },
+  "options_h1": { "message": "VibeNest Switcher: ayarlar" },
   "options_uiLanguageH2": { "message": "Arayüz dili" },
   "options_uiLanguageHint": { "message": "Popup ve bu sayfanın dili. Otomatik = tarayıcı dilini takip et." },
   "options_uiLanguageAuto": { "message": "Otomatik (tarayıcı dili)" },
   "options_firstRunWelcome": { "message": "VibeNest Switcher'a hoş geldiniz." },
   "options_firstRunBody": {
-    "message": "Tarayıcı dilinizden hangi dillerde yazdığınızı otomatik olarak algılayamadık. Aşağıdan en az iki tane seçin — istediğiniz zaman bu sayfadan değiştirebilirsiniz."
+    "message": "Tarayıcı dilinizden hangi dillerde yazdığınızı otomatik olarak algılayamadık. Aşağıdan en az iki tane seçin; istediğiniz zaman bu sayfadan değiştirebilirsiniz."
   },
   "options_privacyH2": { "message": "Gizlilik" },
   "options_privacyBody": {
-    "message": "Varsayılan olarak düzeltme tamamen cihazınızda çalışır — hiçbir metin tarayıcıyı terk etmez. 12 yerleşik dil: İngilizce, Rusça, Ukraynaca, Belarusça, Almanca, Fransızca, Yunanca, İbranice, Türkçe, Lehçe, İspanyolca, Korece."
+    "message": "Varsayılan olarak düzeltme tamamen cihazınızda çalışır: hiçbir metin tarayıcıyı terk etmez. 12 yerleşik dil: İngilizce, Rusça, Ukraynaca, Belarusça, Almanca, Fransızca, Yunanca, İbranice, Türkçe, Lehçe, İspanyolca, Korece."
   },
   "options_useApiFallback": { "message": "Uzak API yedeğine izin ver" },
   "options_apiEndpoint": { "message": "API uç noktası (isteğe bağlı)" },
@@ -83,7 +83,7 @@
   "options_behaviourH2": { "message": "Davranış" },
   "options_replaceWhole": { "message": "Hiçbir şey seçili değilken tüm composer'ı düzelt" },
   "options_replaceWholeHint": {
-    "message": "Kapalı — uzantı yalnızca açıkça seçilen metni düzeltir; desteklenen sitelerde boş seçimle alana dokunmadan bir uyarı gösterir."
+    "message": "Kapalı: uzantı yalnızca açıkça seçilen metni düzeltir; desteklenen sitelerde boş seçimle alana dokunmadan bir uyarı gösterir."
   },
   "options_autoCorrect": { "message": "Yazarken otomatik düzelt (Punto Switcher tarzı)" },
   "options_autoCorrectHint": {
@@ -103,7 +103,7 @@
   "options_save": { "message": "Kaydet" },
   "options_saved": { "message": "Kaydedildi ✓" },
   "options_pickAtLeastTwo": { "message": "En az 2 dil seçin." },
-  "options_contactBody": { "message": "Öneriler, hata raporları veya yeni dil talepleri için açığız — yazın:" },
+  "options_contactBody": { "message": "Öneriler, hata raporları veya yeni dil talepleri için açığız, yazın:" },
 
   "toast_decrypted": { "message": "Switcher: $1" },
   "toast_alreadyCorrect": { "message": "Switcher: düzen zaten doğruydu" },

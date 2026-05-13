@@ -32,7 +32,7 @@
   "popup_undoTitle": { "message": "Annuler la dernière correction sur cette page" },
   "popup_closePanel": { "message": "Fermer le panneau" },
   "popup_shortcutHintBefore": { "message": "Astuce : ciblez un champ et appuyez sur" },
-  "popup_shortcutHintAfter": { "message": "— résultat identique." },
+  "popup_shortcutHintAfter": { "message": "résultat identique." },
   "popup_pasteHeader": { "message": "Ou collez un texte et corrigez :" },
   "popup_pastePlaceholder": { "message": "Collez ici du texte en mauvaise disposition…" },
   "popup_decrypt": { "message": "Corriger" },
@@ -62,18 +62,18 @@
   "siteAdapter_auto": { "message": "Auto" },
   "siteAdapter_generic": { "message": "Autre / générique" },
 
-  "options_title": { "message": "VibeNest Switcher — réglages" },
-  "options_h1": { "message": "VibeNest Switcher — réglages" },
+  "options_title": { "message": "VibeNest Switcher : réglages" },
+  "options_h1": { "message": "VibeNest Switcher : réglages" },
   "options_uiLanguageH2": { "message": "Langue de l'interface" },
   "options_uiLanguageHint": { "message": "Langue du popup et de cette page. Auto = suivre la langue du navigateur." },
   "options_uiLanguageAuto": { "message": "Auto (langue du navigateur)" },
   "options_firstRunWelcome": { "message": "Bienvenue dans VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "Nous n'avons pas pu détecter automatiquement les langues que vous tapez à partir de la locale du navigateur. Choisissez-en au moins deux ci-dessous — modifiable à tout moment depuis cette page."
+    "message": "Nous n'avons pas pu détecter automatiquement les langues que vous tapez à partir de la locale du navigateur. Choisissez-en au moins deux ci-dessous ; modifiable à tout moment depuis cette page."
   },
   "options_privacyH2": { "message": "Confidentialité" },
   "options_privacyBody": {
-    "message": "Par défaut, la correction s'exécute entièrement sur votre machine — aucun texte ne quitte le navigateur. 12 langues incluses : anglais, russe, ukrainien, biélorusse, allemand, français, grec, hébreu, turc, polonais, espagnol, coréen."
+    "message": "Par défaut, la correction s'exécute entièrement sur votre machine : aucun texte ne quitte le navigateur. 12 langues incluses : anglais, russe, ukrainien, biélorusse, allemand, français, grec, hébreu, turc, polonais, espagnol, coréen."
   },
   "options_useApiFallback": { "message": "Autoriser le repli API distant" },
   "options_apiEndpoint": { "message": "Endpoint API (optionnel)" },
@@ -83,7 +83,7 @@
   "options_behaviourH2": { "message": "Comportement" },
   "options_replaceWhole": { "message": "Corriger tout le composer si rien n'est sélectionné" },
   "options_replaceWholeHint": {
-    "message": "Désactivé — l'extension ne corrige que le texte explicitement sélectionné ; sur les sites pris en charge, en absence de sélection, elle affiche un avertissement sans toucher au champ."
+    "message": "Désactivé : l'extension ne corrige que le texte explicitement sélectionné ; sur les sites pris en charge, en absence de sélection, elle affiche un avertissement sans toucher au champ."
   },
   "options_autoCorrect": { "message": "Auto-correction au fil de la frappe (style Punto Switcher)" },
   "options_autoCorrectHint": {
@@ -103,7 +103,7 @@
   "options_save": { "message": "Enregistrer" },
   "options_saved": { "message": "Enregistré ✓" },
   "options_pickAtLeastTwo": { "message": "Choisissez au moins 2 langues." },
-  "options_contactBody": { "message": "Ouverts aux suggestions, rapports de bug et demandes de nouvelles langues — écrivez à" },
+  "options_contactBody": { "message": "Ouverts aux suggestions, rapports de bug et demandes de nouvelles langues, écrivez à" },
 
   "toast_decrypted": { "message": "Switcher : $1" },
   "toast_alreadyCorrect": { "message": "Switcher : disposition déjà correcte" },

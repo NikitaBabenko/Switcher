@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Раскладка клавіятуры — пераключальнік і выпраўленне · VibeNest",
+    "message": "Раскладка клавіятуры: пераключальнік і выпраўленне · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -32,7 +32,7 @@
   "popup_undoTitle": { "message": "Адмяніць апошняе выпраўленне на гэтай старонцы" },
   "popup_closePanel": { "message": "Закрыць панэль" },
   "popup_shortcutHintBefore": { "message": "Падказка: фокус у полі і націсніце" },
-  "popup_shortcutHintAfter": { "message": "— тое самае." },
+  "popup_shortcutHintAfter": { "message": "тое самае." },
   "popup_pasteHeader": { "message": "Або ўстаўце тэкст і выправіце:" },
   "popup_pastePlaceholder": { "message": "Устаўце тут тэкст не ў той раскладцы…" },
   "popup_decrypt": { "message": "Выправіць" },
@@ -47,7 +47,7 @@
   "popup_writeFailed": { "message": "Не атрымалася ўставіць у поле: $1." },
   "popup_emptyField": { "message": "У актыўным полі няма тэксту." },
   "popup_composerNotFound": { "message": "Не ўдалося знайсці тэкставае поле. Клікніце ў патрэбнае поле і паспрабуйце зноў." },
-  "popup_notEditable": { "message": "Актыўны элемент — не тэкставае поле." },
+  "popup_notEditable": { "message": "Актыўны элемент не з'яўляецца тэкставым полем." },
   "popup_extensionNotLoaded": { "message": "Перазагрузіце старонку, каб пашырэнне падключылася." },
   "popup_pageNotSupported": { "message": "Гэтая старонка не падтрымліваецца. Устаўце тэкст у поле ніжэй." },
   "popup_detectedRestricted": { "message": "старонка не падтрымліваецца" },
@@ -62,28 +62,28 @@
   "siteAdapter_auto": { "message": "Аўта" },
   "siteAdapter_generic": { "message": "Іншы / агульны" },
 
-  "options_title": { "message": "VibeNest Switcher — налады" },
-  "options_h1": { "message": "VibeNest Switcher — налады" },
+  "options_title": { "message": "VibeNest Switcher: налады" },
+  "options_h1": { "message": "VibeNest Switcher: налады" },
   "options_uiLanguageH2": { "message": "Мова інтэрфейсу" },
-  "options_uiLanguageHint": { "message": "Мова popup'а і гэтай старонкі. «Аўта» — следаваць мове браўзера." },
+  "options_uiLanguageHint": { "message": "Мова popup'а і гэтай старонкі. «Аўта» азначае следаваць мове браўзера." },
   "options_uiLanguageAuto": { "message": "Аўта (мова браўзера)" },
   "options_firstRunWelcome": { "message": "Сардэчна запрашаем у VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "Не ўдалося аўтаматычна вызначыць мовы, якімі вы пішаце, па лакалі браўзера. Выберыце прынамсі дзве ніжэй — гэта можна змяніць у любы час."
+    "message": "Не ўдалося аўтаматычна вызначыць мовы, якімі вы пішаце, па лакалі браўзера. Выберыце прынамсі дзве ніжэй; гэта можна змяніць у любы час."
   },
   "options_privacyH2": { "message": "Прыватнасць" },
   "options_privacyBody": {
-    "message": "Па змаўчанні ўся апрацоўка адбываецца на вашай прыладзе — ні адна літара не пакідае браўзер. Убудавана 12 моў: англійская, руская, украінская, беларуская, нямецкая, французская, грэцкая, іўрыт, турэцкая, польская, іспанская, карэйская."
+    "message": "Па змаўчанні ўся апрацоўка адбываецца на вашай прыладзе: ні адна літара не пакідае браўзер. Убудавана 12 моў: англійская, руская, украінская, беларуская, нямецкая, французская, грэцкая, іўрыт, турэцкая, польская, іспанская, карэйская."
   },
   "options_useApiFallback": { "message": "Дазволіць fallback на аддалены API" },
   "options_apiEndpoint": { "message": "API-эндпойнт (апцыянальна)" },
-  "options_apiEndpointHint": { "message": "Выкарыстоўваецца толькі пры ўключаным сцяжку. Пакіньце пустым — будзеце цалкам афлайн." },
+  "options_apiEndpointHint": { "message": "Выкарыстоўваецца толькі пры ўключаным сцяжку. Пакіньце пустым, каб быць цалкам афлайн." },
   "options_languagesH2": { "message": "Мовы" },
   "options_languagesHint": { "message": "Выберыце мовы, паміж якімі пашырэнне будзе пераключаць раскладку. Мінімум 2." },
   "options_behaviourH2": { "message": "Паводзіны" },
   "options_replaceWhole": { "message": "Выпраўляць увесь кампазер, калі нічога не вылучана" },
   "options_replaceWholeHint": {
-    "message": "Выкл — пашырэнне выправіць толькі відавочна вылучаны тэкст; на падтрымліваных сайтах пры пустым вылучэнні пакажа апавяшчэнне, не закранаючы поле."
+    "message": "Выкл: пашырэнне выправіць толькі відавочна вылучаны тэкст; на падтрымліваных сайтах пры пустым вылучэнні пакажа апавяшчэнне, не закранаючы поле."
   },
   "options_autoCorrect": { "message": "Аўтавыпраўленне падчас набору (як у Punto Switcher)" },
   "options_autoCorrectHint": {
@@ -103,7 +103,7 @@
   "options_save": { "message": "Захаваць" },
   "options_saved": { "message": "Захавана ✓" },
   "options_pickAtLeastTwo": { "message": "Выберыце не менш за 2 мовы." },
-  "options_contactBody": { "message": "Адкрытыя для прапаноў, баг-рэпартаў і заявак на новыя мовы — пішыце на" },
+  "options_contactBody": { "message": "Адкрытыя для прапаноў, баг-рэпартаў і заявак на новыя мовы, пішыце на" },
 
   "toast_decrypted": { "message": "Switcher: $1" },
   "toast_alreadyCorrect": { "message": "Switcher: раскладка ўжо правільная" },

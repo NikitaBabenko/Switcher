@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Keyboard Layout Switcher — Fix Mistyped Text · VibeNest",
+    "message": "Keyboard Layout Switcher: Fix Mistyped Text · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -92,18 +92,18 @@
   "siteAdapter_auto": { "message": "Auto" },
   "siteAdapter_generic": { "message": "Other / generic" },
 
-  "options_title": { "message": "VibeNest Switcher — settings" },
-  "options_h1": { "message": "VibeNest Switcher — settings" },
+  "options_title": { "message": "VibeNest Switcher: settings" },
+  "options_h1": { "message": "VibeNest Switcher: settings" },
   "options_uiLanguageH2": { "message": "Interface language" },
   "options_uiLanguageHint": { "message": "Language of the popup and this page. Auto = follow your browser." },
   "options_uiLanguageAuto": { "message": "Auto (browser language)" },
   "options_firstRunWelcome": { "message": "Welcome to VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "We couldn't auto-detect the languages you type in from your browser locale. Please pick at least two below — you can change this anytime from this page."
+    "message": "We couldn't auto-detect the languages you type in from your browser locale. Please pick at least two below; you can change this anytime from this page."
   },
   "options_privacyH2": { "message": "Privacy" },
   "options_privacyBody": {
-    "message": "By default, decryption runs entirely on your machine — no text leaves the browser. Bundled languages: 12 (English, Russian, Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish, Polish, Spanish, Korean)."
+    "message": "By default, decryption runs entirely on your machine: no text leaves the browser. Bundled languages: 12 (English, Russian, Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish, Polish, Spanish, Korean)."
   },
   "options_useApiFallback": { "message": "Allow remote API fallback" },
   "options_apiEndpoint": { "message": "API endpoint (optional)" },
@@ -113,7 +113,7 @@
   "options_behaviourH2": { "message": "Behaviour" },
   "options_replaceWhole": { "message": "Decrypt the whole composer when nothing is selected" },
   "options_replaceWholeHint": {
-    "message": "Off — extension only decrypts text you have explicitly selected; on supported sites with empty selection it shows a notice instead of touching the field."
+    "message": "Off: extension only decrypts text you have explicitly selected; on supported sites with empty selection it shows a notice instead of touching the field."
   },
   "options_autoCorrect": { "message": "Auto-correct words as I type (Punto-Switcher style)" },
   "options_autoCorrectHint": {
@@ -136,7 +136,7 @@
   "options_save": { "message": "Save" },
   "options_saved": { "message": "Saved ✓" },
   "options_pickAtLeastTwo": { "message": "Pick at least 2 languages." },
-  "options_contactBody": { "message": "Open to suggestions, bug reports, or new language requests — write to" },
+  "options_contactBody": { "message": "Open to suggestions, bug reports, or new language requests, write to" },
 
   "toast_decrypted": {
     "message": "Switcher: $1",

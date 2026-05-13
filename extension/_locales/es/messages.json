@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Disposición de teclado — corrector de tipeo · VibeNest",
+    "message": "Disposición de teclado: corrector de tipeo · VibeNest",
     "description": "Extension name shown in toolbar and store"
   },
   "appShortDescription": {
@@ -32,7 +32,7 @@
   "popup_undoTitle": { "message": "Deshacer la última corrección en esta página" },
   "popup_closePanel": { "message": "Cerrar panel" },
   "popup_shortcutHintBefore": { "message": "Tip: enfoca un campo y pulsa" },
-  "popup_shortcutHintAfter": { "message": "— mismo resultado." },
+  "popup_shortcutHintAfter": { "message": "mismo resultado." },
   "popup_pasteHeader": { "message": "O pega texto y corrige:" },
   "popup_pastePlaceholder": { "message": "Pega aquí texto en disposición incorrecta…" },
   "popup_decrypt": { "message": "Corregir" },
@@ -62,18 +62,18 @@
   "siteAdapter_auto": { "message": "Auto" },
   "siteAdapter_generic": { "message": "Otro / genérico" },
 
-  "options_title": { "message": "VibeNest Switcher — ajustes" },
-  "options_h1": { "message": "VibeNest Switcher — ajustes" },
+  "options_title": { "message": "VibeNest Switcher: ajustes" },
+  "options_h1": { "message": "VibeNest Switcher: ajustes" },
   "options_uiLanguageH2": { "message": "Idioma de la interfaz" },
   "options_uiLanguageHint": { "message": "Idioma del popup y de esta página. Auto = seguir el idioma del navegador." },
   "options_uiLanguageAuto": { "message": "Auto (idioma del navegador)" },
   "options_firstRunWelcome": { "message": "Bienvenido a VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "No pudimos detectar automáticamente los idiomas que escribes a partir de la configuración del navegador. Elige al menos dos abajo — puedes cambiarlo en cualquier momento desde esta página."
+    "message": "No pudimos detectar automáticamente los idiomas que escribes a partir de la configuración del navegador. Elige al menos dos abajo; puedes cambiarlo en cualquier momento desde esta página."
   },
   "options_privacyH2": { "message": "Privacidad" },
   "options_privacyBody": {
-    "message": "Por defecto, la corrección se ejecuta totalmente en tu dispositivo — ningún texto sale del navegador. 12 idiomas incluidos: inglés, ruso, ucraniano, bielorruso, alemán, francés, griego, hebreo, turco, polaco, español, coreano."
+    "message": "Por defecto, la corrección se ejecuta totalmente en tu dispositivo: ningún texto sale del navegador. 12 idiomas incluidos: inglés, ruso, ucraniano, bielorruso, alemán, francés, griego, hebreo, turco, polaco, español, coreano."
   },
   "options_useApiFallback": { "message": "Permitir respaldo API remoto" },
   "options_apiEndpoint": { "message": "Endpoint de API (opcional)" },
@@ -83,7 +83,7 @@
   "options_behaviourH2": { "message": "Comportamiento" },
   "options_replaceWhole": { "message": "Corregir todo el composer cuando no haya selección" },
   "options_replaceWholeHint": {
-    "message": "Off — la extensión corrige solo el texto explícitamente seleccionado; en sitios compatibles con selección vacía muestra un aviso sin tocar el campo."
+    "message": "Off: la extensión corrige solo el texto explícitamente seleccionado; en sitios compatibles con selección vacía muestra un aviso sin tocar el campo."
   },
   "options_autoCorrect": { "message": "Autocorregir al escribir (estilo Punto Switcher)" },
   "options_autoCorrectHint": {
@@ -103,7 +103,7 @@
   "options_save": { "message": "Guardar" },
   "options_saved": { "message": "Guardado ✓" },
   "options_pickAtLeastTwo": { "message": "Elige al menos 2 idiomas." },
-  "options_contactBody": { "message": "Abiertos a sugerencias, informes de errores y solicitudes de nuevos idiomas — escribe a" },
+  "options_contactBody": { "message": "Abiertos a sugerencias, informes de errores y solicitudes de nuevos idiomas, escribe a" },
 
   "toast_decrypted": { "message": "Switcher: $1" },
   "toast_alreadyCorrect": { "message": "Switcher: la disposición ya era correcta" },

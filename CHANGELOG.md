@@ -6,6 +6,11 @@ All notable changes to **VibeNest Switcher** are tracked here. Format follows [K
 
 ## [Unreleased]
 
+## [1.0.1] — 2026-05-13
+
+### Changed
+- **Removed em-dash punctuation from every user-facing string in all 12 locales.** `extension/_locales/{en,ru,be,uk,de,fr,es,el,he,ko,pl,tr}/messages.json` previously used " — " in the extension name (Web Store / toolbar / context menu), the options-page title and headings, list-item hints, and the privacy / first-run / contact paragraphs — a punctuation pattern that reads as machine-generated and undermined a product whose pitch is open-source verifiability. 98 em-dashes total, replaced contextually: titles and label-style intros got a colon, sentence-mid parentheticals were rewritten as commas or split into two sentences. Same pass applied to the landing manifestos at `landing/{en,ru}.md` (62 em-dashes), which also had the auxiliary AI-rhythm tells the locales did not: triple parallel structures (`no select-all, no copy-paste, no retyping` / `No remote model. No API round-trip. No latency.` / `без выделить-удалить-перепечатать, без выхода из поля, без отправки`), a four-way `whether…whether…whether…` clause in the EN comparison intro, and a `not just X, it's Y` framing in the privacy answer — all rewritten into plain prose. No semantic changes; landing word counts stay inside the 1,800–2,500 SEO band; Punto Switcher mentions and CTA counts unchanged.
+
 ## [1.0.0] — 2026-05-12
 
 ### Changed

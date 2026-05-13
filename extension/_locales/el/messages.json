@@ -32,7 +32,7 @@
   "popup_undoTitle": { "message": "Αναίρεση τελευταίας διόρθωσης σε αυτή τη σελίδα" },
   "popup_closePanel": { "message": "Κλείσιμο πίνακα" },
   "popup_shortcutHintBefore": { "message": "Συμβουλή: εστιάστε σε ένα πεδίο και πατήστε" },
-  "popup_shortcutHintAfter": { "message": "— ίδιο αποτέλεσμα." },
+  "popup_shortcutHintAfter": { "message": "ίδιο αποτέλεσμα." },
   "popup_pasteHeader": { "message": "Ή επικολλήστε κείμενο και διορθώστε:" },
   "popup_pastePlaceholder": { "message": "Επικολλήστε εδώ κείμενο σε λάθος διάταξη…" },
   "popup_decrypt": { "message": "Διόρθωση" },
@@ -62,18 +62,18 @@
   "siteAdapter_auto": { "message": "Αυτόματα" },
   "siteAdapter_generic": { "message": "Άλλος / γενικός" },
 
-  "options_title": { "message": "VibeNest Switcher — ρυθμίσεις" },
-  "options_h1": { "message": "VibeNest Switcher — ρυθμίσεις" },
+  "options_title": { "message": "VibeNest Switcher: ρυθμίσεις" },
+  "options_h1": { "message": "VibeNest Switcher: ρυθμίσεις" },
   "options_uiLanguageH2": { "message": "Γλώσσα διεπαφής" },
   "options_uiLanguageHint": { "message": "Γλώσσα του popup και αυτής της σελίδας. Αυτόματα = ακολουθεί τη γλώσσα του προγράμματος περιήγησης." },
   "options_uiLanguageAuto": { "message": "Αυτόματα (γλώσσα προγράμματος περιήγησης)" },
   "options_firstRunWelcome": { "message": "Καλώς ήρθατε στο VibeNest Switcher." },
   "options_firstRunBody": {
-    "message": "Δεν εντοπίσαμε αυτόματα τις γλώσσες που πληκτρολογείτε από τα locale του προγράμματος περιήγησης. Επιλέξτε τουλάχιστον δύο παρακάτω — μπορείτε να το αλλάξετε ανά πάσα στιγμή."
+    "message": "Δεν εντοπίσαμε αυτόματα τις γλώσσες που πληκτρολογείτε από τα locale του προγράμματος περιήγησης. Επιλέξτε τουλάχιστον δύο παρακάτω· μπορείτε να το αλλάξετε ανά πάσα στιγμή."
   },
   "options_privacyH2": { "message": "Απόρρητο" },
   "options_privacyBody": {
-    "message": "Από προεπιλογή, η διόρθωση εκτελείται εξ ολοκλήρου στη συσκευή σας — κανένα κείμενο δεν φεύγει από το πρόγραμμα περιήγησης. 12 ενσωματωμένες γλώσσες: αγγλικά, ρωσικά, ουκρανικά, λευκορωσικά, γερμανικά, γαλλικά, ελληνικά, εβραϊκά, τουρκικά, πολωνικά, ισπανικά, κορεατικά."
+    "message": "Από προεπιλογή, η διόρθωση εκτελείται εξ ολοκλήρου στη συσκευή σας: κανένα κείμενο δεν φεύγει από το πρόγραμμα περιήγησης. 12 ενσωματωμένες γλώσσες: αγγλικά, ρωσικά, ουκρανικά, λευκορωσικά, γερμανικά, γαλλικά, ελληνικά, εβραϊκά, τουρκικά, πολωνικά, ισπανικά, κορεατικά."
   },
   "options_useApiFallback": { "message": "Επιτρέψτε το remote API fallback" },
   "options_apiEndpoint": { "message": "API endpoint (προαιρετικό)" },
@@ -83,7 +83,7 @@
   "options_behaviourH2": { "message": "Συμπεριφορά" },
   "options_replaceWhole": { "message": "Διόρθωση ολόκληρου του composer όταν δεν υπάρχει επιλογή" },
   "options_replaceWholeHint": {
-    "message": "Off — η επέκταση διορθώνει μόνο ρητά επιλεγμένο κείμενο· σε υποστηριζόμενους ιστότοπους με κενή επιλογή εμφανίζει ειδοποίηση χωρίς να αγγίξει το πεδίο."
+    "message": "Off: η επέκταση διορθώνει μόνο ρητά επιλεγμένο κείμενο· σε υποστηριζόμενους ιστότοπους με κενή επιλογή εμφανίζει ειδοποίηση χωρίς να αγγίξει το πεδίο."
   },
   "options_autoCorrect": { "message": "Αυτόματη διόρθωση κατά την πληκτρολόγηση (στυλ Punto Switcher)" },
   "options_autoCorrectHint": {
@@ -103,7 +103,7 @@
   "options_save": { "message": "Αποθήκευση" },
   "options_saved": { "message": "Αποθηκεύτηκε ✓" },
   "options_pickAtLeastTwo": { "message": "Επιλέξτε τουλάχιστον 2 γλώσσες." },
-  "options_contactBody": { "message": "Ανοιχτοί σε προτάσεις, αναφορές σφαλμάτων ή νέες γλώσσες — γράψτε στο" },
+  "options_contactBody": { "message": "Ανοιχτοί σε προτάσεις, αναφορές σφαλμάτων ή νέες γλώσσες, γράψτε στο" },
 
   "toast_decrypted": { "message": "Switcher: $1" },
   "toast_alreadyCorrect": { "message": "Switcher: η διάταξη ήταν ήδη σωστή" },
