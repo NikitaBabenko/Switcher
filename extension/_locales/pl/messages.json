@@ -85,10 +85,6 @@
   "options_replaceWholeHint": {
     "message": "Wyłączone: rozszerzenie poprawia tylko jawnie zaznaczony tekst; na obsługiwanych stronach przy braku zaznaczenia pokazuje powiadomienie zamiast modyfikować pole."
   },
-  "options_autoCorrect": { "message": "Automatyczna korekta podczas pisania (styl Punto Switcher)" },
-  "options_autoCorrectHint": {
-    "message": "Gdy wpiszesz spację lub znak interpunkcyjny po słowie w niewłaściwym układzie, rozszerzenie poprawi je w miejscu. Pomija pola haseł i strony wykluczone przez politykę. Backspace cofa."
-  },
   "options_sitePolicyH2": { "message": "Polityka witryn" },
   "options_siteModeLabel": { "message": "Tryb" },
   "options_siteModeAll": { "message": "Wszędzie (domyślnie)" },

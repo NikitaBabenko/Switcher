@@ -1,6 +1,9 @@
 // Per-site adapter registry. Each adapter knows where the composer lives;
 // the actual insertion lives in __SwitcherReplace and is shared.
 (function () {
+  if (globalThis.__switcher_adapters_loaded) return;
+  globalThis.__switcher_adapters_loaded = true;
+
   const R = globalThis.__SwitcherReplace;
   if (!R) return;
 

@@ -14,10 +14,10 @@ The algorithm is LLM-free: char-by-char transposition through layout tables + a 
 
 ```
 extension/
-├─ manifest.json              MV3 manifest. Lists content scripts in load order.
-├─ background.js              Service worker. Owns the message bus + clipboard fallback.
-├─ content.js                 Content script shell. Routes messages to adapters.
-├─ content/                   Per-site adapters, insertion ladder, autocorrect.
+├─ manifest.json              MV3 manifest. activeTab-only; no host_permissions; no static content_scripts.
+├─ background.js              Service worker. Message bus + clipboard fallback + ensureContentInjected on user action.
+├─ content.js                 Content script shell. Routes messages to adapters. IIFE-sentinel guarded against re-injection.
+├─ content/                   Per-site adapters and insertion ladder.
 ├─ popup.html / popup.js      Toolbar popup.
 ├─ options.html / options.js  Settings page.
 ├─ config.js                  Storage wrapper + DEFAULTS + isHostAllowed.
@@ -50,7 +50,7 @@ To package the extension into a Chrome Web Store-ready zip:
 
 ```
 cd extension
-npm test            # 256 Node tests
+npm test            # 249 Node tests
 npm run package     # writes extension/dist/vibenest-switcher-<version>.zip
 ```
 
@@ -79,7 +79,7 @@ cd extension
 npm test
 ```
 
-256 Node tests cover the detector engine, host-policy logic, per-site adapters, autocorrect heuristics, the insertion ladder, undo memory, the packaging script, and the i18n helper.
+249 Node tests cover the detector engine, host-policy logic, per-site adapters, the insertion ladder, undo memory, the packaging script, and the i18n helper.
 
 ## CI
 

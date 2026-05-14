@@ -85,10 +85,6 @@
   "options_replaceWholeHint": {
     "message": "Désactivé : l'extension ne corrige que le texte explicitement sélectionné ; sur les sites pris en charge, en absence de sélection, elle affiche un avertissement sans toucher au champ."
   },
-  "options_autoCorrect": { "message": "Auto-correction au fil de la frappe (style Punto Switcher)" },
-  "options_autoCorrectHint": {
-    "message": "Quand vous tapez un espace ou une ponctuation après un mot manifestement dans la mauvaise disposition, l'extension le corrige sur place. Champs de mots de passe et sites exclus par la politique sont ignorés. Retour arrière annule."
-  },
   "options_sitePolicyH2": { "message": "Politique de sites" },
   "options_siteModeLabel": { "message": "Mode" },
   "options_siteModeAll": { "message": "Partout (par défaut)" },

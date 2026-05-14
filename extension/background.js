@@ -75,10 +75,29 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
     convert(msg.text, msg.override).then(sendResponse).catch((e) => sendResponse({ error: String(e) }));
     return true;
   }
+  if (msg?.type === "ENSURE_CONTENT_INJECTED") {
+    ensureContentInjected(msg.tabId)
+      .then(() => sendResponse({ ok: true }))
+      .catch((e) => sendResponse({ ok: false, error: String(e?.message ?? e) }));
+    return true;
+  }
 });
 
 function hostnameOf(url) {
   try { return new URL(url).hostname; } catch { return ""; }
+}
+
+// Inject the on-demand content scripts into the active tab. Replaces the old
+// manifest-declared content_scripts entry on <all_urls>. Each script wraps its
+// body in a `__switcher_*_loaded` sentinel so re-injection on subsequent user
+// actions is a no-op (no duplicate listeners, no reset of per-page undo state).
+// Throws on restricted pages / lack of activeTab grant — callers wrap with try.
+async function ensureContentInjected(tabId) {
+  await chrome.scripting.executeScript({
+    target: { tabId },
+    files: ["content/replace.js", "content/adapters.js", "content.js"],
+    injectImmediately: true,
+  });
 }
 
 async function convertInActiveTab(tabId, tabUrl, fallbackText) {
@@ -123,13 +142,14 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
   // call back for conversion, and write the result into the focused composer.
   let res;
   try {
+    await ensureContentInjected(tabId);
     res = await chrome.tabs.sendMessage(tabId, {
       type: "REPLACE_IN_COMPOSER",
       override,
       replaceWholeOnEmptySelection,
     });
   } catch {
-    res = null; // content script not loaded (chrome://, PDF viewer, etc.)
+    res = null; // restricted page (chrome://, PDF viewer, etc.) or injection failed
   }
 
   if (res?.ok) {
@@ -160,6 +180,7 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
 
   if (!textToConvert) {
     try {
+      await ensureContentInjected(tabId);
       const sel = await chrome.tabs.sendMessage(tabId, { type: "GET_SELECTION" });
       if (sel?.text?.trim()) textToConvert = sel.text.trim();
     } catch { /* ignore */ }
@@ -197,6 +218,7 @@ async function convertInActiveTab(tabId, tabUrl, fallbackText) {
   // there's no adapter match — e.g. <textarea> on a random forum).
   let replaced = false;
   try {
+    await ensureContentInjected(tabId);
     const r = await chrome.tabs.sendMessage(tabId, { type: "REPLACE_SELECTION", text: conv.result });
     replaced = !!r?.ok;
   } catch {
@@ -278,8 +300,10 @@ async function copyToClipboard(tabId, text) {
 }
 
 async function tryToast(tabId, text, kind) {
-  try { await chrome.tabs.sendMessage(tabId, { type: "SHOW_TOAST", text, kind }); }
-  catch { /* content script unavailable, ignore */ }
+  try {
+    await ensureContentInjected(tabId);
+    await chrome.tabs.sendMessage(tabId, { type: "SHOW_TOAST", text, kind });
+  } catch { /* content script unavailable, ignore */ }
 }
 
 async function notify(title, message) {

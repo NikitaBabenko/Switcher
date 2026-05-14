@@ -85,10 +85,6 @@
   "options_replaceWholeHint": {
     "message": "כבוי: ההרחבה מתקנת רק טקסט שנבחר במפורש; באתרים נתמכים עם בחירה ריקה היא תציג הודעה במקום לגעת בשדה."
   },
-  "options_autoCorrect": { "message": "תיקון אוטומטי תוך כדי הקלדה (סגנון Punto Switcher)" },
-  "options_autoCorrectHint": {
-    "message": "כשאתה מקליד רווח או סימן פיסוק אחרי מילה בפריסה שגויה, ההרחבה מתקנת אותה במקום. מדלגת על שדות סיסמה ואתרים מוחרגים. Backspace מבטל."
-  },
   "options_sitePolicyH2": { "message": "מדיניות אתרים" },
   "options_siteModeLabel": { "message": "מצב" },
   "options_siteModeAll": { "message": "בכל מקום (ברירת מחדל)" },

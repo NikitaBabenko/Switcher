@@ -85,10 +85,6 @@
   "options_replaceWholeHint": {
     "message": "Kapalı: uzantı yalnızca açıkça seçilen metni düzeltir; desteklenen sitelerde boş seçimle alana dokunmadan bir uyarı gösterir."
   },
-  "options_autoCorrect": { "message": "Yazarken otomatik düzelt (Punto Switcher tarzı)" },
-  "options_autoCorrectHint": {
-    "message": "Yanlış düzendeki bir kelimenin ardından boşluk veya noktalama girdiğinizde, uzantı onu yerinde düzeltir. Şifre alanları ve politika tarafından hariç tutulan siteler atlanır. Backspace geri alır."
-  },
   "options_sitePolicyH2": { "message": "Site politikası" },
   "options_siteModeLabel": { "message": "Mod" },
   "options_siteModeAll": { "message": "Her yerde (varsayılan)" },

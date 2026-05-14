@@ -85,10 +85,6 @@
   "options_replaceWholeHint": {
     "message": "Aus: die Erweiterung korrigiert nur explizit ausgewählten Text; auf unterstützten Seiten zeigt sie bei leerer Auswahl nur einen Hinweis."
   },
-  "options_autoCorrect": { "message": "Wörter beim Tippen automatisch korrigieren (Punto-Switcher-Stil)" },
-  "options_autoCorrectHint": {
-    "message": "Wenn Sie nach einem Wort im falschen Layout ein Leerzeichen oder Satzzeichen tippen, korrigiert die Erweiterung es vor Ort. Überspringt Passwortfelder und Seiten, die Ihre Richtlinie ausschließt. Backspace macht es rückgängig."
-  },
   "options_sitePolicyH2": { "message": "Seitenrichtlinie" },
   "options_siteModeLabel": { "message": "Modus" },
   "options_siteModeAll": { "message": "Überall (Standard)" },

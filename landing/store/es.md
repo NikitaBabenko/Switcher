@@ -30,8 +30,6 @@ Modo pegar-y-corregir. Pega el texto erróneo en el popup, ve la versión correg
 
 Menú contextual con clic derecho. Con texto seleccionado en la página, clic derecho, elige "Corregir disposición", sin soltar el ratón.
 
-Autocorrección al escribir. Opcional, desactivada por defecto. Cuando se activa, la extensión vigila la entrada y corrige las palabras evidentes con disposición incorrecta después del espacio. La tecla Retroceso rechaza una autocorrección inmediatamente después de que ocurra. Los campos que parecen campos de contraseña (input type=password, autocomplete=current-password) y los campos de OTP y números de tarjeta están excluidos de la autocorrección por diseño.
-
 Deshacer por página. El popup mantiene un paso de deshacer para la última corrección en la página actual.
 
 Adaptadores de sitios. Manejadores preparados para sitios con entradas no estándar (envoltorios contenteditable, inputs gestionados por React, composers aislados en iframes): Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon. Un adaptador genérico cubre el resto.
@@ -95,9 +93,6 @@ R: Sí. Totalmente sin conexión por defecto. El modelo de trigramas dentro del 
 
 P: ¿Qué permisos necesita y por qué?
 R: Los mínimos necesarios para reescribir texto en el navegador: activeTab, scripting, storage, contextMenus. Cada uno justificado en PRIVACY.md.
-
-P: ¿Cómo activo la autocorrección al escribir?
-R: Abre el popup de la extensión, pulsa el engranaje, activa Autocorrección. La tecla Retroceso rechaza inmediatamente cualquier autocorrección tras dispararse.
 
 P: ¿Funciona en Edge, Brave, Opera?
 R: Sí, en cualquier navegador basado en Chromium. Edge recoge las compilaciones MV3 directamente desde Chrome Web Store.

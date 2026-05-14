@@ -85,10 +85,6 @@
   "options_replaceWholeHint": {
     "message": "꺼짐: 확장 프로그램은 명시적으로 선택된 텍스트만 수정합니다. 지원되는 사이트에서 빈 선택일 때는 필드를 건드리지 않고 알림만 표시합니다."
   },
-  "options_autoCorrect": { "message": "입력 중 자동 수정 (Punto Switcher 스타일)" },
-  "options_autoCorrectHint": {
-    "message": "잘못된 레이아웃의 단어 뒤에 공백이나 구두점을 입력하면 확장 프로그램이 즉시 수정합니다. 비밀번호 필드와 정책에서 제외된 사이트는 건너뜁니다. Backspace로 취소."
-  },
   "options_sitePolicyH2": { "message": "사이트 정책" },
   "options_siteModeLabel": { "message": "모드" },
   "options_siteModeAll": { "message": "어디서나 (기본)" },

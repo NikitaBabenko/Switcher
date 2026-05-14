@@ -39,6 +39,18 @@ async function writeOverride(tabId, value) {
   try { await chrome.storage.session.set({ [`override_${tabId}`]: value }); } catch {}
 }
 
+// First-contact wrapper: asks the service worker to inject content scripts
+// into the tab before relaying the message. Necessary because content scripts
+// are no longer auto-loaded — they're injected on-demand using the activeTab
+// grant from the action click / shortcut / context menu. Throws on restricted
+// pages or when the tab hasn't received an activeTab grant; callers catch and
+// degrade gracefully.
+async function ensureAndSend(tabId, msg) {
+  const r = await chrome.runtime.sendMessage({ type: "ENSURE_CONTENT_INJECTED", tabId });
+  if (!r?.ok) throw new Error(r?.error || "content-script-injection-failed");
+  return chrome.tabs.sendMessage(tabId, msg);
+}
+
 function hostnameOf(url) {
   try { return new URL(url).hostname; } catch { return ""; }
 }
@@ -76,7 +88,7 @@ async function refreshDetected() {
   const allowed = isHostAllowed(host, settings.siteMode, settings.siteList);
 
   try {
-    const r = await chrome.tabs.sendMessage(tab.id, { type: "GET_ADAPTER_INFO", override: overrideSel.value });
+    const r = await ensureAndSend(tab.id, { type: "GET_ADAPTER_INFO", override: overrideSel.value });
     const where = r?.hasEditable ? t("popup_detectedField", [r.editableTag]) : t("popup_detectedNoField");
     const policy = allowed ? "" : ` · ${t("popup_excludedByPolicy")}`;
     setDetected(`${r?.id ?? "?"} · ${r?.hostname ?? host} · ${where}${policy}`);
@@ -151,7 +163,7 @@ decryptPageBtn.addEventListener("click", async () => {
   result.textContent = "";
   copyBtn.disabled = true;
   try {
-    const r = await chrome.tabs.sendMessage(tab.id, {
+    const r = await ensureAndSend(tab.id, {
       type: "REPLACE_IN_COMPOSER",
       override: overrideSel.value,
       replaceWholeOnEmptySelection: settings.replaceWholeOnEmptySelection !== false,
@@ -208,7 +220,7 @@ undoBtn.addEventListener("click", async () => {
   if (!tab?.id) return;
   undoBtn.disabled = true;
   try {
-    const r = await chrome.tabs.sendMessage(tab.id, { type: "UNDO_REPLACE" });
+    const r = await ensureAndSend(tab.id, { type: "UNDO_REPLACE" });
     if (r?.ok) {
       info.textContent = t("popup_undone");
       try { await chrome.tabs.sendMessage(tab.id, { type: "SHOW_TOAST", text: t("toast_undone"), kind: "warn" }); } catch {}

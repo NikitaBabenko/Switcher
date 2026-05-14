@@ -70,7 +70,6 @@ La réponse historique sur le bureau a été une petite famille d'utilitaires de
 - **Raccourci clavier** (`Ctrl+Maj+L`) et bouton popup dans la barre d'outils : correction instantanée du champ actif
 - **Mode coller-et-corriger** : collez le texte erroné dans le popup, voyez la version corrigée, copiez-la en un clic
 - **Menu contextuel clic droit** sur du texte sélectionné, sans lâcher la souris
-- **Auto-correction à la frappe** : optionnelle, désactivée par défaut ; la touche Retour annule chaque auto-correction
 - **Annulation par page** : annule la dernière correction sur la page courante en un clic
 - **Adaptateurs de sites** pour Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon, plus un adaptateur générique pour tout le reste
 - **Politique de sites** : bloquer des hôtes précis (banque, intranet) ou restreindre l'extension à une whitelist de sites de confiance
@@ -97,7 +96,6 @@ La catégorie "correcteur multilingue de disposition de clavier" est étroitemen
 | Nombre de dispositions | **12** | 2 (RU/EN) | 2-3 | 2 (RU/EN) |
 | Manifest V3 / navigateur-natif | Oui, MV3, prêt pour la politique 2025 | Oui, MV3 | Non, bureau uniquement | Non, bureau uniquement |
 | Multiplateforme | Oui, tout OS via Chrome / Chromium | Oui, tout OS via Chrome | Non, Windows uniquement | Non, Windows uniquement |
-| Auto-correction à la frappe | Oui, optionnelle, ignore les mots de passe | Oui | Oui | Oui |
 | Maintenu activement (2026) | Oui, tracker d'issues ouvert | Sporadique | Oui | Oui |
 
 VibeNest Switcher est la seule ligne où open source, navigateur-natif et entièrement hors ligne tiennent en même temps. Si vous avez aimé l'idée d'un utilitaire de bascule de disposition à l'ancienne mais sans binaire fermé et sans que le texte quitte l'appareil, voilà la niche que ça remplit.

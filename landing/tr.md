@@ -69,7 +69,6 @@ Masaüstündeki klasik yanıt, anlık düzen değiştirme yardımcı yazılımla
 - **Klavye kısayolu** (`Ctrl+Shift+L`) ve araç çubuğunda açılır pencere düğmesi: aktif alanın anlık düzeltmesi
 - **Yapıştır-ve-düzelt modu**: yanlış metni açılır pencereye yapıştır, düzeltilmiş hali gör, tek tıkla kopyala
 - **Sağ tık bağlam menüsü** seçili metin üzerinde, eli fareden çekmeden
-- **Yazarken otomatik düzeltme**: isteğe bağlı, varsayılan kapalı; Backspace her otomatik düzeltmeyi geri alır
 - **Sayfa bazlı geri al**: geçerli sayfadaki son düzeltmeyi tek tıkla geri al
 - **Site adaptörleri**: Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon, ayrıca her şey için genel bir adaptör
 - **Site politikası**: belirli alanları (bankan, intraneti) engelle, ya da eklentiyi güvenilir sitelerin beyaz listesiyle sınırla
@@ -96,7 +95,6 @@ Algoritma **LLM kullanmaz**. Bir yer değiştirme tablosu artı küçük bir ist
 | Klavye düzeni sayısı | **12** | 2 (RU/EN) | 2-3 | 2 (RU/EN) |
 | Manifest V3 / tarayıcıya özgü | Evet, MV3, 2025 politikasına hazır | Evet, MV3 | Hayır, yalnızca masaüstü | Hayır, yalnızca masaüstü |
 | Çapraz platform | Evet, Chrome / Chromium çalışan her OS | Evet, Chrome çalışan her OS | Hayır, yalnızca Windows | Hayır, yalnızca Windows |
-| Yazarken otomatik düzeltme | Evet, isteğe bağlı, şifre farkındalığıyla | Evet | Evet | Evet |
 | Aktif bakım (2026) | Evet, açık sorun izleyici | Aralıklı | Evet | Evet |
 
 VibeNest Switcher, açık kaynak, tarayıcıda yerleşik ve tamamen çevrimdışı koşulların birlikte sağlandığı tek satırdır. Masaüstü "anlık değiştirici" hissini istemenize rağmen kapalı ikili olmadan ve metnin cihazı terk etmediği bir biçim istiyorsanız, doldurduğu yer burasıdır.

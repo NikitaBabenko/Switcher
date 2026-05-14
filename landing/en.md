@@ -71,7 +71,6 @@ The traditional answer on the desktop has been a small family of layout-switcher
 - **Keyboard shortcut** (`Ctrl+Shift+L`) and toolbar popup button: instant fix for the focused text field
 - **Paste-and-fix mode**: paste mistyped text into the popup, see the corrected version, copy it out with one click
 - **Right-click context menu**: fix highlighted text without touching the keyboard
-- **Auto-correct as you type**: opt-in, off by default; press Backspace to reject any auto-fix
 - **Per-page Undo**: reverts the last fix on the current page in a single click
 - **Site adapters** for Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon, plus a generic adapter that handles every other site
 - **Site policy**: block specific hosts (your bank, your intranet) or restrict the extension to a whitelist of trusted hosts
@@ -98,7 +97,6 @@ A multilingual keyboard layout switcher is a tightly bounded category. The credi
 | Number of keyboard layouts | **12** | 2 (RU/EN) | 2-3 | 2 (RU/EN) |
 | Manifest V3 / browser-native | ✅ MV3, ready for 2025 policy | ✅ MV3 | ❌ Desktop only | ❌ Desktop only |
 | Cross-platform | ✅ Any OS via Chrome / Chromium | ✅ Any OS via Chrome | ❌ Windows only | ❌ Windows only |
-| Auto-correct as you type | ✅ Opt-in, password-aware | ✅ | ✅ | ✅ |
 | Actively maintained (2026) | ✅ Open issues tracker | ⚠️ Sporadic | ✅ | ✅ |
 
 VibeNest Switcher is the only entry that is open source, browser-native, and fully offline at the same time. If you have ever wanted the layout-switch feel of a desktop utility but inside the browser, without the closed binary and without text leaving your device, that is the niche this fills.

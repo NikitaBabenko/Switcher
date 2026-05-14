@@ -30,8 +30,6 @@ Yapıştır-ve-düzelt modu. Yanlış metni açılır pencereye yapıştır, dü
 
 Sağ tık bağlam menüsü. Sayfada metin seçili, sağ tık, "Düzeni düzelt" seç. Fareyi bırakmadan.
 
-Yazarken otomatik düzeltme. İsteğe bağlı, varsayılan kapalı. Etkinleştirildiğinde eklenti yazımı izler ve boşluktan sonra yanlış düzenden gelen belirgin kelimeleri düzeltir. Otomatik düzeltmenin hemen ardından Backspace tuşuna basmak onu geri alır. Şifre alanı gibi görünen alanlar (input type=password, autocomplete=current-password), OTP kodları ve kart numaraları otomatik düzeltmeden kod düzeyinde dışlanmıştır.
-
 Sayfa bazlı geri al. Açılır pencere geçerli sayfadaki son düzeltme için tek adımlı geri al tutar.
 
 Site adaptörleri. Standart dışı girdiler için hazır işleyiciler: Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon. Genel bir adaptör kalan siteleri kapsar.
@@ -95,9 +93,6 @@ C: Evet. Varsayılan olarak tamamen çevrimdışı.
 
 S: Hangi izinlere ihtiyaç duyuluyor ve neden?
 C: Tarayıcıda metin yeniden yazımı için en az gereken: activeTab, scripting, storage, contextMenus. Her biri PRIVACY.md'de gerekçelendirilmiş.
-
-S: Yazarken otomatik düzeltmeyi nasıl açarım?
-C: Eklenti açılır penceresini aç, dişli simgesine tıkla, Otomatik düzeltmeyi aç. Otomatik düzeltme gerçekleştikten hemen sonra Backspace ile reddedilir.
 
 S: Edge, Brave, Opera'da çalışır mı?
 C: Evet, Chromium tabanlı her tarayıcıda. Edge MV3 yapılarını doğrudan Chrome Web Store'dan alır.

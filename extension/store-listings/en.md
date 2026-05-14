@@ -20,7 +20,6 @@ If you've used Punto Switcher on Windows, this is the same idea — but inside y
 - **Keyboard shortcut** (Ctrl+Shift+L) and toolbar popup button to fix the focused field instantly
 - **Paste-and-fix** mode — paste mistyped text into the popup, get the corrected version
 - **Right-click context menu** when text is selected
-- **Auto-correct as you type** (Punto-Switcher style) — opt-in; press Backspace to reject
 - **Per-page Undo** — reverts the last fix on the current page in one click
 - **Site adapters** for Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon, plus a generic adapter for everything else
 - **Site policy** — block specific hosts (e.g. your bank), or limit the extension to a whitelist

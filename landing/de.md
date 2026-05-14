@@ -70,7 +70,6 @@ Die klassische Antwort auf dem Desktop war eine kleine Familie von Layout-Switch
 - **Tastenkombination** (`Strg+Umschalt+L`) und Popup-Knopf in der Toolbar: sofortige Korrektur des aktiven Eingabefeldes
 - **Einfügen-und-Korrigieren-Modus**: verstümmelten Text in das Popup einfügen, korrigierte Version sehen, mit einem Klick herauskopieren
 - **Rechtsklick-Kontextmenü** auf markierten Text, ohne die Hand von der Maus zu nehmen
-- **Auto-Korrektur beim Tippen**: optional, standardmäßig aus; Rücktaste verwirft jede Auto-Korrektur
 - **Pro-Seite-Rückgängig**: macht die letzte Korrektur auf der aktuellen Seite mit einem Klick rückgängig
 - **Site-Adapter** für Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon plus generischer Adapter für alles andere
 - **Site-Richtlinien**: bestimmte Hosts blockieren (Bank, Intranet) oder die Erweiterung auf eine Whitelist beschränken
@@ -97,7 +96,6 @@ Die Kategorie "mehrsprachiger Tastatur-Layout-Korrektor" ist eng begrenzt. Die e
 | Anzahl Tastatur-Layouts | **12** | 2 (RU/EN) | 2-3 | 2 (RU/EN) |
 | Manifest V3 / Browser-nativ | Ja, MV3, Policy-2025-fertig | Ja, MV3 | Nein, nur Desktop | Nein, nur Desktop |
 | Plattformübergreifend | Ja, jedes OS mit Chrome / Chromium | Ja, jedes OS mit Chrome | Nein, nur Windows | Nein, nur Windows |
-| Auto-Korrektur beim Tippen | Ja, optional, Passwort-sicher | Ja | Ja | Ja |
 | Aktiv gepflegt (2026) | Ja, offener Issue-Tracker | Sporadisch | Ja | Ja |
 
 VibeNest Switcher ist die einzige Zeile, in der gleichzeitig Open Source, Browser-nativ und voll offline steht. Wer das Gefühl eines Desktop-Layout-Switchers im Browser haben möchte, ohne geschlossene Binärdatei und ohne dass Text das Gerät verlässt, findet hier die passende Nische.

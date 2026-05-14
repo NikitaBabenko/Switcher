@@ -10,14 +10,13 @@ remote API fallback in Options.
 
 ```
 extension/
-├─ manifest.json              MV3 manifest. Lists content scripts in load order.
-├─ background.js              Service worker. Owns the message bus + clipboard fallback.
-├─ content.js                 Content script shell. Routes messages to adapters; holds undo memory.
+├─ manifest.json              MV3 manifest. activeTab-only; no host_permissions; no static content_scripts.
+├─ background.js              Service worker. Message bus + clipboard fallback + ensureContentInjected on user action.
+├─ content.js                 Content script shell. Routes messages to adapters; holds undo memory. IIFE-sentinel guarded against re-injection.
 ├─ content/
 │   ├─ replace.js             Insertion ladder (focus → execCommand → InputEvent).
 │   │                         Shadow DOM and same-origin iframe walking.
-│   ├─ adapters.js            Per-site adapter registry (X, FB, VK, IG, …).
-│   └─ autocorrect.js         Optional input-event listener for Punto-style fixes.
+│   └─ adapters.js            Per-site adapter registry (X, FB, VK, IG, …).
 ├─ popup.html / popup.js      Toolbar popup: site override, decrypt-focused, undo, paste-and-decrypt.
 ├─ options.html / options.js  Settings: API toggle, languages, behaviour, site policy.
 ├─ config.js                  Storage wrapper + DEFAULTS + isHostAllowed.
@@ -129,14 +128,13 @@ cd extension
 npm test
 ```
 
-256 Node tests across nine files:
+Node tests across eight files:
 
 | File | Covers |
 |---|---|
-| `lib/detector.test.mjs` | JS engine: 62 tests — Layout invariants, `LanguageModel.score`, helpers (`hasMixedCase`, `invertCase`, `caseNaturalness`), `convertText`, detector edge cases (whitespace, emoji, CJK, multi-line), language matrix, `availableLanguages`/`languageInfo` shape. |
+| `lib/detector.test.mjs` | JS engine: Layout invariants, `LanguageModel.score`, helpers (`hasMixedCase`, `invertCase`, `caseNaturalness`), `convertText`, detector edge cases (whitespace, emoji, CJK, multi-line), language matrix, `availableLanguages`/`languageInfo` shape. |
 | `lib/config.test.mjs` | `isHostAllowed` policy (all three modes, suffix matching, case-insensitivity) + `detectDefaultLanguages` and `hasConfidentLanguageDetection` (navigator.languages seed). |
 | `lib/adapters.test.mjs` | `pickAdapter` registry order (vk-im before vk), every site adapter, override behaviour, Mastodon DOM heuristic. |
-| `lib/autocorrect.test.mjs` | `extractLastWordInput`, `extractLastWordContentEditable`, `isAutoCorrectEligible` (password/OTP/cc-* skip, readOnly, contenteditable). |
 | `lib/replace.test.mjs` | `isInputLike`, `isContentEditable`, `inputLikeHasSelection`, `getInputLikeSelectionText`, `dispatchInputEvent` shape, `replaceInElement` reasons. |
 | `lib/content.test.mjs` | Undo memory: `rememberChange` / `canUndo` / `undoLastChange` for input-whole, input-selection, contenteditable, element-gone. |
 | `lib/package.test.mjs` | `shouldInclude` allow/deny matrix; live-tree assertion that the zip ships exactly the right files (incl. all 12 `_locales/`, exclusion of `store-listings/` + `test-fixtures/`). |
@@ -146,8 +144,7 @@ npm test
 Tests for IIFE content-scripts use `node:vm` to load the file with mocked
 `globalThis`/`location`/`document`/`chrome`. There is no production-code
 change for testability beyond a single `__testInternals` export in
-`detector.js` (helpers and constructors), a single `__SwitcherAutocorrectInternals`
-export at the end of the autocorrect IIFE, and an `if (import.meta.url === …)`
+`detector.js` (helpers and constructors) and an `if (import.meta.url === …)`
 main-guard in `tools/package.mjs` so it can be both run as a script and
 imported in tests.
 
@@ -163,13 +160,13 @@ The same suite runs in GitHub Actions on every push — see [`.github/workflows/
 
 - No external CDN/script. Everything is local files.
 - No analytics, no telemetry, no remote logging.
-- `host_permissions` is `<all_urls>` because the extension acts on whatever
-  field the user is currently typing into. The content script attaches
-  passively and only converts on user-initiated actions.
-- Auto-correct is opt-in (off by default) and skips fields that look like
-  passwords, OTP codes, or card numbers (via `<input type=password>`,
-  `autocomplete=current-password`, `autocomplete=one-time-code`,
-  `autocomplete=cc-*`).
+- No `host_permissions`. The extension uses `activeTab` and injects its
+  content scripts on demand (via `chrome.scripting.executeScript` from the
+  service worker) only after an explicit user gesture: the toolbar action,
+  the `Ctrl+Shift+L` shortcut, or the right-click context menu. Re-injection
+  on subsequent gestures is idempotent — each content script wraps its body
+  in a `__switcher_*_loaded` sentinel so listeners and per-page undo state
+  survive.
 
 ## Publishing to the Chrome Web Store
 
@@ -197,7 +194,6 @@ Submission checklist:
    - Undo button after a successful decrypt.
    - Site policy: add a host to the blacklist, confirm the popup says
      "excluded by policy".
-   - Auto-correct (Options → enable, then type `ghbdtn ` in a textarea).
 4. **Open** the [Chrome Web Store developer dashboard]
    (https://chrome.google.com/webstore/devconsole) → Item → Package → upload
    the zip.
@@ -210,7 +206,6 @@ Submission checklist:
    - Popup with the override `<select>` open and a successful decrypt.
    - Options page showing the Privacy + Site policy sections.
    - In-page toast after a Twitter / Slack / WhatsApp Web decrypt.
-   - Auto-correct in action (textarea before/after).
    - Optional: the context-menu item.
 8. **Promo tile** (440×280): use the existing 128 px icon + tagline.
 9. **Listing copy**: pull from the description in `manifest.json` and the

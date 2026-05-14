@@ -117,23 +117,16 @@ export function loadAdapters(extras = {}) {
   return ctx.__SwitcherAdapters;
 }
 
-// Convenience: returns the autocorrect __Internals + the context (so tests
-// can mutate settings between calls).
-export function loadAutocorrect(extras = {}) {
-  const ctx = makeContext(extras);
-  loadScript("content/replace.js", ctx);
-  loadScript("content/autocorrect.js", ctx);
-  return { internals: ctx.__SwitcherAutocorrectInternals, ctx };
-}
-
 // Convenience for content.js (undo memory). Returns the VM context — tests
-// reach `rememberChange`/`canUndo`/`undoLastChange` via the returned context
-// because they are top-level function declarations.
+// reach `rememberChange`/`canUndo`/`undoLastChange` via the returned context.
+// content.js is wrapped in an IIFE+sentinel for runtime-injection idempotence,
+// so it exposes those helpers via `globalThis.__SwitcherContentTestables`; we
+// hoist them onto the ctx so existing tests can still write `ctx.rememberChange`.
 export function loadContentMain(extras = {}) {
   const ctx = makeContext(extras);
   loadScript("content/replace.js", ctx);
   loadScript("content/adapters.js", ctx);
-  loadScript("content/autocorrect.js", ctx);
   loadScript("content.js", ctx);
+  if (ctx.__SwitcherContentTestables) Object.assign(ctx, ctx.__SwitcherContentTestables);
   return ctx;
 }

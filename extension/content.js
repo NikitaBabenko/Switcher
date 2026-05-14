@@ -1,5 +1,11 @@
 // Thin message shell. Heavy lifting is in content/replace.js + content/adapters.js,
-// loaded before this file (see manifest.json content_scripts order).
+// loaded just before this file by chrome.scripting.executeScript (see
+// background.js ensureContentInjected). The IIFE+sentinel wrapper makes
+// re-injection on subsequent user actions a no-op — we don't want a fresh
+// `__lastChange` (loses undo state) or a second onMessage listener.
+(function () {
+if (globalThis.__switcher_content_loaded) return;
+globalThis.__switcher_content_loaded = true;
 
 // Per-page undo memory: holds the original text + element reference + mode
 // from the last successful REPLACE_IN_COMPOSER on this page. WeakRef so the
@@ -360,3 +366,9 @@ function legacyReplaceSelection(R, text) {
   }
   return false;
 }
+
+// Expose the undo-memory helpers for unit tests (lib/content.test.mjs reaches
+// them through this namespace). Production code uses the lexical bindings
+// inside this IIFE directly; nothing in the extension reads the namespace.
+globalThis.__SwitcherContentTestables = { rememberChange, canUndo, undoLastChange };
+})();

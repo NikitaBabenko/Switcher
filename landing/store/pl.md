@@ -30,8 +30,6 @@ Tryb wklej-i-popraw. Wklej zły tekst do popupu, zobacz wersję poprawioną, sko
 
 Menu kontekstowe prawym kliknięciem. Zaznacz tekst na stronie, prawy klik, wybierz "Popraw układ", bez odrywania ręki od myszki.
 
-Automatyczna poprawka w trakcie pisania. Opcjonalna, domyślnie wyłączona. Po włączeniu rozszerzenie śledzi pisanie i poprawia oczywiste słowa z "nie tego układu" po spacji. Backspace zaraz po auto-poprawce ją cofa. Pola wyglądające jak pola haseł (input type=password, autocomplete=current-password) oraz pola OTP i numerów kart są twardo wykluczone z automatycznej poprawki w kodzie.
-
 Cofnięcie per-strona. Popup trzyma jednokrokowe cofnięcie ostatniej poprawki na bieżącej stronie. Przydatne, gdy konwersja poszła w niewłaściwym kierunku.
 
 Adaptery dla serwisów. Gotowe handlery dla stron z niestandardowymi polami wprowadzania (otoczki contenteditable, inputy zarządzane przez React, kompozytory w izolowanych ramkach): Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon. Adapter uniwersalny pokrywa pozostałe strony.
@@ -95,9 +93,6 @@ O: Tak. W pełni offline domyślnie. Model trigramowy wewnątrz paczki rozszerze
 
 P: Jakie uprawnienia są potrzebne i po co?
 O: Minimum niezbędne do przepisywania tekstu w przeglądarce: activeTab, scripting, storage, contextMenus. Każde uzasadnione w PRIVACY.md.
-
-P: Jak włączyć automatyczną poprawkę podczas pisania?
-O: Otwórz popup rozszerzenia, kliknij koło zębate, przełącz Auto-poprawkę. Backspace cofa auto-poprawkę natychmiast po jej zadziałaniu.
 
 P: Czy działa w Edge, Brave, Opera?
 O: Tak, w każdej przeglądarce opartej na Chromium. Edge bierze buildy MV3 prosto z Chrome Web Store.

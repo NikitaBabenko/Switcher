@@ -27,7 +27,6 @@ test("includes html files", () => {
 test("includes content/ adapter scripts", () => {
   assert.equal(shouldInclude("content/replace.js"), true);
   assert.equal(shouldInclude("content/adapters.js"), true);
-  assert.equal(shouldInclude("content/autocorrect.js"), true);
 });
 
 test("includes lib/data.js and lib/detector.js (runtime data + JS port)", () => {

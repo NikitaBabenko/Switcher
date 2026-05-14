@@ -69,7 +69,6 @@ La respuesta histórica en escritorio fue una pequeña familia de utilidades de 
 - **Atajo de teclado** (`Ctrl+Shift+L`) y botón popup en la barra de herramientas: corrección instantánea del campo activo
 - **Modo pegar-y-corregir**: pega el texto erróneo en el popup, ve la versión corregida, cópiala con un clic
 - **Menú contextual con clic derecho** sobre texto seleccionado, sin soltar el ratón
-- **Autocorrección al escribir**: opcional, desactivada por defecto; la tecla Retroceso rechaza cada autocorrección
 - **Deshacer por página**: revierte la última corrección en la página actual con un solo clic
 - **Adaptadores de sitios** para Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon, más un adaptador genérico para todo lo demás
 - **Política de sitios**: bloquea hosts concretos (tu banco, tu intranet) o restringe la extensión a una whitelist de sitios de confianza
@@ -96,7 +95,6 @@ La categoría "corrector multilingüe de disposición de teclado" es estrecha. L
 | Número de disposiciones | **12** | 2 (RU/EN) | 2-3 | 2 (RU/EN) |
 | Manifest V3 / nativo del navegador | Sí, MV3, listo para la política 2025 | Sí, MV3 | No, solo escritorio | No, solo escritorio |
 | Multiplataforma | Sí, cualquier SO con Chrome / Chromium | Sí, cualquier SO con Chrome | No, solo Windows | No, solo Windows |
-| Autocorrección al escribir | Sí, opcional, ignora contraseñas | Sí | Sí | Sí |
 | Mantenido activamente (2026) | Sí, tracker de issues abierto | Esporádico | Sí | Sí |
 
 VibeNest Switcher es la única fila en la que coinciden código abierto, ejecución nativa en el navegador y sin conexión completo. Si te gustaba la idea del "cambiador en vivo" de escritorio pero querías sin binario cerrado y sin que el texto saliese del dispositivo, esa es la franja que cubre.

@@ -30,8 +30,6 @@ Mode coller-et-corriger. Collez le texte erroné dans le popup, voyez la version
 
 Menu contextuel par clic droit. Texte sélectionné sur la page, clic droit, choisissez "Corriger la disposition", sans lâcher la souris.
 
-Auto-correction à la frappe. Optionnelle, désactivée par défaut. Quand activée, l'extension surveille la frappe et corrige les mots manifestement issus de la mauvaise disposition après l'espace. La touche Retour rejette une auto-correction immédiatement après son apparition. Les champs qui ressemblent à des champs de mot de passe (input type=password, autocomplete=current-password), les codes OTP et les numéros de carte ne sont jamais touchés par l'auto-correction, c'est une exclusion forte dans le code.
-
 Annulation par page. Le popup garde une annulation à un cran pour la dernière correction sur la page courante. Utile quand la conversion a pris la mauvaise direction (par exemple un nom propre à la frontière du cyrillique et du latin).
 
 Adaptateurs de sites. Gestionnaires prêts à l'emploi pour les sites avec entrées non standard (wrappers contenteditable, inputs gérés par React, composeurs isolés en iframe) : Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon. Un adaptateur générique couvre tous les autres sites.
@@ -95,9 +93,6 @@ R : Oui. Entièrement hors ligne par défaut. Le modèle de trigrammes est dans 
 
 Q : Quelles permissions sont nécessaires et pourquoi ?
 R : Le minimum nécessaire pour réécrire du texte dans le navigateur : activeTab, scripting, storage, contextMenus. Chacune justifiée dans PRIVACY.md.
-
-Q : Comment activer l'auto-correction à la frappe ?
-R : Ouvrez le popup de l'extension, cliquez sur l'engrenage, activez l'Auto-correction. La touche Retour annule immédiatement toute auto-correction après son déclenchement.
 
 Q : Fonctionne-t-il dans Edge, Brave, Opera ?
 R : Oui, dans tout navigateur basé sur Chromium. Edge récupère les builds MV3 directement depuis le Chrome Web Store.

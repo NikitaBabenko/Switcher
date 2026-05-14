@@ -30,8 +30,6 @@ Einfügen-und-Korrigieren-Modus. Verstümmelten Text ins Popup einfügen, die ko
 
 Rechtsklick-Kontextmenü. Text auf der Seite markieren, Rechtsklick, "Layout korrigieren" wählen, ohne die Hand von der Maus zu nehmen.
 
-Auto-Korrektur beim Tippen. Optional, standardmäßig aus. Wenn aktiviert, beobachtet die Erweiterung die Eingabe und korrigiert offensichtliche Wörter aus dem falschen Layout nach dem Leerzeichen. Rücktaste direkt nach der Auto-Korrektur macht sie rückgängig. Felder, die nach Passwortfeldern aussehen (input type=password, autocomplete=current-password), sowie OTP- und Kartennummern-Felder werden von der Auto-Korrektur per Codeentscheidung niemals angetastet.
-
 Pro-Seite-Rückgängig. Das Popup hält einen einstufigen Rückgängig-Schritt für die letzte Korrektur auf der aktuellen Seite. Nützlich, wenn die Konvertierung in die falsche Richtung ging (etwa ein Eigenname an der Grenze zwischen Latein und Kyrillisch).
 
 Site-Adapter. Vorgefertigte Handler für Seiten mit nicht-standardmäßigen Eingabefeldern (contenteditable-Wrapper, React-verwaltete Inputs, frame-isolierte Composer): Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon. Ein generischer Adapter deckt alles andere ab.
@@ -95,9 +93,6 @@ A: Ja. Standardmäßig vollständig offline. Das Trigramm-Modell steckt im Erwei
 
 F: Welche Berechtigungen braucht es und warum?
 A: Minimal notwendig für browserweite Text-Reparatur: activeTab, scripting, storage, contextMenus. Jede einzeln in PRIVACY.md begründet.
-
-F: Wie aktiviere ich die Auto-Korrektur beim Tippen?
-A: Popup öffnen, Zahnrad-Symbol klicken, Auto-Korrektur einschalten. Mit der Rücktaste lässt sich jede Auto-Korrektur direkt nach dem Auslösen ablehnen.
 
 F: Funktioniert es in Edge, Brave, Opera?
 A: Ja, in jedem Chromium-basierten Browser. Edge holt sich MV3-Builds direkt aus dem Chrome Web Store.

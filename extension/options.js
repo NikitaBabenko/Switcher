@@ -6,7 +6,6 @@ const apiBaseInput = document.getElementById("apiBase");
 const useApiFallbackCb = document.getElementById("useApiFallback");
 const langList = document.getElementById("langList");
 const replaceWholeCb = document.getElementById("replaceWhole");
-const autoCorrectCb = document.getElementById("autoCorrect");
 const siteModeSel = document.getElementById("siteMode");
 const siteListTa = document.getElementById("siteList");
 const saveBtn = document.getElementById("save");
@@ -49,7 +48,6 @@ async function load() {
   apiBaseInput.value = settings.apiBase;
   useApiFallbackCb.checked = settings.useApiFallback === true;
   replaceWholeCb.checked = settings.replaceWholeOnEmptySelection !== false;
-  autoCorrectCb.checked = settings.autoCorrect === true;
   siteModeSel.value = settings.siteMode || "all";
   siteListTa.value = (settings.siteList || []).join("\n");
 
@@ -85,7 +83,6 @@ saveBtn.addEventListener("click", async () => {
     useApiFallback: useApiFallbackCb.checked,
     languages,
     replaceWholeOnEmptySelection: replaceWholeCb.checked,
-    autoCorrect: autoCorrectCb.checked,
     siteMode: siteModeSel.value,
     siteList: siteListTa.value
       .split(/\r?\n/)

@@ -20,7 +20,6 @@ Si vous avez utilisé Punto Switcher sous Windows, c'est la même idée — mais
 - **Raccourci clavier** (Ctrl+Maj+L) et bouton dans le popup — correction immédiate du champ actif
 - **Mode « coller et corriger »** — collez le texte erroné dans le popup, récupérez la version corrigée
 - **Menu contextuel du clic droit** sur du texte sélectionné
-- **Correction automatique pendant la frappe** dans le style Punto Switcher — opt-in ; Retour arrière annule
 - **Annulation par page** — revient à la dernière correction sur la page courante en un clic
 - **Adaptateurs de sites** : Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon — plus un adaptateur générique pour le reste
 - **Politique de sites** — bloquez des hôtes précis (par ex. votre banque) ou limitez l'extension à une liste blanche

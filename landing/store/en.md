@@ -30,8 +30,6 @@ Paste-and-fix mode. Paste mistyped text into the popup, see the corrected versio
 
 Right-click context menu. With text selected on the page, right-click and choose "Fix layout" without touching the keyboard.
 
-Auto-correct as you type. Opt-in, off by default. When enabled, the extension watches what you type and corrects obvious wrong-layout words after the space. Press Backspace immediately to reject any auto-correction. Fields that look like passwords (input type=password, autocomplete=current-password) and OTP / card-number fields are hard-excluded from auto-correction by design.
-
 Per-page Undo. The popup keeps a one-step undo for the last fix on the current page; useful when the conversion went the wrong way for a proper noun on a script boundary.
 
 Site adapters. Pre-built handlers for sites with non-standard text input (contenteditable wrappers, React-managed inputs, frame-isolated composers): Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon. A generic adapter covers every other site.
@@ -98,9 +96,6 @@ A: Yes. Fully offline by default. The trigram model is inside the extension pack
 
 Q: What permissions does it need and why?
 A: Minimum necessary for browser-wide text rewriting: activeTab, scripting, storage, contextMenus. Each one is justified in PRIVACY.md.
-
-Q: How do I enable auto-correct as I type?
-A: Open the extension popup, click the gear icon, toggle Auto-correct on. Use the Backspace key to reject any auto-correction immediately after it happens.
 
 Q: Does it work in Edge, Brave, Opera?
 A: Yes, every Chromium-based browser. Edge picks up MV3 builds straight from the Chrome Web Store.

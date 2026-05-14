@@ -20,7 +20,6 @@ Wer Punto Switcher unter Windows kennt: gleiche Idee — aber im Browser, Open S
 - **Tastaturkürzel** (Ctrl+Shift+L) und Popup-Button — sofortige Korrektur des aktiven Feldes
 - **„Einfügen und korrigieren"-Modus** — fehlerhaften Text ins Popup einfügen, korrigierten Text zurückbekommen
 - **Rechtsklick-Kontextmenü** bei markiertem Text
-- **Auto-Korrektur beim Tippen** im Punto-Switcher-Stil — optional; Backspace verwirft
 - **Pro-Seite-Rückgängig** — letzte Korrektur auf der aktuellen Seite mit einem Klick zurücknehmen
 - **Site-Adapter** für Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon — plus generischer Adapter für alles andere
 - **Seitenrichtlinie** — bestimmte Hosts (z. B. Online-Banking) blockieren oder die Erweiterung auf eine Whitelist beschränken

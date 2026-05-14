@@ -1,6 +1,9 @@
 // Shared helpers for reading/writing text in editable elements.
 // Exposed as globalThis.__SwitcherReplace; consumed by adapters.js and content.js.
 (function () {
+  if (globalThis.__switcher_replace_loaded) return;
+  globalThis.__switcher_replace_loaded = true;
+
   function isInputLike(el) {
     if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;
     const tag = el.tagName;

@@ -85,10 +85,6 @@
   "options_replaceWholeHint": {
     "message": "Off: la extensión corrige solo el texto explícitamente seleccionado; en sitios compatibles con selección vacía muestra un aviso sin tocar el campo."
   },
-  "options_autoCorrect": { "message": "Autocorregir al escribir (estilo Punto Switcher)" },
-  "options_autoCorrectHint": {
-    "message": "Cuando escribes un espacio o signo de puntuación tras una palabra en disposición incorrecta, la extensión la arregla in situ. Omite campos de contraseña y sitios excluidos por la política. Retroceso deshace."
-  },
   "options_sitePolicyH2": { "message": "Política de sitios" },
   "options_siteModeLabel": { "message": "Modo" },
   "options_siteModeAll": { "message": "En todas partes (por defecto)" },

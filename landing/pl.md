@@ -70,7 +70,6 @@ Klasyczna odpowiedź na desktopie to mała rodzina narzędzi do automatycznej zm
 - **Skrót klawiszowy** (`Ctrl+Shift+L`) i przycisk popup w pasku narzędzi: błyskawiczna poprawka aktywnego pola
 - **Tryb wklej-i-popraw**: wklej zły tekst do popupu, zobacz poprawioną wersję, skopiuj jednym kliknięciem
 - **Menu kontekstowe prawym kliknięciem** na zaznaczonym tekście, bez odrywania ręki od myszki
-- **Automatyczna poprawka w trakcie pisania**: opcjonalna, domyślnie wyłączona; Backspace cofa każdą auto-poprawkę
 - **Cofnięcie per-strona**: cofa ostatnią poprawkę na bieżącej stronie jednym kliknięciem
 - **Adaptery dla serwisów**: Twitter/X, Facebook, Messenger, VK, Instagram, Telegram Web, WhatsApp Web, Discord, Slack, Reddit, LinkedIn, Twitch, Mastodon, plus uniwersalny adapter dla wszystkiego innego
 - **Polityka serwisów**: zablokuj konkretne hosty (bank, intranet) albo ogranicz rozszerzenie do whitelisty zaufanych
@@ -97,7 +96,6 @@ To wąska kategoria. Sensowne alternatywy różnią się na kilku osiach, które
 | Liczba układów klawiatury | **12** | 2 (RU/EN) | 2-3 | 2 (RU/EN) |
 | Manifest V3 / natywnie w przeglądarce | Tak, MV3, gotowe pod politykę 2025 | Tak, MV3 | Nie, tylko desktop | Nie, tylko desktop |
 | Wieloplatformowość | Tak, każdy OS z Chrome / Chromium | Tak, każdy OS z Chrome | Nie, tylko Windows | Nie, tylko Windows |
-| Auto-poprawka w trakcie pisania | Tak, opcjonalna, świadoma haseł | Tak | Tak | Tak |
 | Aktywnie utrzymywane (2026) | Tak, otwarty tracker zgłoszeń | Sporadycznie | Tak | Tak |
 
 VibeNest Switcher to jedyna linia, w której jednocześnie stoi open source, natywna praca w przeglądarce i pełny offline. Jeśli kiedyś chciałeś mieć działanie desktopowego "przełącznika w locie", ale bez zamkniętej binarki i bez wysyłania tekstu poza urządzenie, to dokładnie ta nisza.

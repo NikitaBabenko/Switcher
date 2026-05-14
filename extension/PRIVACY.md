@@ -1,6 +1,6 @@
 # Privacy Policy — VibeNest Switcher (Chrome Extension)
 
-_Last updated: 2026-05-09_
+_Last updated: 2026-05-13_
 
 ## Short version
 
@@ -18,8 +18,8 @@ There is no third-party data processor — the developer is the sole party.
 ## What the extension does with your text
 
 - Reads selected text and the contents of the focused text field on the active
-  tab when you trigger a conversion (toolbar button, `Ctrl+Shift+L`, context
-  menu item, or — if you opted in — automatic correction after a space).
+  tab when you trigger a conversion (toolbar button, `Ctrl+Shift+L`, or the
+  right-click context menu).
 - Runs the layout-detection algorithm **inside your browser** against a
   bundled char-trigram language model (12 languages: English, Russian,
   Ukrainian, Belarusian, German, French, Greek, Hebrew, Turkish, Polish,
@@ -52,9 +52,8 @@ cleared when the tab closes (or the browser restarts).
 
 | Permission | Why |
 |---|---|
-| `host_permissions: http://*/* and https://*/*` + `content_scripts: <all_urls>` | The extension acts on the field you're typing in. It needs to attach to whatever site you visit. |
-| `activeTab` | Send the converted text back into the focused field of the current tab. |
-| `scripting` | Write to the clipboard as a fallback when in-place replacement isn't possible (e.g. read-only fields). |
+| `activeTab` | Read and modify the field you're typing in on the **current tab**, only after you take an explicit action — clicking the toolbar icon, pressing `Ctrl+Shift+L`, or clicking the context menu item. No background access; no access to other tabs. |
+| `scripting` | Inject the extension's content scripts into the current tab on demand (once the `activeTab` gesture grants access) and write to the clipboard as a fallback when in-place replacement isn't possible (e.g. read-only fields). |
 | `contextMenus` | Add the right-click "Switcher: switch layout" item. |
 | `storage` | Save your settings (see above). |
 | `notifications` | Show a small notification when a conversion couldn't be applied in place and was copied to the clipboard. |
@@ -71,9 +70,9 @@ ones above.
 - No tracking pixels, no advertising integrations.
 - No third-party scripts of any kind. The extension ships only its own code.
 - No collection of personal data, browsing history, or content you type.
-- The auto-correct feature, when enabled, **explicitly skips** password
-  fields, OTP / one-time-code inputs, and credit-card fields (detected via
-  `<input type=password>` and `autocomplete` attributes).
+- No background access to your tabs. The extension is dormant until you take
+  an explicit action (toolbar icon, `Ctrl+Shift+L`, or context menu); only
+  then does it inject its scripts, and only on the current tab.
 - We do not sell, transfer, or use any data for purposes outside the stated
   functionality of correcting layout-mistyped text. There are no advertising
   profiles, no resale to data brokers, no use of any data for credit-scoring,
