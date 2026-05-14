@@ -1,6 +1,6 @@
 # Privacy Policy — VibeNest Switcher (Chrome Extension)
 
-_Last updated: 2026-05-13_
+_Last updated: 2026-05-14_
 
 ## Short version
 
@@ -31,12 +31,15 @@ That's the entire data flow. The text never leaves your device.
 
 ## Optional remote API fallback
 
-You can opt in to a remote conversion API in **Options → Privacy → Allow
-remote API fallback**. When enabled and configured with an endpoint URL, the
-extension may send the text you ask it to convert to that endpoint over HTTPS.
-This setting is **off by default** and the URL field is **empty by default**.
-If you do not enable this, no network request related to conversion is ever
-made.
+The extension carries a code path for a remote conversion API fallback that
+the user (or someone running a self-hosted endpoint) could opt into. As of
+v1.0 this path is **disabled and hidden in the UI**: the toggle and the URL
+field in Options are wrapped in `hidden`, the toggle defaults to off, and the
+URL field defaults to empty. A default install therefore never makes any
+network request related to text conversion — the bundled offline detector
+covers all 12 languages on its own. The capability remains in the source so
+self-hosters can re-enable it for their own builds; in shipped Web Store
+installs there is no in-app way to turn it on.
 
 ## Storage
 
